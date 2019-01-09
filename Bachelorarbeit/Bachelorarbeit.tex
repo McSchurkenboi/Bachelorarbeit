@@ -66,7 +66,7 @@ geboren am 31.08.1997\\
 \vfill\vfill
 Betreuung durch:\\
 \vfill
-Prof. Dr. Sebastian Bab\\
+Prof. Dr. Sebastian Bab und Prof. Dr. Steffen Helke\\
 \vfill
 Dortmund, 28.02.2019\\
 \end{titlepage}
@@ -141,18 +141,22 @@ Projektteams aus einem Bereich tauschen sich häufig nicht untereinander aus und
 
 Durch die entstehende große fachliche Breite und Tiefe der Spezifikationen im Pflichtenheft, können mitunter Dokumente mit einem Umfang von von mehreren tausend Seiten entstehen. Dies bedeutet einen hohen Aufwand bei der Transformation und Bündelung der Anforderungen in ein tatsächliches Produkt beim Zulieferer. 
 
-\subsubsection{Unternehmenskontext unserer Arbeit}
-Besonders betroffen von diesem geteilten Entwicklungsprozess zwischen OEMs und Zulieferern ist die Automobilindustrie. Eine Vielzahl von Zulieferern beliefert die Automobilhersteller mit Komponenten für ihre Fahrzeuge. Einzelne Komponenten bestehen dabei häufig auch aus mehreren Einzelteilen, die wiederum von mehreren verschiedenen Zulieferern geliefert werden.
+\subsubsection{Prozessoptimierung durch Werkzeuge}
+Bei der Untersuchung von Projektlastenheften muss also nach Zusammenhängen und Bezügen zwischen mehreren Anforderungen gesucht werden, damit die Korrektheit des späteren Produktes gewährleistet ist. Die Analyse von Zusammenhängen zwischen Anforderungen stellt dabei aus Gründen der Effizienz ein Problem dar, wenn jeder Projektbeteiligte von Hand die für ihn relevanten Anforderungen aus dem Lastenheft extrahieren muss. Auch müssen die Lastenhefte an die Formulierungen und Ausdrucksweisen für Requirements-Management im Unternehmen angepasst werden. 
+
+Bislang gibt es jedoch kaum Werkzeugunterstützung, die effiziente Möglichkeiten zur automatisierten Überarbeitung und Anpassung einzelner Anforderungen aus dem Dokument bietet. Ansätze aus dem \textit{Natural-Language-Proessing} (NLP) stellen gleichzeitig vielversprechende Forschungsfelder in der Informatik dar, die eine solche automatisierte Verarbeitung auf Basis von Sprachanalyse ermöglichen. Syntax und Semantik der einzelnen Sätze und Zusammenhänge in Texten können auf Basis aktueller Trends wie Machine-Learning und dynamischer Programmierung zunehmend besser abgebildet werden.
+
+\section{Unternehmenskontext der Arbeit}
+Besonders betroffen von dem geteilten Entwicklungsprozess zwischen OEMs und Zulieferern ist die Automobilindustrie. Eine Vielzahl von Zulieferern beliefert die Automobilhersteller mit Komponenten für ihre Fahrzeuge. Einzelne Komponenten bestehen dabei häufig auch aus mehreren Einzelteilen, die wiederum von mehreren verschiedenen Zulieferern geliefert werden.
+Zum Verfassen dieser Arbeit waren die Autoren fünf Monate bei der HELLA GmbH  Co. KGaA angestellt. Dies beinhaltete zwei Monate Arbeit als Praktikanten und die verbleibenden drei Monate als Bacheloranden. 
+
+HELLA ist ein international operierender deutscher Automobilzulieferer mit Hauptsitz in Lippstadt, welcher hauptsächlich Scheinwerfer und elektrotechnische Komponenten herstellt.
+In diesem Rahmen konnte in enger Zusammenarbeit mit der Projects, Methods and Tools-Abteilung (PMT) von HELLA genau ermittelt werden, wie Pflichtenhefte momentan verarbeitet werden, welche Verbesserungspotentiale dabei bestehen und wie diese genutzt werden können. 
 
 Die Gewichtung einzelner Anforderungen in einem größeren Systemkontext fällt dort schwer, da nun Projektteammitglieder, die an der Entstehung des Lastenheftes nicht beteiligt waren, dieses verstehen sollen und auf ihre Teilkomponente anwenden müssen. Zusätzlich zu den teilweise widersprüchlichen Anforderungen aus dem Pflichtenheft kommen weitere Anforderungen, wie etwa die Gewinnmarge und unternehmensinternte Richtlinien des Zulieferes hinzu. Schlussendlich soll jedoch ein Produkt entwickelt werden, dass möglichst alle Anforderungen berücksichtigt. 
 
 Zu diesem Zweck können bei Zulieferern spezielle Abteilungen existieren, die Projektteams bei der Identifikation und Gewichtung von Anforderungen unterstützen. Diese Abteilungen sind auf die Auswertung der Projektlastenhefte spezialisiert und erstellen Modelle zu Merkmalen des späteren Produktes. Die Experten stellen dabei die Eindeutigkeit und Verständlichkeit sicher und identifizieren relevante Anforderungen für die Mitglieder des Projektteams. Somit kann ein eigenes Anforderungsdokument für das Projektteam beim Zulieferer erstellt werden. Falls nicht vorhanden, muss das Team selbst über die Bewertung von Anforderungen entscheiden und Rücksprache mit dem OEM halten.
 
-\subsubsection{Prozessoptimierung durch Werkzeuge}
-Bei der Untersuchung von Projektlastenheften muss also nach Zusammenhängen und Bezügen zwischen mehreren Anforderungen gesucht werden, damit die Korrektheit des späteren Produktes gewährleistet ist. Die Analyse von Zusammenhängen zwischen Anforderungen stellt dabei aus Gründen der Effizienz ein Problem dar, wenn jeder Projektbeteiligte von Hand die für ihn relevanten Anforderungen aus dem Lastenheft extrahieren muss. Auch müssen die Lastenhefte an die Formulierungen und Ausdrucksweisen für Requirements-Management im Unternehmen angepasst werden. 
-
-Bislang gibt es jedoch kaum Werkzeugunterstützung, die effiziente Möglichkeiten zur automatisierten Überarbeitung und Anpassung einzelner Anforderungen aus dem Dokument bietet. Ansätze aus dem \textit{Natural-Language-Proessing} (NLP) stellen gleichzeitig vielversprechende Forschungsfelder in der Informatik dar, die eine solche automatisierte Verarbeitung auf Basis von Sprachanalyse ermöglichen. Syntax und Semantik der einzelnen Sätze und Zusammenhänge in Texten können auf Basis aktueller Trends wie Machine-Learning und dynamischer Programmierung zunehmend besser abgebildet werden.
-\section{Unternehmenskontext der Arbeit}
 \section{Hypothese}
 Hypothese dieser Arbeit ist, dass sich mithilfe von NLP Lastenhefte effizient automatisiert verarbeiten lassen, womit die Arbeit von Requirements-Engineers, aber auch von Beteiligten an der Entwicklung beim Verständnis der Anforderungen erleichtert wird. Dabei ist die Auswertung der Syntax für ein tieferes Verständnis von Textzusammenhängen, also von verschiedenen Anforderungen, relevant.
 
@@ -161,10 +165,7 @@ Insbesondere lassen sich die beschriebenen Probleme bei der Überprüfung der Pf
 Weiterhin soll geprüft werden, wie stark ein Mehrwert bei der Nutzung solcher Programme für ein Firma ausfallen kann. Dies beinhaltet ersparte Arbeitszeit, Kosten und vermiedene Fehler. 
 
 \section{Methodik}
-Zum Verfassen dieser Arbeit waren die Autoren fünf Monate bei der HELLA GmbH  Co. KGaA angestellt. Dies beinhaltete zwei Monate Arbeit als Praktikanten und die verbleibenden drei Monate als Bacheloranden. 
 
-HELLA ist ein international operierender deutscher Automobilzulieferer mit Hauptsitz in Lippstadt, welcher hauptsächlich Scheinwerfer und elektrotechnische Komponenten herstellt.
-In diesem Rahmen konnte in enger Zusammenarbeit mit der Projects, Methods and Tools-Abteilung (PMT) von HELLA genau ermittelt werden, wie Pflichtenhefte momentan verarbeitet werden, welche Verbesserungspotentiale dabei bestehen und wie diese genutzt werden können. 
 
 Dadurch entstand eine genaue Vorstellung der zu entwickelnden Software, welche mit Hilfe der Programmkonzepte von Konstantin Zichler ZIC19 entworfen und implementiert werden konnte. Die Prototypen wurden mit originalen Pflichtenheften von verschiedenen OEMs und der HELLA getestet und evaluiert. Erkenntnisse aus der Forschung und Wissenschaft im Bereich Requirements-Engineering sind in die Arbeit mit eingeflossen.
 
@@ -185,7 +186,8 @@ Die Arbeit wird abgeschlossen von Kapitel 7. Dieses beinhaltet eine Zusammenfass
 
 \section{Autoren}
 \chapter{Stand der Technik}
-\section{Rückblick auf die Projektarbeit, Grundlagen zu NLP und Ontologien}
+\section{Rückblick auf die Projektarbeit und Grundlagen zu NLP}
+\section{Ontologien}
 \section{Verwandte Arbeiten}
 \chapter{Betriebliches Umfeld - Hella Use-Case}
 Im betrieblichen Umfeld liegen zu Beginn jeden Entwicklungsprojektes für neue Produkte die Aufgaben und Ziele für die Entwicklung als Dokumente vor. Forschungsergebnisse finden Anwendung in der Vorentwicklungsphase, in der die Eignung der Erkenntnisse für neue Produkte eines Unternehmens evaluiert wird. Die Produktentwicklung unterliegt dabei bestimmten Kriterien und Faktoren, die den unternehmerischen Erfolg beeinflussen. Neben betriebswirtschaftlichen Einflüssen wie der Einordnung des Produktes in der Wertschöpfungskette sind es dabei besonders technische Anforderungen an das Produkt, die definiert und während der Produktentwicklung eingehalten werden müssen. Verschiedenste Akteure aus einem Umternehmen sind dabei an der Festlegung der Anforderungen an ein Entwicklungsprojekt bzw. Produkt beteiligt. 
