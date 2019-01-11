@@ -91,8 +91,8 @@ The goal here is to implement a prototype as a proof of concept of the program c
 \newpage
 \tableofcontents
 \newpage
-\listoftables
 \listoffigures
+\listoftables
 \newpage
 
 \thispagestyle{empty}
@@ -101,6 +101,9 @@ Abkürzungsverzeichnis
 \end{huge}
 \vspace{12pt}
 \begin{acronym}[Abkürzungsverzeichnis]
+\acro{NLP}{Natural Language-Processing}
+\acro{OWL}{Web-Ontology-Language}
+\acro{POS}{Part-Of-Speech}
 \acro{R2BC}{Requirements-To-Boilerplate-Converter}
 \acro{DA}{Delta-Analyser}
 \acro{CRS}{Customer Requirement Specification}
@@ -132,7 +135,7 @@ Dieser Prozess wird dabei sowohl bei kompletten Neuentwicklungen, als auch bei d
 Dem Betrieb liegen anschließend die Aufgaben und Ziele für die Entwicklung als Dokumente vor, auf deren Basis die Produktentwicklung beginnen kann. Die Entwicklung unterliegt dabei bestimmten Kriterien und Faktoren, die den unternehmerischen Erfolg beeinflussen. Neben betriebswirtschaftlichen Einflüssen wie der Einordnung des Produktes in der Wertschöpfungskette sind es dabei besonders technische Anforderungen an das Produkt, die definiert und während der Produktentwicklung eingehalten werden müssen.
 
 \subsubsection{Anforderungen im betrieblichen Entwicklungsprozess}
-Das Resultat wird als sogenanntes Pflichtenheft, in Unternehmen häufig als CRS (\textit{Customer Requirement Specification}) bezeichnet, mithilfe dessen nun die Entwicklung eines Produktes begonnen werden kann \cite{dge19}. Ein später hergestelltes Produkt sollte möglichst allen beschriebenen Anforderungen entsprechen. Da Betriebe jedoch nur selten alle einzelnen Komponenten des späteren Produktes selbst herstellen können, sind sie auf Zulieferer angewiesen, die einzelne Komponenten entwickeln und produzieren. Dieser Hersteller fertiger Komponenten aus Einzelteilen wird als \textit{OEM} (\textit{Original Equipment Manufacturer}). 
+Das Resultat ist das sogenannte Pflichtenheft, in Unternehmen häufig als CRS (\textit{Customer Requirement Specification}) bezeichnet \cite{dge19}. Mithilfe dessen kann nun die Entwicklung eines Produktes begonnen werden. Ein später hergestelltes Produkt sollte möglichst allen beschriebenen Anforderungen entsprechen. Da Betriebe jedoch nur selten alle einzelnen Komponenten des späteren Produktes selbst herstellen können, sind sie auf Zulieferer angewiesen, die einzelne Komponenten entwickeln und produzieren. Diese Hersteller einzelner Komponenten werden als \textit{OEM} (\textit{Original Equipment Manufacturer}), zu Deutsch \textit{Erstausrüster}, bezeichnet \cite{ir09}.  
 
 In diesem Fall wird dem Zulieferer ein Pflichtenheft übergeben, dass allen Anforderungen des Kunden genügt. Das bedeutet jedoch, dass auch die Produktentwicklung anhand des Pflichtenheftes an den Zulieferer ausgelagert wird. Dem Zulieferer werden damit Möglichkeiten geboten und Verantwortung übertragen, das Produkt weiter zu definieren. Einerseits können etwa interne Richtlinien und Erfahrungen auf dem Gebiet der Produktentwicklung aus früheren Projekten integriert werden, andererseits aber auch weitere Optimierungen sowie Merkmale, die noch nicht im Pflichtenheft dokumentiert sind. Somit agiert der Zulieferer nicht nur als produzierende Fabrik, sondern nimmt am Entwicklungsprozess teil.
 
@@ -228,7 +231,7 @@ Außerdem wird mit Hilfe von verwandten Arbeiten ein Überblick über die Proble
 In \cite{rs18} sind die Grundlagen von NLP im Rahmen einer Projektarbeit zusammengefasst. In diesem Abschnitt werden die für die Arbeit relevanten Aspekte kurz wiederholt. 
 \subsection{Grundlagen zu Natural Language Processing}
 \subsubsection{Definition und Ziel}
-Natural Language Processing ist zu verstehen als die automatisierte oder halb-automatisierte Verarbeitung von natürlicher Sprache mit Hilfe eines Computers. In NLP sind verschiedenste wissenschaftliche Bereiche verknüpft. Hauptsächlich handelt es sich dabei um Linguistik und Informatik, jedoch gibt es auch viele Verbindungen zur Psychologie, Philosophie Mathematik und Logik\cite{cop04}. 
+Natural Language Processing ist zu verstehen als die automatisierte oder halb-automatisierte Verarbeitung von natürlicher Sprache mit Hilfe eines Computers. In NLP sind verschiedenste wissenschaftliche Bereiche verknüpft.\footnote{Es ist anzumerken, dass verschieden weit gefasste Definitionen von NLP existieren. Manche schließen etwa auch die Erfassung von Sprache mit ein, etwa durch Interaktion mit Sprachcomputern. Andere beschränken sich ausschließlich auf den Verarbeitungsprozess der Sprachdaten im Computer selbst, siehe 2.1.2.} Hauptsächlich handelt es sich dabei um Linguistik und Informatik, jedoch gibt es auch viele Verbindungen zur Psychologie, Philosophie Mathematik und Logik\cite{cop04}. 
 
 Ziel von NLP ist üblicherweise die Extraktion von Informationen aus einem Text durch kleinschrittige Textanalyse. Diese Informationen werden dem Text direkt über sogenannte Annotationen angehängt oder anders abgespeichert, etwa in Oestantologien, welche in einem späteren Abschnitt genauer erläutert werden.
 
@@ -279,7 +282,7 @@ Das Ziel jeder Analyse ist es, Wissen über einen Teilbereich von Sprache zu gen
 Die Präzision dieser Aussagen fällt dementsprechend abhängig von der Treffergenauigkeit und dem Abdeckungsgrad der linguistischen Analyse durch die verwendeten Verfahren ab. Es ist dabei zu beachten, dass die Analyse typischerweise als Architektur aufgebaut ist, da die verschiedenen Schritte aufeinander aufbauen \cite{cop04}. Somit können, basierend auf den Ergebnissen, inhaltliche Aussagen und Zusammenhänge über den zugrundeliegenden Text getroffen werden. 
 
 \cite{cop04} identifiziert dabei eine allgemeine NLP-Architektur, die basierend auf der linguistischen Analyse diese Teilbereiche voneinander abgrenzt. 
-Für ein besseres Verständnis der Verfahren werden die für diese Arbeit relevanten Schritte in \cite{rs19} wie folgt kurz erläutert:
+Für ein besseres Verständnis der Verfahren werden die für diese Arbeit relevanten Schritte in \cite{rs18} wie folgt kurz erläutert:
 
 \begin{enumerate}
 \item
@@ -310,18 +313,18 @@ Wie später gezeigt wird, kann die in dieser Arbeit beschriebene Entwicklung der
 In diesem Abschnitt wird die Zerlegung der Syntax anhand logischer Modelle von Sprache beschrieben. Begonnen wird mit der einfachen Struktur und Zusammensetzung einzelner Wörter aus der Grammatik. Die Kombination aus Wortstämmen mit Prä- und Suffixen kann etwa in einem Lexikon gesucht werden, dass alle Wörter einer Sprache enthält.  Basierend auf dieser Morphologie eines Wortes kann dann in der Analyse mehrerer Wörter auf die Rolle von Wörtern im Satzzusammenhang geschlossen werden. 
 
 \subsubsection{Morphologie}
-Dieser Abschnitt befasst sich genauer mit der Analyse der Struktur und Zusammensetzung von Wörtern. Dies wird als morphologische Analyse bezeichnet. Wie im folgenden beschrieben, können auf dieser Basis logische Modelle wie etwa Automaten erstellt werden, die einen Teilbereich der Sprache effektiv durch Regeln abdecken. Für ein besseres Verständnis der im Rahmen dieser Arbeit vorgestellten Ergebnisse beschränken wir uns in dieser Arbeit auf die vergleichsweise einfach strukturierte englische Sprache. Aufgrund der großen Fortschritte und Erfahrungen in der Sprachforschung, werden die folgenden Beispiele auf Englisch behandelt.
+Dieser Abschnitt befasst sich genauer mit der Analyse der Struktur und Zusammensetzung von Wörtern. Dies wird als morphologische Analyse bezeichnet. Wie im folgenden beschrieben, können auf dieser Basis logische Modelle wie etwa Automaten erstellt werden, die zulässige Wörter aus einer Sprache auf Basis grammatikalischer Regeln erzeugen können. Für ein besseres Verständnis der im Rahmen dieser Arbeit vorgestellten Ergebnisse beschränken wir uns in dieser Arbeit auf die vergleichsweise einfach strukturierte englische Sprache. Aufgrund der großen Fortschritte und Erfahrungen in der Sprachforschung, werden die folgenden Beispiele auf Englisch behandelt.
 
 In der englischen Sprache besteht jedes Wort aus einem Wortstamm, sowie den sogenannten Affixen. In einem Satz könnte etwa das Wort \glqq \textit{believable} \grqq auftauchen. Das Wort stammt von der Grundform \glqq \textit{(to) believe} \grqq (zu Deutsch: \glqq glauben \grqq) ab. Das \textit{-able} stellt ein Suffix dar, also eine Wortendung. Zusammen mit den Präfixen, die dem Wortstamm vorangestellt sind, gehört \textit{-able} somit zur Kategorie der Affixe. 
 
-Das Ziel der morphologischen Analyse ist nun, die Zusammensetzung des Wortes nachzuvollziehen und die Information für die weitere Verarbeitung bereitzustellen. Die Generierung des Wortes \textit{believable} kann anhand von Buchstabierregeln erfolgen, die alle zulässigen Wörter auf englisch anhand der Wortstämme und Affixe erzeugen können. Es fällt auf, dass in unserem Beispiel \textit{believable} vor dem Hinzufügen des Suffixes \textit{-able} zunächst das \textit{-e} von der Grundform \textit{(to) believe} entfernt werden muss. Gemäß \cite{rs18} bedeutet dies formal ausgedrückt:
+Das Ziel der morphologischen Analyse ist nun, die Zusammensetzung des Wortes nachzuvollziehen und die Information für die weitere Verarbeitung bereitzustellen. Die Generierung des Wortes \textit{believable} kann anhand von Buchstabierregeln erfolgen, die alle zulässigen Wörter auf englisch anhand der Wortstämme und Affixe erzeugen können. Es fällt auf, dass in unserem Beispiel \textit{believable} vor dem Hinzufügen des Suffixes \textit{-able} zunächst das \textit{-e} von der Grundform \textit{(to) believe} entfernt werden muss. Eine Grammatik, die zur Erzeugung dieser Wörter genutzt werden kann, muss dementsprechend eine solche Regel vorhanden sein. Gemäß \cite{rs18} bedeutet dies formal ausgedrückt:
 \tt
 \begin{center}
 e $\rightarrow \varepsilon \textasciicircum \_$able
 \end{center}
 \rm
 
-In der Logik kann man diese Regeln als \textit{Zustandswandler} visualisieren. In Abb. 2.1 ist der Zustandswandler gezeigt, die das Suffix \textit{-able} an entsprechende Wörter anhängen kann.
+In der Logik kann man diese Regeln als nicht-deterministischer \textit{Zustandswandler} visualisieren.\footnote{In \cite{rs18} wurde darauf hingewiesen, dass nicht-deterministische Zusatandswandler trotzdem mithilfe der \textit{Potenzmengenkonstruktion} in einen äquivalenten deterministischen Zustandswandler überführt werden kann. Sie kommen somit zu einem eindeutigen Ergebnis \textit{erzeugbar} oder \textit{nicht erzeugbar} in der Sprache.} In Abb. 2.1 ist der Zustandswandler gezeigt, die das Suffix \textit{-able} an entsprechende Wörter anhängen kann.
 \\
 
 \begin{figure}[h!]
@@ -340,7 +343,8 @@ In der Logik kann man diese Regeln als \textit{Zustandswandler} visualisieren. I
 \caption{Nicht-deterministischer Zustandswandler der able-Regel \cite{rs18}}
 \end{center}
 \end{figure}
-Diese Bestandteile von Wörtern könnten  innerhalb der morphologischen Analyse in verschiedenen Lexika enthalten sein, dass die entsprechenden Informationen bereitstellt. Gemäß \cite{cop04} bedarf es dabei drei verschiedener Lexika:
+Um alle zulässigen Wörter sammeln und identifizieren zu können, muss die morphologische Analyse über eine Menge an Informationen über die Sprache verfügen.
+Die Bestandteile von Wörtern können dabei in verschiedenen Lexika enthalten sein, welche die entsprechenden Informationen bereitstellen. Gemäß \cite{cop04} bedarf es dabei drei verschiedener Lexika:
 
 \begin{enumerate}
 \item Liste von \textit{Affixen} (zusammen mit den Informationen, die damit verbunden sind, z.B. Negation \tt \glqq  un-\grqq{}\rm)
@@ -350,7 +354,37 @@ Diese Bestandteile von Wörtern könnten  innerhalb der morphologischen Analyse 
 
 Es ist zu beachten, dass die in der morphologischen Analyse verwendeten Buchstabierregeln zwar zu jeweils eindeutigen Ergebnissen kommen können, die Analyse selbst jedoch nicht eindeutig sein muss. Dies kann, wie bereits zuvor beschreiben, durch sprachliche Mehrdeutigkeiten entstehen. 
 
-Das Wort \glqq \textit{even} \grqq könnte isoliert etwa einmal als \textit{gleich}, also als Adjektiv kategorisiert, ins Deutsche übersetzt werden, jedoch auch sinngemäß \textit{sogar wenn}, also das Adverb mit einem oder mehreren Bezugswörtern meinen. Die mehreren möglichen Bedeutungen des einzelnen Wortes können jedoch in der Regel durch die Position grammatikalische Funktion im Satz aufgelöst werden.
+Das Wort \glqq \textit{even}\grqq könnte isoliert etwa einmal als \textit{gleichmäßig}, also als Adjektiv kategorisiert, ins Deutsche übersetzt werden, jedoch auch sinngemäß \textit{sogar}, also das Adverb mit einem oder mehreren Bezugswörtern meinen.\footnote{Aus Gründen der Vereinfachung wurde sich hier auf zwei erkennbar verschiedene Bedeutungen beschränkt. Tatsächlich stellt sich neben Bestimmung des grammatikalischen Typs auch die Frage, ob sich die verschiedenen Übersetzungen derselben Kategorie, z.B. \textit{gerade} und \textit{gleichmäßig}, in ihrer Bedeutung im Sachzusammenhang unterscheiden.} Die mehreren möglichen Bedeutungen des einzelnen Wortes können jedoch in der Regel durch die Position und grammatikalische Funktion im Satz aufgelöst werden. Diese Eigenschaften werden durch das \textit{Part-of-Speech-Tagging} identifiziert.
+
+\subsubsection{Part-Of-Speech-Tagging}
+Die Ergebnisse der morphologischen Analyse von mehreren Wörtern, etwa in einem Satz, können zur Analyse von Zusammenhängen zwischen diesen Wörtern genutzt werden. Somit kann die grammatikalische Struktur des Satzes auf Basis der einzelnen Wörter dargestellt werden. Der grammatikalische Typ jedes Wortes wird durch das Part-Of-Speech-Tagging festgelegt und jedes Wort wird \textit{annotiert}. Wie später in dieser Arbeit beschrieben wird, dienen solche Annotationen in NLP-Werkzeugen der Sammlung der bekannten Informationen zu einem Wort oder Satz. 
+
+Zur Festlegung dieser grammatikalischen Funktionen werden sog. POS-Tagger eingesetzt, die verschiedene Worttypen als Kategorien beinhalten. Diese werden dann jedem Wort eines Satzes als Annotation hinzugefügt. Die Aufgabe ist es nun, die korrekte Funktion eines Wortes im Satz auf Basis der morphologischen Analyse zu identifizieren. 
+
+Als Beispiel soll der Satz 
+\\
+\tt
+\\I love trains.\\
+\\ \rm 
+dienen. Das Wort \glqq \textit{trains}\grqq allein ist ein Nomen im Plural, jedoch könnte es sowohl das Subjekt, als auch das Objekt im Satz darstellen. im Im Englischen sollte ein POS-Tagger aber erkennen, dass \textit{Subjekt-Prädikat-Objekt} eine gültige Satzkonstruktion darstellt, die zu dem Beispielsatz passt. Dementsprechend entfällt die Möglichkeit von \textit{trains} als Subjekt, da es hinter einem Verb als Akkusativobjekt des Satzes auftaucht.
+
+Es existieren verschiedene Techniken für diese Beurteilungen der POS-Tagger. Verschiedene gültige Satzkonstruktionen sind häufig als sog. \textit{corpora} gespeichert. Diese stellen repräsentative Trainingsdaten dar, die beispielsweise aus der Zeitung \textit{Wall-Street-Journal} stammen. 
+In diesem Corpus könnten etwa die annotierten Sätze
+\\
+\tt
+\\People(subj) love(vb) trains(obj) .(punc)
+\rm und\\
+\tt
+I(subj) go(vb) home(obj) .(punc)\\
+\\ \rm
+enthalten sein.\footnote{Die tatsächliche Annotation kann durch POS-Tagger i.d.R. feiner erfolgen, sodass etwa Pronomen von Subjekten unterschieden werden. Auch können, wie später in dieser Arbeit gezeigt wird, eigene Annotationen bei Bedarf nach neuen Kategorien hinzugefügt werden. Der Corpus hier stellt ein stark vereinfachtes Beispiel dar. Ein ausführliches Beispiel unter der Verwendung der CLAWS-7-POS-Taggers findet sich in \cite{rs18}.}
+
+Mithilfe dieser Menge von Daten kann POS-Tagging auch heuristisch erfolgen, indem das Auftauchen verschiedener Satzbauten im Trainingscorpus gezählt wird. Auf dieser Basis können dann Wahrscheinlichkeiten für verschiedene Möglichkeiten berechnet werden, wenn es mehrere mögliche Zuordnungen gibt. 
+
+\subsubsection{Nutzen syntaktischer Analyse für NLP}
+Ein wichtiges Einsatzgebiet für POS-Tagger ist auch die Wortvorhersage bzw. \textit{prediction} auf Basis solcher Heuristiken. Diese kann im Kontext der zuvor vorgenommen Annotationen von Wörtern erfolgen. Beispielsweise werden sog. \textit{n-gramme} verwendet, um unter Berücksichtigung der Annotation von \textit{n} gelesenen Wörtern die Möglichkeiten für das folgende Wort zu berechnen. In \cite{rs18} findet sich ein vollständiges Beispiel anhand eines \textit{Bigramms} mit Corpus.
+
+Die heutigen Verfahren zur syntaktischen Analyse nutzen zur Steigerung der Genauigkeit u.a. Verfahren aus dem maschinellen und automatisierten Lernen und können somit hohe Trefferquoten erzielen.\footnote{In \cite{she07} wird ein POS-Tagger auf der Basis von bidirektionaler Analyse und Machine-Learning zum Erstellen der Trainingsdaten beschrieben. Obwohl nur auf Basis der Textsyntax erzielt, sind die Ergebnisse zu 97,33\% korrekt.} Um ein tieferes Verständnis von Texten zu erzielen, reicht die in diesem Abschnitt beschriebene syntaktische Analyse anhand der Grammatik nicht aus. Die tatsächliche Abbildung von Wissen über semantische Zusammenhänge stellt eine verlässlichere Möglichkeit dar, sprachliche Zusammenhänge zu identifizieren. Mit diesem Ansatz beschäftigen sich die \textit{Ontologien} im folgenden Abschnitt.
 
 \section{Ontologien}
 
@@ -379,10 +413,22 @@ Diese Hierarchie ist ggf. beliebig erweiterbar. So könnte man für eine bessere
 
 Relationen beschreiben Beziehungen zwischen Begriffen und werden oft auch als Eigenschaften verwendet und bezeichnet. Ähnlich zu vielen Programmiersprachen können diese Relationen und Eigenschaften eines Begriffs an die Instanzen des Begriffs vererbt werden. Grundsätzlich ist dabei auch eine Mehrfachvererbung möglich. 
 
-
-
-
 \section{Verwandte Arbeiten}
+Dieses Kapitel stellt einen Überblick über bereits veröffentlichte Arbeiten dar, die sich mit dem Themen Natural Language Processing für Anforderungsmanagement, sowie die Unterstützung durch Firmenprozesse beim Requirements-Engineering befassen. 
+
+\subsubsection{Grundlage dieser Arbeit}
+K. Zichler und S. Helke stellen in \cite{zh17} und \cite{zh19} die wesentlichen Aspekte für den Entwurf einer Softwareunterstützung für Requirements-Engineering in Firmen vor. 
+
+In \cite{zh17} wird zunächst der Bedarf nach solcher Unterstützung besonders für die Automobilindustrie beschrieben, da die Verbesserung herkömmlicher Methoden im Requirements-Engineering dort wesentliches Potential bietet. Der Vorschlag beinhaltet die Unterstützung von Projektteams durch ein Expertenteam aus Requirements-Experten, die Anforderungen aufbereiten und deren konsistente Umsetzung verbessern. 
+
+Auf dieser Basis stellen sie in \cite{zh19} konkret einen Entwurf eines Werkzeugs für die automatisierte Analyse von Projektlastenheften vor. Diese basiert dabei auf der Open-Source-Software GATE zur sprachlichen Auswertung und soll als 3-Schichten-Architektur umgesetzt werden. 
+
+Diese Arbeiten stellen die wesentliche Grundlage für die in unserer Arbeit entworfenen Prototypen dar. Die Implementierung erfolgte in Zusammenarbeit mit dem Autoren Konstantin Zichler bei der Firma HELLA, die den konkreten Use-Case für seine Entwürfe und unsere Umsetzung dargestelt hat.
+
+RESTQUELLEN
+Dabei ist anzumerken, dass eine Vielzahl von Arbeiten das Verbessern von Requirements mithilfe von Schablonen zum Thema haben, sich diese jedoch auf eine Unterstützung bei der Formulierung von Anforderungen beschränken. Das Ziel einer automatisierten Verbesserung und Anpassung bestehender Anforderungen spiegelt sich dort nicht wieder.
+
+fassen wesentliche Erkenntnisse zusammen
 \chapter{Betriebliches Umfeld - Hella Use-Case}
 Im betrieblichen Umfeld liegen zu Beginn jeden Entwicklungsprojektes für neue Produkte die Aufgaben und Ziele für die Entwicklung als Dokumente vor. Forschungsergebnisse finden Anwendung in der Vorentwicklungsphase, in der die Eignung der Erkenntnisse für neue Produkte eines Unternehmens evaluiert wird. Die Produktentwicklung unterliegt dabei bestimmten Kriterien und Faktoren, die den unternehmerischen Erfolg beeinflussen. Neben betriebswirtschaftlichen Einflüssen wie der Einordnung des Produktes in der Wertschöpfungskette sind es dabei besonders technische Anforderungen an das Produkt, die definiert und während der Produktentwicklung eingehalten werden müssen. Verschiedenste Akteure aus einem Umternehmen sind dabei an der Festlegung der Anforderungen an ein Entwicklungsprojekt bzw. Produkt beteiligt. 
 
@@ -400,7 +446,7 @@ Die Analyse von Zusammenhängen zwischen Anforderungen stellt dabei aus Gründen
 \chapter{R2B-Converter}
 \section{Architektur Klassen und Verteilung der Ressourcen}
 \subsection{Umsetzung der NLP-Architektur in unserem Werkzeug}
-In diesem Abschnitt wird die Einordnung unseres Prototypen als NLP-Werkzeug in die von \cite{04} definierte Architektur behandelt. Die verschiedenen Schritte aus Kap. 2.2. haben wir bei der Analyse und Verarbeitung der Lastenhefte in Programmbestandteilen umgesetzt. Im Arbeitsprozess unserer Entwicklung können wir die Aufgaben unseres Programms dort wie folgt einordnen:
+In diesem Abschnitt wird die Einordnung unseres Prototypen als NLP-Werkzeug in die von \cite{cop04} definierte Architektur behandelt. Die verschiedenen Schritte aus Kap. 2.2. haben wir bei der Analyse und Verarbeitung der Lastenhefte in Programmbestandteilen umgesetzt. Im Arbeitsprozess unserer Entwicklung können wir die Aufgaben unseres Programms dort wie folgt einordnen:
 \section{Implementierung (bisschen Code, GUI, Listenarchitektur, Workflow für User}
 \section{mögliche Erweiterungen}
 \section{Test}
@@ -423,6 +469,11 @@ In diesem Abschnitt wird die Einordnung unseres Prototypen als NLP-Werkzeug in d
 \section{Zusammenfassung}
 \section{Ausblick}
 
+\chapter{Notizen}
+\begin{enumerate}
+\item UML-Klassendiagramme im Vergleich zu Ontologien (Struktur, Beziehungen, Informatik-Bezug)
+\end{enumerate}
+
 \newpage
 \begin{thebibliography}{20}
 \bibitem[AWK06]{awk06} Christian Allmann, Lydia Winkler, Thorsten Kölzow. \glqq The requirements engineering gap in the OEM-supplier relationship.\grqq , Journal of Universal Knowledge Management 1.2 (2006): 103-111.
@@ -434,9 +485,11 @@ EMV-Technologie e.V. \glqq CRS Customer Requirements Specification\grqq, aus htt
 \bibitem[HE19]{he19}Firma HELLA. \glqq Unternehmensinformationen in Kürze.\grqq , aus https://www.hella.com/hella-com/de/HELLA-im-Ueberblick-723.html, abgerufen am 09.01.19.
 \bibitem[HAO14]{hao14}Hao Wu, et al. \glqq  ILLINOISCLOUDNLP: Text Analytics Services in the Cloud.\grqq{}  LREC. 2014.
 \bibitem[HL01]{hl01} Hubert F. Hofmann, Franz Lehner. \glqq Requirements engineering as a success factor in software projects.\grqq IEEE software 4 (2001): 58-66.
+\bibitem[IR09]{ir09}BGH, \glqq Urteil vom 6. Juli 2000, I ZR 244/97\grqq Artikel beim Institut für Rechtsinformatik von der Universität des Saarlandes, 13. Oktober 2009
 \bibitem[LV10]{lv10}F. Langenscheidt, B. Venohr. \glqq Lexikon der deutschen Weltmarktführer: Die Königsklasse deutscher Unternehmen in Wort und Bild.\grqq ,  Deutsche Standards–Gabal Verlag Google Scholar (2010).
 \bibitem[MW02]{mw02}Matthias Weber, Joachim Weisbrod. \glqq Requirements engineering in automotive development-experiences and challenges.\grqq , Requirements Engineering, 2002. Proceedings. IEEE Joint International Conference on. IEEE, 2002.
-\bibitem[RS18]{rs18}Felix Ritter, Aaron Schul. \glqq Analyse aktueller NLP-Methoden und -Werkzeuge am Beispiel von GATE, Projektarbeit Fachhochschule Dortmund 2018 \grqq
+\bibitem[RS18]{rs18}Felix Ritter, Aaron Schul. \glqq Analyse aktueller NLP-Methoden und -Werkzeuge am Beispiel von GATE, Projektarbeit Fachhochschule Dortmund 2018 \grqq , 18.11.2018
+\bibitem[SHE07]{she07} L. Shen, G. Satta, A. K. Joshi. In Meeting of the Association for Computational Linguistics (ACL), \glqq  Guided learning for bidirectional sequence classification\grqq{} , 2007.
 \bibitem[WE13]{we13}Weller, Katrin. "Ontologien." (2013): 207-218.
 
 
