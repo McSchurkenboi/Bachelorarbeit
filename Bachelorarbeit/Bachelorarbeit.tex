@@ -213,16 +213,24 @@ Natural Language Processing ist zu verstehen als die automatisierte oder halb-au
 Ziel von NLP ist üblicherweise die Extraktion von Informationen aus einem Text durch kleinschrittige Textanalyse. Diese Informationen werden dem Text direkt über sogenannte Annotationen angehängt oder anders abgespeichert, etwa in Ontologien, welche in einem späteren Abschnitt genauer erläutert werden.
 
 \subsubsection{Beispiele von Forschung und Entwicklung}
-Die wissenschaftliche Erforschung von NLP entstand Mitte des 20. Jahrhunderts, als der Linguist Noam Chomsky zeigte, dass sich der englischen Sprache formalisieren und somit automatisieren lassen [CHO57]. 
+Die wissenschaftliche Erforschung von NLP entstand Mitte des 20. Jahrhunderts, als der Linguist Noam Chomsky zeigte, dass sich der englischen Sprache formalisieren und somit automatisieren lassen \cite{cho57}. 
 
 Frühe Projekte wie der Sprachcomputer ELIZA aus den 1960er Jahren waren somit bereits in der Lage eine natürlichsprachige Frage als Texteingabe entgegenzunehmen und üblicherweise eine plausible Antwort zu liefern.   
 
-Heutzutage gibt es ein Vielzahl von Spracherkennungssoftware auf Smartphones oder Smart-Devices wie ALEXA, welche in der Lage sind gesprochene Kommandos zu erkennen und über das Internet an Server zu leiten, welche in der Lage sind diese Kommandos schnell und effizient zu verarbeiten [HAO14].
+Heutzutage gibt es ein Vielzahl von Spracherkennungssoftware auf Smartphones oder Smart-Devices wie ALEXA, welche in der Lage sind gesprochene Kommandos zu erkennen und über das Internet an Server zu leiten, welche in der Lage sind diese Kommandos schnell und effizient zu verarbeiten \cite{hao14}.
 
 \subsubsection{Herausforderungen von NLP}
 Durch die Verbindung von Linguistik und Informatik stellt sich NLP generell der Herausforderung sowohl inhärente Probleme der Sprache, als auch Probleme der Automatisierung lösen zu müssen. 
 
 Zu den sprachlichen Problemen gehören Aspekte wie Mehrdeutigkeit, Sarkasmus und Umgangssprache bzw. Redewendungen. Diese lassen sich oft nicht einzig und allein durch den gegebenen Text erklären, sondern beruhen auf Kontext und Situation.
+
+Vor allem bei der Erfassung von Semantik, also dem Inhalt der Texte, können komplexe Probleme auftreten. So gibt es beispielsweise Mehrdeutigkeiten, welche selbst für den Menschen nicht einfach zuzuordnen sind. So kann \glqq Die Betrachtung des Studenten \grqq etwa bedeuten, dass der Student etwas betrachtet. Genauso kann es jedoch sein, dass jemand anderes den Studenten betrachtet. 
+
+Eine andere häufige Fehlerquelle ist das korrekte Zuordnen von sprachlichen Bezügen. Betrachtet man die Frage \glqq Verkaufen Sie Handys und Computer von Samsung\grqq, so ist diese eindeutig grammatikalisch korrekt. Dennoch ist es uneindeutig, ob sich die Frage auf nach der Marke der Handys richtet, oder ob dies lediglich auf die Computer bezogen ist. 
+
+Noch komplexer wird es, wenn sich diese Bezüge über verschieden Sätze bzw. Teilsätze erstrecken. So ist der Satz \glqq Tom schenkt Tim ein Fahrrad, weil er nett ist\grqq ebenfalls auf zwei verschieden Arten zu deuten. Einerseits kann es sein, das Tom das Fahrrad verschenkt, weil Tom ein netter Mensch ist, andererseits kann es sein, das Tom das Fahrrada verschenkt, weil Tim nett zu ihm ist. 
+
+Weiterhin können auch bei der korrekten Erfassung des Sprachinhalts weitere Probleme die Kommunikation stark beeinflussen. So kann etwa die Intention der Sprache dem Inhalt widersprechen, wie es bei Sarkasmus üblicherweise der Fall ist. 
 
 Bei der Implementierung ergeben sich dann Probleme, trotz der sprachlichen Besonderheiten konsistente Regelmäßigkeiten als Grundlage zur Automatisierung zu finden. 
 \subsubsection{Linguistische Analyse}
@@ -242,7 +250,37 @@ Kontext - Darstellung von satzübergreifenden Zusammenhängen syntaktischer und 
 \end{enumerate}
 
 Diese Aufteilung lässt sich jedoch in noch weitere Teilschritte für die Spracherkennung und -generierung als NLP-Architektur unterteilen. Dies ist in \cite{rs18} genauer erläutert. 
+
 \section{Ontologien}
+
+Dieser Abschnitt befasst sich genauer mit dem Begriff der Ontologien im Kontext der Informatik. 
+
+\subsection{Definition}
+
+Ontologien lassen sich allgemein definieren als \glqq formale, schematische Abbildungen eines Wissensbereichs, bestehend aus einem Vokabular und Regeln zu seiner Zusammensetzung\grqq \cite{we13}.
+
+Zunächst bedeutet dies, dass eine Ontologie stets auf nur Wissen aus einer bestimmten Domäne zusammenfasst und nicht versucht das gesamte bzw. sehr allgemeines Wissen abzubilden. 
+
+Des weiteren Besteht eine Unterteilung in ein Vokabular und in eine Menge von Regeln. 
+
+Einer der Aspekte von Ontologien, welche sie für die Informatik so geeignet machen ist, dass sie in maschienenlesbaren Ontologiesprachen verfasst werden. Somit können Computersysteme diese automatisch auslesen und ggf. interpretieren und daraus schlussfolgern können. 
+
+Da Terminologie und bestimmte Formalitäten zwischen Ontologiesprachen variieren können, wird im Folgenden der Bezug auf die weit verbreitete Ontologiesprache \glqq Web Ontology Language\grqq{} (OWL) angenommen.
+
+\subsubsection{Aufbau}
+Die Grundlage für die Struktur einer Ontologie stellt der hierarchische Aufbau von Begriffen (\textit{concepts}). Diese Repräsentieren eine Art Klassenstruktur und werden daher oft auch als Klassen bezeichnet. Sie können in aus der Informatik bekannten Ansätzen wie Ober- und Unterklassen angeordnet werden. Begriffe sind üblicherweise sehr generell gehalten und könnten etwa die Klasse \textit{Auto} abbilden. 
+
+In vielen Fällen lässt sich ein Begriff in verschiedene Typen aufteilen. Ein Auto kann beispielsweise nach verschiedenen Automarken typisiert werden. Diese Typen werden dann ebenfalls durch Klassen verkörpert und bilden in dem hierarchischen Aufbau eine Unterklasse des jeweiligen Begriffs. 
+
+Die sogenannten Instanzen (\textit{instances}) verkörpern konkrete Objekte dieser Klassen. Ein Instanz wäre dann etwa ein bestimmtes Modell, einer bestimmten Marke von Autos. 
+
+Diese Hierarchie ist ggf. beliebig erweiterbar. So könnte man für eine bessere Klassifizierung z.B. die Marke eines Autos zunächst in eine Produktreihe oder nach einer Produkteigenschaft wie \textit{Combi} typisieren und erst davon abhängig die verschiedenen Instanzen zuordnen.
+
+Relationen beschreiben Beziehungen zwischen Begriffen und werden oft auch als Eigenschaften verwendet und bezeichnet. Ähnlich zu vielen Programmiersprachen können diese Relationen und Eigenschaften eines Begriffs an die Instanzen des Begriffs vererbt werden. Grundsätzlich ist dabei auch eine Mehrfachvererbung möglich. 
+
+
+
+
 \section{Verwandte Arbeiten}
 \chapter{Betriebliches Umfeld - Hella Use-Case}
 Im betrieblichen Umfeld liegen zu Beginn jeden Entwicklungsprojektes für neue Produkte die Aufgaben und Ziele für die Entwicklung als Dokumente vor. Forschungsergebnisse finden Anwendung in der Vorentwicklungsphase, in der die Eignung der Erkenntnisse für neue Produkte eines Unternehmens evaluiert wird. Die Produktentwicklung unterliegt dabei bestimmten Kriterien und Faktoren, die den unternehmerischen Erfolg beeinflussen. Neben betriebswirtschaftlichen Einflüssen wie der Einordnung des Produktes in der Wertschöpfungskette sind es dabei besonders technische Anforderungen an das Produkt, die definiert und während der Produktentwicklung eingehalten werden müssen. Verschiedenste Akteure aus einem Umternehmen sind dabei an der Festlegung der Anforderungen an ein Entwicklungsprojekt bzw. Produkt beteiligt. 
@@ -284,14 +322,22 @@ Die Analyse von Zusammenhängen zwischen Anforderungen stellt dabei aus Gründen
 
 \newpage
 \begin{thebibliography}{20}
-\bibitem[LV10]{lv10}F. Langenscheidt, B. Venohr. \glqq Lexikon der deutschen Weltmarktführer: Die Königsklasse deutscher Unternehmen in Wort und Bild.\grqq ,  Deutsche Standards–Gabal Verlag Google Scholar (2010).
-\bibitem[HE19]{he19}Firma HELLA. \glqq Unternehmensinformationen in Kürze.\grqq , aus https://www.hella.com/hella-com/de/HELLA-im-Ueberblick-723.html, abgerufen am 09.01.19.
-\bibitem[BAL10]{bal10}Helmut Balzert. \glqq Lehrbuch der softwaretechnik: Basiskonzepte und requirements engineering.\grqq , Springer-Verlag, 2010.
-\bibitem[MW02]{mw02}Matthias Weber, Joachim Weisbrod. \glqq Requirements engineering in automotive development-experiences and challenges.\grqq , Requirements Engineering, 2002. Proceedings. IEEE Joint International Conference on. IEEE, 2002.
-\bibitem[HL01]{hl01} Hubert F. Hofmann, Franz Lehner. \glqq Requirements engineering as a success factor in software projects.\grqq IEEE software 4 (2001): 58-66.
 \bibitem[AWK06]{awk06} Christian Allmann, Lydia Winkler, Thorsten Kölzow. \glqq The requirements engineering gap in the OEM-supplier relationship.\grqq , Journal of Universal Knowledge Management 1.2 (2006): 103-111.
+\bibitem[BAL10]{bal10}Helmut Balzert. \glqq Lehrbuch der softwaretechnik: Basiskonzepte und requirements engineering.\grqq , Springer-Verlag, 2010.
+\bibitem[CHO57]{cho57} Noam Chomsky, \glqq  Syntactic Structures\grqq{} , Mouton \& Co., Feb. 1957.
+\bibitem[COP04]{cop04}Ann Copestake, University Of Cambridge, \glqq Natural Language Processing\grqq , 2004.
 \bibitem[DGE19]{dge19} Deutsche Gesellschaft für 
 EMV-Technologie e.V. \glqq CRS Customer Requirements Specification\grqq, aus https://www.demvt.de/publish/viewfull.cfm?ObjectID=ba9a0878\_e081\\ \_515d\_74a3411df6771be8, abgerufen am 09.01.19.
-\bibitem[COP04]{cop04}Ann Copestake, University Of Cambridge, \glqq Natural Language Processing\grqq , 2004.
+\bibitem[HE19]{he19}Firma HELLA. \glqq Unternehmensinformationen in Kürze.\grqq , aus https://www.hella.com/hella-com/de/HELLA-im-Ueberblick-723.html, abgerufen am 09.01.19.
+\bibitem[HAO14]{hao14}Hao Wu, et al. \glqq  ILLINOISCLOUDNLP: Text Analytics Services in the Cloud.\grqq{}  LREC. 2014.
+\bibitem[HL01]{hl01} Hubert F. Hofmann, Franz Lehner. \glqq Requirements engineering as a success factor in software projects.\grqq IEEE software 4 (2001): 58-66.
+\bibitem[LV10]{lv10}F. Langenscheidt, B. Venohr. \glqq Lexikon der deutschen Weltmarktführer: Die Königsklasse deutscher Unternehmen in Wort und Bild.\grqq ,  Deutsche Standards–Gabal Verlag Google Scholar (2010).
+\bibitem[MW02]{mw02}Matthias Weber, Joachim Weisbrod. \glqq Requirements engineering in automotive development-experiences and challenges.\grqq , Requirements Engineering, 2002. Proceedings. IEEE Joint International Conference on. IEEE, 2002.
+\bibitem[RS18]{rs18}Felix Ritter, Aaron Schul. \glqq Analyse aktueller NLP-Methoden und -Werkzeuge am Beispiel von GATE, Projektarbeit Fachhochschule Dortmund 2018 \grqq
+\bibitem[WE13]{we13}Weller, Katrin. "Ontologien." (2013): 207-218.
+
+
+
+
 \end{thebibliography}
 \end{document}
