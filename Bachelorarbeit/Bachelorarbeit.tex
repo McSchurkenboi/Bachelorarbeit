@@ -198,19 +198,39 @@ Somit lässt sich die Korrektheit der in 1.2 gestellten Hypothese überprüfen.
 
 Die Arbeit wird von Kapitel 7 abgeschlossen. Dieses beinhaltet eine Zusammenfassung der geleisteten Arbeit und der Ergebnisse. Außerdem wird zuletzt noch ein Ausblick für die Zukunft der Werkzeuge und die Lösung des Problems erläutert. 
 
-\section{Autoren}
+\section{Autorenverzeichnis}
+\begin{multicols}{2}
+\begin{compactitem}
+\item[] \textbf{1.: Ritter, Schul}
+
+\begin{compactitem}
+\item[] 1.1: Ritter
+\item[] 1.2: Ritter
+\item[] 1.3: Ritter, Schul
+\item[] 1.4: Schul
+\item[] 1.5: Schul
+\end{compactitem}
+
+\item[] \textbf{2.: Ritter, Schul}
+\begin{compactitem}
+\item[] 2.1: Schul
+\end{compactitem}
+
+\end{compactitem}
+\end{multicols}
+
 \chapter{Stand der Technik}
 In diesem Kapitel wird zunächst ein Rückblick auf die zuvor von den Autoren verfasste Projektarbeit und die darin enthaltenen Grundlagen von NLP gegeben. 
 Aufgrund ihrer besonderen Relevanz für die Programme werden anschließend zusätzliche Ontologien als Teil von NLP genauer beleuchtet. 
 Außerdem wird mit Hilfe von verwandten Arbeiten ein Überblick über die Problematik und verschiedene Lösungsansätze geboten. 
 
-\section{Rückblick auf die Projektarbeit und Grundlagen zu NLP}
+\section[Rückblick auf die PA]{Rückblick auf die Projektarbeit}
 In \cite{rs18} sind die Grundlagen von NLP im Rahmen einer Projektarbeit zusammengefasst. In diesem Abschnitt werden die für die Arbeit relevanten Aspekte kurz wiederholt. 
-
+\subsection{Grundlagen zu Natural Language Processing}
 \subsubsection{Definition und Ziel}
 Natural Language Processing ist zu verstehen als die automatisierte oder halb-automatisierte Verarbeitung von natürlicher Sprache mit Hilfe eines Computers. In NLP sind verschiedenste wissenschaftliche Bereiche verknüpft. Hauptsächlich handelt es sich dabei um Linguistik und Informatik, jedoch gibt es auch viele Verbindungen zur Psychologie, Philosophie Mathematik und Logik\cite{cop04}. 
 
-Ziel von NLP ist üblicherweise die Extraktion von Informationen aus einem Text durch kleinschrittige Textanalyse. Diese Informationen werden dem Text direkt über sogenannte Annotationen angehängt oder anders abgespeichert, etwa in Ontologien, welche in einem späteren Abschnitt genauer erläutert werden.
+Ziel von NLP ist üblicherweise die Extraktion von Informationen aus einem Text durch kleinschrittige Textanalyse. Diese Informationen werden dem Text direkt über sogenannte Annotationen angehängt oder anders abgespeichert, etwa in Oestantologien, welche in einem späteren Abschnitt genauer erläutert werden.
 
 \subsubsection{Beispiele von Forschung und Entwicklung}
 Die wissenschaftliche Erforschung von NLP entstand Mitte des 20. Jahrhunderts, als der Linguist Noam Chomsky zeigte, dass sich der englischen Sprache formalisieren und somit automatisieren lassen [CHO57]. 
@@ -241,7 +261,89 @@ Semantiken - Die Identifikation der Bedeutung von einzelnen Sätzen und Wörtern
 Kontext - Darstellung von satzübergreifenden Zusammenhängen syntaktischer und semantischer Natur. Mehrere Sätze können über Konstrukte wie etwa Pronomen verbunden sein, wenn sich das Pronomen des einen Satzes auf ein Subjekt des anderen bezieht. 
 \end{enumerate}
 
-Diese Aufteilung lässt sich jedoch in noch weitere Teilschritte für die Spracherkennung und -generierung als NLP-Architektur unterteilen. Dies ist in \cite{rs18} genauer erläutert. 
+Diese Aufteilung lässt sich jedoch in noch weitere Teilschritte für die Spracherkennung und -generierung als NLP-Architektur unterteilen. Diese wird im folgenden Abschnitt genauer erläutert. 
+
+\subsection{Umsetzung der Verarbeitungsschritte natürlicher Sprache}
+Dieser Abschnitt beschäftigt sich primär mit den verschiedenen Schritten der sprachlichen Analyse. Diese Differenzierung kann dabei, wie zuvor beschrieben, anhand der linguistischen Analyse unterschiedlicher Bestandteile von Sprache vorgenommen werden. Diese sukzessive Verarbeitung wird im folgenden anhand verschiedener Algorithmen und Verfahren erläutert, die im wesentlichen in \cite{rs18} zu finden sind. 
+
+Das Ziel jeder Analyse ist es, Wissen über einen Teilbereich von Sprache zu generieren. Das Wissen über den Zusammenhang von Wörtern eines Textes kann eindeutig sein, jedoch können besonders bei der morphologischen Analyse sprachliche Mehrdeutigkeiten auftreten. Dies wird in 2.1.3-Morphologie näher erläutert. 
+
+Die Präzision dieser Aussagen fällt dementsprechend abhängig von der Treffergenauigkeit und dem Abdeckungsgrad der linguistischen Analyse durch die verwendeten Verfahren ab. Es ist dabei zu beachten, dass die Analyse typischerweise als Architektur aufgebaut ist, da die verschiedenen Schritte aufeinander aufbauen \cite{cop04}. Somit können, basierend auf den Ergebnissen, inhaltliche Aussagen und Zusammenhänge über den zugrundeliegenden Text getroffen werden. 
+
+\cite{cop04} identifiziert dabei eine allgemeine NLP-Architektur, die basierend auf der linguistischen Analyse diese Teilbereiche voneinander abgrenzt. 
+Für ein besseres Verständnis der Verfahren werden die für diese Arbeit relevanten Schritte in \cite{rs19} wie folgt kurz erläutert:
+
+\begin{enumerate}
+\item
+Input Processing - Erkennung der Dokumentensprache und Normalisierung des Textes. Im ersten Schritt geht es um das korrekte Format des Eingabedokumentes für die Verarbeitung. Dieser Vorgang stellt jedoch noch keine Analyse dar, sondern dient lediglich der Vorbereitung.
+\item
+Morphologische Analyse - Die meisten Sprachen sind im Bezug auf ihre Grammatik und syntaktische Struktur der Wörter in Systemen abgeschlossen, etwa durch Modellierung mittels Automaten zur Erzeugung der Worte. Auch können Vokabeln in Wörterbüchern/Lexika gesammelt und Regeln auf ihnen formuliert und gespeichert werden.
+\item
+Part-of-Speech-Tagging - Die einzelnen Wörter eines Satzes werden im Hinblick auf den Sach- oder Satzzusammenhang, wie auch auf die Stellung im Satz hin analysiert. Basierend auf Kontext und/oder Erfahrungswerten bzw. Heuristiken können die Wörter korrekt erfasst und deren Fall getaggt werden. Subjekte, Prädikate usw. werden identifiziert. Dazu kann eine Wissensbasis mit Trainingsdaten und die Einordnung des Kontextes darin verwendet werden.
+\item
+Parsing - Die Ergebnisse der vorherigen Schritte werden weiter verarbeitet und in ein standardisiertes Format gebracht. Syntaktische Zusammenhänge, wie etwa das Zusammenfassen von Wörtern zu einer gemeinsamen Bedeutungsphrase und das Zuordnen von Verben zu einem Nomen können nach dem Parsing dargestellt werden.
+\item
+Disambiguation - Die Entfernung von Mehrdeutigkeiten auf Basis der Ergebnisse des Parsings stellt einen entscheidenden Schritt für die semantischen Analysen dar. Nur wenn die Aussage und der Kontext eines Satzes klar erkennbar sind, kann dessen Semantik gezielt abgeleitet werden.
+\item
+Context Module - Textbausteine, deren Interpretation semantisch auf dem Kontext anderer Sätze oder Wörtern beruhen, können erfasst werden. Bei Anaphern ist etwa das Verständnis des aktuellen Kontexts abhängig von einer vorherigen Deutung.
+\item
+Text Planning - Die Sachzusammenhänge und Semantiken, die aus dem zugrundeliegenden Text extrahiert wurden, werden für die Darstellung im fertigen Text definiert. Es wird festgelegt, welche der Bedeutungen qualitativ übertragen und vermittelt werden sollen. Die Reihenfolge und Umfang der behandelten Themen wird geschätzt und definiert.
+\item
+Tactical Generation - Die Bedeutungen werden in Form konkreter Zeichenketten generiert, die die gewünschte Bedeutung enthalten. Diese Textbausteine basieren häufig direkt auf den Ergebnissen des vorherigen Parsings, da dort schon Bedeutungen zusammengefasst werden können. Der quantitative Teil des Textes wird erzeugt.
+\item
+Morpholigical Generation - Die erzeugten Sätze werden morphologisch an die Rahmenbedingungen der verwendeten Sprache angepasst. Grammatiken und Regeln der Satzkonstruktion werden auf die erzeugten Wörter angewendet, sodass ein lesbarer und nachvollziehbarer Text entsteht.
+\item
+Output Processing - Der Text wird nun, nachdem dieser inhaltlich komplett erzeugt vorliegt, an das Design und Format des jeweiligen Einsatzzwecks angepasst. Sollte Text, anders als in dieser Arbeit der Einfachheit halber angenommen, nicht als geschriebenes Wort ohne besondere Formatierung vorliegen, kann dieser einem \textit{Formatter} zur Designanpassung übergeben werden. Ferner kann etwa mihilfe von Text-to-Speech eine Audioausgabe erfolgen. 
+\end{enumerate}
+
+Wie später gezeigt wird, kann die in dieser Arbeit beschriebene Entwicklung der Software-Prototypen als eine Umsetzung eben dieser NLP-Architektur verstanden werden.
+
+\subsection{Syntaktische Analyse von Wörtern und Sätzen}
+In diesem Abschnitt wird die Zerlegung der Syntax anhand logischer Modelle von Sprache beschrieben. Begonnen wird mit der einfachen Struktur und Zusammensetzung einzelner Wörter aus der Grammatik. Die Kombination aus Wortstämmen mit Prä- und Suffixen kann etwa in einem Lexikon gesucht werden, dass alle Wörter einer Sprache enthält.  Basierend auf dieser Morphologie eines Wortes kann dann in der Analyse mehrerer Wörter auf die Rolle von Wörtern im Satzzusammenhang geschlossen werden. 
+
+\subsubsection{Morphologie}
+Dieser Abschnitt befasst sich genauer mit der Analyse der Struktur und Zusammensetzung von Wörtern. Dies wird als morphologische Analyse bezeichnet. Wie im folgenden beschrieben, können auf dieser Basis logische Modelle wie etwa Automaten erstellt werden, die einen Teilbereich der Sprache effektiv durch Regeln abdecken. Für ein besseres Verständnis der im Rahmen dieser Arbeit vorgestellten Ergebnisse beschränken wir uns in dieser Arbeit auf die vergleichsweise einfach strukturierte englische Sprache. Aufgrund der großen Fortschritte und Erfahrungen in der Sprachforschung, werden die folgenden Beispiele auf Englisch behandelt.
+
+In der englischen Sprache besteht jedes Wort aus einem Wortstamm, sowie den sogenannten Affixen. In einem Satz könnte etwa das Wort \glqq \textit{believable} \grqq auftauchen. Das Wort stammt von der Grundform \glqq \textit{(to) believe} \grqq (zu Deutsch: \glqq glauben \grqq) ab. Das \textit{-able} stellt ein Suffix dar, also eine Wortendung. Zusammen mit den Präfixen, die dem Wortstamm vorangestellt sind, gehört \textit{-able} somit zur Kategorie der Affixe. 
+
+Das Ziel der morphologischen Analyse ist nun, die Zusammensetzung des Wortes nachzuvollziehen und die Information für die weitere Verarbeitung bereitzustellen. Die Generierung des Wortes \textit{believable} kann anhand von Buchstabierregeln erfolgen, die alle zulässigen Wörter auf englisch anhand der Wortstämme und Affixe erzeugen können. Es fällt auf, dass in unserem Beispiel \textit{believable} vor dem Hinzufügen des Suffixes \textit{-able} zunächst das \textit{-e} von der Grundform \textit{(to) believe} entfernt werden muss. Gemäß \cite{rs18} bedeutet dies formal ausgedrückt:
+\tt
+\begin{center}
+e $\rightarrow \varepsilon \textasciicircum \_$able
+\end{center}
+\rm
+
+In der Logik kann man diese Regeln als \textit{Zustandswandler} visualisieren. In Abb. 2.1 ist der Zustandswandler gezeigt, die das Suffix \textit{-able} an entsprechende Wörter anhängen kann.
+\\
+
+\begin{figure}[h!]
+\begin{center}
+\begin{tikzpicture}
+\node[accepting] (a) at (0,0)  [circle, draw, minimum size=10ex] {1};
+\node (b) at (4,0)  [circle, draw, minimum size=10ex] {2};
+\node (c) at (4,-4) [circle, draw, minimum size=10ex] {3};
+\node[accepting] (d) at (0,-4) [circle, draw, minimum size=10ex] {4};
+\draw[thick, ->] (a) to [bend left] node[midway, above] {$\varepsilon$ : e} (b);
+\draw[thick, ->] (a) to [loop above] node[midway, above] {other : other} (a);
+%\draw[thick, ->] (b) to [bend left] node[midway, below] {e : $\varepsilon$} (a);
+\draw[thick, ->] (b) to [bend left] node[midway, right] {$\varepsilon : \textasciicircum$} (c);
+\draw[thick, ->] (c) to [bend left] node[midway, below] {able:able} (d);
+\end{tikzpicture}
+\caption{Nicht-deterministischer Zustandswandler der able-Regel \cite{rs18}}
+\end{center}
+\end{figure}
+Diese Bestandteile von Wörtern könnten  innerhalb der morphologischen Analyse in verschiedenen Lexika enthalten sein, dass die entsprechenden Informationen bereitstellt. Gemäß \cite{cop04} bedarf es dabei drei verschiedener Lexika:
+
+\begin{enumerate}
+\item Liste von \textit{Affixen} (zusammen mit den Informationen, die damit verbunden sind, z.B. Negation \tt \glqq  un-\grqq{}\rm)
+\item Liste von \textit{unregelmäßigen Wörtern} (zusammen mit den Informationen, die damit verbunden sind, z.B. \tt \glqq  went\grqq{}:simple past\glqq  (to) go\grqq{}\rm)
+\item Liste von \textit{Wortstämmen} (zusammen mit syntaktischer Kategorie, z.B. \tt \glqq  believe\grqq{}:verb\rm)
+\end{enumerate}
+
+Es ist zu beachten, dass die in der morphologischen Analyse verwendeten Buchstabierregeln zwar zu jeweils eindeutigen Ergebnissen kommen können, die Analyse selbst jedoch nicht eindeutig sein muss. Dies kann, wie bereits zuvor beschreiben, durch sprachliche Mehrdeutigkeiten entstehen. 
+
+Das Wort \glqq \textit{even} \grqq könnte isoliert etwa einmal als \textit{gleich}, also als Adjektiv kategorisiert, ins Deutsche übersetzt werden, jedoch auch sinngemäß \textit{sogar wenn}, also das Adverb mit einem oder mehreren Bezugswörtern meinen. Die mehreren möglichen Bedeutungen des einzelnen Wortes können jedoch in der Regel durch die Position grammatikalische Funktion im Satz aufgelöst werden.
+
 \section{Ontologien}
 \section{Verwandte Arbeiten}
 \chapter{Betriebliches Umfeld - Hella Use-Case}
@@ -260,6 +362,8 @@ Die Analyse von Zusammenhängen zwischen Anforderungen stellt dabei aus Gründen
 \section{Ansatz und Konzept unserer Werkzeuge}
 \chapter{R2B-Converter}
 \section{Architektur Klassen und Verteilung der Ressourcen}
+\subsection{Umsetzung der NLP-Architektur in unserem Werkzeug}
+In diesem Abschnitt wird die Einordnung unseres Prototypen als NLP-Werkzeug in die von \cite{04} definierte Architektur behandelt. Die verschiedenen Schritte aus Kap. 2.2. haben wir bei der Analyse und Verarbeitung der Lastenhefte in Programmbestandteilen umgesetzt. Im Arbeitsprozess unserer Entwicklung können wir die Aufgaben unseres Programms dort wie folgt einordnen:
 \section{Implementierung (bisschen Code, GUI, Listenarchitektur, Workflow für User}
 \section{mögliche Erweiterungen}
 \section{Test}
