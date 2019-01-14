@@ -248,7 +248,7 @@ Vor allem bei der Erfassung von Semantik, also dem Inhalt der Texte, können kom
 
 Eine andere häufige Fehlerquelle ist das korrekte Zuordnen von sprachlichen Bezügen. Betrachtet man die Frage \glqq Verkaufen Sie Handys und Computer von Samsung\grqq, so ist diese eindeutig grammatikalisch korrekt. Dennoch ist es uneindeutig, ob sich die Frage auf nach der Marke der Handys richtet, oder ob dies lediglich auf die Computer bezogen ist. 
 
-Noch komplexer wird es, wenn sich diese Bezüge über verschieden Sätze bzw. Teilsätze erstrecken. So ist der Satz \glqq Tom schenkt Tim ein Fahrrad, weil er nett ist\grqq ebenfalls auf zwei verschieden Arten zu deuten. Einerseits kann es sein, das Tom das Fahrrad verschenkt, weil Tom ein netter Mensch ist, andererseits kann es sein, das Tom das Fahrrada verschenkt, weil Tim nett zu ihm ist. 
+Noch komplexer wird es, wenn sich diese Bezüge über verschieden Sätze bzw. Teilsätze erstrecken. So ist der Satz \glqq Tom schenkt Tim ein Fahrrad, weil er nett ist\grqq ebenfalls auf zwei verschieden Arten zu deuten. Einerseits kann es sein, das Tom das Fahrrad verschenkt, weil Tom ein netter Mensch ist, andererseits kann es sein, das Tom das Fahrrad verschenkt, weil Tim nett zu ihm ist. 
 
 Weiterhin können auch bei der korrekten Erfassung des Sprachinhalts weitere Probleme die Kommunikation stark beeinflussen. So kann etwa die Intention der Sprache dem Inhalt widersprechen, wie es bei Sarkasmus üblicherweise der Fall ist. 
 
@@ -377,10 +377,29 @@ Die sogenannten Instanzen (\textit{instances}) verkörpern konkrete Objekte dies
 
 Diese Hierarchie ist ggf. beliebig erweiterbar. So könnte man für eine bessere Klassifizierung z.B. die Marke eines Autos zunächst in eine Produktreihe oder nach einer Produkteigenschaft wie \textit{Combi} typisieren und erst davon abhängig die verschiedenen Instanzen zuordnen.
 
-Relationen beschreiben Beziehungen zwischen Begriffen und werden oft auch als Eigenschaften verwendet und bezeichnet. Ähnlich zu vielen Programmiersprachen können diese Relationen und Eigenschaften eines Begriffs an die Instanzen des Begriffs vererbt werden. Grundsätzlich ist dabei auch eine Mehrfachvererbung möglich. 
+Relationen (\textit{properties}) beschreiben Beziehungen zwischen Begriffen und werden oft auch als Eigenschaften verwendet und bezeichnet. Ähnlich zu vielen Programmiersprachen können diese Relationen und Eigenschaften eines Begriffs an die Instanzen des Begriffs vererbt werden. Grundsätzlich ist dabei auch eine Mehrfachvererbung möglich. 
 
+Des Weiteren kann die Struktur von Ontologien durch sogenannte Axiome (\textit{restictions}) modelliert bzw. eingeschränkt werden. Axiome verkörpern dabei Regeln in der Ontologie welche stets zutreffen müssen. Üblicherweise werden diese dazu verwendet, Einschränkungen vorzunehmen, die nicht effizient durch den abgebildeten Wissensbereich darzustellen sind. Dies könnte Beispielsweise in einer Ontologie über verschiedene Automodelle verschiedenster Marken eine generelle Definition von Automobilen sein. 
 
+Abbildung X.X zeigt eine beispielhafte, stark vereinfacht Ontologie zu Automobilen und bestimmten im Kontext relevanten Personen. 
+\\
+HIER SPÄTER BILD
+\\
 
+Auf der obersten Ebene der Klassen-Hierarchie befindet sich die Klasse \textit{owl: Thing}. Von dieser erben alle Begriffe durch die \textit{hasSubclass}-Relation. Dies ist vergleichbar mit der objektorientierten Programmiersprache \textit{Java} bei welcher alle Klassen direkt oder indirekt von der Oberklasse \textit{Object} erben. 
+
+Auf der nächsten Ebene befinden sich die beiden Begriffe \textit{Automobil} und \textit{Person}. Diese können entweder direkt in Instanzen übergehen, oder zunächst durch Typisierung unterteilt werden. 
+
+Somit finden sich in der nächsten Ebene die drei nach Marke getrennten Automobil-Typen \textit{VW}, \textit{BMW} und \textit{Audi}. Außerdem werden Autofahrer und Ingenieure als Personen unterschieden. Es ist anzumerken, dass es nicht ausgeschlossen ist, das ein Ingenieur auch Autofahren ist. Wegen der möglichen Mehrfachvererbung lassen sich jedoch Typen oder Instanzen erzeugen, welche sowohl von Autofahrer, als auch von Ingenieur erben. Somit stellt eine Unterteilung in Typen ohne gegenseitigen Ausschluss in der Praxis kein Problem dar und kann sogar nützlich sein, wie später anhand von Relationen gezeigt wird. 
+
+In der vierten Ebene sind einzig zu Demonstrationszwecken einige der Typen weiter unterteilt und andere nicht. Man sieht, dass die Hierarchie also keineswegs gleichmäßig sein muss, um eine sinnvolle Unterteilung zu gewährleisten. 
+
+In der letzten Ebene befinden sich einige Instanzen von Autos welche durch konkrete Modelle dargestellt werden. Theoretisch ließen sich auch diese weiter unterteilen, etwa nach Innenausstattung. Diesbezüglich ist je nach Verwendungszweck der Ontologie genau festzulegen, wie die Hierarchie zu strukturieren und wie weit sie auszuführen ist. Beispielsweise macht es für einen großen Autohersteller keinen Sinn, wenn von jedem Ingenieur in einer konzernübergreifenden Ontologie jeder Ingenieur instantiiert ist. 
+
+Die Relationen zwischen den Konten der Ontologie sind dargestellt durch Linien mit einem mittigen Pfeil. Die durchgezogenen Linien zeigen den Grundaufbau der Hierarchie. Die blauen Linien verkörpern die \textit{has subclass}-Beziehung, welche auf Vererbung hinweist. Die violetten Linien stehen für die \textit{has individual}-Beziehung und zeigen auf eine Instanz der Klasse. 
+Außerdem wurden zwei Objekt-Attribute (\textit{object properties}) manuell hinzugefügt. Diese können verwendet werden um Relationen zwischen Klassen aufzuzeigen, welche nicht voneinander erben, sondern sich in unterschiedlichen \glqq Teilbäumen\grqq{} der Ontologie befinden. So verweist, dargestellt durch den braunen Pfeil eine \textit{benutzt}-Relation von dem Autofahrer auf das Automobil, bedeutet also das Autofahrer Automobile verwenden.  
+Ähnlich dazu zeigt von der Klasse Ingenieur eine \textit{entwickelt}-Beziehung auf Automobil.
+NACHSCHAUEN WEGEN VERERBUNG AUF INSTANZEN.
 
 \section{Verwandte Arbeiten}
 \chapter{Betriebliches Umfeld - Hella Use-Case}
