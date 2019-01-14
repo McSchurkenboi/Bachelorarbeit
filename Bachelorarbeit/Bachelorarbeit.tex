@@ -231,14 +231,14 @@ Außerdem wird mit Hilfe von verwandten Arbeiten ein Überblick über die Proble
 In \cite{rs18} sind die Grundlagen von NLP im Rahmen einer Projektarbeit zusammengefasst. In diesem Abschnitt werden die für die Arbeit relevanten Aspekte kurz wiederholt. 
 \subsection{Grundlagen zu Natural Language Processing}
 \subsubsection{Definition und Ziel}
-Natural Language Processing ist zu verstehen als die automatisierte oder halb-automatisierte Verarbeitung von natürlicher Sprache mit Hilfe eines Computers. In NLP sind verschiedenste wissenschaftliche Bereiche verknüpft.\footnote{Es ist anzumerken, dass verschieden weit gefasste Definitionen von NLP existieren. Manche schließen etwa auch die Erfassung von Sprache mit ein, etwa durch Interaktion mit Sprachcomputern. Andere beschränken sich ausschließlich auf den Verarbeitungsprozess der Sprachdaten im Computer selbst, siehe 2.1.2.} Hauptsächlich handelt es sich dabei um Linguistik und Informatik, jedoch gibt es auch viele Verbindungen zur Psychologie, Philosophie Mathematik und Logik\cite{cop04}. 
+Natural Language Processing ist zu verstehen als die automatisierte oder halb-automatisierte Verarbeitung von natürlicher Sprache mit Hilfe eines Computers. In NLP sind verschiedenste wissenschaftliche Bereiche verknüpft.\footnote{Es ist anzumerken, dass verschieden weit gefasste Definitionen von NLP existieren. Manche schließen etwa auch die Erfassung von Sprache mit ein, etwa durch Interaktion mit Sprachcomputern. Andere beschränken sich ausschließlich auf den Verarbeitungsprozess der Sprachdaten im Computer selbst, siehe 2.1.2.} Hauptsächlich handelt es sich dabei um Linguistik und Informatik, jedoch gibt es auch viele Verbindungen zur Psychologie, Philosophie Mathematik und Logik. \cite{cop04}
 
-Ziel von NLP ist üblicherweise die Extraktion von Informationen aus einem Text durch kleinschrittige Textanalyse. Diese Informationen werden dem Text direkt über sogenannte Annotationen angehängt oder anders abgespeichert, etwa in Oestantologien, welche in einem späteren Abschnitt genauer erläutert werden.
+Ziel von NLP ist üblicherweise die Extraktion von Informationen aus einem Text durch kleinschrittige Textanalyse. Diese Informationen werden dem Text direkt über sogenannte Annotationen angehängt oder anders abgespeichert, etwa in Ontologien, welche in einem späteren Abschnitt genauer erläutert werden.
 
 \subsubsection{Beispiele von Forschung und Entwicklung}
-Die wissenschaftliche Erforschung von NLP entstand Mitte des 20. Jahrhunderts, als der Linguist Noam Chomsky zeigte, dass sich der englischen Sprache formalisieren und somit automatisieren lassen \cite{cho57}. 
+Die wissenschaftliche Erforschung von NLP entstand Mitte des 20. Jahrhunderts, als der Linguist Noam Chomsky zeigte, dass sich Merkmale der englischen Sprache formalisieren und somit automatisieren lassen \cite{cho57}. 
 
-Frühe Projekte wie der Sprachcomputer ELIZA aus den 1960er Jahren waren somit bereits in der Lage eine natürlichsprachige Frage als Texteingabe entgegenzunehmen und üblicherweise eine plausible Antwort zu liefern.   
+Frühe Projekte wie der Sprachcomputer ELIZA aus den 1960er Jahren waren somit bereits in der Lage eine natürlichsprachliche Frage als Texteingabe entgegenzunehmen und üblicherweise eine plausible Antwort zu liefern.   
 
 Heutzutage gibt es ein Vielzahl von Spracherkennungssoftware auf Smartphones oder Smart-Devices wie ALEXA, welche in der Lage sind gesprochene Kommandos zu erkennen und über das Internet an Server zu leiten, welche in der Lage sind diese Kommandos schnell und effizient zu verarbeiten \cite{hao14}.
 
@@ -247,15 +247,16 @@ Durch die Verbindung von Linguistik und Informatik stellt sich NLP generell der 
 
 Zu den sprachlichen Problemen gehören Aspekte wie Mehrdeutigkeit, Sarkasmus und Umgangssprache bzw. Redewendungen. Diese lassen sich oft nicht einzig und allein durch den gegebenen Text erklären, sondern beruhen auf Kontext und Situation.
 
-Vor allem bei der Erfassung von Semantik, also dem Inhalt der Texte, können komplexe Probleme auftreten. So gibt es beispielsweise Mehrdeutigkeiten, welche selbst für den Menschen nicht einfach zuzuordnen sind. So kann \glqq Die Betrachtung des Studenten \grqq etwa bedeuten, dass der Student etwas betrachtet. Genauso kann es jedoch sein, dass jemand anderes den Studenten betrachtet. 
+Vor allem bei der Erfassung von Semantik, also dem Inhalt der Texte, können komplexe Probleme auftreten. So gibt es beispielsweise Mehrdeutigkeiten, welche selbst für den Menschen nicht einfach zuzuordnen sind. So kann \glqq \textit{Die Betrachtung des Studenten}\grqq etwa bedeuten, dass der Student etwas betrachtet. Genauso kann es jedoch sein, dass jemand anderes den Studenten betrachtet. 
 
-Eine andere häufige Fehlerquelle ist das korrekte Zuordnen von sprachlichen Bezügen. Betrachtet man die Frage \glqq Verkaufen Sie Handys und Computer von Samsung\grqq, so ist diese eindeutig grammatikalisch korrekt. Dennoch ist es uneindeutig, ob sich die Frage auf nach der Marke der Handys richtet, oder ob dies lediglich auf die Computer bezogen ist. 
+Eine andere häufige Fehlerquelle ist das korrekte Zuordnen von sprachlichen Bezügen. Betrachtet man die Frage \glqq \textit{Verkaufen Sie Handys und Computer von Samsung}\grqq, so ist diese eindeutig grammatikalisch korrekt. Dennoch ist es uneindeutig, ob sich die Frage auf nach der Marke der Handys richtet, oder ob dies lediglich auf die Computer bezogen ist. 
 
-Noch komplexer wird es, wenn sich diese Bezüge über verschieden Sätze bzw. Teilsätze erstrecken. So ist der Satz \glqq Tom schenkt Tim ein Fahrrad, weil er nett ist\grqq ebenfalls auf zwei verschieden Arten zu deuten. Einerseits kann es sein, das Tom das Fahrrad verschenkt, weil Tom ein netter Mensch ist, andererseits kann es sein, das Tom das Fahrrad verschenkt, weil Tim nett zu ihm ist. 
+Noch komplexer wird es, wenn sich diese Bezüge über verschieden Sätze bzw. Teilsätze erstrecken. So ist der Satz \glqq \textit{Tom schenkt Tim ein Fahrrad, weil er nett ist}\grqq ebenfalls auf zwei verschieden Arten zu deuten. Einerseits kann es sein, das Tom das Fahrrad verschenkt, weil Tom ein netter Mensch ist, andererseits kann es sein, das Tom das Fahrrad verschenkt, weil Tim nett zu ihm ist. 
 
 Weiterhin können auch bei der korrekten Erfassung des Sprachinhalts weitere Probleme die Kommunikation stark beeinflussen. So kann etwa die Intention der Sprache dem Inhalt widersprechen, wie es bei Sarkasmus üblicherweise der Fall ist. 
 
 Bei der Implementierung ergeben sich dann Probleme, trotz der sprachlichen Besonderheiten konsistente Regelmäßigkeiten als Grundlage zur Automatisierung zu finden. 
+
 \subsubsection{Linguistische Analyse}
 Um einen Text möglichst Fehlerfrei verarbeiten zu können bedarf es also einem kleinschrittigen und präzisen Verfahren. Dieses bezeichnet man als linguistische Analyse.
 
@@ -309,11 +310,11 @@ Output Processing - Der Text wird nun, nachdem dieser inhaltlich komplett erzeug
 
 Wie später gezeigt wird, kann die in dieser Arbeit beschriebene Entwicklung der Software-Prototypen als eine Umsetzung eben dieser NLP-Architektur verstanden werden.
 
-\subsection{Syntaktische Analyse von Wörtern und Sätzen}
+\subsection[Syntaktische Analyse]{Syntaktische Analyse von Wörtern und Sätzen}
 In diesem Abschnitt wird die Zerlegung der Syntax anhand logischer Modelle von Sprache beschrieben. Begonnen wird mit der einfachen Struktur und Zusammensetzung einzelner Wörter aus der Grammatik. Die Kombination aus Wortstämmen mit Prä- und Suffixen kann etwa in einem Lexikon gesucht werden, dass alle Wörter einer Sprache enthält.  Basierend auf dieser Morphologie eines Wortes kann dann in der Analyse mehrerer Wörter auf die Rolle von Wörtern im Satzzusammenhang geschlossen werden. 
 
 \subsubsection{Morphologie}
-Dieser Abschnitt befasst sich genauer mit der Analyse der Struktur und Zusammensetzung von Wörtern. Dies wird als morphologische Analyse bezeichnet. Wie im folgenden beschrieben, können auf dieser Basis logische Modelle wie etwa Automaten erstellt werden, die zulässige Wörter aus einer Sprache auf Basis grammatikalischer Regeln erzeugen können. Für ein besseres Verständnis der im Rahmen dieser Arbeit vorgestellten Ergebnisse beschränken wir uns in dieser Arbeit auf die vergleichsweise einfach strukturierte englische Sprache. Aufgrund der großen Fortschritte und Erfahrungen in der Sprachforschung, werden die folgenden Beispiele auf Englisch behandelt.
+Dieser Abschnitt befasst sich genauer mit der Analyse der Struktur und Zusammensetzung von Wörtern. Dies wird als morphologische Analyse bezeichnet. Wie im folgenden beschrieben, können auf dieser Basis logische Modelle wie etwa Automaten erstellt werden, die zulässige Wörter aus einer Sprache auf Basis grammatikalischer Regeln erzeugen können. Für ein besseres Verständnis der im Rahmen dieser Arbeit vorgestellten Ergebnisse beschränkt sich diese Arbeit auf die vergleichsweise einfach strukturierte englische Sprache. Aufgrund der großen Fortschritte und Erfahrungen in der Sprachforschung, werden die folgenden Beispiele auf Englisch behandelt.
 
 In der englischen Sprache besteht jedes Wort aus einem Wortstamm, sowie den sogenannten Affixen. In einem Satz könnte etwa das Wort \glqq \textit{believable} \grqq auftauchen. Das Wort stammt von der Grundform \glqq \textit{(to) believe} \grqq (zu Deutsch: \glqq glauben \grqq) ab. Das \textit{-able} stellt ein Suffix dar, also eine Wortendung. Zusammen mit den Präfixen, die dem Wortstamm vorangestellt sind, gehört \textit{-able} somit zur Kategorie der Affixe. 
 
@@ -354,19 +355,19 @@ Die Bestandteile von Wörtern können dabei in verschiedenen Lexika enthalten se
 
 Es ist zu beachten, dass die in der morphologischen Analyse verwendeten Buchstabierregeln zwar zu jeweils eindeutigen Ergebnissen kommen können, die Analyse selbst jedoch nicht eindeutig sein muss. Dies kann, wie bereits zuvor beschreiben, durch sprachliche Mehrdeutigkeiten entstehen. 
 
-Das Wort \glqq \textit{even}\grqq könnte isoliert etwa einmal als \textit{gleichmäßig}, also als Adjektiv kategorisiert, ins Deutsche übersetzt werden, jedoch auch sinngemäß \textit{sogar}, also das Adverb mit einem oder mehreren Bezugswörtern meinen.\footnote{Aus Gründen der Vereinfachung wurde sich hier auf zwei erkennbar verschiedene Bedeutungen beschränkt. Tatsächlich stellt sich neben Bestimmung des grammatikalischen Typs auch die Frage, ob sich die verschiedenen Übersetzungen derselben Kategorie, z.B. \textit{gerade} und \textit{gleichmäßig}, in ihrer Bedeutung im Sachzusammenhang unterscheiden.} Die mehreren möglichen Bedeutungen des einzelnen Wortes können jedoch in der Regel durch die Position und grammatikalische Funktion im Satz aufgelöst werden. Diese Eigenschaften werden durch das \textit{Part-of-Speech-Tagging} identifiziert.
+Das Wort \glqq \textit{even}\grqq könnte isoliert etwa einmal als \textit{gleichmäßig}, also als Adjektiv kategorisiert, ins Deutsche übersetzt werden, jedoch auch sinngemäß \textit{sogar}, also das Adverb mit einem oder mehreren Bezugswörtern meinen.\footnote{Aus Gründen der Vereinfachung wurde sich hier auf zwei erkennbar verschiedene Bedeutungen beschränkt. Tatsächlich stellt sich neben Bestimmung des grammatikalischen Typs auch die Frage, ob sich die verschiedenen Übersetzungen derselben Kategorie, z.B. \textit{even} als \textit{gerade} und \textit{gleichmäßig}, in ihrer Bedeutung im Sachzusammenhang unterscheiden.} Die mehreren möglichen Bedeutungen des einzelnen Wortes können jedoch in der Regel durch die Position und grammatikalische Funktion im Satz aufgelöst werden. Diese Eigenschaften werden durch das \textit{Part-of-Speech-Tagging} identifiziert.
 
 \subsubsection{Part-Of-Speech-Tagging}
 Die Ergebnisse der morphologischen Analyse von mehreren Wörtern, etwa in einem Satz, können zur Analyse von Zusammenhängen zwischen diesen Wörtern genutzt werden. Somit kann die grammatikalische Struktur des Satzes auf Basis der einzelnen Wörter dargestellt werden. Der grammatikalische Typ jedes Wortes wird durch das Part-Of-Speech-Tagging festgelegt und jedes Wort wird \textit{annotiert}. Wie später in dieser Arbeit beschrieben wird, dienen solche Annotationen in NLP-Werkzeugen der Sammlung der bekannten Informationen zu einem Wort oder Satz. 
 
-Zur Festlegung dieser grammatikalischen Funktionen werden sog. POS-Tagger eingesetzt, die verschiedene Worttypen als Kategorien beinhalten. Diese werden dann jedem Wort eines Satzes als Annotation hinzugefügt. Die Aufgabe ist es nun, die korrekte Funktion eines Wortes im Satz auf Basis der morphologischen Analyse zu identifizieren. 
+Zur Festlegung dieser grammatikalischen Funktionen werden sog. \textit{POS-Tagger} eingesetzt, die verschiedene Worttypen als Kategorien beinhalten. Diese werden dann jedem Wort eines Satzes als Annotation hinzugefügt. Die Aufgabe ist es nun, die korrekte Funktion eines Wortes im Satz auf Basis der morphologischen Analyse zu identifizieren. 
 
 Als Beispiel soll der Satz 
 \\
 \tt
 \\I love trains.\\
 \\ \rm 
-dienen. Das Wort \glqq \textit{trains}\grqq allein ist ein Nomen im Plural, jedoch könnte es sowohl das Subjekt, als auch das Objekt im Satz darstellen. im Im Englischen sollte ein POS-Tagger aber erkennen, dass \textit{Subjekt-Prädikat-Objekt} eine gültige Satzkonstruktion darstellt, die zu dem Beispielsatz passt. Dementsprechend entfällt die Möglichkeit von \textit{trains} als Subjekt, da es hinter einem Verb als Akkusativobjekt des Satzes auftaucht.
+dienen. Das Part-of-Speech tagging zum Wort \glqq \textit{trains}\grqq soll hier veranscheulicht werden. Das Wort \glqq \textit{trains}\grqq allein ist ein Nomen im Plural, jedoch könnte es sowohl das Subjekt, als auch das Objekt im Satz darstellen. im Im Englischen sollte ein POS-Tagger aber erkennen, dass \textit{Subjekt-Prädikat-Objekt} eine gültige Satzkonstruktion darstellt, die zu dem Beispielsatz passt. Dementsprechend entfällt die Möglichkeit von \textit{trains} als Subjekt, da es hinter einem Verb als Akkusativobjekt des Satzes auftaucht.
 
 Es existieren verschiedene Techniken für diese Beurteilungen der POS-Tagger. Verschiedene gültige Satzkonstruktionen sind häufig als sog. \textit{corpora} gespeichert. Diese stellen repräsentative Trainingsdaten dar, die beispielsweise aus der Zeitung \textit{Wall-Street-Journal} stammen. 
 In diesem Corpus könnten etwa die annotierten Sätze
@@ -379,19 +380,70 @@ I(subj) go(vb) home(obj) .(punc)\\
 \\ \rm
 enthalten sein.\footnote{Die tatsächliche Annotation kann durch POS-Tagger i.d.R. feiner erfolgen, sodass etwa Pronomen von Subjekten unterschieden werden. Auch können, wie später in dieser Arbeit gezeigt wird, eigene Annotationen bei Bedarf nach neuen Kategorien hinzugefügt werden. Der Corpus hier stellt ein stark vereinfachtes Beispiel dar. Ein ausführliches Beispiel unter der Verwendung der CLAWS-7-POS-Taggers findet sich in \cite{rs18}.}
 
-Mithilfe dieser Menge von Daten kann POS-Tagging auch heuristisch erfolgen, indem das Auftauchen verschiedener Satzbauten im Trainingscorpus gezählt wird. Auf dieser Basis können dann Wahrscheinlichkeiten für verschiedene Möglichkeiten berechnet werden, wenn es mehrere mögliche Zuordnungen gibt. 
+Mithilfe dieser Menge von Daten kann POS-Tagging auch heuristisch, d.h. auf Basis von Wahrscheinlichkeiten bzw. Metriken, erfolgen, indem das Auftauchen verschiedener Satzbauten im Trainingscorpus gezählt wird. Auf dieser Basis können dann Wahrscheinlichkeiten für verschiedene Möglichkeiten berechnet werden, wenn es mehrere mögliche Zuordnungen gibt. 
 
 \subsubsection{Nutzen syntaktischer Analyse für NLP}
 Ein wichtiges Einsatzgebiet für POS-Tagger ist auch die Wortvorhersage bzw. \textit{prediction} auf Basis solcher Heuristiken. Diese kann im Kontext der zuvor vorgenommen Annotationen von Wörtern erfolgen. Beispielsweise werden sog. \textit{n-gramme} verwendet, um unter Berücksichtigung der Annotation von \textit{n} gelesenen Wörtern die Möglichkeiten für das folgende Wort zu berechnen. In \cite{rs18} findet sich ein vollständiges Beispiel anhand eines \textit{Bigramms} mit Corpus.
 
-Die heutigen Verfahren zur syntaktischen Analyse nutzen zur Steigerung der Genauigkeit u.a. Verfahren aus dem maschinellen und automatisierten Lernen und können somit hohe Trefferquoten erzielen.\footnote{In \cite{she07} wird ein POS-Tagger auf der Basis von bidirektionaler Analyse und Machine-Learning zum Erstellen der Trainingsdaten beschrieben. Obwohl nur auf Basis der Textsyntax erzielt, sind die Ergebnisse zu 97,33\% korrekt.} Um ein tieferes Verständnis von Texten zu erzielen, reicht die in diesem Abschnitt beschriebene syntaktische Analyse anhand der Grammatik nicht aus. Die tatsächliche Abbildung von Wissen über semantische Zusammenhänge stellt eine verlässlichere Möglichkeit dar, sprachliche Zusammenhänge zu identifizieren. Mit diesem Ansatz beschäftigen sich die \textit{Ontologien} im folgenden Abschnitt.
+Die heutigen Verfahren zur syntaktischen Analyse nutzen zur Steigerung der Genauigkeit u.a. Verfahren aus dem maschinellen und automatisierten Lernen und können somit hohe Trefferquoten erzielen.\footnote{In \cite{she07} wird ein POS-Tagger auf der Basis von bidirektionaler Analyse und Machine-Learning zum Erstellen der Trainingsdaten beschrieben. Obwohl nur auf Basis der Textsyntax erzielt, sind die Ergebnisse zu 97,33\% korrekt.} Um ein tieferes Verständnis von Texten zu erzielen, reicht die in diesem Abschnitt beschriebene syntaktische Analyse anhand der Grammatik nicht aus. Die tatsächliche Abbildung von Wissen über semantische Zusammenhänge stellt eine verlässlichere Möglichkeit dar, sprachliche Zusammenhänge zu identifizieren. 
+
+\subsection{Umgang mit Semantik}
+Wie im letzten Abschnitt aufgezeigt wurde, können nicht alle Informationen aus einem Text eindeutig anhand der Erfassung der Grammatik eines Satzes extrahiert werden. Die Syntax eines Satzes ist häufig mehrdeutig, da der Zusammenhang einzelner Wörter verschieden interpretiert werden kann. Auf der semantischen Ebene, d.h. der Bedeutung, existieren jedoch bereits bei einzelnen Wörtern verschiedene Deutungen. 
+
+Schon bei der Mensch-Mensch-Kommunikation kommt es somit häufig zu Missverständnisse, wenn die Bedeutung hinter einer Aussage nicht eindeutig ist. Auf Basis des Kontextes einer Aussage bzw. der Domäne des Inhalts kann jedoch meist zu einer mehrdeutigen Aussage eine eindeutige Deutung identifiziert werden.
+
+NLP beschäftigt sich daher auch intensiv mit der Abbildung und Modellierung der Semantik von Sprache, die in der Logik häufig als \glqq \textit{Logik einer Aussage}\grqq bezeichnet wird.\footnote{Bereits in den 1980er Jahren wurden Konzepte auf Basis logischer Modelle, mit denen Semantik abgebildet werden kann, mithilfe von Theorembeweisern und Model-Checking beschrieben. \cite{sb88} \cite{kn85}} Die Formalisierung mehrerer Bedeutungen kann dabei mithilfe von Symbolen der Aussagenlogik erfolgen, die Symbole dienen dabei als Platzhalter für Wörter bzw. Satzteile. Etwa das Beispiel aus \cite{rs18}:
+
+\tt
+Every man loves a woman.
+\rm
+\\
+Zu deutsch \textit{\glqq  Jeder Mann liebt...\grqq{}} ist semantisch mehrdeutig zwischen  
+\begin{enumerate}
+\item \textit{\glqq  ...die eine Frau\grqq{}}: $\exists y [woman'(y) \bigwedge \forall x [man'(x) \Rightarrow love'(x,y)]]$ und
+\item \textit{\glqq  ...irgendeine Frau\grqq{}}: $\forall x [man'(x) \Rightarrow \exists y [woman'(y) \bigwedge love'(x,y)]]$
+\end{enumerate}
+
+Bereits durch den Menschen fällt die Deutung anhand von Symbolen der Aussagenlogik nicht leicht. Daher wurden verschiedene Arten von Zusammenhängen, u.a. auf Basis von Symbolen der Mengenlehre, anhand welcher die Deutung vereinfacht und klarer erkennbar wird. 
+
+\subsubsection{Meaning-Postulates}
+Linguisten und Philosophen haben Regeln für die Abbildung von Zusammenhängen auf eindeutige Kategorien formalisiert. Dabei wurden verschiedene Bedeutungen von Wortzussammenhängen identifiziert, die als (Bedeutungs-)Mengenbeziehung bzw. Relation zwischen Symbolen visualisiert werden können \cite{car52}:
+
+\begin{enumerate}
+\item \textit{Meaning-Postulates}: A beinhaltet B und C
+
+Der Begriff A setzt sich logisch aus der Relation zwischen B und C zusammen, etwa:
+
+$\forall x[bachelor(x)\Rightarrow man(x)\bigwedge unmarried(x)]$
+
+sinngemäß:\glqq \textit{Ein Junggeselle ist ein Mann und nicht verheiratet}.\grqq
+
+\item \textit{Hyponomy}: A ist ein B
+
+\tt
+Ein Hund ist ein Tier. 
+\rm
+
+Also hat ein Hund auch alle Eigenschaften eines Tieres. Auf Basis solchen Wissens kann eine Kategorisierung erfolgen bzw. lassen sich verscheidene Ausprägungen der gleichen Sache zusammengefassen \cite{rs18}.
+
+\item \textit{Meronymy}: A $\subseteq$ B, A ist Teil von B
+
+\item \textit{Synonymy}: A $\equiv$ B, A ist semantisch äquivalent zu B
+
+\item \textit{Antonymy}: A $\equiv \neg$B, A bedeutet das Gegenteil von B
+\end{enumerate}
+
+Feinheiten der Deutung, wie etwa der Unterschied von \glqq \textit{A semantisch äquivalent zu B}\grqq{} zu \glqq \textit{A ist ein B}\grqq{} müssen dabei während der Erstellung semantischer Modelle unterschieden werden, da die Kategorisierung sonst zu grob ausfällt. Es können sonst falsche Zusammenhänge und Beziehungen entstehen, die Fehlinterpretationen der Aussagen erzeugen.
+
+In der Praxis stellt sich daher die Frage, in welchem Umfang Semantiken für NLP tatsächlich für eine Verbesserung der Textanalyse sorgen und wie detailliert eine Modellierung dazu erfolgen muss. Mit diesem Ansatz beschäftigen sich die \textit{Ontologien} in Kapitel 2.2.
+
+\subsubsection{}
 
 \section{Ontologien}
 
 Dieser Abschnitt befasst sich genauer mit dem Begriff der Ontologien im Kontext der Informatik. 
 
 \subsection{Definition}
-
 Ontologien lassen sich allgemein definieren als \glqq formale, schematische Abbildungen eines Wissensbereichs, bestehend aus einem Vokabular und Regeln zu seiner Zusammensetzung\grqq \cite{we13}.
 
 Zunächst bedeutet dies, dass eine Ontologie stets auf nur Wissen aus einer bestimmten Domäne zusammenfasst und nicht versucht das gesamte bzw. sehr allgemeines Wissen abzubilden. 
@@ -436,19 +488,20 @@ Außerdem wurden zwei Objekt-Attribute (\textit{object properties}) manuell hinz
 NACHSCHAUEN WEGEN VERERBUNG AUF INSTANZEN.
 
 \section{Verwandte Arbeiten}
-Dieses Kapitel stellt einen Überblick über bereits veröffentlichte Arbeiten dar, die sich mit dem Themen Natural Language Processing für Anforderungsmanagement, sowie die Unterstützung durch Firmenprozesse beim Requirements-Engineering befassen. 
+Dieses Kapitel stellt einen Überblick über bereits veröffentlichte Arbeiten dar, die sich mit dem Themen Natural Language Processing für Anforderungsmanagement, sowie die Unterstützung durch Werkzeuge beim Requirements-Engineering befassen. 
 
 \subsubsection{Grundlage dieser Arbeit}
 K. Zichler und S. Helke stellen in \cite{zh17} und \cite{zh19} die wesentlichen Aspekte für den Entwurf einer Softwareunterstützung für Requirements-Engineering in Firmen vor. 
 
 In \cite{zh17} wird zunächst der Bedarf nach solcher Unterstützung besonders für die Automobilindustrie beschrieben, da die Verbesserung herkömmlicher Methoden im Requirements-Engineering dort wesentliches Potential bietet. Der Vorschlag beinhaltet die Unterstützung von Projektteams durch ein Expertenteam aus Requirements-Experten, die Anforderungen aufbereiten und deren konsistente Umsetzung verbessern. 
->>>>>>> 3b4eab19e0b4f246ee54630caac1f653691248c9
 
-Auf dieser Basis stellen sie in \cite{zh19} konkret einen Entwurf eines Werkzeugs für die automatisierte Analyse von Projektlastenheften vor. Diese basiert dabei auf der Open-Source-Software GATE zur sprachlichen Auswertung und soll als 3-Schichten-Architektur umgesetzt werden. 
+Auf dieser Basis stellen sie in \cite{zh19} konkret einen Entwurf eines Werkzeugs für die automatisierte Analyse von Projektlastenheften vor. Diese basiert dabei auf der Open-Source-Software \textit{GATE} zur sprachlichen Auswertung und soll als 3-Schichten-Architektur umgesetzt werden. 
 
-Diese Arbeiten stellen die wesentliche Grundlage für die in unserer Arbeit entworfenen Prototypen dar. Die Implementierung erfolgte in Zusammenarbeit mit dem Autoren Konstantin Zichler bei der Firma HELLA, die den konkreten Use-Case für seine Entwürfe und unsere Umsetzung dargestelt hat.
+Diese Arbeiten stellen die wesentliche Grundlage für die in unserer Arbeit entworfenen Prototypen dar. Die Implementierung erfolgte in Zusammenarbeit mit dem Autoren Konstantin Zichler bei der Firma HELLA, die den konkreten Anwendungsfall für seine Entwürfe und unsere Umsetzung dargestelt hat.
 
 RESTQUELLEN
+
+
 Dabei ist anzumerken, dass eine Vielzahl von Arbeiten das Verbessern von Requirements mithilfe von Schablonen zum Thema haben, sich diese jedoch auf eine Unterstützung bei der Formulierung von Anforderungen beschränken. Das Ziel einer automatisierten Verbesserung und Anpassung bestehender Anforderungen spiegelt sich dort nicht wieder.
 
 fassen wesentliche Erkenntnisse zusammen
@@ -495,12 +548,15 @@ In diesem Abschnitt wird die Einordnung unseres Prototypen als NLP-Werkzeug in d
 \chapter{Notizen}
 \begin{enumerate}
 \item UML-Klassendiagramme im Vergleich zu Ontologien (Struktur, Beziehungen, Informatik-Bezug)
+\item Nutzen von Ontologien, welcher Mehrwert kommt zur syntax durch sie hinzu?
+\item Betriebliche Anforderungen an Tool: ACID aus DB? Quelle zu Anforderungen an Werkzeuge für Betriebe?
 \end{enumerate}
 
 \newpage
 \begin{thebibliography}{20}
 \bibitem[AWK06]{awk06} Christian Allmann, Lydia Winkler, Thorsten Kölzow. \glqq The requirements engineering gap in the OEM-supplier relationship.\grqq , Journal of Universal Knowledge Management 1.2 (2006): 103-111.
 \bibitem[BAL10]{bal10}Helmut Balzert. \glqq Lehrbuch der softwaretechnik: Basiskonzepte und requirements engineering.\grqq , Springer-Verlag, 2010.
+\bibitem[CAR52]{car52}Rudolf Carnap, \glqq  Meaning Postulates.\grqq{} , Philospohical Studies vol.3 S.65-73, 1952.
 \bibitem[CHO57]{cho57} Noam Chomsky, \glqq  Syntactic Structures\grqq{} , Mouton \& Co., Feb. 1957.
 \bibitem[COP04]{cop04}Ann Copestake, University Of Cambridge, \glqq Natural Language Processing\grqq , 2004.
 \bibitem[DGE19]{dge19} Deutsche Gesellschaft für 
@@ -509,9 +565,11 @@ EMV-Technologie e.V. \glqq CRS Customer Requirements Specification\grqq, aus htt
 \bibitem[HAO14]{hao14}Hao Wu, et al. \glqq  ILLINOISCLOUDNLP: Text Analytics Services in the Cloud.\grqq{}  LREC. 2014.
 \bibitem[HL01]{hl01} Hubert F. Hofmann, Franz Lehner. \glqq Requirements engineering as a success factor in software projects.\grqq IEEE software 4 (2001): 58-66.
 \bibitem[IR09]{ir09}BGH, \glqq Urteil vom 6. Juli 2000, I ZR 244/97\grqq Artikel beim Institut für Rechtsinformatik von der Universität des Saarlandes, 13. Oktober 2009
+\bibitem[KN85]{kn85}Kapur, Deepak, and Paliath Narendran. \glqq  An equational approach to theorem proving in first-order predicate calculus.\grqq{}  ACM SIGSOFT Software Engineering Notes 10.4 (1985): 63-66
 \bibitem[LV10]{lv10}F. Langenscheidt, B. Venohr. \glqq Lexikon der deutschen Weltmarktführer: Die Königsklasse deutscher Unternehmen in Wort und Bild.\grqq ,  Deutsche Standards–Gabal Verlag Google Scholar (2010).
 \bibitem[MW02]{mw02}Matthias Weber, Joachim Weisbrod. \glqq Requirements engineering in automotive development-experiences and challenges.\grqq , Requirements Engineering, 2002. Proceedings. IEEE Joint International Conference on. IEEE, 2002.
 \bibitem[RS18]{rs18}Felix Ritter, Aaron Schul. \glqq Analyse aktueller NLP-Methoden und -Werkzeuge am Beispiel von GATE, Projektarbeit Fachhochschule Dortmund 2018 \grqq , 18.11.2018
+\bibitem[SB88]{sb88}Muggleton, Stephen, and Wray Buntine. \glqq  Machine invention of first-order predicates by inverting resolution.\grqq{}  Machine Learning Proceedings 1988. 1988. 339-352
 \bibitem[SHE07]{she07} L. Shen, G. Satta, A. K. Joshi. In Meeting of the Association for Computational Linguistics (ACL), \glqq  Guided learning for bidirectional sequence classification\grqq{} , 2007.
 \bibitem[WE13]{we13}Weller, Katrin. "Ontologien." (2013): 207-218.
 
