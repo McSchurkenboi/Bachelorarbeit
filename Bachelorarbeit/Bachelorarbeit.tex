@@ -518,16 +518,33 @@ K. Zichler und S. Helke stellen in \cite{zh17} und \cite{zh19} die wesentlichen 
 
 In \cite{zh17} wird zunächst der Bedarf nach solcher Unterstützung besonders für die Automobilindustrie beschrieben, da die Verbesserung herkömmlicher Methoden im Requirements-Engineering dort wesentliches Potential bietet. Der Vorschlag beinhaltet die Unterstützung von Projektteams durch ein Expertenteam aus Requirements-Experten, die Anforderungen aufbereiten und deren konsistente Umsetzung verbessern. 
 
-Auf dieser Basis stellen sie in \cite{zh19} konkret einen Entwurf eines Werkzeugs für die automatisierte Analyse von Projektlastenheften vor. Diese basiert dabei auf der Open-Source-Software \textit{GATE} zur sprachlichen Auswertung und soll als 3-Schichten-Architektur umgesetzt werden. 
+Auf dieser Basis stellen sie in \cite{zh19} konkret einen Entwurf eines Werkzeugs für die automatisierte Analyse von Projektlastenheften vor. Das Werkzeug gliedert sich dabei in eine Komponente zur Überführung natürlichsprachlicher Anforderungen in vordefinierte Sprachschablonen, genannt Requirements-to-Boilerplate-Converter (\textit{R2BC}). Auf dieser Basis arbeitet dann der \textit{Delta-Analyser} der die Unterschiede zwischen mehreren Lastenheften, die in Schablonen überführt sind, darstellen kann. Dabei kommen auch Ontologien und NLP-Methoden zum Einsatz. Die Prototypen basieren dabei auf der Open-Source-Software \textit{GATE} zur sprachlichen Auswertung und sollen als 3-Schichten-Architektur umgesetzt werden. 
 
 Diese Arbeiten stellen die wesentliche Grundlage für die in unserer Arbeit entworfenen Prototypen dar. Die Implementierung erfolgte in Zusammenarbeit mit dem Autoren Konstantin Zichler bei der Firma HELLA, die den konkreten Anwendungsfall für seine Entwürfe und unsere Umsetzung dargestelt hat.
 
-RESTQUELLEN
+\vspace{12pt}
 
+Es ist anzumerken, dass eine Vielzahl betrachteter Arbeiten das Verbessern von Requirements mithilfe von Schablonen zum Thema haben, sich diese jedoch auf eine Unterstützung bei der Formulierung von Anforderungen beschränken. Eine Umsetzung einer automatisierten Verbesserung und Anpassung bestehender Anforderungen wird häufig zwar umrissen, jedoch selten implementiert bzw. real getestet.
 
-Dabei ist anzumerken, dass eine Vielzahl von Arbeiten das Verbessern von Requirements mithilfe von Schablonen zum Thema haben, sich diese jedoch auf eine Unterstützung bei der Formulierung von Anforderungen beschränken. Das Ziel einer automatisierten Verbesserung und Anpassung bestehender Anforderungen spiegelt sich dort nicht wieder.
+\subsubsection{Literatur}
+In \cite{kr93} untersuchte Kevin Ryan bereits vor modernen Entwicklungen im Bereich NLP in die Möglichkeiten einer Unterstützung von Requirements-Engeneering durch natürlichsprachliche Analyse (NLP). Dabei weist er auf die Vorteile einer formalen Einschränkung bereits bei der Spezifikation von Anforderungen hin, womit die Möglichkeit einer Fehlinterpretation vermindert wird. Ryan stuft jedoch auch die Verifikation von Anforderungen durch NLP als geeignet ein, um Konsistenz und Eindeutigkeit der Anforderungen zu gewährleisten. Dazu generieren sie Schemas aus der Analyse der Anforderungen, die dann inhaltlich mit neu dazukommenden Anforderungen im späteren Entwicklungsprozess abgeglichen werden können. Auch schlägt er die Einteilung besonders von Text im Anforderungsdokument in Kategorien vor, damit die Sichtbarkeit von Anforderungen verbessert wird.
 
-fassen wesentliche Erkenntnisse zusammen
+\vspace{12pt}
+
+In \cite{sf11} beschäftigen sich Farfelder et. al mit der Unterstützung von Requirements-Experten bei der Anforderungsspezifikation durch vorgefertigte Sprachschablonen und Ontologien, womit Fehler bei der Konsistenz von Anforderungen vermeiden werden. Sie stellen das Tool \textit{DODT} vor, dass als Alternative zur natürlichsprachlichen Formulierung das Erstellen von Anforderungen anhand von Schablonen anbietet, aus denen der Nutzer im Programm auswählen kann. Dabei greift das Werkzeug auf eine Ontologie zu, welche alle möglichen Begriffe zum Einsetzen in die Schablone enthält. Die Eintragungen des Nutzers stellen dann eine Anforderung dar, die in der Ontologie gespeichert wird.
+
+\vspace{12pt}
+
+In \cite{fh14} wird das Vorgehen für die Dokumentation und logische Einordnung von funktionalen Anforderungen mithilfe von Sprachschablonen beschrieben. Dazu werden aus den Anforderungen für jedes Gesamtsystem zunächst die einzelnen Komponenten benannt und einzeln anhand ihrer Eigenschaften gespeichert. Die einzelnen Komponenten des Modells können dann in Beziehung zueinander gesetzt werden. Auf Basis der einzelnen Komponenten und der Beziehungen kann dann ein Netz aus allen Komponenten des Gesamtsystems erstellt werden. Zur Erstellung dieser formalen Modelle mittels verschiedener Sprachschablonen haben sie das Werkzeug \textit{ReqPat} entwickelt, das als Erweiterung in Anforderungsmanagament-Programmen wie \textit{IBM Rational-DOORS} integriert werden kann. Ferner kann zur grafischen Darstellung des erstellten Modells ein Export aus Reqpat in UML-Diagramme erfolgen.
+
+\vspace{12pt}
+
+\cite{ca15} beinhaltet einen Vorschlag für das automatisierte Überführen von natürlichsprachlichen Anforderungen in Sprachschablonen mittels NLP. Sie stellen eine Methode vor, die sprachliche Muster in den Anforderungen erkennt und daraus eine Grammatik in Backus-Naur-Form (BNF) erzeugt. Diese Grammatik kann somit zulässige Sätze in einem Anforderungsdokument anhand der Satzbausteine erzeugen bzw. finden. Durch die Übersetzung in eine JAPE-Regel kann auf dieser Basis die Erkennung der gefundenen sprachlichen Regeln durch das NLP-Werkzeug GATE erfolgen, das die Konformität der Anforderungen auf Basis der Regeln prüft. 
+
+\vspace{12pt}
+
+Heßeler et. al untersuchen in \cite{he13} formale Prozesse für das Anforderungsmanagement in Unternehmen. Sie zeigen die möglichen Verbesserungen  des projektbezogenen Requirements-Engineerings durch die Definition verschiedener Rollen für die beteiligten Entwickler auf. Dabei beschreiben sie explizit Kriterien für die Auswahl von Tools für eine Werkzeugunterstützung der Requirements-Engineers in Firmenr. Konkret beschreiben sie Werkzeuge für die Unterstützung der Formulierung von Anforderungen bzw. für die Verifikation von Anforderungen mithilfe grafischer Modelle. Das Tool \textit{DOORS Telematic} dient dabei zur Sammlung von Anforderungen und der Verknüpfung durch Relationen in einer Datenbank, die alle Anforderungen hierarchisch enthält. Tau Generation2 wird für die Visualisierung von Sytemeigenschaften in UML2.0-Diagrammen und für den Export als DOORS-Objekte in die Anforderungs-Datenbank genutzt.
+
 \chapter{Betriebliches Umfeld - Hella Use-Case}
 Im betrieblichen Umfeld liegen zu Beginn jeden Entwicklungsprojektes für neue Produkte die Aufgaben und Ziele für die Entwicklung als Dokumente vor. Forschungsergebnisse finden Anwendung in der Vorentwicklungsphase, in der die Eignung der Erkenntnisse für neue Produkte eines Unternehmens evaluiert wird. Die Produktentwicklung unterliegt dabei bestimmten Kriterien und Faktoren, die den unternehmerischen Erfolg beeinflussen. Neben betriebswirtschaftlichen Einflüssen wie der Einordnung des Produktes in der Wertschöpfungskette sind es dabei besonders technische Anforderungen an das Produkt, die definiert und während der Produktentwicklung eingehalten werden müssen. Verschiedenste Akteure aus einem Umternehmen sind dabei an der Festlegung der Anforderungen an ein Entwicklungsprojekt bzw. Produkt beteiligt. 
 
@@ -539,7 +556,8 @@ Die Anforderungen an das Produkt, etwa technische Rahmenbedingungen, werden dabe
 Durch diese fachliche Breite und Tiefe der Spezifikationen im Pflichtenheft, aber auch durch den Umfang des Lastenheftes von mehreren tausend Seiten, kommt es häufig insbesondere zu Verständnisproblemen auf Seite des Zulieferers. Die Gewichtung einzelner Anforderungen in einem größeren Systemkontext fällt dort schwer, da nun Projektteammitglieder, die an der Entstehung des Lastenheftes nicht beteiligt waren, dieses verstehen und ein Produkt entwickeln sollen, dass möglichst alle Anforderungen berücksichtigt. In Texten muss also nach Zusammenhängen und Bezügen zwischen mehreren Anforderungen gesucht werden, damit die Korrektheit des späteren Produktes gewährleistet ist.
 
 Die Analyse von Zusammenhängen zwischen Anforderungen stellt dabei aus Gründen der Effizienz ein Problem dar, wenn jeder Beteiligte von Hand die für ihn relevanten Anforderungen aus dem Lastenheft extrahieren muss. Auch müssen die Lastenhefte an die Formulierungen und Ausdrucksweisen für Requirements-Management im Unternehmen angepasst werden. Bislang gibt es jedoch kaum Werkzeugunterstützung, die effiziente Möglichkeiten zur automatisierten Überarbeitung und Anpassung einzelner Anforderungen aus dem Dokument bietet. Ansätze aus dem \textit{Natural-Language-Proessing} (NLP) stellen gleichzeitig vielversprechende Forschungsfelder in der Informatik dar, die eine solche automatisierte Verarbeitung auf Basis von Sprachanalyse ermöglichen. Syntax und Semantik der einzelnen Sätze und Zusammenhänge in Texten können auf Basis aktueller Trends wie Machine-Learning und dynamischer Programmierung zunehmend besser abgebildet werden.
-\section{Re-Prozesse bei Hella und allgemein in Firmen}
+\section{Allgemeines zur Firma}
+\section{Signifikanz und Methoden von Requirements-Engineering innerhalb der Firma}
 \section{Betriebliche Anforderungen}
 \section{Ansatz und Konzept unserer Werkzeuge}
 \chapter{R2B-Converter}
@@ -578,21 +596,25 @@ In diesem Abschnitt wird die Einordnung unseres Prototypen als NLP-Werkzeug in d
 \newpage
 \begin{thebibliography}{20}
 \bibitem[AWK06]{awk06} Christian Allmann, Lydia Winkler, Thorsten Kölzow. \glqq The requirements engineering gap in the OEM-supplier relationship.\grqq , Journal of Universal Knowledge Management 1.2 (2006): 103-111.
+\bibitem[CA15]{ca15}Arora, Chetan, et al. \glqq Automated checking of conformance to requirements templates using natural language processing.\grqq{} IEEE transactions on Software Engineering 41.10 (2015): 944-968.
 \bibitem[BAL10]{bal10}Helmut Balzert. \glqq Lehrbuch der softwaretechnik: Basiskonzepte und requirements engineering.\grqq , Springer-Verlag, 2010.
 \bibitem[CAR52]{car52}Rudolf Carnap, \glqq  Meaning Postulates.\grqq{} , Philospohical Studies vol.3 S.65-73, 1952.
 \bibitem[CHO57]{cho57} Noam Chomsky, \glqq  Syntactic Structures\grqq{} , Mouton \& Co., Feb. 1957.
 \bibitem[COP04]{cop04}Ann Copestake, University Of Cambridge, \glqq Natural Language Processing\grqq , 2004.
-\bibitem[DGE19]{dge19} Deutsche Gesellschaft für 
-EMV-Technologie e.V. \glqq CRS Customer Requirements Specification\grqq, aus https://www.demvt.de/publish/viewfull.cfm?ObjectID=ba9a0878\_e081\\ \_515d\_74a3411df6771be8, abgerufen am 09.01.19.
+\bibitem[DGE19]{dge19} Deutsche Gesellschaft für EMV-Technologie e.V. \glqq CRS Customer Requirements Specification\grqq, aus https://www.demvt.de/publish/viewfull.cfm?ObjectID=ba9a0878\_e081\\ \_515d\_74a3411df6771be8, abgerufen am 09.01.19.
+\bibitem[FH14]{fh14} Fockel, Markus, and Jörg Holtmann. \glqq A requirements engineering methodology combining models and controlled natural language.\grqq{} Model-Driven Requirements Engineering Workshop (MoDRE), 2014 IEEE 4th International. IEEE, 2014.
 \bibitem[HE19]{he19}Firma HELLA. \glqq Unternehmensinformationen in Kürze.\grqq , aus https://www.hella.com/hella-com/de/HELLA-im-Ueberblick-723.html, abgerufen am 09.01.19.
-\bibitem[HAO14]{hao14}Hao Wu, et al. \glqq  ILLINOISCLOUDNLP: Text Analytics Services in the Cloud.\grqq{}  LREC. 2014.
+\bibitem[HAO14]{hao14} Hao Wu, et al. \glqq  ILLINOISCLOUDNLP: Text Analytics Services in the Cloud.\grqq{}  LREC. 2014.
+\bibitem[HE13]{he13} Alexander Heßeler, et al. \glqq Anforderungsmanagement: Formale Prozesse, Praxiserfahrungen, Einführungsstrategien und Toolauswahl.\grqq{} Springer-Verlag, 2013.
 \bibitem[HL01]{hl01} Hubert F. Hofmann, Franz Lehner. \glqq Requirements engineering as a success factor in software projects.\grqq IEEE software 4 (2001): 58-66.
 \bibitem[IR09]{ir09}BGH, \glqq Urteil vom 6. Juli 2000, I ZR 244/97\grqq Artikel beim Institut für Rechtsinformatik von der Universität des Saarlandes, 13. Oktober 2009
 \bibitem[KN85]{kn85}Kapur, Deepak, and Paliath Narendran. \glqq  An equational approach to theorem proving in first-order predicate calculus.\grqq{}  ACM SIGSOFT Software Engineering Notes 10.4 (1985): 63-66
+\bibitem[KR93]{kr93}Ryan, Kevin. "The role of natural language in requirements engineering." Proceedings of the IEEE International Symposium on Requirements Engineering. IEEE, 1993.
 \bibitem[LV10]{lv10}F. Langenscheidt, B. Venohr. \glqq Lexikon der deutschen Weltmarktführer: Die Königsklasse deutscher Unternehmen in Wort und Bild.\grqq ,  Deutsche Standards–Gabal Verlag Google Scholar (2010).
 \bibitem[MW02]{mw02}Matthias Weber, Joachim Weisbrod. \glqq Requirements engineering in automotive development-experiences and challenges.\grqq , Requirements Engineering, 2002. Proceedings. IEEE Joint International Conference on. IEEE, 2002.
 \bibitem[RS18]{rs18}Felix Ritter, Aaron Schul. \glqq Analyse aktueller NLP-Methoden und -Werkzeuge am Beispiel von GATE, Projektarbeit Fachhochschule Dortmund 2018 \grqq , 18.11.2018
 \bibitem[SB88]{sb88}Muggleton, Stephen, and Wray Buntine. \glqq  Machine invention of first-order predicates by inverting resolution.\grqq{}  Machine Learning Proceedings 1988. 1988. 339-352
+\bibitem[SF11]{sf11} Farfeleder, Stefan, et al. \glqq DODT: Increasing requirements formalism using domain ontologies for improved embedded systems development. \grqq{} Design and Diagnostics of Electronic Circuits \& Systems (DDECS), 2011 IEEE 14th International Symposium on. IEEE, 2011.
 \bibitem[SHE07]{she07} L. Shen, G. Satta, A. K. Joshi. In Meeting of the Association for Computational Linguistics (ACL), \glqq  Guided learning for bidirectional sequence classification\grqq{} , 2007.
 \bibitem[WE13]{we13}Weller, Katrin. "Ontologien." (2013): 207-218.
 
