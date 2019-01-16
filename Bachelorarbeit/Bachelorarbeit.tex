@@ -570,8 +570,6 @@ Die Anforderungen an das Produkt, etwa technische Rahmenbedingungen, werden dabe
 Durch diese fachliche Breite und Tiefe der Spezifikationen im Pflichtenheft, aber auch durch den Umfang des Lastenheftes von mehreren tausend Seiten, kommt es häufig insbesondere zu Verständnisproblemen auf Seite des Zulieferers. Die Gewichtung einzelner Anforderungen in einem größeren Systemkontext fällt dort schwer, da nun Projektteammitglieder, die an der Entstehung des Lastenheftes nicht beteiligt waren, dieses verstehen und ein Produkt entwickeln sollen, dass möglichst alle Anforderungen berücksichtigt. In Texten muss also nach Zusammenhängen und Bezügen zwischen mehreren Anforderungen gesucht werden, damit die Korrektheit des späteren Produktes gewährleistet ist.
 
 Die Analyse von Zusammenhängen zwischen Anforderungen stellt dabei aus Gründen der Effizienz ein Problem dar, wenn jeder Beteiligte von Hand die für ihn relevanten Anforderungen aus dem Lastenheft extrahieren muss. Auch müssen die Lastenhefte an die Formulierungen und Ausdrucksweisen für Requirements-Management im Unternehmen angepasst werden. Bislang gibt es jedoch kaum Werkzeugunterstützung, die effiziente Möglichkeiten zur automatisierten Überarbeitung und Anpassung einzelner Anforderungen aus dem Dokument bietet. Ansätze aus dem \textit{Natural-Language-Proessing} (NLP) stellen gleichzeitig vielversprechende Forschungsfelder in der Informatik dar, die eine solche automatisierte Verarbeitung auf Basis von Sprachanalyse ermöglichen. Syntax und Semantik der einzelnen Sätze und Zusammenhänge in Texten können auf Basis aktueller Trends wie Machine-Learning und dynamischer Programmierung zunehmend besser abgebildet werden.
-\section{Allgemeines zur Firma}
-\section{Signifikanz und Methoden von Requirements-Engineering innerhalb der Firma}
 \section{Allgemeines zu HELLA}
 In diesem Abschnitt wird zur besseren Einordnung die Firma HELLA kurz beschrieben. Dies beinhaltet die Geschichte von HELLA und die momentane Aufstellung des Unternehmens. \cite{he18} \cite{he19}
 
@@ -589,9 +587,14 @@ Nach dem Geschäftsjahr 2017/2018 werden insgesamt über 40.000 Mitarbeiter besc
 
 So konnte HELLA in diesem Geschäftsjahr fast 7,1 Milliarden Euro Umsatz verbuchen, wovon ca. ein drittel außerhalb des europäischen Marktes erzielt wurde. Damit gehört HELLA international zu den Top 40 der weltweiten Automobilzulieferer und befindet sich unter den Top 100 der größten deutschen Industrieunternehmen. 
 
-
-\section{Re-Prozesse bei Hella und allgemein in Firmen}
+\section{Requirements-Engineering innerhalb der Firma}
+\subsubsection{pmt abteilung, status quo der prozesse}
+\subsubsection{status quo des re-prozesses, schaubilder des todes interner shit}
+\subsubsection{use-case / problematik im geteilten entwicklungsprozess, schaubilder 2 oem-hella-allesläuftuncremig, schlechte absprache...}
 \section{Betriebliche Anforderungen}
+\subsubsection{kriterien der qualität von Anforderungen LITERATUR correctness completeness consistency, talk mit colin, flussdiagramm}
+\subsubsection{Aspekte für den entwurf der werkzeugunterstützung, ziele?}
+\subsubsection{konkrete anforderungen für tool}
 \section{Ansatz und Konzept unserer Werkzeuge}
 \chapter{R2B-Converter}
 \section{Architektur Klassen und Verteilung der Ressourcen}
@@ -635,13 +638,10 @@ In diesem Abschnitt wird die Einordnung unseres Prototypen als NLP-Werkzeug in d
 \bibitem[CHO57]{cho57} Noam Chomsky, \glqq  Syntactic Structures\grqq{} , Mouton \& Co., Feb. 1957.
 \bibitem[COP04]{cop04}Ann Copestake, University Of Cambridge, \glqq Natural Language Processing\grqq , 2004.
 \bibitem[DGE19]{dge19} Deutsche Gesellschaft für EMV-Technologie e.V. \glqq CRS Customer Requirements Specification\grqq, aus https://www.demvt.de/publish/viewfull.cfm?ObjectID=ba9a0878\_e081\\ \_515d\_74a3411df6771be8, abgerufen am 09.01.19.
+\bibitem[FF11]{ff11} Farfeleder, Stefan, et al. \glqq DODT: Increasing requirements formalism using domain ontologies for improved embedded systems development. \grqq{} Design and Diagnostics of Electronic Circuits \& Systems (DDECS), 2011 IEEE 14th International Symposium on. IEEE, 2011.
 \bibitem[FH14]{fh14} Fockel, Markus, and Jörg Holtmann. \glqq A requirements engineering methodology combining models and controlled natural language.\grqq{} Model-Driven Requirements Engineering Workshop (MoDRE), 2014 IEEE 4th International. IEEE, 2014.
-\bibitem[HE19]{he19}Firma HELLA. \glqq Unternehmensinformationen in Kürze.\grqq , aus https://www.hella.com/hella-com/de/HELLA-im-Ueberblick-723.html, abgerufen am 09.01.19.
 \bibitem[HAO14]{hao14} Hao Wu, et al. \glqq  ILLINOISCLOUDNLP: Text Analytics Services in the Cloud.\grqq{}  LREC. 2014.
 \bibitem[HE13]{he13} Alexander Heßeler, et al. \glqq Anforderungsmanagement: Formale Prozesse, Praxiserfahrungen, Einführungsstrategien und Toolauswahl.\grqq{} Springer-Verlag, 2013.
-\bibitem[DGE19]{dge19} Deutsche Gesellschaft für 
-EMV-Technologie e.V. \glqq CRS Customer Requirements Specification\grqq, aus https://www.demvt.de/publish/viewfull.cfm?ObjectID=ba9a0878\_e081\\ \_515d\_74a3411df6771be8, abgerufen am 09.01.19.
-\bibitem[HAO14]{hao14}Hao Wu, et al. \glqq  ILLINOISCLOUDNLP: Text Analytics Services in the Cloud.\grqq{}  LREC. 2014.
 \bibitem[HE18]{he18} HELLA Geschäftsbericht des Geschäftsjahres 2017/2018, von https://www.hella.com/hella-com/assets/media\_global/2018.08.10\_HELLA\_Geschaeftsbericht\_2018\_geschuetzt.pdf, aufgerufen am 16.01.2019
 \bibitem[HE19]{he19}Firma HELLA. \glqq Unternehmensinformationen in Kürze.\grqq , aus https://www.hella.com/hella-com/de/HELLA-im-Ueberblick-723.html, abgerufen am 09.01.19.
 \bibitem[HL01]{hl01} Hubert F. Hofmann, Franz Lehner. \glqq Requirements engineering as a success factor in software projects.\grqq IEEE software 4 (2001): 58-66.
@@ -652,7 +652,6 @@ EMV-Technologie e.V. \glqq CRS Customer Requirements Specification\grqq, aus htt
 \bibitem[MW02]{mw02}Matthias Weber, Joachim Weisbrod. \glqq Requirements engineering in automotive development-experiences and challenges.\grqq , Requirements Engineering, 2002. Proceedings. IEEE Joint International Conference on. IEEE, 2002.
 \bibitem[RS18]{rs18}Felix Ritter, Aaron Schul. \glqq Analyse aktueller NLP-Methoden und -Werkzeuge am Beispiel von GATE, Projektarbeit Fachhochschule Dortmund 2018 \grqq , 18.11.2018
 \bibitem[SB88]{sb88}Muggleton, Stephen, and Wray Buntine. \glqq  Machine invention of first-order predicates by inverting resolution.\grqq{}  Machine Learning Proceedings 1988. 1988. 339-352
-\bibitem[SF11]{sf11} Farfeleder, Stefan, et al. \glqq DODT: Increasing requirements formalism using domain ontologies for improved embedded systems development. \grqq{} Design and Diagnostics of Electronic Circuits \& Systems (DDECS), 2011 IEEE 14th International Symposium on. IEEE, 2011.
 \bibitem[SHE07]{she07} L. Shen, G. Satta, A. K. Joshi. In Meeting of the Association for Computational Linguistics (ACL), \glqq  Guided learning for bidirectional sequence classification\grqq{} , 2007.
 \bibitem[WE13]{we13}Weller, Katrin. "Ontologien." (2013): 207-218.
 
