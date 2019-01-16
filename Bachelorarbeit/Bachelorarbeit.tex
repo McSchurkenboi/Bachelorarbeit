@@ -157,12 +157,12 @@ Bislang gibt es jedoch kaum Werkzeugunterstützung, die effiziente Möglichkeite
 Besonders betroffen von dem geteilten Entwicklungsprozess zwischen OEMs und Zulieferern ist die Automobilindustrie. Eine Vielzahl von Zulieferern beliefert die Automobilhersteller mit Komponenten für ihre Fahrzeuge. Einzelne Komponenten bestehen dabei häufig auch aus mehreren Einzelteilen, die wiederum von mehreren verschiedenen Zulieferern geliefert werden. \cite{awk06}
 
 \subsection{Einsatz bei HELLA}
-Einer dieser Zulieferer ist die HELLA GmbH \& Co. KGaA (im folgenden HELLA genannt), die sich auf die Entwicklung und Produktion von Licht- und Elektronikkomponenten in Hard- und Software spezialisiert hat. HELLA ist ein international operierender deutscher Automobilzulieferer mit Hauptsitz in Lippstadt und zählt zu den Top 100 Automobilzulieferern weltweit \cite{lv10}. Für weitere Information siehe \cite{he19} sowie die Firmenwebsite. 
+Einer dieser Zulieferer ist die HELLA GmbH \& Co. KGaA (im folgenden (die) HELLA genannt), die sich auf die Entwicklung und Produktion von Licht- und Elektronikkomponenten in Hard- und Software spezialisiert hat. HELLA ist ein international operierender deutscher Automobilzulieferer mit Hauptsitz in Lippstadt und zählt zu den Top 100 Automobilzulieferern weltweit \cite{lv10}. Für weitere Information siehe \cite{he19} sowie die Firmenwebsite. 
 
 Zum Verfassen dieser Arbeit waren die Autoren fünf Monate bei der Firma beschäftigt. Dies beinhaltete zwei Monate Arbeit als Praktikanten und die verbleibenden drei Monate als Bacheloranden. 
-Die Hauptaufgabe dort war die Mitarbeit im Bereich Requirements-Engineering für die Abteilung der Elektronik-Vorentwicklung \textit{E-AE} (\textit{Electronics-Advances Engineering}. 
+Die Hauptaufgabe dort war die Mitarbeit im Bereich Requirements-Engineering für die Abteilung der Elektronik-Vorentwicklung \textit{E-AE} (\textit{Electronics-Advances Engineering}). 
 
-Die Abteilung beschäftigt sich mit dem Projektmanagement der Vorentwicklungsprojekte und beschäftigt sich, wie zuvor beschrieben, mit dem Austausch von Informationen der Firma HELLA mit diversen OEMs bezüglich gemeinsamer Projekte. Die genaue Darstellung dieser Prozesse erfolgt in Kap. 3.1. . Somit kommen dort auch die Lastenhefte der OEMs an, die dann an die Projektteams weitergeleitet werden. 
+Die Abteilung ist zuständig für die Planung und Umsetzung von Vorentwicklungsprojekten um die Ergebnisse an die Serienentwicklung oder verschiedene OEMs weiterzuleiten. Dies beinhaltet häufig, wie zuvor beschrieben, den Austausch von Informationen der Firma HELLA mit diversen OEMs bezüglich gemeinsamer Projekte. Die genaue Darstellung dieser Prozesse erfolgt in Kap. 3.1. Somit erhält diese Abteilung auch oft Lastenhefte der OEMs, welche dann an die Projektteams weitergeleitet werden. 
 
 \subsection{Anforderungsmanagement im Unternehmen}
 Die Gewichtung einzelner Anforderungen in einem größeren Systemkontext fällt dort schwer, da nun Projektteams beim Zulieferer, die an der Entstehung des Lastenheftes nicht beteiligt waren, dieses verstehen sollen und auf ihre Teilkomponente anwenden müssen. Zusätzlich zu den teilweise widersprüchlichen Anforderungen aus dem Pflichtenheft kommen weitere Anforderungen des Zulieferers, wie etwa die Gewinnmarge und unternehmensinternte Richtlinien hinzu. Schlussendlich soll jedoch ein Produkt entwickelt werden, dass möglichst alle Anforderungen berücksichtigt. \cite{mw02}
@@ -454,12 +454,22 @@ Einer der Aspekte von Ontologien, welche sie für die Informatik so geeignet mac
 
 Da Terminologie und bestimmte Formalitäten zwischen Ontologiesprachen variieren können, wird im Folgenden der Bezug auf die weit verbreitete Ontologiesprache \glqq Web Ontology Language\grqq{} (OWL) angenommen.
 
-\subsubsection{Aufbau}
-Die Grundlage für die Struktur einer Ontologie stellt der hierarchische Aufbau von \textit{Begriffen} (\textit{concepts}). Diese Repräsentieren eine Art Klassenstruktur und werden daher oft auch als Klassen bezeichnet. Sie können in aus der Informatik bekannten Ansätzen wie Ober- und Unterklassen angeordnet werden. Begriffe sind üblicherweise sehr generell gehalten und könnten etwa die Klasse \textit{Auto} abbilden. 
+\subsection{Aufbau}
+Der Aufbau von Ontologien lässt sich grob in zwei Aspekte unterteilen: 
 
-In vielen Fällen lässt sich ein Begriff in verschiedene \textit{Typen} aufteilen. Ein Auto kann beispielsweise nach verschiedenen Automarken typisiert werden. Diese Typen werden dann ebenfalls durch Klassen verkörpert und bilden in dem hierarchischen Aufbau eine Unterklasse des jeweiligen Begriffs. 
+\begin{enumerate}
+\item Das Vokabular: Hier sind alle Dinge innerhalb des Wissensbereiches aufgeführt, welcher von der Ontologie abgedeckt werden soll. Dazu gehören sowohl die Oberbegriffe dieser Dinge, als auch die Instanzen selbst. 
+\item Die Regeln: Diese beschreiben die Dinge genauer und bilden deren Beziehung untereinander ab. Sie können eigenständig existieren oder im Bezug zu den vorhandenen Dingen stehen. 
+\end{enumerate}
+\subsubsection{Klassenhierarchie}
+Die Hierarchie einer Ontologie, also der strukturelle Aufbau, lässt sich in die folgenden drei Komponenten unterteilen:
+\begin{enumerate}
+\item Begriffe: Die Grundlage für die Struktur einer Ontologie stellt der hierarchische Aufbau von \textit{Begriffen} (\textit{concepts}). Diese Repräsentieren eine Art Klassenstruktur und werden daher oft auch als Klassen bezeichnet. Sie können in aus der Informatik bekannten Ansätzen wie Ober- und Unterklassen angeordnet werden. Begriffe sind üblicherweise sehr generell gehalten und könnten etwa die Klasse \textit{Auto} abbilden. 
 
-Die sogenannten \textit{Instanzen} (\textit{instances}) verkörpern konkrete Objekte dieser Klassen. Ein Instanz wäre dann etwa ein bestimmtes Modell, einer bestimmten Marke von Autos. 
+\item Typen: In vielen Fällen lässt sich ein Begriff in verschiedene \textit{Typen} aufteilen. Ein Auto kann beispielsweise nach verschiedenen Automarken typisiert werden. Diese Typen werden dann ebenfalls durch Klassen verkörpert und bilden in dem hierarchischen Aufbau eine Unterklasse des jeweiligen Begriffs. Da sowohl Begriffe, als auch Typen in Klassen verkörpert werden, wird in der Praxis oftmals nicht zwischen den beiden unterschieden. Man kann jedoch üblicherweise über einer Unterklasse als Typ der Oberklasse sprechen. 
+
+\item Instanzen: Die sogenannten \textit{Instanzen} (\textit{instances}) verkörpern konkrete Objekte dieser Klassen und werden nicht weiter aufgespalten bzw. typisiert. Ein Instanz wäre dann etwa ein bestimmtes Modell, einer bestimmten Marke von Autos. 
+\end{enumerate}
 
 Diese Hierarchie ist ggf. beliebig erweiterbar. So könnte man für eine bessere Klassifizierung z.B. die Marke eines Autos zunächst in eine Produktreihe oder nach einer Produkteigenschaft wie \textit{Combi} typisieren und erst davon abhängig die verschiedenen Instanzen zuordnen.
 
@@ -479,11 +489,15 @@ In der vierten Ebene sind einzig zu Demonstrationszwecken einige der Typen weite
 
 In der letzten Ebene befinden sich einige Instanzen von Autos welche durch konkrete Modelle dargestellt werden. Theoretisch ließen sich auch diese weiter unterteilen, etwa nach Innenausstattung. Diesbezüglich ist je nach Verwendungszweck der Ontologie genau festzulegen, wie die Hierarchie zu strukturieren und wie weit sie auszuführen ist. Beispielsweise macht es für einen großen Autohersteller keinen Sinn, wenn in einer konzernübergreifenden Ontologie jeder Ingenieur instantiiert ist.
 
-Einen weiteren wichtigen Bestandteil von Ontologien bilden die sogenannten \textit{Relationen} (\textit{properties}).
+\subsubsection{Regeln}
+Die Regeln in einer Ontologie lassen sich in die folgenden zwei Komponenten unterteilen:
+\begin{enumerate}
+\item Relationen: Einen wichtigen Bestandteil von Ontologien bilden die sogenannten \textit{Relationen} (\textit{properties}).
 Relationen beschreiben Beziehungen zwischen Begriffen und werden oft auch als Eigenschaften verwendet und bezeichnet. Ähnlich zu vielen Programmiersprachen können diese Relationen und Eigenschaften eines Begriffs an die Instanzen des Begriffs vererbt werden. Grundsätzlich ist dabei auch eine Mehrfachvererbung möglich. 
 
-Des Weiteren kann die Struktur von Ontologien durch sogenannte \textit{Axiome} (\textit{restictions}) modelliert bzw. eingeschränkt werden. Axiome verkörpern dabei Regeln in der Ontologie welche stets zutreffen müssen. Üblicherweise werden diese dazu verwendet, Einschränkungen vorzunehmen, die nicht effizient durch den abgebildeten Wissensbereich darzustellen sind. Dies könnte Beispielsweise in einer Ontologie über verschiedene Automodelle verschiedenster Marken eine generelle Definition von Automobilen sein. 
+\item Axiome: Des Weiteren können Ontologien durch sogenannte \textit{Axiome} (\textit{restictions})  genauer modelliert bzw. eingeschränkt werden. Axiome verkörpern dabei Regeln in der Ontologie welche stets zutreffen müssen. Üblicherweise werden diese dazu verwendet, Einschränkungen vorzunehmen, die nicht effizient durch den abgebildeten Wissensbereich darzustellen sind. Dies könnte Beispielsweise in einer Ontologie über verschiedene Automodelle verschiedenster Marken eine generelle Definition von Automobilen sein. 
 So ließe sich die Voraussetzung, dass ein Automobil motorisiert sein muss durch eine Klasse \textit{Bauteil} mit der Unterklasse \textit{Motor} darstellen, welche dann über eine \textit{muss verbaut sein in}-Relation mit der Klasse \textit{Automobil} verbunden ist. Ist es jedoch nicht Zweck der Ontologie Bauteile genauer abzudecken, wäre dies unnötiger Aufwand, der außerdem die Übersichtlichkeit der Ontologie einschränken könnte.
+\end{enumerate}
 
 Abbildung X.X zeigt eine beispielhafte, stark vereinfacht Ontologie zu Automobilen und bestimmten im Kontext relevanten Personen. 
 \\
@@ -558,6 +572,25 @@ Durch diese fachliche Breite und Tiefe der Spezifikationen im Pflichtenheft, abe
 Die Analyse von Zusammenhängen zwischen Anforderungen stellt dabei aus Gründen der Effizienz ein Problem dar, wenn jeder Beteiligte von Hand die für ihn relevanten Anforderungen aus dem Lastenheft extrahieren muss. Auch müssen die Lastenhefte an die Formulierungen und Ausdrucksweisen für Requirements-Management im Unternehmen angepasst werden. Bislang gibt es jedoch kaum Werkzeugunterstützung, die effiziente Möglichkeiten zur automatisierten Überarbeitung und Anpassung einzelner Anforderungen aus dem Dokument bietet. Ansätze aus dem \textit{Natural-Language-Proessing} (NLP) stellen gleichzeitig vielversprechende Forschungsfelder in der Informatik dar, die eine solche automatisierte Verarbeitung auf Basis von Sprachanalyse ermöglichen. Syntax und Semantik der einzelnen Sätze und Zusammenhänge in Texten können auf Basis aktueller Trends wie Machine-Learning und dynamischer Programmierung zunehmend besser abgebildet werden.
 \section{Allgemeines zur Firma}
 \section{Signifikanz und Methoden von Requirements-Engineering innerhalb der Firma}
+\section{Allgemeines zu HELLA}
+In diesem Abschnitt wird zur besseren Einordnung die Firma HELLA kurz beschrieben. Dies beinhaltet die Geschichte von HELLA und die momentane Aufstellung des Unternehmens. \cite{he18} \cite{he19}
+
+\subsection{Geschichte}
+Die HELLA GmbH \& Co. KGaA wurde 1899 von Sally Windmüller unter dem damaligen Namen \glqq Westfälische Metall-Industrie Aktien- Gesellschaft(WMI)\grqq{} in Lippstadt gegründet, wo sich bis heute auch ihr Hauptsitz befindet. 
+
+Die Hergestellten Produkte beschränkten sich zu diesem Zeitpunkt auf Ballhupen und Lampen für Kutschen. Im Jahr 1908 tauchte mit dem ersten entwickelten elektrischen Scheinwerfer auch der Name \textit{HELLA} zum ersten mal als Warenzeichen auf. Dieser wurde jedoch erst 1986 offiziell in die Firmenbeschreibung aufgenommen. Es wird davon ausgegangen, dass der Name eine Mischung aus der Anlehnung an den Namen von Windmüllers Frau Helene und dem Wortspiel mit \glqq heller\grqq{} ist. 
+
+Die erste Tochtergesellschaft gründete HELLA 1951 in Todtnau und dem Namen \glqq Metallwerke Todtnau\grqq. 1961 begann das Unternehmen sich auch international aufzustellen. Dies geschah durch die Gründung der ersten internationalen Produktionsstätte in Mentone in Australien. 
+Das Zentrallager, welches auch heute noch unter dem Namen \textit{HELLA Distribution GMBH} besteht, wurde 1973 in dem Lippstadt nahegelegenen Erwitte errichtet. 
+\subsection[Aktueller Stand]{Aktueller Stand des Unternehmens}
+Die HELLA ist in die vier Geschäftsbereiche Elektronik, Scheinwerfer, \textit{Aftermarket} und \textit{Special Applications} unterteilt und verfügt über 125 Standorte in mehr als 35 Ländern.
+
+Nach dem Geschäftsjahr 2017/2018 werden insgesamt über 40.000 Mitarbeiter beschäftigt. Davon arbeiten mehr als 7000 Mitarbeiter in der Forschung und Entwicklung, wodurch sich das Unternehmen mehr Sicherheit und Wachstum für die Zukunft verspricht. 
+
+So konnte HELLA in diesem Geschäftsjahr fast 7,1 Milliarden Euro Umsatz verbuchen, wovon ca. ein drittel außerhalb des europäischen Marktes erzielt wurde. Damit gehört HELLA international zu den Top 40 der weltweiten Automobilzulieferer und befindet sich unter den Top 100 der größten deutschen Industrieunternehmen. 
+
+
+\section{Re-Prozesse bei Hella und allgemein in Firmen}
 \section{Betriebliche Anforderungen}
 \section{Ansatz und Konzept unserer Werkzeuge}
 \chapter{R2B-Converter}
@@ -606,6 +639,11 @@ In diesem Abschnitt wird die Einordnung unseres Prototypen als NLP-Werkzeug in d
 \bibitem[HE19]{he19}Firma HELLA. \glqq Unternehmensinformationen in Kürze.\grqq , aus https://www.hella.com/hella-com/de/HELLA-im-Ueberblick-723.html, abgerufen am 09.01.19.
 \bibitem[HAO14]{hao14} Hao Wu, et al. \glqq  ILLINOISCLOUDNLP: Text Analytics Services in the Cloud.\grqq{}  LREC. 2014.
 \bibitem[HE13]{he13} Alexander Heßeler, et al. \glqq Anforderungsmanagement: Formale Prozesse, Praxiserfahrungen, Einführungsstrategien und Toolauswahl.\grqq{} Springer-Verlag, 2013.
+\bibitem[DGE19]{dge19} Deutsche Gesellschaft für 
+EMV-Technologie e.V. \glqq CRS Customer Requirements Specification\grqq, aus https://www.demvt.de/publish/viewfull.cfm?ObjectID=ba9a0878\_e081\\ \_515d\_74a3411df6771be8, abgerufen am 09.01.19.
+\bibitem[HAO14]{hao14}Hao Wu, et al. \glqq  ILLINOISCLOUDNLP: Text Analytics Services in the Cloud.\grqq{}  LREC. 2014.
+\bibitem[HE18]{he18} HELLA Geschäftsbericht des Geschäftsjahres 2017/2018, von https://www.hella.com/hella-com/assets/media\_global/2018.08.10\_HELLA\_Geschaeftsbericht\_2018\_geschuetzt.pdf, aufgerufen am 16.01.2019
+\bibitem[HE19]{he19}Firma HELLA. \glqq Unternehmensinformationen in Kürze.\grqq , aus https://www.hella.com/hella-com/de/HELLA-im-Ueberblick-723.html, abgerufen am 09.01.19.
 \bibitem[HL01]{hl01} Hubert F. Hofmann, Franz Lehner. \glqq Requirements engineering as a success factor in software projects.\grqq IEEE software 4 (2001): 58-66.
 \bibitem[IR09]{ir09}BGH, \glqq Urteil vom 6. Juli 2000, I ZR 244/97\grqq Artikel beim Institut für Rechtsinformatik von der Universität des Saarlandes, 13. Oktober 2009
 \bibitem[KN85]{kn85}Kapur, Deepak, and Paliath Narendran. \glqq  An equational approach to theorem proving in first-order predicate calculus.\grqq{}  ACM SIGSOFT Software Engineering Notes 10.4 (1985): 63-66
