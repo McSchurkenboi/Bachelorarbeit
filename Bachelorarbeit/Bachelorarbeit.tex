@@ -120,7 +120,7 @@ An dieser Stelle möchten wir uns bei allen Personen bedanken, die uns bei unser
 \vspace{12pt} \\
 Der Dank gebührt unseren Familien und Freunden aus der Heimat sowie all jenen tollen Menschen, die wir durch das Studium an der FH Dortmund erst kennenlernen durften.
 \vspace{12pt} \\
-Wir danken auch allen Kollegen aus der Abteilung E-AE bei der Firma Hella in Lippstadt für ihr Interesse und die großartige Zusammenarbeit. Die einzigartigen Erfahrungen, die wir während unseres Praktikums und später während der Bachelorarbeit in der Firma sammeln konnten, haben uns wirklich motiviert. Besonderer Dank geht dabei an Konstantin Zichler, der weit mehr als nur Betreuer in der Firma, sondern auch Mentor und Ideengeber unserer Arbeit war.
+Wir danken auch allen Kollegen aus der Abteilung E-AE bei der Firma HELLA in Lippstadt für ihr Interesse und die großartige Zusammenarbeit. Die einzigartigen Erfahrungen, die wir während unseres Praktikums und später während der Bachelorarbeit in der Firma sammeln konnten, haben uns wirklich motiviert. Besonderer Dank geht dabei an Konstantin Zichler, der weit mehr als nur Betreuer in der Firma, sondern auch Mentor und Ideengeber unserer Arbeit war.
 \vspace{12pt} \\
 Schlussendlich danken wir unseren Betreuern Prof. Dr. Sebastian Bab und Prof. Dr. Steffen Helke für die zahlreichen Tipps und Anregungen während der Bachelorarbeit.
 \newpage
@@ -180,7 +180,7 @@ Die sprachliche Analyse kann Requirements erkennen und kategorisieren, sowie in 
 Weiterhin soll geprüft werden, wie stark ein Mehrwert bei der Nutzung solcher Programme für ein Firma ausfallen kann. Dies beinhaltet ersparte Arbeitszeit, Kosten und vermiedene Fehler. 
 
 \section{Methodik}
-Verschiednene Methoden aus dem Bereich Natural Language-Processing werden zunächst anhand des Rückblicks auf die Projektarbeit theoretisch und anhand praktischer Beispiele erläutert. Der betriebliche Kontext der Firma Hella wird durch genaue Darstellung der dortigen Verfahren beleuchtet. 
+Verschiednene Methoden aus dem Bereich Natural Language-Processing werden zunächst anhand des Rückblicks auf die Projektarbeit theoretisch und anhand praktischer Beispiele erläutert. Der betriebliche Kontext der Firma HELLA wird durch genaue Darstellung der dortigen Verfahren beleuchtet. 
 
 Mit diesen Grundlagen wird dann die Unterstützung der dortigen Prozesse im Bereich Requirements-Engineering auf Basis von natürlichsprachlicher Textanalyse evaluiert. Die gewonnenen Erkenntnisse aus der Zusammenarbeit mit der Abteilung PMT wurden in Anforderungen an die zu entwickelnden Werkzeuge zusammengefasst, die als Basis für unsere Softwareentwicklung dienten. Dadurch entstand eine genaue Vorstellung der zu entwickelnden Software, welche mit Hilfe der Programmkonzepte von Konstantin Zichler ZIC19 entworfen und implementiert werden konnte. 
 
@@ -559,7 +559,7 @@ In \cite{fh14} wird das Vorgehen für die Dokumentation und logische Einordnung 
 
 Heßeler et. al untersuchen in \cite{he13} formale Prozesse für das Anforderungsmanagement in Unternehmen. Sie zeigen die möglichen Verbesserungen  des projektbezogenen Requirements-Engineerings durch die Definition verschiedener Rollen für die beteiligten Entwickler auf. Dabei beschreiben sie explizit Kriterien für die Auswahl von Tools für eine Werkzeugunterstützung der Requirements-Engineers in Firmenr. Konkret beschreiben sie Werkzeuge für die Unterstützung der Formulierung von Anforderungen bzw. für die Verifikation von Anforderungen mithilfe grafischer Modelle. Das Tool \textit{DOORS Telematic} dient dabei zur Sammlung von Anforderungen und der Verknüpfung durch Relationen in einer Datenbank, die alle Anforderungen hierarchisch enthält. Tau Generation2 wird für die Visualisierung von Sytemeigenschaften in UML2.0-Diagrammen und für den Export als DOORS-Objekte in die Anforderungs-Datenbank genutzt.
 
-\chapter{Betriebliches Umfeld - Hella Use-Case}
+\chapter{Betriebliches Umfeld - Use-Case HELLA}
 Im betrieblichen Umfeld liegen zu Beginn jeden Entwicklungsprojektes für neue Produkte die Aufgaben und Ziele für die Entwicklung als Dokumente vor. Forschungsergebnisse finden Anwendung in der Vorentwicklungsphase, in der die Eignung der Erkenntnisse für neue Produkte eines Unternehmens evaluiert wird. Die Produktentwicklung unterliegt dabei bestimmten Kriterien und Faktoren, die den unternehmerischen Erfolg beeinflussen. Neben betriebswirtschaftlichen Einflüssen wie der Einordnung des Produktes in der Wertschöpfungskette sind es dabei besonders technische Anforderungen an das Produkt, die definiert und während der Produktentwicklung eingehalten werden müssen. Verschiedenste Akteure aus einem Umternehmen sind dabei an der Festlegung der Anforderungen an ein Entwicklungsprojekt bzw. Produkt beteiligt. 
 
 In der Automobilindustrie betrifft dieser Ablauf zumeist die Entwicklung neuer Fahrzeugkomponenten, heutzutage meist elektronische und mechanische Bausteine. Diese Bausteine werden dabei nicht sämtlich vom Fahrzeughersteller (OEM) selbst, sondern durch eine Vielzahl von Zulieferern produziert und entwickelt. Die Produktspezifikationen liegen meist digital als Texte, Tabellen und Grafiken vor und werden an den Zulieferer übermittelt.
@@ -595,7 +595,76 @@ So konnte HELLA in diesem Geschäftsjahr fast 7,1 Milliarden Euro Umsatz verbuch
 \subsubsection{kriterien der qualität von Anforderungen LITERATUR correctness completeness consistency, talk mit colin, flussdiagramm}
 \subsubsection{Aspekte für den entwurf der werkzeugunterstützung, ziele?}
 \subsubsection{konkrete anforderungen für tool}
+
+\section{Anforderungen an unsere Entwicklung}
+Dieses Kapitel beschäftigt sich mit der Motivation und den Rahmenbedingungen für die später in dieser Arbeit skizzierte Werkzeugunterstützung. Wesentliche Erkenntnisse entstanden dabei in Rücksprache mit dem Requirements-Experten Colin Hood, der als externer Beschäftiger für die PMT-Abteilung von HELLA arbeitet. 
+
+Mithilfe unseres Werkzeugs kann, wie später gezeigt wird, das Anforderungsmanagement in Unternehmen maßgeblich verbessert werden. Das Ziel ist es, die im vorigen Abschnitt benannten Komplikationen beim Umgang mit Anforderungen zu bewältigen.
+
+\subsection{Kriterien der Qualität von Anforderungen}
+Das Ziel von Abteilungen, die sich mit Requirements-Engineering in Unternehmen beschäftigen, ist die Verbesserung der Qualität von Anforderungsdokumenten für die spätere Verwendung. Die Requirements-Experten sind meist zwar nicht direkt am Entwicklungsprozess beteiligt, unterstützen die Experten in der Entwicklung jedoch beim Verständnis und der Umsetzung der Pflichtenhefte.
+
+Wie im vorigen Abschnitt beschrieben, entsteht bei den Entwicklern auf Seite des Zulieferers häufig mangelndes Verständnis der Anforderungen des OEMs, wenn dort mit der Entwicklung begonnen werden soll. Diese Schwierigkeiten entstehen durch ein unterschiedliches bzw. mangelndes Verständnis der Anforderungen zwischen OEM und Zulieferer während des Entwicklungsprozesses. Die Anforderungen sind meist unvollständig spezifiziert, was zu Inkonsistenzen im Pflichtenheft führt. Requirements-Experten beim Zulieferer zielen also auf eine Analyse von Abhängigkeiten zwischen Anforderungen des Pflichtenheftes für die nachgelagerte Entwicklung ab. 
+
+\subsubsection{Qualitätsmerkmale}
+In diesem Zusammenhang existieren Qualitätsmerkmale, die gemäß \cite{zg02} wesentliche Kriterien für die Bewertung von Anforderungen darstellen. Requirements-Experten orientiereren sich dabei an der Unterscheidung der drei wesentlichen Qualitätsmerkmale \textit{Consistency-Correctness-Completeness}, die sich wie folgt auffassen lassen:
+
+\begin{enumerate}
+\item \textit{Consistency - Einheitlichkeit} Die Anforderungen dürfen sich an verschiedenen Stellen im Pflichtenheft nicht widersprechen, sondern sollen sich vielmehr an geeigneten Stellen ergänzen. Beispielsweise darf später keine Anforderung im Pflichtenheft enthalten sein, die im direkten Widerspruch zu anderen Anforderungen steht, die bereits zuvor anders spezifiziert wurden. Entwickler, die nur die für sie relevanten Stellen des Pflichtenheftes erhalten, würden somit fundamental unterschiedliche Produkte entwerfen. Inkonsistenzen und Abhängigkeiten zwischen Anforderungen bedürfen also Rücksprache mit dem OEM bei der Bewertung.
+\item \textit{Completeness - Vollständigkeit} Es sollten zu allen relevanten Merkmalen des Endproduktes entsprechende Anforderungen existieren. Das Pflichtenheft sollte also alle Produktmerkmale inhaltlich abdecken, die für die Entwicklung beim Zulieferer relevant sind. Wenn der OEM etwa konkrete Vorstellungen zum Design des Produktes hat, diese jedoch im Pflichtenheft fehlen, erhält der Zulieferer diese Informationen nicht (etwa implizite Informationen oder Erläuterungen). Es gehen mitunter entscheidende Informationen und Kriterien für den Entwicklungsprozess verloren.
+\item \textit{Correctness - Richtigkeit} \cite{zg02} beschreibt die Richtigkeit von Anforderungen als ein prinzipiell vages Konzept aus zwei verschiedenen Standpunkten:
+\begin{enumerate}
+\item Formal betrachtet ist ein Anforderungsdokument korrekt, wenn es einheitlich und vollständig ist, d.h. frei von Widersprüchen und inhaltlich alles beinhaltet, was als "wahr" über das Produkt bezeichnet werden kann.
+\item Praktisch erfolgt die Bewertung der Richtigkeit eines Dokumentes anhand von Kriterien, die Stakeholder auswählen. Das Pflichtenheft wird demnach als richtig empfunden, wenn es Bedürfnisse zufriedenstellend abbildet. Aus Sicht der Kostenkalkulation wird etwa beurteilt, ob die Kosten durch die zu verwendenden Materialien, die im Pflichtenheft vermerkt sind, gering gehalten werden.
+\end{enumerate}
+\end{enumerate}
+
+Es lassen sich gemäß \cite{zg02} weitere Abhängigkeiten zwischen den drei Merkmalen beobachten, die die Umsetzung in konkreten Dokumenten erschweren können. 1. und 2. stehen demnach häufig in Wechselwirkung zueinander. 
+
+Zur Herstellung von Konsistenz im Pflichtenheft existiert der Ansatz, einzelne Anforderungen entweder schwerer zu gewichten als andere, oder unpassende Anforderungen komplett zu entfernen. Dies führt jedoch zu verminderter Vollständigkeit. 
+
+Informationsmangel kann zwar ebenfalls recht einfach durch das Hinzufügen neuer Anforderungen ausgeglichen werden, jedoch muss dabei darauf geachtet werden, dass die Spezifikation dann nicht zu umfänglich ausfällt. Verbesserung der Vollständigkeit kann somit auch die Richtigkeit des beschriebenen Produktes beeinflussen, sollten entsprechende Informationen ergänzt werden.
+
+\subsubsection{Beispiel problematischer Anforderungen}
+Zur Verdeutlichung des resultierenden Aufwands bei der Herstellung hochqualitativer Anforderungen soll das folgende fiktive Beispiel dienen. Die Analyse der Vollständigkeit soll hier vernachlässigt werden, da es sich nur um einen fiktiven Ausschnitt handelt. Folgende funktionale Anforderungen könnten in einem Pflichtenheft enthalten sein:
+\\
+\\ \tt
+1: Design: Das Gehäuse soll rot gestrichen sein.\\
+...\\
+2: Materialien: Das Gehäuse soll nach außen aus 1mm starkem, \\rostfreiem Stahl bestehen.\\
+\rm
+
+Bei der Prüfung auf Vollständigkeit fallen zunächst keine Konflikte auf, jedoch ist \tt 1\rm recht vage formuliert. Genaue Angaben zur verwendeten Farbe und der genaue Farbton fehlen in der Anforderung. Dieses Problem wird bei der Analyse der Abhängigkeiten offensichtlich, da die Anforderung "rostfreier Stahl" die Verwendung von entsprechender Farbe notwendig macht. 
+
+Eine solche Anforderung könnte etwa wie folgt lauten:
+\\
+\tt ...\\
+3. Materialien: Die Lackierung erfolgt mit Metallschutzlack.\\
+\rm
+
+Isoliert betrachtet wäre diese Anforderung auch für alle Lackierungen denkbar, nicht nur für das Gehäuse. Daher muss das Ausmaß dieser Anforderung auf das Gehäuse beschränkt werden, etwa durch \tt 1.1 \rm als zugehörig zu \tt 1\rm.
+
+Aus Perspektive der Richtigkeit könnten je nach Stakeholder, der die Bewertung vornimmt, weiter spezifiziert werden. Ein Designer könnte etwa einen genauen Farbcode zur Farbanforderung \glqq rot\grqq{} hinzufügen. Aus Perspektive der Kosten könnte \tt 2\rm auch komplett gegenüber einer günstiger umzusetzenden Anforderung entfallen, die etwa \glqq Kunststoff\grqq{} anstelle von \glqq rostfreiem Stahl\grqq{} vorschreibt.
+
+Problematisch ist bei der Betrachtung des Beispiels auch, dass in der Regel interdisziplinäre Teams jeweils nur einen Abschnitt des Pflichtenheft erhalten und ausdesignen. Sie verfügen somit nur über einen Teilbereich des Wissens bzw. nur einen Teil der Anforderungen. Es könnte also der Fall eintreten, dass das Design-Team nur \tt 1 \rm und das Ingenieur-Team nur \tt 2 \rm erhält.\footnote{Hier ist kurz ein naiver Ansatz zur Verdeutlichung der Komplikationen beschrieben. \cite{zg02} beschreibt detailliert die Prüfung der Qualitätsmerkmale anhand verschiedener Verfahren und wie diese verbessert werden können. Mithilfe von Werkzeugen können diese auf Basis automatisierter Textanalyse der Anforderungen umgesetzt werden.}
+
+Die Relevanz dieser drei Kriterien für das betriebliche Anforderungsmanagement wurde auch in Rücksprache mit internationalen Requirements-Experten bei HELLA betont. Auf dieser Basis realisieren die dortigen Teams Analysen der Projektlastenhefte. 
+
+\subsection{Verfahren zur Herstellung qualitativer Anforderungen}
+Harant und Poethen stellen in \cite{} weitere Maßnahmen für das Requirements-Management auf Basis des \textit{HOOD Capability Models} vor. Dabei ordnen sie die verschiedenen Schritte anhand eines mehrstufigen Prozesses ein, der in jedem Entwicklungspojekt von Requirements-Experten durchgeführt werden soll. Diese Expertengruppe dient dabei abstrakt zur Unterstützung der tatsächlichen Entwicklungsarbeit. Weitere Merkmale von qualitativen Anforderungen, die das Modell in ABBILDUNG beschreibt, werden durch die Experten umgesetzt. 
+
+\subsection{Umgang mit natürlicher Sprache in Lastenheften}
+Unvollständige Anforderungen lassen sich meist auf falsche Annahmen der Stakeholder beim OEM zurückführen, die implizite Annahmen bei der Formulierung von Anforderungen treffen und diese Annahmen nicht expliziz erneut aufführen. Ergänzenden Informationen zu Anforderungen können jedoch, wie zuvor gezeigt, durchaus andersartig kategorisiert im Pflichtenheft vermerkt sein. Dies resultiert laut \cite{pr11} daher, dass die verschiedenen Autoren des Pflichtenheftes beim OEM als selbstverständlich erachten und diese nicht nochmal für externe Leser hinzufügen. Es stellt sich jedoch die Frage, ob unterschiedliche Menschen jemals ein verlässlich gleiches Verständnis der gleichen Sache haben. 
+
+Colin Hood formuliert Anforderungen grundsätzlich als \glqq individuelle Bedürfnisse \grq{}, die immer abhängig von dem Autoren sind.\footnote{Im Rahmen unserer Arbeit konnten wir mehrmals Interviews zur Ausrichtung bzw. dem Ansatz unserer Prototypen führen.} In wird die Verwendung von Sprachschablonen für Projektlastenhefte im Vergleich zu natürlicher Sprache evaluiert. Die grundsätzliche Eignung natürlicher Sprache für die Formulierung von Anforderungen wird dort bezweifelt. 
+
+Hood stellte die Eingrenzung der Sprache, die für Projektlastenhefte genutzt werden darf, als eine vielversprechende Möglichkeit vor, sprachliche Eigenheiten der Autoren aus verschiedenen Bereichen effektiv zu vermeiden. Diese Transformation natürlichsprachlicher Anforderungen in formale Sprache als Schablonen stellt auch das Ziel unserer Arbeit dar.
+
+
 \section{Ansatz und Konzept unserer Werkzeuge}
+Wie bereits unter beschrieben, existiert eine Vielzahl an Arbeiten, die sich mit der verlässlichen Überführung der Anforderungen in natürlicher Sprache in Sprachschablonen beschäftigen. Dazu werden Methoden aus dem NLP genutzt, um den Text der Anforderungen zunächst genau zu annotieren. Dieser Ansatz stellt die Basis für die Vorstellung unseres Werkzeugs in diesem Kapitel dar.
+
+In wurde das Potential einer Verbesserung von RE-Prozessen in Firmen durch Werkzeuge aufgezeigt. Die in den vorigen Kapiteln aufgezeigten Anforderungen an das Requirements-Management schaffen somit die Basis für den konkreten Entwurf von Werkzeugen, die entsprechende Funktionalitäten bereitstellen.
 \chapter{R2B-Converter}
 \section{Architektur Klassen und Verteilung der Ressourcen}
 \subsection{Umsetzung der NLP-Architektur in unserem Werkzeug}
@@ -645,16 +714,18 @@ In diesem Abschnitt wird die Einordnung unseres Prototypen als NLP-Werkzeug in d
 \bibitem[HE18]{he18} HELLA Geschäftsbericht des Geschäftsjahres 2017/2018, von https://www.hella.com/hella-com/assets/media\_global/2018.08.10\_HELLA\_Geschaeftsbericht\_2018\_geschuetzt.pdf, aufgerufen am 16.01.2019
 \bibitem[HE19]{he19}Firma HELLA. \glqq Unternehmensinformationen in Kürze.\grqq , aus https://www.hella.com/hella-com/de/HELLA-im-Ueberblick-723.html, abgerufen am 09.01.19.
 \bibitem[HL01]{hl01} Hubert F. Hofmann, Franz Lehner. \glqq Requirements engineering as a success factor in software projects.\grqq IEEE software 4 (2001): 58-66.
+\bibitem[HP12]{hp12}Andrea Harant, Miriam Poethen. \glqq HOOD Capability Model für Requirements Definition und Requirements Management \grqq{} HOOD Ltd. 2012.
 \bibitem[IR09]{ir09}BGH, \glqq Urteil vom 6. Juli 2000, I ZR 244/97\grqq Artikel beim Institut für Rechtsinformatik von der Universität des Saarlandes, 13. Oktober 2009
 \bibitem[KN85]{kn85}Kapur, Deepak, and Paliath Narendran. \glqq  An equational approach to theorem proving in first-order predicate calculus.\grqq{}  ACM SIGSOFT Software Engineering Notes 10.4 (1985): 63-66
 \bibitem[KR93]{kr93}Ryan, Kevin. "The role of natural language in requirements engineering." Proceedings of the IEEE International Symposium on Requirements Engineering. IEEE, 1993.
 \bibitem[LV10]{lv10}F. Langenscheidt, B. Venohr. \glqq Lexikon der deutschen Weltmarktführer: Die Königsklasse deutscher Unternehmen in Wort und Bild.\grqq ,  Deutsche Standards–Gabal Verlag Google Scholar (2010).
 \bibitem[MW02]{mw02}Matthias Weber, Joachim Weisbrod. \glqq Requirements engineering in automotive development-experiences and challenges.\grqq , Requirements Engineering, 2002. Proceedings. IEEE Joint International Conference on. IEEE, 2002.
-\bibitem[RS18]{rs18}Felix Ritter, Aaron Schul. \glqq Analyse aktueller NLP-Methoden und -Werkzeuge am Beispiel von GATE, Projektarbeit Fachhochschule Dortmund 2018 \grqq , 18.11.2018
-\bibitem[SB88]{sb88}Muggleton, Stephen, and Wray Buntine. \glqq  Machine invention of first-order predicates by inverting resolution.\grqq{}  Machine Learning Proceedings 1988. 1988. 339-352
+\bibitem[RS18]{rs18}Felix Ritter, Aaron Schul. \glqq Analyse aktueller NLP-Methoden und -Werkzeuge am Beispiel von GATE.\grqq{} Projektarbeit Fachhochschule Dortmund 2018, 18.11.2018
+\bibitem[SB88]{sb88}Muggleton, Stephen, Wray Buntine. \glqq  Machine invention of first-order predicates by inverting resolution.\grqq{}  Machine Learning Proceedings 1988. 1988. 339-352
 \bibitem[SHE07]{she07} L. Shen, G. Satta, A. K. Joshi. In Meeting of the Association for Computational Linguistics (ACL), \glqq  Guided learning for bidirectional sequence classification\grqq{} , 2007.
-\bibitem[WE13]{we13}Weller, Katrin. "Ontologien." (2013): 207-218.
-
+\bibitem[WE13]{we13} Weller, Katrin. "Ontologien." (2013): 207-218.
+\bibitem[ZG02]{zg02} Zowghi, Didar, and Vincenzo Gervasi. \glqq The Three Cs of requirements: consistency, completeness, and correctness.\grqq{} International Workshop on Requirements Engineering: Foundations for Software Quality, Essen, Germany: Essener Informatik Beitiage. 2002.
+\bibitem[ZH17]{zh17} Zichler, Konstantin, Steffen Helke. \glqq Ontologiebasierte Abhängigkeitsanalyse im Projektlastenheft.\grqq{} Automotive-Safety \& Security 2017-Sicherheit und Zuverlässigkeit für automobile Informationstechnik (2017).
 
 
 
