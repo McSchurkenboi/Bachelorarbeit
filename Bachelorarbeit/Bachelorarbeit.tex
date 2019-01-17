@@ -101,15 +101,16 @@ Abkürzungsverzeichnis
 \end{huge}
 \vspace{12pt}
 \begin{acronym}[Abkürzungsverzeichnis]
+\acro{CRS}{Customer Requirement Specification}
+\acro{DA}{Delta-Analyser}
+\acro{E-AE}{Electronics-Advanced Engineering}
 \acro{NLP}{Natural Language-Processing}
+\acro{OEM}{Original Equipment Manufacturer}
 \acro{OWL}{Web-Ontology-Language}
+\acro{PMT}{Projects, Methods and Tools}
 \acro{POS}{Part-Of-Speech}
 \acro{R2BC}{Requirements-To-Boilerplate-Converter}
-\acro{DA}{Delta-Analyser}
-\acro{CRS}{Customer Requirement Specification}
-\acro{OEM}{Original Equipment Manufacturer}
-\acro{E-AE}{Electronics-Advanced Engineering}
-\acro{PMT}{Projects, Methods and Tools}
+\acro{RE}{Requirements-Engineering}
 \end{acronym}
 \newpage
 
@@ -587,9 +588,50 @@ Nach dem Geschäftsjahr 2017/2018 werden insgesamt über 40.000 Mitarbeiter besc
 
 So konnte HELLA in diesem Geschäftsjahr fast 7,1 Milliarden Euro Umsatz verbuchen, wovon ca. ein drittel außerhalb des europäischen Marktes erzielt wurde. Damit gehört HELLA international zu den Top 40 der weltweiten Automobilzulieferer und befindet sich unter den Top 100 der größten deutschen Industrieunternehmen. 
 
-\section{Requirements-Engineering innerhalb der Firma}
-\subsubsection{pmt abteilung, status quo der prozesse}
-\subsubsection{status quo des re-prozesses, schaubilder des todes interner shit}
+\section[RE bei HELLA]{Requirements-Engineering innerhalb der Firma}
+In diesem Abschnitt wird das Requirements-Engineering (RE) der Firma HELLA genauer behandelt. Dies beinhaltet das Vorstellen der zuständigen Abteilungen, sowie die genaue Darstellung der HELLA-internen RE-Prozesse. Des Weiteren werden die bestehenden Probleme dieser Prozesse anhand von Use-Cases (Anwendungsfällen) aufgeführt. In den darauffolgenden Abschnitten werden daraus Anforderungen an eine Lösung erhoben, welche mit den Konzepten der Werkzeuge umzusetzen versucht wird.
+
+Die getroffenen Aussagen stützen sich dabei auf die angegebenen Lektüren, Unterlagen der Firma und/oder Aussagen Firmen-interner Experten. 
+\subsubsection{Abteilung für RE}
+Die in der HELLA überwiegend zuständige Abteilung für Requirements ist die \textit{Processes, Methods and Tools}-Abteilung (PMT). Wörtlich übersetzt bedeutet dies \textit{Prozesse, Methoden und Werkzeuge}. Die Abteilung ist unter anderem für: 
+\begin{enumerate}
+\item die Standardisierung von Prozessen und das reibungsfrei Verknüpfen von Arbeitsabläufen,
+\item die Einführung von neuen Standards und die Hilfe bei der Umsetzung dieser,
+\item die Entwicklung neuer und effizienterer Arbeitsmethoden zur Einsparung von Zeit und Kosten,
+\item die Entwicklung, Einführung und Verwaltung von neuen (Software-) Werkzeugen, welche in der Lage sind einen Mehrwert für die Firma zu erzeugen,
+\item das Empfangen Firmen-externer (Anforderungs-) Dokumente, welche vor dem Weiterleiten gegebenenfalls zunächst in die Firmen-internen Standards angepasst werden müssen, 
+\item die Unterstützung von Mitarbeitern und Projektteams bei dem Umgang und der Verarbeitung von Projektlastenheften
+\end{enumerate}
+
+Oftmals steht diese Abteilung in Verbindung mit den Abteilungen der Vorentwicklung. Dabei spielt vor allem die System-Sparte der elektronischen Vorentwicklung (Electronics - Advanced Engineering Systems, E-AES) eine wichtige Rolle. Hier versuchen Mitarbeite mit Hilfe von Lastenheften einen kompletten Überblick eines Systems zu erlangen um darauf bezogene Projekte besser einschätzen und durchführen zu können. 
+
+Was zunächst wie eine recht simple Aufgabenstellung erscheint ist tatsächlich ein hochkomplexer und fehleranfälliger Vorgang. Laut der Aussagen von internen Experten, gibt es nur wenige, die dazu überhaupt in der Lage sein, da dies viele verschiedene Qualitäten eines Mitarbeiters erfordert. Hierzu gehören unter anderem eine hohes Maß an Fachkenntnis für alle relevanten Bereiche des Produkts, ein gründliches und somit aufwendiges Erfassen aller Aspekte des Produkts und die Fähigkeit mit Hilfe dieses Wissens mögliche Probleme oder Fehlerquellen des Produkts zu erfassen. 
+
+Diese Aufgabe kann jedoch von Mitarbeitern der \textit{PMT}-Abteilung (wie in 6. erwähnt) unterstützt werden. Da es erforderlich ist, dass ein einzelner Mitarbeiter der \textit{E-AES} einen Überblick erhält, bietet die klassische Arbeitsteilung, bei welcher der möglicherweise enorme Umfang dieser Projektlastenhefte auf verschiedene Mitarbeiter aufgeteilt wird, keine Lösung.
+
+Dennoch können klar formulierte, gut sortierte und strukturierte Anforderungen die Arbeit des \textit{E-AES}-Mitarbeiters stark vereinfachen. Dies hilft zwar auch ein wenig bei dem benötigten Arbeitsaufwand des einzelnen Mitarbeiters, verringert aber vor allem die Komplexität und Fehleranfälligkeit des Prozesses. Des weiteren kann die \textit{PMT}-Abteilung bei Rückfragen als Sprachrohr zwischen dem OEM und den internen Mitarbeitern fungieren, da die unkontrollierte Weitergabe von Informationen zwischen einzelnen Mitarbeitern in vielen Konzernen problematisch gesehen wird. 
+\subsubsection{RE-Prozess, schaubild hella entwicklung}
+In diesem Abschnitt wird der RE-Prozess von HELLA genauer dargestellt. Hierzu wird dieser zunächst in den Kontext eines Entwicklungsprojektes für ein neues Produkt eingeordnet. Daraufhin werden die einzelnen Schritte des Requirements-Engineering genauer beleuchtet. 
+
+Üblicherweise steht der RE-Prozess direkt zu Beginn jeder Entwicklung. Entweder gibt es ein neues Produktkonzept, zu welchen die Anforderungen abhängig von den geplanten Aufgaben und Eigenschaften des Produktes erhoben werden, oder es wird ein Auftrag eingereicht, zu welchem bereits ein komplettes Anforderungsdokument existiert, welches es dann umzusetzten gilt.
+
+In der Ausgangssituation liegt also ein Dokument vor in welchem alle Anforderungen an das Produkt zusammengefasst sind. Dies bedeutet auch, dass die Entwicklung erfolgreich war, sobald alle dieser Anforderungen durch das Produkt erfüllt werden. Dies muss jedoch auch für die Anforderungen gelten, welche sich innerhalb der Entwicklung ändern bzw. hinzugefügt werden.
+
+Dies verdeutlicht, dass sich der Prozess des Requirements-Engineering nicht auf den Beginn des Gesamtprozesses, beschränken lässt. Dennoch befindet sich dort der wichtigste Bereich des RE, da zumindest in hohem Maße feststehen muss, was es zu entwickeln gilt, bevor mit der Entwicklung begonnen werden kann.
+
+Abbildung X.X zeigt die planmäßige Einordnung von RE in den Gesamtprozess der Produktentwicklung bei HELLA. 
+\\
+\newline
+HIER DAS V MODELL VOM ENTWICKLUNGSPROZESS BEI HELLA
+\\
+\newline
+
+Hierbei ist anzumerken, dass zwischen den Systemanforderungen (\textit{system requirements}) und den funktionalen Anforderungen (\textit{funktional reqirements}) unterschieden wird. 
+
+Die Systemanforderungen\footnote{auch oft als nicht-funktionale Anforderungen bezeichnet} beschreiben Anforderungen, die das System in der Rolle als Umfeld für die Funktionalitäten zu erfüllen hat. Dazu gehören üblicherweise Eckdaten des Systems welche eher generelle Informationen bieten. Eine beispielhafte Anforderung könnte etwa lauten: \glqq Das System muss einer Spannung von bis zu 48V standhalten.\grqq{} oder \glqq Das System soll den Standards \textit{XY} der Norm \textit{Z} entsprechen.\grqq
+
+Funktionale Anforderungen sind hingegen etwas spezifischer und beschreiben das genaue Handeln einzelner Komponenten und die Ausführung von Funktionalitäten. Hierzu könnten beispielhafte Anforderungen wie folgt aussehen: \glqq Wenn eine Spannung von 24V erreicht wird, soll Komponente \textit{XY} die Funktion \textit{Z} ausführen.\grqq{} oder \glqq Die Funktion \textit{Z} lässt die Leuchten \textit{A} und \textit{B} für 10 Sekunden leuchten.\grqq
+
 \subsubsection{use-case / problematik im geteilten entwicklungsprozess, schaubilder 2 oem-hella-allesläuftuncremig, schlechte absprache...}
 \section{Betriebliche Anforderungen}
 \subsubsection{kriterien der qualität von Anforderungen LITERATUR correctness completeness consistency, talk mit colin, flussdiagramm}
