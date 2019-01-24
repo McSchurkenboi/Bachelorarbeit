@@ -613,7 +613,7 @@ Dennoch können klar formulierte, gut sortierte und strukturierte Anforderungen 
 \subsection{RE-Prozess}
 In diesem Abschnitt wird der RE-Prozess von HELLA genauer dargestellt. Hierzu wird dieser zunächst in den Kontext eines Entwicklungsprojektes für ein neues Produkt eingeordnet. Daraufhin werden die einzelnen Schritte des Requirements-Engineering genauer beleuchtet. 
 
-\subsection{Einordnung in den Entwicklungsprozess}
+\subsubsection{Einordnung in den Entwicklungsprozess}
 Üblicherweise steht der RE-Prozess direkt zu Beginn jeder Entwicklung. Entweder gibt es ein neues Produktkonzept, zu welchen die Anforderungen abhängig von den geplanten Aufgaben und Eigenschaften des Produktes erhoben werden, oder es wird ein Auftrag eingereicht, zu welchem bereits ein komplettes Anforderungsdokument existiert, welches es dann umzusetzten gilt.
 
 In der Ausgangssituation liegt also ein Dokument vor in welchem alle Anforderungen an das Produkt zusammengefasst sind. Dies bedeutet auch, dass die Entwicklung erfolgreich war, sobald alle dieser Anforderungen durch das Produkt erfüllt werden. Dies muss jedoch auch für die Anforderungen gelten, welche sich innerhalb der Entwicklung ändern bzw. hinzugefügt werden.
@@ -633,14 +633,9 @@ Die Systemanforderungen\footnote{auch oft als nicht-funktionale Anforderungen be
 
 Funktionale Anforderungen sind hingegen etwas spezifischer und beschreiben das genaue Handeln einzelner Komponenten und die Ausführung von Funktionalitäten. Hierzu könnten beispielhafte Anforderungen wie folgt aussehen: \glqq Wenn eine Spannung von 24V erreicht wird, soll Komponente \textit{XY} die Funktion \textit{Z} ausführen.\grqq{} oder \glqq Die Funktion \textit{Z} lässt die Leuchten \textit{A} und \textit{B} für 10 Sekunden leuchten.\grqq
 
-\subsubsection{use-case / problematik im geteilten entwicklungsprozess, schaubilder 2 oem-hella-allesläuftuncremig, schlechte absprache...}
-\section{Betriebliche Anforderungen}
-\subsubsection{kriterien der qualität von Anforderungen LITERATUR correctness completeness consistency, talk mit colin, flussdiagramm}
-
 Die Unterscheidung zwischen den verschiedenen Anforderungstypen kann jedoch sehr problematisch sein, da sich deren Definition in verschiedenen Firmen unterscheiden kann. Da es also keine Einheitliche Definition gibt und wir uns im Rahmen von natürlicher Sprache bewegen, ist es praktisch unmöglich alle Anforderungen eines Dokuments einheitlich und eindeutig den Kategorien zuzuweisen. Dies ist jedoch auch nicht zwangsläufig nötig, wenn man sich dazu entscheidet alle Anforderungen zunächst gleich und dann abhängig von Inhalt zu verarbeiten. Daher verzichten auch die später vorgestellten Konzepte auf eine erzwungene Unterscheidung verschiedener Anforderungstypen verzichtet.
 
-\subsection{Ablauf des RE-Prozesses}
-
+\subsubsection{Werkzeuge im RE-Prozess}
 Ein klassischer Requirements-Engineering Prozess der PMT-Abteilung beginnt damit, das von einem OEM ein Pflichtenheft zu einem bestimmten Auftrag bei der HELLA eingeht. Dieses Lastenheft erhält die PMT-Abteilung üblicherweise in Form einer \textit{DOORS}-Datei (Dynamic Object Oriented Requirements System). 
 
 DOORS ist ein Werkzeug zur Hilfe beim Requirements-Engineering und speichert Anforderungsdokumente vergleichbar zu einer herkömmlichen Datenbank. Dort wird in einer Tabellenstruktur der gesamte Inhalt eines Anforderungsdokumentes hinterlegt. Die einzelnen Anforderungen sind dabei zeilenweise angeordnet. Zusätzlich befinden sich in verschiedenen Spalten ergänzende Informationen zu der jeweiligen Anforderungen, wie z.B. die eindeutige Identifizierungsnummer oder die Unterscheidung zwischen Anforderung und genereller Information.
@@ -657,30 +652,7 @@ HIER DIE ABBILDUNG INPUT-REQS --> FREIGEGEBEN
 \newline
 Dies kann etwa mit dem beschrieben ReqPat geschehen. Da dieses Werkzeug jedoch nur einen Teil der bestehenden Anforderungen abdecken kann, muss der Rest der Lastenhefte oftmals manuell verarbeitet werden. Daraus entsteht enormer Aufwand und die Gefahr nicht explizit ausformulierte Abhängigkeiten zu übersehen und somit Fehler in den freigegebenen Anforderungen zu erhalten. 
 
-
-\subsection{use-case / problematik im geteilten entwicklungsprozess, schaubilder 2 oem-hella, schlechte absprache} 
-
-Der Anwendungsfall für die zu entwickelnden Werkzeuge ist ähnlich zu dem oben beschriebenen. Es wird davon ausgegangen, dass die HELLA einen Auftrag für ein Produkt von einem OEM erhält. Es ist jedoch bekannt, dass ein ähnliches Produkt, etwa eine frühere Version, bereits von HELLA entwickelt wurde.
-
-Somit liegt ein Pflichtenheft eines OEM in natürlicher Sprache vor. Außerdem existiert zu dem alten Produkt der HELLA bereits in Lastenheft in formalisierter Form.
-
-Ziel ist es die beiden Anforderungsdokumente zu vergleichen um alle Unterschiede der beiden Produkte zu ermitteln. Diese könnten dann etwa genutzt werden um eine sehr frühe und recht präzise Kostenabschätzung der neuen Produktentwicklung an den OEM senden zu können. 
-
-Hierzu muss jedoch zunächst das Pflichtenheft des OEM in eine vergleichbare formalisierte Form gebracht werden. Erst sobald sich also beide Anforderungsdokumente in einer gleichartigen Form befinden kann ein direkter Vergleich der von den Dokumenten beschriebenen Produkte stattfinden. 
-
-Diese Heterogenität von Anforderungsdokumenten ist in der Automobilindustrie vor allem bei der Beziehung zwischen OEM und Zulieferer ein bekanntes und wiederkehrendes Problem.
-
-Daher wird zunächst ein Werkzeug benötigt, welches mit kleinstmöglichem Nutzeraufwand und größtmöglicher Sicherheit ein natürlichsprachliches Anforderungsdokument formalisieren kann. 
-
-Verarbeitet man mit diesem Werkzeug das Pflichtenheft das OEM, so erhält man zwei homogene Dokumente. Hierzu soll außerdem ein Werkzeug entwickelt werden, welches in der Lage ist zwei solcher Dokument zu vergleichen und Unterschiede darzustellen.
-\\ 
-\newline
-HIER USE-CASE ABBILDUNG VON FIRMEN POWERPOINT 
-\\
-\newline
-
-Die Ansätze und Konzepte solcher Werkzeuge sind in dem folgenden Abschnitt genau beschrieben.
-\section{Anforderungen an unsere Entwicklung}
+\section{Anforderungen im RE-Management}
 Dieses Kapitel beschäftigt sich mit der Motivation und den Rahmenbedingungen für die später in dieser Arbeit skizzierte Werkzeugunterstützung. Wesentliche Erkenntnisse entstanden dabei in Rücksprache mit dem Requirements-Experten Colin Hood, der als externer Beschäftiger für die PMT-Abteilung von HELLA arbeitet. 
 
 Auf dieser Basis konnten Anforderungen an unser Tool für den Einsatz zur Transformation von Projektlastenheften während des RE erhoben werden. 
@@ -757,8 +729,30 @@ Colin Hood formuliert Anforderungen grundsätzlich als \glqq individuelle Bedür
 
 Hood stellte die Eingrenzung der Sprache, die für Projektlastenhefte genutzt werden darf, als eine vielversprechende Möglichkeit vor, sprachliche Eigenheiten der Autoren aus verschiedenen Bereichen effektiv zu vermeiden. Diese Transformation natürlichsprachlicher Anforderungen in formale Sprache als Schablonen stellt auch das Ziel unserer Arbeit dar.
 
+\section{Anwendungsfall bei HELLA} 
 
-\section{Ansatz und Konzept unserer Werkzeuge}
+Der Anwendungsfall für die zu entwickelnden Werkzeuge ist ähnlich zu dem oben beschriebenen. Es wird davon ausgegangen, dass die HELLA einen Auftrag für ein Produkt von einem OEM erhält. Es ist jedoch bekannt, dass ein ähnliches Produkt, etwa eine frühere Version, bereits von HELLA entwickelt wurde.
+
+Somit liegt ein Pflichtenheft eines OEM in natürlicher Sprache vor. Außerdem existiert zu dem alten Produkt der HELLA bereits in Lastenheft in formalisierter Form.
+
+Ziel ist es die beiden Anforderungsdokumente zu vergleichen um alle Unterschiede der beiden Produkte zu ermitteln. Diese könnten dann etwa genutzt werden um eine sehr frühe und recht präzise Kostenabschätzung der neuen Produktentwicklung an den OEM senden zu können. 
+
+Hierzu muss jedoch zunächst das Pflichtenheft des OEM in eine vergleichbare formalisierte Form gebracht werden. Erst sobald sich also beide Anforderungsdokumente in einer gleichartigen Form befinden kann ein direkter Vergleich der von den Dokumenten beschriebenen Produkte stattfinden. 
+
+Diese Heterogenität von Anforderungsdokumenten ist in der Automobilindustrie vor allem bei der Beziehung zwischen OEM und Zulieferer ein bekanntes und wiederkehrendes Problem.
+
+Daher wird zunächst ein Werkzeug benötigt, welches mit kleinstmöglichem Nutzeraufwand und größtmöglicher Sicherheit ein natürlichsprachliches Anforderungsdokument formalisieren kann. 
+
+Verarbeitet man mit diesem Werkzeug das Pflichtenheft das OEM, so erhält man zwei homogene Dokumente. Hierzu soll außerdem ein Werkzeug entwickelt werden, welches in der Lage ist zwei solcher Dokument zu vergleichen und Unterschiede darzustellen.
+\\ 
+\newline
+HIER USE-CASE ABBILDUNG VON FIRMEN POWERPOINT 
+\\
+\newline
+
+Die Ansätze und Konzepte solcher Werkzeuge sind in dem folgenden Abschnitt genau beschrieben.
+
+\section{Ansatz und Konzept der Werkzeuge}
 Wie bereits unter beschrieben, existiert eine Vielzahl an Arbeiten, die sich mit der verlässlichen Überführung der Anforderungen in natürlicher Sprache in Sprachschablonen beschäftigen. Dazu werden Methoden aus dem NLP und Ontologien genutzt, um den Text der Anforderungen zunächst genau zu annotieren. Dieser Ansatz stellt die Basis für die Vorstellung unseres Werkzeugs in diesem Kapitel dar.
 
 In \cite{zh17} wurde das Potential einer Verbesserung von RE-Prozessen in Firmen durch Werkzeuge aufgezeigt. Die in den vorigen Kapiteln aufgezeigten Anforderungen an das Requirements-Management schaffen somit die Basis für den konkreten Entwurf von Werkzeugen, die entsprechende Funktionalitäten bereitstellen.
@@ -777,20 +771,114 @@ Für den Entwurf unserer Prototypen stellt sich einerseits die Frage, an welcher
 \subsection{Zuordnung einzelner Werkzeuge}
 Verschiedene Verfahren, bereits bei der Spezifikation von Anforderungen im Zusammenhang eines Pflichtengeftes durch Werkzeuge zu unterstützen, sind unter VERWANDTE AREITEN beschrieben. Es existieren jedoch durch die Besonderheiten im geteilten Entwicklungsprozess zwischen OEM und Zulieferer besondere Herausforderungen für das RE, welche Potential für eine Werkzeugunterstützung bieten. 
 
-Wie bereits in Kap. 3.1 beschrieben, resultieren die Probleme auf Seiten des Zulieferers beim Verständnis der Anforderungen aus dem Umstand, dass dort ein Pflichtenheft in natürlicher Sprache vorliegt. Dieses verursacht einerseits einen Arbeitsaufwand durch die Probleme beim Umgang mit natürlicher Sprache wie z.B. sprachlichen Mehrdeutigkeiten (Kap. 2.1). Andererseits können enthaltenen Anforderungen teilweise nicht korrekt bzw. von niedriger Qualität sein, was zu inhaltlichen Probleme für die Produktentwicklung führt. 
+Wie bereits in Kap. X.X beschrieben, resultieren die Probleme auf Seiten des Zulieferers beim Verständnis der Anforderungen aus dem Umstand, dass dort ein Pflichtenheft in natürlicher Sprache vorliegt. Dieses verursacht einerseits einen Arbeitsaufwand durch die Probleme beim Umgang mit natürlicher Sprache wie z.B. sprachlichen Mehrdeutigkeiten (Kap. X.X). Andererseits können enthaltenen Anforderungen teilweise nicht korrekt bzw. von niedriger Qualität sein, was zu inhaltlichen Probleme für die Produktentwicklung führt. 
 
 Auch kann es mehrere Versionen der Spezifikation eines Produktes im Laufe der Zeit geben, deren Unterschiede erkannt werden müssen. Auswirkungen der Überarbeitung des Produktes auf Basis einer neuen Verison des Pflichtenheftes müssen unter verschiedenen Kriterien gewichtet werden. 
 
 Es gilt also, Werkzeuge zu entwerfen, die insbesondere bei der Lösung von sprachlichen Problemen und bei der Identifikation von Konflikten zwischen Anforderungen in Pflichtenheften unterstützen. 
 
-Daher werden im folgenden die Ansätze aus \cite{zh17} beschrieben,  Transformation von bereits spezifizierten Anforderungen in bestehenden Pflichtenheften in eine besser verständliche und eindeutige formale Sprache hilft. Diese Ansätze haben zur konkreten Entwicklung von zwei Werkzeugen geführt, dem \textit{Requirements-To-Boilerplate-Converter} und dem \textit{Delta-Analyser}.
+Daher werden im folgenden die Ansätze aus \cite{zh17} beschrieben, die eine Transformation von bereits spezifizierten Anforderungen in bestehenden Pflichtenheften in eine besser verständliche und eindeutige formale Sprache vorschlagen. Dieser Schritt soll für jedes neu eintreffende Pflichtenheft durchgeführt werden, damit dieses dann standardisiert vorliegt. Die zweite Software-Komponente dient zum automatisierten Vergleich mehrerer verschiedener Pflichtenhefte unter der Verwendung von Ontologien. 
 
-\subsection{R2BC}
-\subsection{DA}
+Diese Ansätze haben zur konkreten Entwicklung von zwei Werkzeugen geführt, dem \textit{Requirements-To-Boilerplate-Converter} (R2BC) und dem \textit{Delta-Analyser} (DA). Diese identifizierten Software-Artefakte werden für die Verwendung in einer prototypischen Werkzeugkette hintereinander angeordnet. Somit erfolgt auf Basis der Konvertierung in Schritt 1 die Delta-Analyse in Schritt 2.
+
+\subsubsection{R2BC}
+Zu Beginn des Verarbeitungsprozesses liegen die Pflichtenhefte in natürlicher Sprache vor, die der Zulieferer vom Kunden erhalten hat. Im ersten Schritt werden diese natürlichsprachlich formulierten Anforderungen durch den R2BC in Sprachschablonen überführt. 
+
+Nach der Verarbeitung liegt das Pflichtenheft des OEM somit in formaler Sprache vor. Diese Version des Pflichtenheftes kann dann für den Entwicklungsprozess genutzt werden. Das Ziel des R2BC ist es also, die Lesbarkeit bzw. die Eindeutigkeit der Anfordeungen durch Formalisierung zu verbessern. Auf dieser Basis kann dann der Inhalt des Pflichtenheftes eindeutig durch die Entwickler beim Zulieferer verstanden werden. Der Prozess ist in Abb. 3.2 dargestellt.
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.5]{Bilder/Prozess-R2BC.jpg}
+\caption{Szenario für Unterstützung durch R2BC-Komponente [eigene Darstellung]}
+\end{center}
+\end{figure}
+
+\subsubsection{DA}
+Diese logisch eindeutige Form der Anforderungen ermöglicht auch einen Vergleich mehrerer Pflichtenhefte anhand der Struktur der einzelnen Anforderungen in einer Ontologie. Diese Unterschiede können durch den DA identifiziert und in Form eines Deta-Reports ausgegeben werden. Unterschiede können anschließend etwa für einen RE-Experten auf dem Bildschirm bzw. in eine Datei ausgegeben werden. Der Ablauf ist in Abb. 3.3 dargestellt.
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.5]{Bilder/Prozess-DA.jpg}
+\caption{Szenario für Unterstützung durch DA-Komponente [eigene Darstellung]}
+\end{center}
+\end{figure}
+
+Alternativ können Änderungen auch automatisiert durch eine Integration der Anpassungen in das interne Pflichtenheft übernommen werden. Dazu müssen im Programm Verfahren zur Gewichtung der Deltas bzw. Metriken zur Entscheidung zwischen Anforderungen hinterlegt sein.
+
+Angesichts der Aufgaben für die Werkzeuge stellt sich die Frage nach dem erreichbaren Grad der Automatisierung bei hoher Verlässlichkeit im Gegensatz zu möglichen erforderlichen Interaktionspunkten mit dem Nutzer. 
+
+Der prinzipielle Aufbau beider Werkzeuge wird in den folgenden Abschnitten beschrieben.
+
+\subsection{R2BC-Funktionalität}
+Wie bereits zuvor beschrieben wurde, stellt der R2BC die erste wesentliche Stufe bei der automatisierten Verarbeitung von Pflichtenheften dar. Die Textverarbeitung erfolgt dabei sukzessive bzw. satzweise aus dem Quelldokument in ein Zieldokument, dass am Ende alle Anforderungen in angepasster Form enthält. 
+
+Dabei greift er auf eine formale Sprache zurück, die in verschiedenen Schablonen repräsentiert und im Programm gespeichert ist. Diese eingeschränkte Sprache ist Zulieferer-intern fest dokumentiert und wurde zuvor durch RE-Experten eindeutig definiert, was zu einer verbesserten Verständlichkeit führt. Sprachschablonen stellen demnach, im Kontrast zu natürlicher Sprache, eine eindeutige Deutung der Anforderungen sicher. Im besten Fall wurden somit insbesondere sprachliche Mehrdeutigkeiten im Sinne der Atomarität von Anforderungen eliminiert bzw. aufgeschlüsselt.
+
+Der R2BC verarbeitet die Pflichtenhefte unter Zugriff auf diese formalen Sprachschablonen automatisiert und ein Eingreifen des Nutzers ist nur im Ausnahmefall erforderlich. 
+
+Der prinzipielle Programmablauf gliedert sich wie folgt:
+\begin{enumerate}
+\item Zunächst werden die Sätze für eine sukzessive Verarbeitung getrennt.
+\item Für jeden Satz wird geprüft, ob und in welchem Maße Anpassungen erforderlich sind
+\item Sind Anpassungen erforderlich, so wird eine Konvertierung in jeweils passende Schablonen durchgeführt und diese werden im Programm gesammelt.
+\item Die erzeugte Boilerplate, die am besten zum Inhalt der Anforderung passt, wird identifiziert.
+\item Sind alle Anforderungen aus dem Quelldokument verarbeitet, werden auf Basis der erzeugten Anforderungen in Sprachschablonen ein Zieldokument für die weitere Verwendung erzeugt.
+\end{enumerate}
+
+Auf Basis dieses Konzeptes wurde in QUELLE PAPER ein Vorschlag zur Aufteilung der Ressourcen in verschiedene Bereiche gemacht. Dabei gliedern sich die Funktionalitäten in drei Software-Komponenten, die in Abb. 3.4 dargestellt sind.
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.5]{Bilder/Verteilung-R2BC.jpg}
+\caption{Szenario für Unterstützung durch R2BC-Komponente [eigene Darstellung]}
+\end{center}
+\end{figure}
+Der Programmablauf ist durch die Schritte 1 und 2 grob dargestellt und verteilt sich hauptsächlich auf die zwei entsprechenden Artefakte. Die Komponenten lassen sich dabei wie folgt definieren:
+\begin{itemize}
+\item Die \textit{NL pre-processing} Komponente stellt das backend für die Sprachverarbeitung des Quelldokumentes dar. Dabei werden verschiedene Textbereiche mithilfe des NLP-Werkzeugs GATE annotiert und somit relevante Informationen über den Text generiert. Das Ziel ist es, konkrete Anforderungen im Pflichtenheft eindeutig zu identifizieren. GATE stellt ein in hohem Maße konfigurierbares Werkzeug auf \textit{java}-Basis dar, dass in Kap. 4.1 näher beschrieben wird.
+\item Die zweite Komponente beinhaltet die Konvertierung der Sätze aus dem Quelldokument in Sprachscablonen. Der \textit{Converter} nutzt dabei die zuvor erstellten Annotationen, um für jeden Satz im Anforderungsdokument eine oder mehrere passende Sprachschablonen zu finden. Diese Schablonen werden dann durch das Programm generiert bzw. passend \glqq befüllt\grqq{}. Der \textit{Converter} wird ebenfalls mit \textit{java} implementiert.
+\item Die Interaktion mit dem Nutzer wird durch ein herkömmliches \textit{GUI} realisiert, dass dem Nutzer die Navigation im Programm ermöglicht. Auch kann dort etwa die Anzeige und Auswahl von einer aus mehreren möglichen Konvertierungen erfolgen.
+\end{itemize}
+
+In Kap. 4 erfolgt auf dieser Basis die konkrete Implementierung eines Prototypen für den R2BC.
+\subsection{DA-Funktionalität}
 \chapter{R2B-Converter}
+Dieses Kapitel behandelt den \textit{Requirements-to-Boilerplate-Converter} (\textit{R2BC}) ausführlich. Hierzu wird zunächst der Aufbau des Tools aus den verschiedenen Klassen und der verwendeten Software beschrieben. Daraufhin wird die Implementierung wichtiger Funktionalitäten und Datenstrukturen mit Auszügen des Quellcodes gezeigt und erläutert. Anschließend wird das Testverfahren für das Werkzeug beschrieben und die dadurch erzielten Ergebnisse aufgeführt. Die Evaluation der Ergebnisse findet in einem späteren Kapitel statt. Abschließend wird ein Katalog mit möglichen Erweiterung und Verbesserungen für das Werkzeug geliefert, welche auf Grund mangelnder Zeit und Ressourcen von uns nicht mehr umgesetzt werden konnten. 
+
 \section{Architektur Klassen und Verteilung der Ressourcen}
+In diesem Abschnitt soll die Architektur des R2BC vorgestellt und erläutert werden. Dazu gehört die zur Entwicklung verwendete Software, sowie ein Überblick über die Klassenstruktur des Werkzeugs. 
+
+\subsection{Verwendete Software}
+Als verwendete Software werden sämtliche Programme aufgeführt, welche eine Hilfe bei der Implementierung oder Teile der Funktionalität des Programmes darstellen. 
+
+\subsubsection{Implementierungsunterstützung}
+Das Werkzeug wurde auf Basis der Programmiersprache JAVA geschrieben. Hierzu wurde das JDK (\textit{JAVA development kit}) 8.1 verwendet. 
+
+Die Wahl der Programmiersprache fiel aufgrund von zwei Hauptfaktoren auf JAVA: 
+\begin{enumerate}
+\item JAVA ist eine weit verbreitete und entwicklerfreundliche Programmiersprache. Vorteile der Sicherheit von JAVA werden außerdem in \cite{rs18} aufgeführt.
+\item Das Programm, welches für das NLP-Preprocessing verwendet wird ist JAVA-basiert. Somit fällt die Integration des Programms in unser Werkzeug einfacher. Dies wird jedoch noch genauer in einem späteren Abschnitt behandelt.
+\end{enumerate}
+
+Als Programmierumgebung\footnote{oft als IDE, also \textit{integrated development enviroment} bezeichnet} wurde die Netbeans 8.2 IDE verwendet. Diese mit mit \textit{Eclipse} eine der am weitesten verbreitete Programmierumgebung für JAVA-Programme. 
+
+Außerdem wurde die Software \textit{Apache Maven} als Build-Management-Tool (\textit{BMT}) verwendet. Dieses wird vor allem für JAVA-Programme verwendet und war daher sehr geeignet für die Verwendung in unserem Werkzeug. Außerdem wurde das selbe BMT auch in dem später beschriebene Tool zur Bereitstellung bestimmter Funktionalitäten verwendet. 
+Build-Management-Tools helfen grundsätzlich dabei bestimmte, zuvor nicht vorhandene Bibliotheken und deren Funktionalitäten nachzuladen und in ein Programm zu integrieren. Außerdem helfen sie bei dem späteren Ausliefern des Programms, also der Erstellung eines unabhängig ausführbaren Programms außerhalb der Programmierumgebung.
+In unserem Fall wurde also eine \textit{Executable JAR} (ausführbares JAVA-Archiv) erstellt. 
+
+\subsubsection{Funktionalitätsunterstützung}
+
+Das zuvor bereits erwähnte Programm zur Bereitstellung von Funktionen ist bekannt unter dem Namen GATE (\textit{General Architecture for Text Engineering}). Dies ist ein Werkzeug zur Erstellung von NLP-Programmen und wird ausführlich in \cite{rs18} behandelt. 
+
+In unserem Programm wird \textit{GATE Embedded} verwendet. Dies ist eine Ansammlung von JAVA-Bibliotheken, welche alle Funktionen von GATE bieten. Man erhält als das gesamte Programm, nur ohne Benutzeroberfläche. Im folgenden wird daher im Zusammenhang auf die entwickelten Werkzeug nicht zwischen GATE und GATE Embedded unterschieden. 
+
+GATE ist, wie in Abbildung X.X (Konzept) zu sehen ist, für das NLP, also die Sprachverarbeitung in unserem Werkzeug zuständig und bildet somit das \textit{Backend} des Programms.
+
+Die genaue Umsetzung vom NLP in unserem Programm und der damit verbundene Einsatz von GATE sind jedoch Teil der Implementierung und werden somit in Abschnitt 4.2 behandelt.
+
+\subsection{Klassenstruktur}
+
 \subsection{Umsetzung der NLP-Architektur in unserem Werkzeug}
 In diesem Abschnitt wird die Einordnung unseres Prototypen als NLP-Werkzeug in die von \cite{cop04} definierte Architektur behandelt. Die verschiedenen Schritte aus Kap. 2.2. haben wir bei der Analyse und Verarbeitung der Lastenhefte in Programmbestandteilen umgesetzt. Im Arbeitsprozess unserer Entwicklung können wir die Aufgaben unseres Programms dort wie folgt einordnen:
+
+LISTE ARCHITEKTUR
 \section{Implementierung (bisschen Code, GUI, Listenarchitektur, Workflow für User}
 \section{mögliche Erweiterungen}
 \section{Test}
@@ -817,7 +905,7 @@ In diesem Abschnitt wird die Einordnung unseres Prototypen als NLP-Werkzeug in d
 \begin{enumerate}
 \item UML-Klassendiagramme im Vergleich zu Ontologien (Struktur, Beziehungen, Informatik-Bezug)
 \item Nutzen von Ontologien, welcher Mehrwert kommt zur syntax durch sie hinzu?
-\item Betriebliche Anforderungen an Tool: ACID aus DB? Quelle zu Anforderungen an Werkzeuge für Betriebe?
+\item Betriebliche Anforderungen an Tool: ACID aus DB? 
 \end{enumerate}
 
 \newpage
