@@ -635,8 +635,7 @@ Funktionale Anforderungen sind hingegen etwas spezifischer und beschreiben das g
 \subsubsection{use-case / problematik im geteilten entwicklungsprozess, schaubilder 2 oem-hella-allesläuftuncremig, schlechte absprache...}
 \section{Betriebliche Anforderungen}
 \subsubsection{kriterien der qualität von Anforderungen LITERATUR correctness completeness consistency, talk mit colin, flussdiagramm}
-\subsubsection{Aspekte für den entwurf der werkzeugunterstützung, ziele?}
-\subsubsection{konkrete anforderungen für tool}
+
 
 \section{Anforderungen an unsere Entwicklung}
 Dieses Kapitel beschäftigt sich mit der Motivation und den Rahmenbedingungen für die später in dieser Arbeit skizzierte Werkzeugunterstützung. Wesentliche Erkenntnisse entstanden dabei in Rücksprache mit dem Requirements-Experten Colin Hood, der als externer Beschäftiger für die PMT-Abteilung von HELLA arbeitet. 
@@ -694,11 +693,22 @@ Problematisch ist bei der Betrachtung des Beispiels auch, dass in der Regel inte
 
 Die Relevanz dieser drei Kriterien für das betriebliche Anforderungsmanagement wurde auch in Rücksprache mit internationalen Requirements-Experten bei HELLA betont. Auf dieser Basis realisieren die dortigen Teams Analysen der Projektlastenhefte. 
 
-\subsection{Verfahren zur Herstellung qualitativer Anforderungen}
-Harant und Poethen stellen in \cite{} weitere Maßnahmen für das Requirements-Management auf Basis des \textit{HOOD Capability Models} vor. Dabei ordnen sie die verschiedenen Schritte anhand eines mehrstufigen Prozesses ein, der in jedem Entwicklungspojekt von Requirements-Experten durchgeführt werden soll. Diese Expertengruppe dient dabei abstrakt zur Unterstützung der tatsächlichen Entwicklungsarbeit. Weitere Merkmale von qualitativen Anforderungen, die das Modell in ABBILDUNG beschreibt, werden durch die Experten umgesetzt. 
+\subsection{Kriterien zur Herstellung qualitativer Anforderungen}
+Harant und Poethen stellen in \cite{hp12} weitere Maßnahmen für das Requirements-Management auf Basis des \textit{HOOD Capability Models} (HCM) vor. Dabei ordnen sie die verschiedenen Schritte anhand eines mehrstufigen Prozesses ein, der in jedem Entwicklungspojekt von Requirements-Experten durchgeführt werden soll (siehe Abb. 3.1). Diese Expertengruppe dient dabei abstrakt zur Unterstützung der tatsächlichen Entwicklungsarbeit. Weitere Merkmale von qualitativen Anforderungen werden durch das HCM beschrieben und verschieden gewichtet. 
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.5]{Bilder/HOOD-RE.jpg}
+\caption{Überblick der 3 Qualitätsstufen von Anforderungen im \textit{Requirements-Management\& Engineering} (RM\& E) gemäß \cite{hp12}}
+\end{center}
+\end{figure}
+
+Dabei unterscheidet das Modell zwischen 3 verschiedenen Qualitätsstufen von Anforderungen. Diese werden jeweils durch verschiedene Kriterien dargestellt. Das Ziel der Arbeit der Abteilung bei HELLA stellt demnach das Herstellen einer möglicht hohen Qualitätsstufe der Pflichtenhefte dar. Im besten Fall erreichen die Experten dort die Stufe \textit{Expert} und machen die Anforderungen somit \textit{vollständig \& verfolgbar}.
 
 \subsection{Umgang mit natürlicher Sprache in Lastenheften}
-Unvollständige Anforderungen lassen sich meist auf falsche Annahmen der Stakeholder beim OEM zurückführen, die implizite Annahmen bei der Formulierung von Anforderungen treffen und diese Annahmen nicht expliziz erneut aufführen. Ergänzenden Informationen zu Anforderungen können jedoch, wie zuvor gezeigt, durchaus andersartig kategorisiert im Pflichtenheft vermerkt sein. Dies resultiert laut \cite{pr15} daher, dass die verschiedenen Autoren des Pflichtenheftes beim OEM als selbstverständlich erachten und diese nicht nochmal für externe Leser hinzufügen. Es stellt sich jedoch die Frage, ob unterschiedliche Menschen jemals ein verlässlich gleiches Verständnis der gleichen Sache haben. 
+Unvollständige Anforderungen lassen sich meist auf falsche Annahmen der Stakeholder beim OEM zurückführen, die implizite Annahmen bei der Formulierung von Anforderungen treffen und diese Annahmen nicht expliziz erneut aufführen. Ergänzenden Informationen zu Anforderungen können jedoch, wie zuvor gezeigt, durchaus andersartig kategorisiert im Pflichtenheft vermerkt sein. 
+
+Dies resultiert laut \cite{pr15} daher, dass die verschiedenen Autoren des Pflichtenheftes beim OEM als selbstverständlich erachten und diese nicht nochmal für externe Leser hinzufügen. Es stellt sich jedoch die Frage, ob unterschiedliche Menschen jemals ein verlässlich gleiches Verständnis der gleichen Sache haben. 
 
 Colin Hood formuliert Anforderungen grundsätzlich als \glqq individuelle Bedürfnisse\grqq{}, die immer abhängig von dem Autoren sind.\footnote{Im Rahmen unserer Arbeit konnten wir mehrmals Interviews zur Ausrichtung bzw. dem Ansatz unserer Prototypen führen.} In wird die Verwendung von Sprachschablonen für Projektlastenhefte im Vergleich zu natürlicher Sprache evaluiert. Die grundsätzliche Eignung natürlicher Sprache für die Formulierung von Anforderungen wird dort bezweifelt. 
 
@@ -706,9 +716,34 @@ Hood stellte die Eingrenzung der Sprache, die für Projektlastenhefte genutzt we
 
 
 \section{Ansatz und Konzept unserer Werkzeuge}
-Wie bereits unter beschrieben, existiert eine Vielzahl an Arbeiten, die sich mit der verlässlichen Überführung der Anforderungen in natürlicher Sprache in Sprachschablonen beschäftigen. Dazu werden Methoden aus dem NLP genutzt, um den Text der Anforderungen zunächst genau zu annotieren. Dieser Ansatz stellt die Basis für die Vorstellung unseres Werkzeugs in diesem Kapitel dar.
+Wie bereits unter beschrieben, existiert eine Vielzahl an Arbeiten, die sich mit der verlässlichen Überführung der Anforderungen in natürlicher Sprache in Sprachschablonen beschäftigen. Dazu werden Methoden aus dem NLP und Ontologien genutzt, um den Text der Anforderungen zunächst genau zu annotieren. Dieser Ansatz stellt die Basis für die Vorstellung unseres Werkzeugs in diesem Kapitel dar.
 
-In wurde das Potential einer Verbesserung von RE-Prozessen in Firmen durch Werkzeuge aufgezeigt. Die in den vorigen Kapiteln aufgezeigten Anforderungen an das Requirements-Management schaffen somit die Basis für den konkreten Entwurf von Werkzeugen, die entsprechende Funktionalitäten bereitstellen.
+In \cite{zh17} wurde das Potential einer Verbesserung von RE-Prozessen in Firmen durch Werkzeuge aufgezeigt. Die in den vorigen Kapiteln aufgezeigten Anforderungen an das Requirements-Management schaffen somit die Basis für den konkreten Entwurf von Werkzeugen, die entsprechende Funktionalitäten bereitstellen.
+
+\subsection{Anforderungen an die Entwicklung}
+Für den Entwurf unserer Prototypen stellt sich einerseits die Frage, an welcher Stelle im abstrakten Modell ein Potential für Werkzeugunterstützung entsteht, auf der anderen Seite aber auch die Definition einer konkreten Zielgruppe bzw. Stakeholdern im tatsächlichen Betrieb bei HELLA, die nachher mit der Software interagieren und diese täglich nutzen.
+
+\begin{enumerate}
+\item Zeit sparen
+\item manuellen Aufwand verringern
+\item Automatisierung 
+\item Hoher Abdeckungsgrad, Vielseitigkeit bzw. breite Domäne
+\item Mehrwert
+\item Verlässliches NLP TODO PA Anforderungen zu NLP
+\end{enumerate}
+\subsection{Zuordnung einzelner Werkzeuge}
+Verschiedene Verfahren, bereits bei der Spezifikation von Anforderungen im Zusammenhang eines Pflichtengeftes durch Werkzeuge zu unterstützen, sind unter VERWANDTE AREITEN beschrieben. Es existieren jedoch durch die Besonderheiten im geteilten Entwicklungsprozess zwischen OEM und Zulieferer besondere Herausforderungen für das RE, welche Potential für eine Werkzeugunterstützung bieten. 
+
+Wie bereits in Kap. 3.1 beschrieben, resultieren die Probleme auf Seiten des Zulieferers beim Verständnis der Anforderungen aus dem Umstand, dass dort ein Pflichtenheft in natürlicher Sprache vorliegt. Dieses verursacht einerseits einen Arbeitsaufwand durch die Probleme beim Umgang mit natürlicher Sprache wie z.B. sprachlichen Mehrdeutigkeiten (Kap. 2.1). Andererseits können enthaltenen Anforderungen teilweise nicht korrekt bzw. von niedriger Qualität sein, was zu inhaltlichen Probleme für die Produktentwicklung führt. 
+
+Auch kann es mehrere Versionen der Spezifikation eines Produktes im Laufe der Zeit geben, deren Unterschiede erkannt werden müssen. Auswirkungen der Überarbeitung des Produktes auf Basis einer neuen Verison des Pflichtenheftes müssen unter verschiedenen Kriterien gewichtet werden. 
+
+Es gilt also, Werkzeuge zu entwerfen, die insbesondere bei der Lösung von sprachlichen Problemen und bei der Identifikation von Konflikten zwischen Anforderungen in Pflichtenheften unterstützen. 
+
+Daher werden im folgenden die Ansätze aus \cite{zh17} beschrieben,  Transformation von bereits spezifizierten Anforderungen in bestehenden Pflichtenheften in eine besser verständliche und eindeutige formale Sprache hilft. Diese Ansätze haben zur konkreten Entwicklung von zwei Werkzeugen geführt, dem \textit{Requirements-To-Boilerplate-Converter} und dem \textit{Delta-Analyser}.
+
+\subsection{R2BC}
+\subsection{DA}
 \chapter{R2B-Converter}
 \section{Architektur Klassen und Verteilung der Ressourcen}
 \subsection{Umsetzung der NLP-Architektur in unserem Werkzeug}
