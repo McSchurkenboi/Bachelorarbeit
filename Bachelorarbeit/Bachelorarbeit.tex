@@ -759,14 +759,13 @@ In \cite{zh17} wurde das Potential einer Verbesserung von RE-Prozessen in Firmen
 
 \subsection{Anforderungen an die Entwicklung}
 Für den Entwurf unserer Prototypen stellt sich einerseits die Frage, an welcher Stelle im abstrakten Modell ein Potential für Werkzeugunterstützung entsteht, auf der anderen Seite aber auch die Definition einer konkreten Zielgruppe bzw. Stakeholdern im tatsächlichen Betrieb bei HELLA, die nachher mit der Software interagieren und diese täglich nutzen.
-
+Für die Entwicklung unseres Werkzeugs haben wir in Zusammenarbeit mit RE-Experten einige Ziele identifiziert, die eine Unterstützung für die Arbeit ausmachen würden:
 \begin{enumerate}
-\item Zeit sparen
-\item manuellen Aufwand verringern
-\item Automatisierung 
-\item Hoher Abdeckungsgrad, Vielseitigkeit bzw. breite Domäne
-\item Mehrwert
-\item Verlässliches NLP TODO PA Anforderungen zu NLP
+\item Zeitersparnis bei Arbeit mit dem Werkzeug, da der Aufwand einer manuellen Prüfung reduziert wird
+\item Hoher Automatisierungsgrad bei der Verarbeitung, um Konflikte in den Anforderungen im Voraus aufzulösen
+\item Hoher Abdeckungsgrad verschiedener Problemfälle, da eine einfache Wiederverwendbarkeit den Aufwand zur Anpassung an andere Domänen reduziert
+\item Mehrwert für den Nutzer, da effektiv Arbeitszeit gespart und Aufwand an das Werkzeug abgegeben werden kann
+\item Anforderungen an NLP-Werkzeuge umsetzen, da eine präzise sprachliche Analyse eine wesentliche Grundlage für die Verlässlichkeit der Verarbeitung darstellt.
 \end{enumerate}
 \subsection{Zuordnung einzelner Werkzeuge}
 Verschiedene Verfahren, bereits bei der Spezifikation von Anforderungen im Zusammenhang eines Pflichtengeftes durch Werkzeuge zu unterstützen, sind unter VERWANDTE AREITEN beschrieben. Es existieren jedoch durch die Besonderheiten im geteilten Entwicklungsprozess zwischen OEM und Zulieferer besondere Herausforderungen für das RE, welche Potential für eine Werkzeugunterstützung bieten. 
@@ -808,19 +807,23 @@ Angesichts der Aufgaben für die Werkzeuge stellt sich die Frage nach dem erreic
 Der prinzipielle Aufbau beider Werkzeuge wird in den folgenden Abschnitten beschrieben.
 
 \subsection{R2BC-Funktionalität}
-Wie bereits zuvor beschrieben wurde, stellt der R2BC die erste wesentliche Stufe bei der automatisierten Verarbeitung von Pflichtenheften dar. Die Textverarbeitung erfolgt dabei sukzessive bzw. satzweise aus dem Quelldokument in ein Zieldokument, dass am Ende alle Anforderungen in angepasster Form enthält. 
+Wie bereits zuvor beschrieben wurde, stellt der \textit{Requirements-To-Boilerplate-Converter} die erste wesentliche Stufe bei der automatisierten Verarbeitung von Pflichtenheften dar. Die Textverarbeitung erfolgt dabei sukzessive bzw. satzweise aus dem Quelldokument in ein Zieldokument, dass am Ende alle Anforderungen in angepasster Form enthält. 
 
 Dabei greift er auf eine formale Sprache zurück, die in verschiedenen Schablonen repräsentiert und im Programm gespeichert ist. Diese eingeschränkte Sprache ist Zulieferer-intern fest dokumentiert und wurde zuvor durch RE-Experten eindeutig definiert, was zu einer verbesserten Verständlichkeit führt. Sprachschablonen stellen demnach, im Kontrast zu natürlicher Sprache, eine eindeutige Deutung der Anforderungen sicher. Im besten Fall wurden somit insbesondere sprachliche Mehrdeutigkeiten im Sinne der Atomarität von Anforderungen eliminiert bzw. aufgeschlüsselt.
 
-Der R2BC verarbeitet die Pflichtenhefte unter Zugriff auf diese formalen Sprachschablonen automatisiert und ein Eingreifen des Nutzers ist nur im Ausnahmefall erforderlich. 
+Der R2BC verarbeitet die Pflichtenhefte unter Zugriff auf diese formalen Sprachschablonen (\textit{Boilerplates}) automatisiert und ein Eingreifen des Nutzers ist nur im Ausnahmefall erforderlich. 
+
+\subsubsection{Programmablauf und Artefakte}
+Auf Basis dieses Ansatzes wurde ein Algorithmus zur satzweisen Verarbeitung der Sätze unter Verwendung des NLP-Werkzeugs GATE entwickelt, der aus natürlichsprachlichen Eingaben (Input) eine Ausgabe (Output) in formaler Sprache erzeugt. Dabei werden auch Metainformationen über den Text generiert und zur weiteren Verarbeitung ausgegeben.
 
 Der prinzipielle Programmablauf gliedert sich wie folgt:
 \begin{enumerate}
-\item Zunächst werden die Sätze für eine sukzessive Verarbeitung getrennt.
-\item Für jeden Satz wird geprüft, ob und in welchem Maße Anpassungen erforderlich sind
-\item Sind Anpassungen erforderlich, so wird eine Konvertierung in jeweils passende Schablonen durchgeführt und diese werden im Programm gesammelt.
-\item Die erzeugte Boilerplate, die am besten zum Inhalt der Anforderung passt, wird identifiziert.
-\item Sind alle Anforderungen aus dem Quelldokument verarbeitet, werden auf Basis der erzeugten Anforderungen in Sprachschablonen ein Zieldokument für die weitere Verwendung erzeugt.
+\item Zunächst werden die Sätze für eine sukzessive Verarbeitung getrennt. Dies erfolgt mithilfe des NLP-Werkzeugs GATE.
+\item Für jeden Satz wird geprüft, ob und in welchem Maße Anpassungen an die formale Sprache der Boilerplates erforderlich sind. Dazu werden Syntax bzw. Satzbestandteile analysiert.
+\item Passende Boilerplate-Typen für die Anforderung wird identifiziert. Dieser leitet sich aus den unter 2. gefundenen Merkmalen ab. Es können etwa funktionale von nicht-funktionalen unterschieden sowie Bedingungen für die Anforderung modelliert werden.
+\item Sind Anpassungen erforderlich, so wird eine Konvertierung in die jweils passende Boilerplate durchgeführt und diese werden im Programm gesammelt. 
+\item Die erzeugte Boilerplate, die am besten zum Inhalt der Anforderung passt, wird identifiziert. Dies kann automatisiert oder unter Einbezug des Nutzers geschehen. Der Nutzer kann dazu beispielsweise aus mehreren Vorschlägen auswählen.
+\item Sind alle Anforderungen aus dem Quelldokument verarbeitet, wird auf Basis der erzeugten Anforderungen in Boilerplates ein Zieldokument für die weitere Verwendung erzeugt.
 \end{enumerate}
 
 Auf Basis dieses Konzeptes wurde in QUELLE PAPER ein Vorschlag zur Aufteilung der Ressourcen in verschiedene Bereiche gemacht. Dabei gliedern sich die Funktionalitäten in drei Software-Komponenten, die in Abb. 3.4 dargestellt sind.
@@ -839,6 +842,37 @@ Der Programmablauf ist durch die Schritte 1 und 2 grob dargestellt und verteilt 
 
 In Kap. 4 erfolgt auf dieser Basis die konkrete Implementierung eines Prototypen für den R2BC.
 \subsection{DA-Funktionalität}
+Auf Basis des zuvor beschriebenen R2BC stellt der \textit{Delta-Analyser} die Softwarekomponente für einen kriteriengeleiteten Vergleich zweier Anforderungsdokumente dar. Das Ziel ist es, auf Basis der Informationen zu jeweils einem der Lastenhefte den Grad der inhaltlichen Überschneidung zum anderen Lastenheft zu messen. 
+
+Im Kontext des Use-Cases dieser Arbeit geht es dabei insbesondere um den Vergleich von zwei Versionen des gleichen Anforderungsdokumentes, wenn auf Unterschiede in der Überarbeitung geprüft werden soll. Zu Anforderungen aus dem Lastenheft V2 müssen also inhaltlich passende Anforderungen aus Lastenheft V1 gefunden werden, um anschließend Deltas zwischen diesen Anforderungen zu identifizieren bzw. für den Nutzer hervorzuheben. Diese Verarbeitung erfolgt dabei satzweise für das komplette Lastenheft. 
+
+Für ein automatisiertes Finden passender Requirements in unserem Werkzeug müssen daher die Anforderungen in einheitlicher Form dargestellt sein, damit verlässlich nach einzelnen Satz- bzw. Textbestandteilen in den Anforderungen gesucht und verglichen werden kann.
+Dabei stellt, wie zuvor beschrieben, die Überführung der Anfordeurngen aus den Dokumenten aus der natürlichen in eine fest definierte, formale Sprache, eine wesentliche Grundlage dar. Der zuvor skizzierte R2BC bietet eben diese Funktionalität.
+
+\subsubsection{Programmablauf und Artefakte}
+Die bechriebenen Funktionen ermöglichen den Entwurf eines Verfahrens für einen automatisierten Vergleich von zwei Lastenheften im DA. Dazu wird jede Anforderungen aus dem Lastenheft V2 mit denen aus V1 abgegelichen, um jeweils zueinander passende zu finden.
+Folgendes Vorgehen wurde dazu entwickelt:
+\begin{enumerate}
+\item Die einzelnen Anforderungen in Boilerplates werden für Lastenheft V1 und V2 geladen.
+\item Für jede Boilerplate aus Lastenheft V2 wird geprüft, ob es identische, vergleichbare oder keine zuordbaren Anforderungen in Lastenheft V1 gibt. Diese drei Kategorien werden auf Basis der GATE-Annotationen aus dem R2BC identifiziert.
+\item Entsprechend des gefundenen Überinstimmungsgrades werden die Deltas zwischen den Anforderungen identifiziert:
+\begin{enumerate}
+\item \textit{Identische Anforderung}: Es wurde eine identische Anforderung in beiden Lastenheften gefunden. Die Anforderung kann ohne gesonderte Betrachtung übernommen werden.
+
+\item \textit{Verglichbare Anforderung}: Es wurden nur eine teilweise übereinstimmende Anforderung gefunden. Dies ist etwa der Fall, wenn sich Anforderungen geändert haben bzw. überarbeitet wurden. Zwischen diesen Anforderungen existiert also ein Delta, das eine Änderung in den Anforderungen und somit den Produktspezifikationen bedeuten würde. Eine feingranulare Aufschlüsselung der erwartbaren Deltas findet sich in der Implementierung in Kap. 4.x. Dort werden auch Vorschläge zur Gewichtung verschiedener Deltas im Kontext des RE gemacht.
+
+\item \textit{Keine vergleichbare Anforderung}: Es konnte keine Anforderung aus V1 gefunden werden. In Lastenheft V2 könnten etwa neue Anforderungen enthalten sein, die in V1 noch in keiner Weise spezifiziert wurden. Dies kann etwa Eigenschaften betreffen, die erst später im Entwicklungsprozess definiert wurden oder zu der vorher noch keine Informationen bekannt waren. Im Kontext anderer Anforderungen muss dabei auf Konsistenz geprüft werden.
+
+\end{enumerate} 
+\item Falls es noch mehr mindestens vergleichbare Anforderungen in V1 gibt, wird die am besten passende Anforderung gefunden. 
+\item Der Delta-Report für den Nutzer wird unter Zugriff auf die Ergebnisse aus 4. erzeugt, wenn V2 vollständig durchlaufen wurde.
+\end{enumerate}
+Insofern Deltas gefunden wurden, muss immer auch die Umsetzbarkeit dieser neuen Anforderungen gesondert geprüft werden. Die weitere Korrektheit des Lastenheftes V2 zu V1 kann bei vielen Deltas nicht gewährleistet werden, was eine Umsetzung der Anforderungen erschwert. Es können massive Unterschiede in den Spezifikationen auftreten, was zu einer teilweisen oder kompletten Neuentwicklung des Produktes führen kann.
+
+Die beschriebene Funktionalität hat in der Entwicklung unseres Werkzeugs zur konkreten Herausbildung von drei Kernbestandtreilen geführt. Unser Werkzeug beinhaltet dabei Komponenten zur Abbildung von Fachlogik und GUI. Die Verteilung der Ressourcen ist in Abb. 3.4 dargestellt.
+
+
+
 \chapter{R2B-Converter}
 Dieses Kapitel behandelt den \textit{Requirements-to-Boilerplate-Converter} (\textit{R2BC}) ausführlich. Hierzu wird zunächst der Aufbau des Tools aus den verschiedenen Klassen und der verwendeten Software beschrieben. Daraufhin wird die Implementierung wichtiger Funktionalitäten und Datenstrukturen mit Auszügen des Quellcodes gezeigt und erläutert. Anschließend wird das Testverfahren für das Werkzeug beschrieben und die dadurch erzielten Ergebnisse aufgeführt. Die Evaluation der Ergebnisse findet in einem späteren Kapitel statt. Abschließend wird ein Katalog mit möglichen Erweiterung und Verbesserungen für das Werkzeug geliefert, welche auf Grund mangelnder Zeit und Ressourcen von uns nicht mehr umgesetzt werden konnten. 
 
