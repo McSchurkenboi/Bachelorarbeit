@@ -901,11 +901,11 @@ In unserem Fall wurde also eine \textit{Executable JAR} (ausführbares JAVA-Arch
 
 Das zuvor bereits erwähnte Programm zur Bereitstellung von Funktionen ist bekannt unter dem Namen GATE (\textit{General Architecture for Text Engineering}). Dies ist ein Werkzeug zur Erstellung von NLP-Programmen und wird ausführlich in \cite{rs18} behandelt. 
 
-In unserem Programm wird \textit{GATE Embedded} verwendet. Dies ist eine Ansammlung von JAVA-Bibliotheken, welche alle Funktionen von GATE bieten. Man erhält als das gesamte Programm, nur ohne Benutzeroberfläche. Im folgenden wird daher im Zusammenhang auf die entwickelten Werkzeug nicht zwischen GATE und GATE Embedded unterschieden. 
+In unserem Programm wird \textit{GATE Embedded} verwendet. Dies ist eine Ansammlung von JAVA-Bibliotheken, welche alle Funktionen von GATE bieten. Man erhält also das gesamte Programm, nur ohne Benutzeroberfläche. Im folgenden wird daher im Zusammenhang auf die entwickelten Werkzeug nicht zwischen GATE und GATE Embedded unterschieden. 
 
 GATE ist, wie in Abbildung X.X (Konzept) zu sehen ist, für das NLP, also die Sprachverarbeitung in unserem Werkzeug zuständig und bildet somit das \textit{Backend} des Programms.
 
-Die genaue Umsetzung vom NLP in unserem Programm und der damit verbundene Einsatz von GATE sind jedoch Teil der Implementierung und werden somit in Abschnitt 4.2 behandelt.
+Die genaue Umsetzung vom NLP in unserem Programm und der damit verbundene Einsatz von GATE sind jedoch Teil der Implementierung und werden somit in Abschnitt X.X behandelt.
 
 \subsection{Klassenstruktur}
 
@@ -914,6 +914,48 @@ In diesem Abschnitt wird die Einordnung unseres Prototypen als NLP-Werkzeug in d
 
 LISTE ARCHITEKTUR
 \section{Implementierung (bisschen Code, GUI, Listenarchitektur, Workflow für User}
+In diesem Abschnitt werden wichtige Aspekte der praktischen Umsetzung des Programms genau erläutert. Die bezieht sich sowohl auf präzisere Vertiefung der Konzepte, also auch Quellcode-Beispiele der Implementierung zur Erläuterung des Programmvorgehens und die daraus resultierenden Interaktionsmöglichkeiten der Benutzer.  
+\subsection{Sprachverarbeitung mit GATE}
+Dieser Abschnitt beschäftigt sich mit der automatischen Sprachverarbeitung der Anforderungsdokumente mit Hilfe des angekündigten NLP-Werkzeugs \textit{GATE}. Dies beinhaltet, das Einlesen der Lastenhefte, die Erstellung einer Verarbeitungslogik, die Erstellung und Auswertung von Verarbeitungsregeln und das Einbinden von GATE in das spätere Programm. Fokus liegt dabei auf der praxisnahen Verwendung in dem Projekt. Ein genereller Überblick und Einordnung des Werkzeugs finden sich in der vorherigen Arbeit \cite{rs18}.
+
+\subsubsection{Einlesen von Lastenheften}
+In GATE benötigt man zum einlesen und verwenden von Dokumenten zunächst einen \textit{Corpus}, also einen Textkörper. Dieser kann später mehrere Dokumente enthalten und diese verwalten. Außerdem wird eine Verarbeitungslogik immer auf einem Korpus (nicht auf einem Dokument) ausgeführt. Im Zusammenhang dieser Arbeit war es nicht nötig einen Corpus mit verschiedenen Dokumenten zu befüllen, daher ist zukünftig die Verarbeitung eines Corpus gleichbedeutend mit der Verarbeitung eines Dokuments. 
+
+Ein Corpus kann in der Benutzeroberfläche von GATE schnell als neue \textit{language resource} (Sprachliche Ressource) erzeugt werden. In GATE Embedded ist dies ohne Benutzeroberfläche natürlich nicht möglich, lässt sich jedoch ähnlich einfach durch den Aufruf von \textit{new Corpus} durchführen. 
+
+Sobald der Corpus erstellt ist, lassen sich dort Dokumente einfügen. \footnote{Alternativ kann auch erst ein Dokument eingelesen und anschließend ein Corpus um dieses angelegt werden.} Auch dies geschieht in GATE direkt über die Benutzeroberfläche. In GATE Embedded verwendet man hierzu den \textit{add}-Aufruf eines Corpus-Objekts mit einem übergebenen Dokument. 
+
+Sobald man einen Corpus mit mindestens einem Dokument hat, kann man auf diesem Corpus eine Verarbeitungslogik aufrufen (oft auch Verarbeitungs-Pipeline genannt, wegen der Aneinanderreihung mehrerer Verarbeitungskomponenten). Diese werden im folgenden Abschnitt genauer beschrieben.
+
+\subsubsection{GATE-Verarbeitungslogik}
+In GATE wird die sprachliche Analyse durch eine Verarbeitungslogik durchgeführt, welche aus verschiedene Verarbeitungsressourcen (\textit{processing resource}) aufgebaut ist. Eine Standard-Verarbeitungslogik wird durch das GATE-Plugin \textit{ANNIE} zur Verfügung gestellt. Die einzelnen ANNIE-Verarbeitungsressourcen sind in \cite{rs18} beschrieben. 
+
+Führt man eine Verarbeitungslogik auf einem Corpus bzw. auf dessen Dokumenten aus, so werden durch die verschiedenen Verarbeitungsressourcen an bestimmten Stellen im Text bestimmte Informationen hinzugefügt. Dies bezeichnet man als \textit{annotieren}. Dabei wird der Text an sich nicht geändert, die Annotationen können jedoch etwa durch farbige Unterlegung des betroffenen Texts in der GATE-Benutzeroberfläche gezeigt und als XML-Datei exportiert werden. 
+
+Einer Annotation können sog. \textit{Features} also Eigenschaften zugewiesen werden, welche dann noch weitere Informationen enthalten können, wie z.B. Länge der Annotation und die betroffene Zeichenkette.
+
+Die für diese Arbeit verwendeten und besonders relevanten ANNIE- Verarbeitungsressourcen und die dadurch entstehenden Annotationen sind: 
+
+
+\begin{enumerate}
+\item \textit{ANNIE Tokenizer}: Der Tokenizer unterteilt den Text oberflächlich in Zeichen oder Zeichenketten, welche als Zahlen, Wörter (Groß- und Kleinschreibung wird unterschieden) und Interpunktion kategorisiert werden. Dies fügt an den betroffenen Stellen die \textit{Token}-Annotation hinzu, welche jeweils Typ (Zahl, Wort usw.) und Länge in Zeichen . Die Verarbeitung durch den Tokenizer soll so effizient wie möglich sein und nur als Grundlage etwa für spätere Grammatikregeln dienen.
+
+\item \textit{ANNIE Gazetteer}: Ein Gazetteer beinhaltet relevante Eigennamen aus bestimmten Bereichen. Es handelt sich dabei um eine geschachtelte Liste, welche für jeden Bereich (beispielsweise Städte, Flughäfen, Fußball Clubs) über eine Liste der jeweils bekannten Eigennamen verfügt. Gazetteers werden verwendet, um domänenspezifisch Entitäten zu erkennen, da diese in einem normalen Wörterbuch nicht zu finden sind. Die vorgefertigten Listen sind also je nach Dokument individuell zu erweitern bzw. zu erstellen. Wird ein Listenelement im Text wiedererkannt, so erhält es Standardmäßig die \textit{Lookup}-Annotation. Das lässt sich jedoch auch schon im Gazetteer ändern und jeweils Listen-abhängig bestimmen. 
+
+\item \textit{ANNIE Sentence Splitter}: Der Sentence-Splitter unterteilt den gesamten Text in einzelne Sätze. Dadurch wird jeder komplette Satz von einer \textit{Sentence}-Annotation umschlossen. Dies wird später für den Part-of-Speech Tagger benötigt. Der Splitter verwendet dazu einen Gazetteer mit Abkürzungen, um Interpunktion wie etwa Fragezeichen, Ausrufezeichen und Punkte von anderen Sonderzeichen wie Semikola und Doppelpunkten zu unterscheiden. 
+
+\item \textit{ANNIE POS Tagger}: Der Part-of-Speech Tagger annotiert alle Wörter und Symbole gemäß ihrer grammatikalischen Funktion. Hierfür wird keine neue Annotation angelegt, es werden jedoch das wichtige \textit{category}-Feature an die Token-Annotationen angefügt. Dies ist wichtige Grundlage für grammatikalische Analyse von Sätzen. Dazu gehören Dafür nutzt dieser Standard-Lexika und Regelwerke, welche auf dem Corpus-Training des Wall Street Journal beruhen.
+\end{enumerate}
+
+HIER BILD MIT DEN KOMPONENTEN\\
+
+Die für die Verarbeitung wichtigsten Komponenten sind in der normalen ANNIE-Verarbeitungslogik jedoch noch nicht vorhanden. Die sogenannten \textit{Jape Transducer} werden individuell angelegt und verwenden die Annotationen der vorherigen Verarbeitungsressourcen, um dem Text wichtige Informationen hinzuzufügen. Diese können im Gegensatz zu den vorherigen jedoch auch von großer inhaltlicher bzw. semantischer Relevanz sein. 
+
+Dazu wird die im Namen vorhandene \textit{Jape} (Java Annotation Patterns Engine) verwendet. Jape fungiert dabei als endlicher Zustandswandler\footnote{Für Erläuterung siehe \cite{rs18}} der reguläre Ausdrücke prüft und abhängig davon 
+Annotationen erzeugt oder JAVA-Code ausführt. 
+
+Jape Transducer lassen sich wie die anderen Verarbeitungsressourcen hintereinander reihen und werden jeweils mit einer \textit{Jape-Datei} initialisiert. 
+
 \section{mögliche Erweiterungen}
 \section{Test}
 \subsection{Methodik}
