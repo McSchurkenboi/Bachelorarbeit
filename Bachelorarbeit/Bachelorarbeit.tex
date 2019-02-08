@@ -7,6 +7,7 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{amsfonts}
+\usepackage{float}
 \usepackage{caption}
 \usepackage{tikz}
 \usepackage{tikz-uml}
@@ -119,7 +120,7 @@ Abkürzungsverzeichnis
 \vspace{12pt} \\
 An dieser Stelle möchten wir uns bei allen Personen bedanken, die uns bei unserer Bachlorarbeit und während des Studiums begleitet und unterstützt haben.
 \vspace{12pt} \\
-Der Dank gebührt unseren Familien und Freunden aus der Heimat sowie all jenen tollen Menschen, die wir durch das Studium an der FH Dortmund erst kennenlernen durften.
+Der Dank gebührt unseren Familien und Freunden aus der Heimat und aus dem Studium für ihre Unterstützung.
 \vspace{12pt} \\
 Wir danken auch allen Kollegen aus der Abteilung E-AE bei der Firma HELLA in Lippstadt für ihr Interesse und die großartige Zusammenarbeit. Die einzigartigen Erfahrungen, die wir während unseres Praktikums und später während der Bachelorarbeit in der Firma sammeln konnten, haben uns wirklich motiviert. Besonderer Dank geht dabei an Konstantin Zichler, der weit mehr als nur Betreuer in der Firma, sondern auch Mentor und Ideengeber unserer Arbeit war.
 \vspace{12pt} \\
@@ -546,7 +547,7 @@ In \cite{kr93} untersuchte Kevin Ryan bereits vor modernen Entwicklungen im Bere
 
 \vspace{12pt}
 
-In \cite{sf11} beschäftigen sich Farfelder et. al mit der Unterstützung von Requirements-Experten bei der Anforderungsspezifikation durch vorgefertigte Sprachschablonen und Ontologien, womit Fehler bei der Konsistenz von Anforderungen vermeiden werden. Sie stellen das Tool \textit{DODT} vor, dass als Alternative zur natürlichsprachlichen Formulierung das Erstellen von Anforderungen anhand von Schablonen anbietet, aus denen der Nutzer im Programm auswählen kann. Dabei greift das Werkzeug auf eine Ontologie zu, welche alle möglichen Begriffe zum Einsetzen in die Schablone enthält. Die Eintragungen des Nutzers stellen dann eine Anforderung dar, die in der Ontologie gespeichert wird.
+In \cite{ff11} beschäftigen sich Farfelder et. al mit der Unterstützung von Requirements-Experten bei der Anforderungsspezifikation durch vorgefertigte Sprachschablonen und Ontologien, womit Fehler bei der Konsistenz von Anforderungen vermeiden werden. Sie stellen das Tool \textit{DODT} vor, dass als Alternative zur natürlichsprachlichen Formulierung das Erstellen von Anforderungen anhand von Schablonen anbietet, aus denen der Nutzer im Programm auswählen kann. Dabei greift das Werkzeug auf eine Ontologie zu, welche alle möglichen Begriffe zum Einsetzen in die Schablone enthält. Die Eintragungen des Nutzers stellen dann eine Anforderung dar, die in der Ontologie gespeichert wird.
 
 \vspace{12pt}
 
@@ -709,12 +710,14 @@ Problematisch ist bei der Betrachtung des Beispiels auch, dass in der Regel inte
 Die Relevanz dieser drei Kriterien für das betriebliche Anforderungsmanagement wurde auch in Rücksprache mit internationalen Requirements-Experten bei HELLA betont. Auf dieser Basis realisieren die dortigen Teams Analysen der Projektlastenhefte. 
 
 \subsection{Kriterien zur Herstellung qualitativer Anforderungen}
-Harant und Poethen stellen in \cite{hp12} weitere Maßnahmen für das Requirements-Management auf Basis des \textit{HOOD Capability Models} (HCM) vor. Dabei ordnen sie die verschiedenen Schritte anhand eines mehrstufigen Prozesses ein, der in jedem Entwicklungspojekt von Requirements-Experten durchgeführt werden soll (siehe Abb. 3.1). Diese Expertengruppe dient dabei abstrakt zur Unterstützung der tatsächlichen Entwicklungsarbeit. Weitere Merkmale von qualitativen Anforderungen werden durch das HCM beschrieben und verschieden gewichtet. 
+Harant und Poethen stellen in \cite{hp12} weitere Maßnahmen für das \\\ Requirements-Management auf Basis des \textit{HOOD Capability Models} (HCM) vor. Dabei ordnen sie die verschiedenen Schritte anhand eines mehrstufigen Prozesses ein, der in jedem Entwicklungspojekt von Requirements-Experten durchgeführt werden soll (siehe Abb. 3.1). 
+
+Diese Expertengruppe dient dabei abstrakt zur Unterstützung der tatsächlichen Entwicklungsarbeit. Weitere Merkmale von qualitativen Anforderungen werden durch das HCM beschrieben und verschieden gewichtet. 
 
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=0.5]{Bilder/HOOD-RE.jpg}
-\caption{Überblick der 3 Qualitätsstufen von Anforderungen im \textit{Requirements-Management\& Engineering} (RM\& E) gemäß \cite{hp12}}
+\caption{Überblick der 3 Qualitätsstufen von Anforderungen im \textit{Requirements-Management \& Engineering} (RM \& E) gemäß \cite{hp12}}
 \end{center}
 \end{figure}
 
@@ -859,7 +862,9 @@ Folgendes Vorgehen wurde dazu entwickelt:
 \begin{enumerate}
 \item \textit{Identische Anforderung}: Es wurde eine identische Anforderung in beiden Lastenheften gefunden. Die Anforderung kann ohne gesonderte Betrachtung übernommen werden.
 
-\item \textit{Verglichbare Anforderung}: Es wurden nur eine teilweise übereinstimmende Anforderung gefunden. Dies ist etwa der Fall, wenn sich Anforderungen geändert haben bzw. überarbeitet wurden. Zwischen diesen Anforderungen existiert also ein Delta, das eine Änderung in den Anforderungen und somit den Produktspezifikationen bedeuten würde. Eine feingranulare Aufschlüsselung der erwartbaren Deltas findet sich in der Implementierung in Kap. 4.x. Dort werden auch Vorschläge zur Gewichtung verschiedener Deltas im Kontext des RE gemacht.
+\item \textit{Verglichbare Anforderung}: Es wurden nur eine teilweise übereinstimmende Anforderung gefunden. Dies ist etwa der Fall, wenn sich Anforderungen geändert haben bzw. überarbeitet wurden. Zwischen diesen Anforderungen existiert also ein Delta, das eine Änderung in den Anforderungen signalisiert und somit den Produktspezifikationen bedeuten würde. 
+
+Eine feingranulare Aufschlüsselung der erwartbaren Deltas findet sich in der Implementierung in Kap. 4.x. Dort werden auch Vorschläge zur Gewichtung verschiedener Deltas im Kontext des RE gemacht.
 
 \item \textit{Keine vergleichbare Anforderung}: Es konnte keine Anforderung aus V1 gefunden werden. In Lastenheft V2 könnten etwa neue Anforderungen enthalten sein, die in V1 noch in keiner Weise spezifiziert wurden. Dies kann etwa Eigenschaften betreffen, die erst später im Entwicklungsprozess definiert wurden oder zu der vorher noch keine Informationen bekannt waren. Im Kontext anderer Anforderungen muss dabei auf Konsistenz geprüft werden.
 
@@ -879,16 +884,16 @@ Die beschriebene Funktionalität hat in der Entwicklung unseres Werkzeugs zur ko
 Die Komponenten realisieren dabei die zwei Hauptfunktionalitäten 1 und 2 in Form von GATE und java-Ressourcen. Auf dieser Basis können den einzelnen Komponenten Funktionalitäten wie folgt zugeordnet werden:
 \begin{itemize}
 \item \textit{NL-pre-processing} Wie schon beim R2BC dient diese Komponente zur Generierung von Informationen über den annotierten Text. Da der DA die zweite Stufe der Verarbeitung darstellt, nutzen wir hierzu die Ergebnisse aus dem R2BC, d.h. die dort generierten Annotationen, die wir in den DA einlesen. Somit können die Anforderungen, die nach dem R2BC in Boilerpaltes vorliegen, anhand ihrer Annotaionen verglichen werden.
-\item \textit Der {Delta-Analyser} prüft die verschiedenen Anforderungen aus Pflichtenheft V2 auf ihren Übereinstimmungsgrad mit den Anforderungen aus V1. Dabei greft er auf die geladenen Annotationen beider Pflichtenhefte zu und vergleicht daran verschiedene Anforderungen. Schlussendlich wird ein Delta-Report erstellt, der alle Deltas zwischen den Anforderungen enthält.
+\item Der \textit{Delta-Analyser} prüft die verschiedenen Anforderungen aus Pflichtenheft V2 auf ihren Übereinstimmungsgrad mit den Anforderungen aus V1. Dabei greft er auf die geladenen Annotationen beider Pflichtenhefte zu und vergleicht daran verschiedene Anforderungen. Schlussendlich wird ein Delta-Report erstellt, der alle Deltas zwischen den Anforderungen enthält.
 \item Die \textit{GUI} ermöglicht dem Nutzer die Eingabe der zwei zu vergleichenden Pflichtenhefte. Nach der Verarbeitung erhält der Nutzer dort eine Übersicht der Unterschiede der beiden Pflichtenhefte, indem die jeweils verglichenen Anforderungen dort angezeigt werden.
 \end{itemize}
 Die Implementierung des DA auf Basis des zuvor implementierten R2BC ist in Kap. 5 beschrieben. Dort werden auch konkrete Erweiterungen und Verbesserungspotentiale des Programms beschrieben, die nach der Entwicklung identifiziert wurden.
 
 
-\chapter{R2B-Converter}
+\chapter{Requirements-To-Boilerplate-Converter (R2BC)}
 Dieses Kapitel behandelt den \textit{Requirements-to-Boilerplate-Converter} (\textit{R2BC}) ausführlich. Hierzu wird zunächst der Aufbau des Tools aus den verschiedenen Klassen und der verwendeten Software beschrieben. Daraufhin wird die Implementierung wichtiger Funktionalitäten und Datenstrukturen mit Auszügen des Quellcodes gezeigt und erläutert. Anschließend wird das Testverfahren für das Werkzeug beschrieben und die dadurch erzielten Ergebnisse aufgeführt. Die Evaluation der Ergebnisse findet in einem späteren Kapitel statt. Abschließend wird ein Katalog mit möglichen Erweiterung und Verbesserungen für das Werkzeug geliefert, welche auf Grund mangelnder Zeit und Ressourcen von uns nicht mehr umgesetzt werden konnten. 
 
-\section{Architektur Klassen und Verteilung der Ressourcen}
+\section{Architektur, Klassen und Verteilung der Ressourcen}
 In diesem Abschnitt soll die Architektur des R2BC vorgestellt und erläutert werden. Dazu gehört die zur Entwicklung verwendete Software, sowie ein Überblick über die Klassenstruktur des Werkzeugs. 
 
 \subsection{Verwendete Software}
@@ -922,16 +927,26 @@ Die genaue Umsetzung vom NLP in unserem Programm und der damit verbundene Einsat
 \section{Klassenstruktur}
 Im Rahmen der Entwicklung unseres Proof-of-concepts wurde die Funktionalität aus Kap. 3.x auf verschiedene Komponenten aufgeteilt. Hier soll lediglich ein grober Überblick der Ressourcenverteilung im Programm gegeben werden, der Programmablauf findet sich in Kap. 4.x.
 
-Dieses betrifft in erster Linie verschiedene java-Klassen, die die Umsetzung der Fachlogik darstellen. Die Anbindung an das NLP-Werkzeug GATE-Embedded erfolgte dabei unter Verwendung verschiedener java-Bibliotheken, die extern im Programmordner gespeichert sind. Die GATE-Ressourcen wurden dabei zur Annotation von Text genutzt, die selbst entwickelten java-Klassen einerseits für die GATE-Konfiguration, andererseits für die Auswertung der dort erstellten Annotationen. 
+Verschiedene Programmbausteine sind dabei modular aufgebaut und verteilen sich auf die Pakete \textit{R2BC}, der die Fachlogik enthält, \textit{R2BCGUI}, das eine simple GUI-Klasse enthält, und \textit{Boilerplates}, das die Objekte zur Erzeugung von Sprachschablonen enthält (siehe Abb. 4.x).
 
 \begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=1.0]{Bilder/R2BC-Pakete.png}
+\caption{Zuordnung der R2BC-Klassen zu Paketen nach Abb.3.x [eigene Darstellung]}
+\end{center}
+\end{figure}
+
+Die Funktionalität wurde dabei hauptsächlich mit verschiedenen java-Klassen umgesetzt, die die Umsetzung der Fachlogik darstellen. Die Anbindung an das NLP-Werkzeug GATE-Embedded erfolgte dabei unter Verwendung verschiedener java-Bibliotheken, die extern im Programmordner gespeichert sind. Die GATE-Ressourcen wurden dabei zur Annotation von Text genutzt, die selbst entwickelten java-Klassen einerseits für die GATE-Konfiguration, andererseits für die Auswertung der dort erstellten Annotationen. 
+
+\begin{figure}[H]
 \begin{center}
 \includegraphics[scale=0.57]{Bilder/r2bc-klassen.png}
 \caption{Klassendiagramm R2BC [eigene Darstellung]}
 \end{center}
 \end{figure}
 
-Auf Basis des in Kap. 3.x beschriebenen Algorithmus können die Aufgaben der verschiedenen Klassen in Abb. 4.x wie folgt erläutert werden\footnote{Die GUI-Klasse ist für eine bessere Übersichtlichkeit vereinfacht worden. Enthaltene Objekte und Funktionalitäten beziehen sich dabei jedoch nur auf die GUI-Elemente.}
+Auf Basis des in Kap. 3.x beschriebenen Algorithmus können die Aufgaben der verschiedenen Klassen in Abb. 4.x wie folgt erläutert werden:\footnote{Die Darstellung der GUI-Klasse in Abb. 4.x ist für eine bessere Übersichtlichkeit vereinfacht worden. Enthaltene Objekte und Funktionalitäten beziehen sich dabei jedoch nur auf die GUI-Elemente.}
+
 \begin{itemize}
 \item \textit{Main -} Die Hauptklasse ermöglicht den Zugriff auf alle Funktionen des Programms. Es erfolgt die Initialisierung aller Programmkomponenten. Es werden dazu verschiedene Objekte für die Textverarbeitung (\textit{AnnieHandler}, \textit{BoilerplateHandler}) sowie für die GUI (\textit{R2BMainWindow}) erzeugt. Hauptsächlich dient die Hauptklasse auch der Initialisierung der GUI, um die dortigen Schaltflächen mit Funktionen zu belegen. In der GUI ist beispielsweise ein Button zum Starten der Konvertierung enthalten, der eine Funktion des BoilerplateHandler aufruft. 
 \item \textit{AnnieHandler -} Der Annie-Handler realisiert den Zugriff auf die Bestandteile der Sprachverarbeitung aus dem Werkzeug GATE. Hauptsächlich betrifft dies die Verarbeitungslogik ANNIE, die konkrete Komponenten zur Textverarbeitung enthält (siehe Abschnitt 4.x). Im AnnieHandler werden dazu neben den Verarbeitungswerkzeugen auch die Textressourcen, die im Programm verarbeitet werden sollen, initialisiert. Diese \textit{Language-Ressourcen} aus GATE beinhalten neben dem Text auch alle generierten Annotationen. Der AnnieHandler beinhaltet nach der Verarbeitung somit alle Informationen zu den Anforderungen in einer Liste. Auf Basis dieser Informationen kann dann die Transformation von Anforderungen in Boilerplates im \textit{BoilerplateHandler} erfolgen.
@@ -939,14 +954,14 @@ Auf Basis des in Kap. 3.x beschriebenen Algorithmus können die Aufgaben der ver
 \item \textit{Boilerplate -} Die Klasse bündelt alle Kernmerkmale der Boilerplates, die durch das Programm erzeugt wurden. Dies betrifft in erster Linie den Gesamttext, die einzelnen Satzbestandteile und Metainformationen über die Anforderung, wie etwa eine ID.
 \item \textit{Boilerplate65c} und \textit{Boilerplate85 -} Wie bereits unter 3.x beschrieben, wurden im Zuge der Entwicklung dieses Werkzeugs zwei prototypische Boilerplates implementiert. Diese konkreten Boilerpalte-Objekte beinhalten eine Repräsentation der GATE-Annotation einzelner Satzbestandteile als Zeichenketten, um daraus ganze Sätze zu erzeugen. Der Boilerplate-Handler "befüllt" somit konkrete Boilerplates mit allen erforderlichen Begriffen anhand der dort definierten Bestandteile.
 \begin{itemize}
-\item Die Klasse Boilerplate65c stellt eine Schablone für Systemfunktionen dar und enthält demnach Platzhalter für ein System und eine Funktion dieses Systems, die dann bei der Erzeugung konkreter Boilerplate-Objekte in das Grundgerüst des Satzes eingefügt werden. Typ 65c Boilerplates sehen demnach etwa so aus: 
+\item Die Klasse \textit{Boilerplate65c} stellt eine Schablone für Systemfunktionen dar und enthält demnach Platzhalter für ein System und eine Funktion dieses Systems, die dann bei der Erzeugung konkreter Boilerplate-Objekte in das Grundgerüst des Satzes eingefügt werden. Typ 65c Boilerplates sehen demnach etwa so aus: 
 
 \tt
 The complete system <<System>> shall perform \\
 <<FunctionDescription>>.\footnote{<<System>> und <<FunctionDescription>> werden durch die Verarbeitung des Satzes in GATE eindeutig anhand passender Annotationen identifiziert und zugeordnet. Der Rest des Satzes ist fest hinterlegt.}
 \rm
 
-\item Die Klasse Boilerplate85 stellt vereinfacht eine Erweiterung der Boilerplate65c um eine Bedingung dar. Dementsprechend existiert auch hier ein System und eine Funktion, aber auch eine Bedingung, unter der die Funktion ausgeführt wird. Diese drei Bestandteile werden für die Erzeugung von Typ 85 Boilerplates benötigt. Das Grundgerüst der Sätze mit bedingten Funktionen sieht dabei wie folgt aus:
+\item Die Klasse \textit{Boilerplate85} stellt vereinfacht eine Erweiterung der Boilerplate65c um eine Bedingung dar. Dementsprechend existiert auch hier ein System und eine Funktion, aber auch eine Bedingung, unter der die Funktion ausgeführt wird. Diese drei Bestandteile werden für die Erzeugung von Typ 85 Boilerplates benötigt. Das Grundgerüst der Sätze mit bedingten Funktionen sieht dabei wie folgt aus:
 
 \tt
 Under the condition: <<conditionText>> the actor: \\
@@ -958,11 +973,8 @@ Under the condition: <<conditionText>> the actor: \\
 \end{itemize}
 Die Funktionalität des Gesamtprogramms, das sich aus dem Zusammenspiel der KOmponenten ergibt, ist in den folgenden Abschnitten dargestellt.
 
-\subsection{Umsetzung der NLP-Architektur in unserem Werkzeug}
-In diesem Abschnitt wird die Einordnung unseres Prototypen als NLP-Werkzeug in die von \cite{cop04} definierte Architektur behandelt. Die verschiedenen Schritte aus Kap. 2.2. haben wir bei der Analyse und Verarbeitung der Lastenhefte in Programmbestandteilen umgesetzt. Im Arbeitsprozess unserer Entwicklung können wir die Aufgaben unseres Programms dort wie folgt einordnen:
 
-LISTE ARCHITEKTUR
-\section{Implementierung (bisschen Code, GUI, Listenarchitektur, Workflow für User}
+\section{Werkzeug-Implementierung}
 In diesem Abschnitt werden wichtige Aspekte der praktischen Umsetzung des Programms genau erläutert. Die bezieht sich sowohl auf präzisere Vertiefung der Konzepte, also auch Quellcode-Beispiele der Implementierung zur Erläuterung des Programmvorgehens und die daraus resultierenden Interaktionsmöglichkeiten der Benutzer.  
 \subsection{Sprachverarbeitung mit GATE}
 Dieser Abschnitt beschäftigt sich mit der automatischen Sprachverarbeitung der Anforderungsdokumente mit Hilfe des angekündigten NLP-Werkzeugs \textit{GATE}. Dies beinhaltet, das Einlesen der Lastenhefte, die Erstellung einer Verarbeitungslogik, die Erstellung und Auswertung von Verarbeitungsregeln und das Einbinden von GATE in das spätere Programm. Fokus liegt dabei auf der praxisnahen Verwendung in dem Projekt. Ein genereller Überblick und Einordnung des Werkzeugs finden sich in der vorherigen Arbeit \cite{rs18}.
@@ -1004,7 +1016,8 @@ Dazu wird die im Namen vorhandene \textit{Jape} (Java Annotation Patterns Engine
 Annotationen erzeugt oder JAVA-Code ausführt. 
 
 Jape Transducer lassen sich wie die anderen Verarbeitungsressourcen hintereinander reihen und werden jeweils mit einer \textit{Jape-Datei} initialisiert. 
-
+\subsection{Converter-Funktionalität}
+\subsection{GUI - Nutzerinteraktion und Workflow}
 \section{mögliche Erweiterungen}
 \section{Test}
 \subsection{Methodik}
@@ -1019,6 +1032,50 @@ Jape Transducer lassen sich wie die anderen Verarbeitungsressourcen hintereinand
 \subsection{Durchführung}
 \subsection{Ergebnisse}
 \chapter{Evaluation}
+\subsection{Umsetzung der NLP-Architektur in unserem Werkzeug}
+In diesem Abschnitt wird die Einordnung unseres Prototypen als NLP-Werkzeug in die von \cite{cop04} definierte Architektur behandelt. Die verschiedenen Schritte aus Kap. 2.2. haben wir bei der Analyse und Verarbeitung der Lastenhefte in Programmbestandteilen umgesetzt. Anhand der Verarbeitungskette unseres Werkzeugs können wir die prinzipiellen Aufgaben von NLP-Werkzeugen dort wie folgt einordnen:
+
+\begin{enumerate}
+\item \textit{Input Processing} - Einlesen von Quelldaten: Zunächst kann der Nutzer Dateien für die Verarbeitung im Programm eingeben. Dazu wählt der diese Dateien in der GUI des Programms aus. Unser Werkzeug extrahiert daraus dann den enthaltenen Text.
+
+\item \textit{Morphologische Analyse} - Annotation der Worttypen: Mithilfe der Analyse des Textes durch die GATE-Verarbeitungslogik ANNIE werden einzelne Wörter aus dem Text auf ihre sprachliche Funktion hin überprüft. Dies ermöglicht die weitere Untersuchung bestimmter Worttypen, wie z.B. Nomen, nachdem diese gesammelt wurden. Nomen können etwa in JAPE-Regeln als \textit{NNP} abgefragt werden (siehe 4.x)
+
+\item \textit{Part-of-Speech-Tagging} - Erkennung von Satzbausteinen: Für ein genaues Verständnis, worum es in einer Anforderung geht, müssen die einzelnen Bestandteile des Textes zugeordnet werden. In unserem Programm werden gefundene Wörter etwa dahingehend geprüft, ob diese ein System darstellen können, wenn sie zuvor als Nomen kategorisiert wurden. 
+
+Auf dieser Basis können dann passende Boilerplates identifiziert werden. Für die spätere Befüllung der Boilerplates mit den korrekten Begriffen ist die korrekte Erkennung von Worten im Satzzusammenhang daher wesentlich.
+
+\item \textit{Parsing} - Überführung in Boilerplates: Mithilfe des POS-Tagging wurden zuvor passende Boilerplates auf Basis gefundenen Annotationen innerhalb der Anforderung gefunden. Dies stellt nun die Grundlage für die Zusammensetzung der Boilerplates des entsprechenden Typs dar, indem Boilerplate-Objekte im Programm erzeugt werden. 
+
+Die Platzhalter werden dann von den Begriffen aus der Anforderung ersetzt, womit schlussendlich eine Anforderung in der formalen Sprache der Boilerplates vorliegt.
+
+\item{Disambiguation} - Zuordnung der richtigen Konvertierung: Im Parsing werden zunächst alle möglichen Konvertierungen auf Basis möglicher Boilerplate-Typen durchgeführt. Nach der Erzeugung der Boilerplates liegen somit möglicherweise verschiedene Möglichkeiten der Deutung vor, von denen einzelne unpräzise oder fehlerhaft sein können. 
+
+Unpräzise Formulierungen können etwa durch eine hierarchische Anordnung der Boilerplates reduziert werden, wenn eine spezifische Boilerplate offensichtlich besser den Inhalt der Anforderung repräsentiert als eine eher allgemein formulierte. Die allgemeineren Boilerplates werden somit gleich ausgeschlossen, wenn eine bessere Konvertierung möglich ist. Siehe dazu auch Kap. 4.x.
+
+Diese Unterschiede werden, sofern vorhanden, als mehrere Boilerplates im Programm dargestellt und an den Nutzer ausgegeben. Der Nutzer kann in der GUI dann die am besten zum ursprünglichen Anforderung passende Konvertierung auswählen.
+
+\item \textit{Context Module} - Bewertung im Zusammenhang: Bei der Identifikation der best passendsten Boilerplate wurden in Kap. 4.x Vorschläge zur Abbildung der Semantik gemacht. Diese Ansätze ermöglichen dann die Automatisierung der Auflösung bestimmter Mehrdeutigkeiten, wenn diese das Verständnis des Kontextes aus dem Zusammenhang mehrerer Sätze erfordern. 
+
+Im Kontext mehrerer Anforderungen kann der Nutzer im Rahmen des Review-Prozesses weitere Informationen über den Dokumentenkontext mit einfließen lassen. Dies kann etwa Informationen über vorige Anforderungen beinhalten, die bereits verarbeitet wurden, oder Meta-Informationen über das Anforderungsdokument wie etwa ergänzende, mitgeltende Unterlagen.
+
+\item \textit{Text Planning} - Speichern der korrekten Boilerplate: Nach der Auswahl von einer richtigen Konvertierung innerhalb der GUI hat sich der Nutzer für eine Boilerplate entschieden, die in das Export-Dokument übertragen werden soll. Durch diese Festlegung wird im Programm die entsprechende Boilerplate in die OutputList der Konvertierung eingetragen.
+
+\item \textit{Tactical Generation} - Erzeugung von Text aus BP-Objekten: Die Boilerplates liegen nach der Konvertierung zunächst als Objekte im Programm vor. Vor der Erzeugung des Ausgabe-Dokuments, das alle Anforderungen als Boilerplates enthält, müssen aus diesen Objekten der Text extrahiert werden. 
+
+Dieser Text liegt in den einzelnen Objekten als Zeichenkette vor und wird mithilfe einer Methode formatiert. Im Programm wird bei der Dokumentenerzeugung der Text aller übernommenen Boilerplates abgefragt.
+
+\item \textit{Morphological Generation} - Sprachliche Anpassung: In unserem ersten Entwurf der Prototypen wurde die Analyse auf englischen Text optimiert, da die Lastenhefte überlicherweise auf englisch verfasst sind (siehe Kap. 3.x). Die Boilerplates im Programm sind dementsprechend in englischer Sprache verfasst, wie auch das Ausgabe-Dokument.
+
+Da der Text bereits innerhalb der Boilerplate-Objekte formatiert wurde bzw. vorliegt, entfällt hier eine aufwändige Anpassung an Sprache und ihre Grammatik.
+
+\item \textit{Output-Processing} - Erzeugung des Anforderungsdokuments aus Boilerplates: Nachdem die einzelnen Zeichenketten aus den Boilerpaltes extrahiert wurden, liegen nun die einzelnen Anforderungen in formaler Sprache als Text vor. Die Anforderungen müssen nun vor dem Export in der richtigen Reihenfolge angeordnet und an das Layout des Dokumentes angepasst werden.
+
+Der Nutzer wählt dazu eine Datei über die GUI aus, in welche die Anforderungen exportiert werden. Der Dateityp ist dabei prinzipiell unbeschränkt, zur Vereinfachung wurde sich jedoch auf reine Textdateien (.txt) beim Export beschränkt. 
+
+Das Programm schreibt nun alle Anforderungen, getrennt durch Leerzeilen, in die Datei, sodass schlussendlich alle Anforderungen als Boilerplates exportiert sind.
+\end{enumerate}
+
+Der Arbeitsablauf des Programms lässt sich anhand des zustandswandlers in Abb. 4.x nachvollziehen. Dort ist die interne Verarbeitung unter Referenzierung der Stufen aus der NLP-Architektur als Prozess zwischen verschiedenen Akteuren dargestellt.
 \section{Auswertung der Testresultate}
 \section{Mehrwert?}
 \section{Ziel erreicht? Hypothese reviewen und schwafeln}
@@ -1031,6 +1088,8 @@ Jape Transducer lassen sich wie die anderen Verarbeitungsressourcen hintereinand
 \item UML-Klassendiagramme im Vergleich zu Ontologien (Struktur, Beziehungen, Informatik-Bezug)
 \item Nutzen von Ontologien, welcher Mehrwert kommt zur syntax durch sie hinzu?
 \item Betriebliche Anforderungen an Tool: ACID aus DB? 
+\item Aktivitätsdiagramm aus PA mit GUI-User-Interaktion, Konkretisierung dortiger Activities
+\item Use-Case Diagramm beim Konzept, PA nur referenzieren
 \end{enumerate}
 
 \newpage
