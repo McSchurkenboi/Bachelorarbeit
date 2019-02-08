@@ -752,7 +752,7 @@ HIER USE-CASE ABBILDUNG VON FIRMEN POWERPOINT
 
 Die Ansätze und Konzepte solcher Werkzeuge sind in dem folgenden Abschnitt genau beschrieben.
 
-\section{Ansatz und Konzept der Werkzeuge}
+\section[Ansatz und Konzept]{Ansatz und Konzept der Werkzeuge}
 Wie bereits unter beschrieben, existiert eine Vielzahl an Arbeiten, die sich mit der verlässlichen Überführung der Anforderungen in natürlicher Sprache in Sprachschablonen beschäftigen. Dazu werden Methoden aus dem NLP und Ontologien genutzt, um den Text der Anforderungen zunächst genau zu annotieren. Dieser Ansatz stellt die Basis für die Vorstellung unseres Werkzeugs in diesem Kapitel dar.
 
 In \cite{zh17} wurde das Potential einer Verbesserung von RE-Prozessen in Firmen durch Werkzeuge aufgezeigt. Die in den vorigen Kapiteln aufgezeigten Anforderungen an das Requirements-Management schaffen somit die Basis für den konkreten Entwurf von Werkzeugen, die entsprechende Funktionalitäten bereitstellen.
@@ -830,7 +830,7 @@ Auf Basis dieses Konzeptes wurde in QUELLE PAPER ein Vorschlag zur Aufteilung de
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=0.5]{Bilder/Verteilung-R2BC.jpg}
-\caption{Szenario für Unterstützung durch R2BC-Komponente [eigene Darstellung]}
+\caption{Verteilung der R2BC-Ressourcen [eigene Darstellung]}
 \end{center}
 \end{figure}
 Der Programmablauf ist durch die Schritte 1 und 2 grob dargestellt und verteilt sich hauptsächlich auf die zwei entsprechenden Artefakte. Die Komponenten lassen sich dabei wie folgt definieren:
@@ -869,8 +869,20 @@ Folgendes Vorgehen wurde dazu entwickelt:
 \end{enumerate}
 Insofern Deltas gefunden wurden, muss immer auch die Umsetzbarkeit dieser neuen Anforderungen gesondert geprüft werden. Die weitere Korrektheit des Lastenheftes V2 zu V1 kann bei vielen Deltas nicht gewährleistet werden, was eine Umsetzung der Anforderungen erschwert. Es können massive Unterschiede in den Spezifikationen auftreten, was zu einer teilweisen oder kompletten Neuentwicklung des Produktes führen kann.
 
-Die beschriebene Funktionalität hat in der Entwicklung unseres Werkzeugs zur konkreten Herausbildung von drei Kernbestandtreilen geführt. Unser Werkzeug beinhaltet dabei Komponenten zur Abbildung von Fachlogik und GUI. Die Verteilung der Ressourcen ist in Abb. 3.4 dargestellt.
-
+Die beschriebene Funktionalität hat in der Entwicklung unseres Werkzeugs zur konkreten Herausbildung von drei Kernbestandtreilen geführt. Unser Werkzeug beinhaltet dabei Komponenten zur Abbildung von Fachlogik und GUI. Die Verteilung der Ressourcen ist in Abb. 3.4 dargestellt. 
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.6]{Bilder/Verteilung-DA.jpg}
+\caption{Verteilung der DA-Ressourcen [eigene Darstellung]}
+\end{center}
+\end{figure}
+Die Komponenten realisieren dabei die zwei Hauptfunktionalitäten 1 und 2 in Form von GATE und java-Ressourcen. Auf dieser Basis können den einzelnen Komponenten Funktionalitäten wie folgt zugeordnet werden:
+\begin{itemize}
+\item \textit{NL-pre-processing} Wie schon beim R2BC dient diese Komponente zur Generierung von Informationen über den annotierten Text. Da der DA die zweite Stufe der Verarbeitung darstellt, nutzen wir hierzu die Ergebnisse aus dem R2BC, d.h. die dort generierten Annotationen, die wir in den DA einlesen. Somit können die Anforderungen, die nach dem R2BC in Boilerpaltes vorliegen, anhand ihrer Annotaionen verglichen werden.
+\item \textit Der {Delta-Analyser} prüft die verschiedenen Anforderungen aus Pflichtenheft V2 auf ihren Übereinstimmungsgrad mit den Anforderungen aus V1. Dabei greft er auf die geladenen Annotationen beider Pflichtenhefte zu und vergleicht daran verschiedene Anforderungen. Schlussendlich wird ein Delta-Report erstellt, der alle Deltas zwischen den Anforderungen enthält.
+\item Die \textit{GUI} ermöglicht dem Nutzer die Eingabe der zwei zu vergleichenden Pflichtenhefte. Nach der Verarbeitung erhält der Nutzer dort eine Übersicht der Unterschiede der beiden Pflichtenhefte, indem die jeweils verglichenen Anforderungen dort angezeigt werden.
+\end{itemize}
+Die Implementierung des DA auf Basis des zuvor implementierten R2BC ist in Kap. 5 beschrieben. Dort werden auch konkrete Erweiterungen und Verbesserungspotentiale des Programms beschrieben, die nach der Entwicklung identifiziert wurden.
 
 
 \chapter{R2B-Converter}
@@ -907,7 +919,44 @@ GATE ist, wie in Abbildung X.X (Konzept) zu sehen ist, für das NLP, also die Sp
 
 Die genaue Umsetzung vom NLP in unserem Programm und der damit verbundene Einsatz von GATE sind jedoch Teil der Implementierung und werden somit in Abschnitt 4.2 behandelt.
 
-\subsection{Klassenstruktur}
+\section{Klassenstruktur}
+Im Rahmen der Entwicklung unseres Proof-of-concepts wurde die Funktionalität aus Kap. 3.x auf verschiedene Komponenten aufgeteilt. Hier soll lediglich ein grober Überblick der Ressourcenverteilung im Programm gegeben werden, der Programmablauf findet sich in Kap. 4.x.
+
+Dieses betrifft in erster Linie verschiedene java-Klassen, die die Umsetzung der Fachlogik darstellen. Die Anbindung an das NLP-Werkzeug GATE-Embedded erfolgte dabei unter Verwendung verschiedener java-Bibliotheken, die extern im Programmordner gespeichert sind. Die GATE-Ressourcen wurden dabei zur Annotation von Text genutzt, die selbst entwickelten java-Klassen einerseits für die GATE-Konfiguration, andererseits für die Auswertung der dort erstellten Annotationen. 
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.57]{Bilder/r2bc-klassen.png}
+\caption{Klassendiagramm R2BC [eigene Darstellung]}
+\end{center}
+\end{figure}
+
+Auf Basis des in Kap. 3.x beschriebenen Algorithmus können die Aufgaben der verschiedenen Klassen in Abb. 4.x wie folgt erläutert werden\footnote{Die GUI-Klasse ist für eine bessere Übersichtlichkeit vereinfacht worden. Enthaltene Objekte und Funktionalitäten beziehen sich dabei jedoch nur auf die GUI-Elemente.}
+\begin{itemize}
+\item \textit{Main -} Die Hauptklasse ermöglicht den Zugriff auf alle Funktionen des Programms. Es erfolgt die Initialisierung aller Programmkomponenten. Es werden dazu verschiedene Objekte für die Textverarbeitung (\textit{AnnieHandler}, \textit{BoilerplateHandler}) sowie für die GUI (\textit{R2BMainWindow}) erzeugt. Hauptsächlich dient die Hauptklasse auch der Initialisierung der GUI, um die dortigen Schaltflächen mit Funktionen zu belegen. In der GUI ist beispielsweise ein Button zum Starten der Konvertierung enthalten, der eine Funktion des BoilerplateHandler aufruft. 
+\item \textit{AnnieHandler -} Der Annie-Handler realisiert den Zugriff auf die Bestandteile der Sprachverarbeitung aus dem Werkzeug GATE. Hauptsächlich betrifft dies die Verarbeitungslogik ANNIE, die konkrete Komponenten zur Textverarbeitung enthält (siehe Abschnitt 4.x). Im AnnieHandler werden dazu neben den Verarbeitungswerkzeugen auch die Textressourcen, die im Programm verarbeitet werden sollen, initialisiert. Diese \textit{Language-Ressourcen} aus GATE beinhalten neben dem Text auch alle generierten Annotationen. Der AnnieHandler beinhaltet nach der Verarbeitung somit alle Informationen zu den Anforderungen in einer Liste. Auf Basis dieser Informationen kann dann die Transformation von Anforderungen in Boilerplates im \textit{BoilerplateHandler} erfolgen.
+\item \textit{BoilerplateHandler -} Die Klasse dient der Erzeugung von jeweils passenden Boilerplates zu einer Anforderung, indem aus dem Text alle relevanten Informationen zur Erzeugung passender Boilerplates extrahiert werden. Der BoilerplateHandler beinhaltet dazu sowohl Funktionen zur Identifikation passender Boilerplates auf Basis der Annotationen aus der GATE-Verarbeitung, als auch die Erzeugung von konkreten Boilerplate-Objekten aus der abstrakten Klasse Boilerplate, wenn die passenden Annotationen dazu gefunden wurden.
+\item \textit{Boilerplate -} Die Klasse bündelt alle Kernmerkmale der Boilerplates, die durch das Programm erzeugt wurden. Dies betrifft in erster Linie den Gesamttext, die einzelnen Satzbestandteile und Metainformationen über die Anforderung, wie etwa eine ID.
+\item \textit{Boilerplate65c} und \textit{Boilerplate85 -} Wie bereits unter 3.x beschrieben, wurden im Zuge der Entwicklung dieses Werkzeugs zwei prototypische Boilerplates implementiert. Diese konkreten Boilerpalte-Objekte beinhalten eine Repräsentation der GATE-Annotation einzelner Satzbestandteile als Zeichenketten, um daraus ganze Sätze zu erzeugen. Der Boilerplate-Handler "befüllt" somit konkrete Boilerplates mit allen erforderlichen Begriffen anhand der dort definierten Bestandteile.
+\begin{itemize}
+\item Die Klasse Boilerplate65c stellt eine Schablone für Systemfunktionen dar und enthält demnach Platzhalter für ein System und eine Funktion dieses Systems, die dann bei der Erzeugung konkreter Boilerplate-Objekte in das Grundgerüst des Satzes eingefügt werden. Typ 65c Boilerplates sehen demnach etwa so aus: 
+
+\tt
+The complete system <<System>> shall perform \\
+<<FunctionDescription>>.\footnote{<<System>> und <<FunctionDescription>> werden durch die Verarbeitung des Satzes in GATE eindeutig anhand passender Annotationen identifiziert und zugeordnet. Der Rest des Satzes ist fest hinterlegt.}
+\rm
+
+\item Die Klasse Boilerplate85 stellt vereinfacht eine Erweiterung der Boilerplate65c um eine Bedingung dar. Dementsprechend existiert auch hier ein System und eine Funktion, aber auch eine Bedingung, unter der die Funktion ausgeführt wird. Diese drei Bestandteile werden für die Erzeugung von Typ 85 Boilerplates benötigt. Das Grundgerüst der Sätze mit bedingten Funktionen sieht dabei wie folgt aus:
+
+\tt
+Under the condition: <<conditionText>> the actor: \\
+<<conditionalActorText>> shall \\
+<<functionDescriptionText>>.\footnote{Eine Unterscheidung zu Typ65c scheint zunächst nicht trivial, da conditionText auch einfach leer sein kann und somit Typ 65c fälschlicherweise als Typ 85 erzeugt werden können. Durch die unterschiedliche ANnotation der beiden Typen schon bei der GATE-Verarbeitung kann dennoch eine verlässliche Unterscheidung erfolgen.}
+\rm
+\end{itemize}
+
+\end{itemize}
+Die Funktionalität des Gesamtprogramms, das sich aus dem Zusammenspiel der KOmponenten ergibt, ist in den folgenden Abschnitten dargestellt.
 
 \subsection{Umsetzung der NLP-Architektur in unserem Werkzeug}
 In diesem Abschnitt wird die Einordnung unseres Prototypen als NLP-Werkzeug in die von \cite{cop04} definierte Architektur behandelt. Die verschiedenen Schritte aus Kap. 2.2. haben wir bei der Analyse und Verarbeitung der Lastenhefte in Programmbestandteilen umgesetzt. Im Arbeitsprozess unserer Entwicklung können wir die Aufgaben unseres Programms dort wie folgt einordnen:
