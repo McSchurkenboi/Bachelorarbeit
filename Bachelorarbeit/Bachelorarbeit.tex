@@ -7,6 +7,7 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{amsfonts}
+\usepackage{float}
 \usepackage{caption}
 \usepackage{tikz}
 \usepackage{tikz-uml}
@@ -981,7 +982,11 @@ In GATE wird die sprachliche Analyse durch eine Verarbeitungslogik durchgeführt
 
 Führt man eine Verarbeitungslogik auf einem Corpus bzw. auf dessen Dokumenten aus, so werden durch die verschiedenen Verarbeitungsressourcen an bestimmten Stellen im Text bestimmte Informationen hinzugefügt. Dies bezeichnet man als \textit{annotieren}. Dabei wird der Text an sich nicht geändert, die Annotationen können jedoch etwa durch farbige Unterlegung des betroffenen Texts in der GATE-Benutzeroberfläche gezeigt und als XML-Datei exportiert werden. 
 
+HIER SCREENSHOT VON BUNTER GATE ANNOTATION\\
+
 Einer Annotation können sog. \textit{Features} also Eigenschaften zugewiesen werden, welche dann noch weitere Informationen enthalten können, wie z.B. Länge der Annotation und die betroffene Zeichenkette.
+
+HIER SCRRENSHOT MIT FEATURES\\
 
 Die für diese Arbeit verwendeten und besonders relevanten ANNIE- Verarbeitungsressourcen und die dadurch entstehenden Annotationen sind: 
 
@@ -998,13 +1003,55 @@ Die für diese Arbeit verwendeten und besonders relevanten ANNIE- Verarbeitungsr
 
 HIER BILD MIT DEN KOMPONENTEN\\
 
-Die für die Verarbeitung wichtigsten Komponenten sind in der normalen ANNIE-Verarbeitungslogik jedoch noch nicht vorhanden. Die sogenannten \textit{Jape Transducer} werden individuell angelegt und verwenden die Annotationen der vorherigen Verarbeitungsressourcen, um dem Text wichtige Informationen hinzuzufügen. Diese können im Gegensatz zu den vorherigen jedoch auch von großer inhaltlicher bzw. semantischer Relevanz sein. 
+\subsubsection{JAPE Transducer}
 
-Dazu wird die im Namen vorhandene \textit{Jape} (Java Annotation Patterns Engine) verwendet. Jape fungiert dabei als endlicher Zustandswandler\footnote{Für Erläuterung siehe \cite{rs18}} der reguläre Ausdrücke prüft und abhängig davon 
-Annotationen erzeugt oder JAVA-Code ausführt. 
+Die für die Verarbeitung wichtigsten Komponenten sind in der normalen ANNIE-Verarbeitungslogik jedoch noch nicht vorhanden. Die sogenannten \textit{JAPE Transducer} werden individuell angelegt und verwenden die Annotationen der vorherigen Verarbeitungsressourcen, um dem Text wichtige Informationen hinzuzufügen. Diese können im Gegensatz zu den vorherigen jedoch auch von großer inhaltlicher bzw. semantischer Relevanz sein. Jape Transducer lassen sich wie die anderen Verarbeitungsressourcen hintereinander reihen und somit in eine Verarbeitungslogik einfügen.
 
-Jape Transducer lassen sich wie die anderen Verarbeitungsressourcen hintereinander reihen und werden jeweils mit einer \textit{Jape-Datei} initialisiert. 
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.7]{Bilder/ANNIE-Pipeline.jpg}
+\caption{Verarbeitungslogik aus ANNIE und JAPE Transducern \cite{tol09}}
+\end{center}
+\end{figure}
 
+Um ein Verständnis von JAPE Transducern aufzubauen ist jedoch zunächst einer Erläuterung von JAPE und JAPE-Dateien nötig, welche im Folgenden gegeben ist.   
+
+In JAPE-Transducern\footnote{sowie in einigen der anderen Verarbeitungsressourcen} wird die im Namen vorhandene \textit{JAPE} (Java Annotation Patterns Engine) verwendet. Jape fungiert dabei als endlicher Zustandswandler\footnote{Für Erläuterung siehe \cite{rs18}} der reguläre Ausdrücke prüft und abhängig davon 
+Annotationen erzeugt oder JAVA-Code ausführt.
+ 
+
+HIER EVTL QUELLE VERWENDEN\\
+
+Jape Transducer werden immer mit einer \textit{Jape-Datei} initialisiert. JAPE-Dateien sind erkennbar an der \textit{.jape}-Endung und können entweder eine JAPE-Regel oder eine JAPE-Hauptklasse (\textit{main.jape}) darstellen. 
+
+Eine Hauptklasse wird dazu verwendet, mehrere JAPE-Regeln zu vereinen. Dadurch lassen sich auch Transducer mit mehreren Regeln initialisieren und unnötig lange Verarbeitungs-Pipelines verhindern. 
+
+Die JAPE-Regeln bilden die eigentliche Logik der jeweiligen Verarbeitungsressource und ähneln kleinen Programmen mit der Erkennung einer Eingabe und der Erzeugung einer bestimmten Ausgabe. Daher wird im Folgenden auch von JAPE-Code gesprochen. 
+
+Der Code in einer JAPE-Regel ist immer unterteilt in einen Regel-Kopf eine linke Seite (\textit{LHS} für left hand side) und eine rechte Seite (\textit{RHS} für right hand side). Diese Benennung kann jedoch irreführend sein, wenn man eine JAPE-Regel betrachtet, da die Regeln von oben (Kopf, LHS) nach unten (RHS) aufgebaut sind, so wie es für Quellcode üblich ist. Abbildung X.X zeigt beispielhaft eine stark vereinfachte JAPE-Regel.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=1]{Bilder/Regel-Bsp.png}
+\caption{Beispielhafte JAPE-Regel [eigene Darstellung]}
+\end{center}
+\end{figure}
+
+Im Kopf der Regel befinden sich die Parameter \textit{Phase}, \textit{Input}, \textit{Options} und \textit{Rule}.
+
+ 
+\begin{enumerate}
+\item Phase: Hier lässt sich eine Phase festlegen, in welcher die Regel ausgeführt werden soll. Dies kann wichtig sein, wenn z.B. eine Regel eine Annotation verwenden möchte, welche zuvor von einer anderen Regel angelegt werden muss. In unserem Projekt wurden für eine bessere Übersicht verschiedene Transducer angelegt, welche dann hintereinander durchlaufen werden. Daher wird die Phase im weiteren Verlauf der Arbeit nicht weiter verwendet oder behandelt.
+
+\item Input: Das Definieren des Inputs ist vor allem später für die LHS von entscheidender Bedeutung. Hier wird angegeben, welche Annotationen in den regulären Ausdrücken abgefragt werden können.
+
+Wenn ein Annotationstyp im Input nicht angegeben ist,jedoch in der LHS verwendet wird, führt dies zu einem Fehler beim Erstellen des Transducers. Wenn im Input Annotationen angegeben sind, welche in der LHS nicht verwendet werden, schadet dies unnötig der Laufzeit des Transducers.
+\item Options: Hier können verschiedene Optionen zum verhalten der Regel in bestimmten Fällen angegeben werden. Dies beinhaltet hauptsächlich die Anpassung der \textit{control}-Option. Diese entscheidet über das Resultat der Regel, wenn sich etwa mehrere Annotationen der Ausgabe überschneiden. So kann etwa jede einzelne Annotation oder auch nur die längste Annotation (welche die kleineren abdeckt) ausgegeben werden. Andere Optionen wie \textit{negationGroupng} können benötigt werden, um bestimmte reguläre Ausdrücke in der LHS zu ermöglichen.
+\item Rule:
+\end{enumerate}
+In der JAPE-Regel befindet sich auf der LHS eine Menge von Regulären ausdrücken, welche 
+
+JAPE Transducer in GATE 
 \section{mögliche Erweiterungen}
 \section{Test}
 \subsection{Methodik}
@@ -1052,14 +1099,15 @@ Jape Transducer lassen sich wie die anderen Verarbeitungsressourcen hintereinand
 \bibitem[HP12]{hp12}Andrea Harant, Miriam Poethen. \glqq HOOD Capability Model für Requirements Definition und Requirements Management \grqq{} HOOD Ltd. 2012.
 \bibitem[IR09]{ir09}BGH, \glqq Urteil vom 6. Juli 2000, I ZR 244/97\grqq Artikel beim Institut für Rechtsinformatik von der Universität des Saarlandes, 13. Oktober 2009
 \bibitem[KN85]{kn85}Kapur, Deepak, and Paliath Narendran. \glqq  An equational approach to theorem proving in first-order predicate calculus.\grqq{}  ACM SIGSOFT Software Engineering Notes 10.4 (1985): 63-66
-\bibitem[KR93]{kr93}Ryan, Kevin. "The role of natural language in requirements engineering." Proceedings of the IEEE International Symposium on Requirements Engineering. IEEE, 1993.
+\bibitem[KR93]{kr93}Ryan, Kevin. \glqq The role of natural language in requirements engineering.\grqq{} Proceedings of the IEEE International Symposium on Requirements Engineering. IEEE, 1993.
 \bibitem[LV10]{lv10}F. Langenscheidt, B. Venohr. \glqq Lexikon der deutschen Weltmarktführer: Die Königsklasse deutscher Unternehmen in Wort und Bild.\grqq ,  Deutsche Standards–Gabal Verlag Google Scholar (2010).
 \bibitem[MW02]{mw02}Matthias Weber, Joachim Weisbrod. \glqq Requirements engineering in automotive development-experiences and challenges.\grqq , Requirements Engineering, 2002. Proceedings. IEEE Joint International Conference on. IEEE, 2002.
 \bibitem[PR15]{pr15} Pohl, Klaus, Chris Rupp. \glqq Basiswissen Requirements Engineering: Aus-und Weiterbildung nach IREB-Standard zum Certified Professional for Requirements Engineering Foundation Level.\grqq{} dpunkt. verlag, 2015.
 \bibitem[RS18]{rs18}Felix Ritter, Aaron Schul. \glqq Analyse aktueller NLP-Methoden und -Werkzeuge am Beispiel von GATE.\grqq{} Projektarbeit Fachhochschule Dortmund 2018, 18.11.2018
 \bibitem[SB88]{sb88}Muggleton, Stephen, Wray Buntine. \glqq  Machine invention of first-order predicates by inverting resolution.\grqq{}  Machine Learning Proceedings 1988. 1988. 339-352
 \bibitem[SHE07]{she07} L. Shen, G. Satta, A. K. Joshi. In Meeting of the Association for Computational Linguistics (ACL), \glqq  Guided learning for bidirectional sequence classification\grqq{} , 2007.
-\bibitem[WE13]{we13} Weller, Katrin. "Ontologien." (2013): 207-218.
+\bibitem[TOL09]{tol09}Dhaval Thakker, Taha Osman, Phil Lakin. \glqq Gate jape grammar tutorial.\grqq{} Nottingham Trent University, UK, Phil Lakin, UK, Version 1 (2009).
+\bibitem[WE13]{we13} Weller, Katrin. \glqq Ontologien.\grqq{} (2013): 207-218.
 \bibitem[ZG02]{zg02} Zowghi, Didar, and Vincenzo Gervasi. \glqq The Three Cs of requirements: consistency, completeness, and correctness.\grqq{} International Workshop on Requirements Engineering: Foundations for Software Quality, Essen, Germany: Essener Informatik Beitiage. 2002.
 \bibitem[ZH17]{zh17} Zichler, Konstantin, Steffen Helke. \glqq Ontologiebasierte Abhängigkeitsanalyse im Projektlastenheft.\grqq{} Automotive-Safety \& Security 2017-Sicherheit und Zuverlässigkeit für automobile Informationstechnik (2017).
 
