@@ -1140,11 +1140,83 @@ Sobald alle benötigten Satzbestandteile erfasst sind, lässt sich auf deren Gru
 \end{center}
 \end{figure}
 
-
-
 \subsubsection{JAPE Transducer in GATE}
+
 \subsection{Converter-Funktionalität}
+In diesem Abschnitt wird die Funktionalität der Converter-Komponente des Programms erläutert. Diese dient, wie bereits beschrieben, zur automatisierten Transformation der gelesenen Lastenhefte in sog. Boilerplates. In unserem Programm greift die Verarbeitungslogik dabei auf die Funktionen der unter 4.x beschriebenen Klassen bzw. Methoden, sowie auf die im vorigen Abschnitt behandelten JAPE-Regeln zur Textannotation zu. 
+
+Diese Ressourcen werden im Programm dann nacheinander genutzt, um die Boilerplate-Konvertierung durchzuführen. In der Regel sind verschiedene Programmfunktionen dabei zur Nutzerinteraktion Buttons in der GUI zugeordnet (siehe Abs. 4.x). Für ein besseres Verständnis der Zusammenhänge ist das R2BC-Klassendiagramm, sowie der kommentierte Quellcode des Prototypen im Anhang hilfreich.
+
+\subsubsection{Listen-Architektur}
+Der Convert-Vorgang teilt sich auf die zwei Klassen AnnieHandler und BoilerplateHandler auf. AnnieHandler dient dabei zur Erstellung von Annotationen über den Text durch die Anbindung an GATE. BoilerplateHandler erstellt auf Baisis der dort gefundenen Annotationen dann entsprechende Boilerplates. 
+
+Es ist dabei zu beachten, dass mehrere Deutungen bzw. erzeugbare Boilerplates aus einem Satz existieren können. Ferner muss vor dem Export des konvertierten Textes in ein Ausgabedokument die eine richtige Konvertierung jedes Satzes gespeichert werden.
+
+Das Datenmodell des Programms muss daher sowohl den ursprünglichen Text mitsamt Annotationen beinhalten, als auch alle möglichen Konvertierungen zu einem Satz in Boilerplates auflisten können.
+
+Dieser Ansatz hat zur konkreten Erstellung von drei Listen im Programm geführt, \textit{sentenceList}, \textit{bpList} und \textit{bpExportList}. Die Listen sind in Abb. 4.x prinzipiell in ihrer Verknüpfung dargestellt. 
+
+LISTENDARSTELLUNG Datenmodell R2BC aus drei Listen zur Speicherung von Annotationen(1), möglichen Konvertierungen(2) und Export(3) [eigene Darstellung]
+
+\begin{itemize}
+\item \textit{sentenceList} repräsentiert dabei alle Paragraphen des Quelldokuments, da Anforderungen immer durch einen Zeilenumbruch getrennt sind.\footnote{In unserem Programm wird konkret die Sentence-Annotation aus dem ANNIE-SentenceSplitter von GATE verwendet, um Sätze zu trennen.} soll dabei gefundene GATE-Annotaionen zu jedem Satz beinhalten, die mithilfe der Klasse AnnieHandler angebundenen Verarbeitung generiert werden.
+\item Auf dieser Basis erfolgt dann die Befüllung der \textit{bpList} mit möglichen Boilerplate-Konvertierungen zu jedem Satz in der Klasse BoilerplateHandler.\footnote{Wie bereits gezeigt, wurden dazu verschiedene verschachtelte JAPE-Regeln entwickelt, eine mögliche BP-Konvertierung signalisieren bzw. annotieren.} Die Annotationen dienen dabei zur Erzeugung der Boilerplates für die bpList.
+\item In der \textit{bpExportList} sind alle Sätze enthalten, die nach dem Programmdurchlauf exportiert werden sollen. Nahc der Wahl der zu speichernden Konvertierung durch den Nutzer wird der entsprechende Satz hier eingetragen.
+\end{itemize}
+
+\textit{sentenceList} und \textit{bpList} sind dementsprechend zweidimensional und beinhalten jeweils Annotaionen (sentenceList, horizontal) und Boilerplate-Konvertierungen (bpList, horizontal) zu jedem Satz des Lastenheftes (vertikal). 
+Durch den Aufruf verschiedener Methoden der Klasse BoilerplateHandler werden beide Liste automatisch initialisiert und befüllt.
+
+Anzumerken ist, dass \textit{bpExportList} prinzipiell auch automatisch befüllt werden kann, wenn etwa keine Konvertierung gefunden und somit der ursprüngliche Satz beibehalten werden soll. Auch könnte bei hinreichender Genauigkeit gleich die bestmögliche Konvertierung des Satzes gespeichert werden. Im Regelfall wird die Konvertierung jedoch durch den Nutzer im Programm ausgwählt bzw. bestätigt. 
+Im folgende
+
+\subsubsection{AnnieHandler}
+Die Klasse AnnieHandler stellt den ersten Schritt bei der Verarbeitung der Lastenhefte dar. Die Sätze aus dem Lastenheft müssen vor der tatsächlichen Konvertierung in Boilerplates mithilfe des NLP-Werkzeugs GATE annotiert werden.
+Dazu beinhaltet der AnnieHandler verschiedene Objekte zur Verwaltung der GATE-Ressourcen. 
+
+Dazu dienen ein \textit{Document} für das eingelesene Dokument, sowie ein \textit{Corpus} und ein \textit{CorpusController}, der auf die ANNIE-Module in GATE-Embedded zur Verarbeitung zugreift.
+
+Zunächst wird in der Methode \textit{initFromRestore()} (Abb.4.x) die ANNIE-Pipeline initialisiert, indem eine GATE-Sitzung aus einer \textit{.gapp}-Datei wiederhergestellt wird. Diese Datei wurde vorher angelegt, um einen direkten Zugriff auf die dort hinterlegten Module aus dem R2BC zu ermöglichen.
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=1]{Bilder/AnnieHandler-initFromRestore.png}
+\caption{Initialisierung der GATE-Ressourcen in \textit{initFromRestore()}-Methode der Klasse AnnieHandler [eigene Darstellung]}
+\end{center}
+\end{figure}
+
+Nachdem nun ein Dokument eingelesen wurde, kann dies dem \textit{Document}-Object zugeordnet und auf dieser Basis der \textit{Corpus} zur Speicherung der Annotaionen über das Lastenheft initialisiert werden. In diesen Corpus werden während der Verarbeitung Annotationen über den Text gesammelt. Für den weiteren Ablauf betrifft dies insbesondere gefundene Boilerplate-Annotationen, sowie die dafür nötigen Satzbestandteile, die gesammelt werden sollen. 
+
+Dazu kann nun mit der Verarbeitung durch die ANNIE-Pipeline begonnen werden. Die Methode \textit{execute()} führt dazu den CorpusController, der die konkrete ANNIE-Pipeline für den R2BC enthält, auf dem Corpus aus (Abb. 4.x). Der AnnieHandler beinhaltet dazu die Methode \textit{convert()}, die in Abb. 4.x abgebildet ist.
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=1]{Bilder/AnnieHandler-execute.png}
+\caption{Ausführung der ANNIE-Pipeline, Verarbeitung der Annotationen in BoilerplateHandler in \textit{convert()}-Methode der Klasse AnnieHandler [eigene Darstellung]}
+\end{center}
+\end{figure}
+
+Nach der Ausführung der GATE-Verarbeitung liegen die gefundenen Annotaitionen innerhalb des \textit{Corpus}-Objektes vor, wodurch mit der weiteren Verarbeitung im BoilerplateHandler begonnen werden kann. Dazu wird mithilfe von new ein neuer BoilerplateHandler erzeugt.
+In der Methode \textit{convert()} (Abb. 4.x) findet daher auch direkt der Aufuf verschiedener Methoden der Klasse BoilerplateHandler statt, der die Konvertierung der gefundenen Sätze in Boilerplates und die Initialisierung der Listen aus dem vorigen Abschnitt durchführt. 
+
+\subsubsection{BoilerplateHandler}
+Im ersten Schritt werden dazu der Text satzweise getrennt. Dies erfolgt unter Nutzung der sentence-Annotation aus GATE. Dies bietet den Vorteil, dass nun ein satzweiser Zugriff auf Annotaionen besteht.
 \subsection{GUI - Nutzerinteraktion und Workflow}
+Für ein besseres Verständnis wird sich hier auf ein kleines Beispiel beschränkt, ausführliche Tests mit realen Lastenheften aus dem betrieblichen Alltag werden unter 6.x behandelt. Die Implementierung wird daher anhand der Konvertierung der folgenden Sätze demonstriert, die in einem eingelesenen Lastenheft enhalten sein könnten:
+\tt \\
+The Golf7 shall perform TestDriveCityTour.\\
+
+The Golf7 shall perform Charge4FreeCharging.\\
+
+The EBus2X is part of Golf7.\\
+
+The durability of EBus2X shall be at least 12000 h.\\
+
+If there is a connection to the internet, the Bluetooth connected phone shall transmit the data to a server.\\
+
+When filtering the results, only the existing results shall be affected.\\
+\\ \rm
+Dieses prototypische Lastenheft wird im Laufe dieses Abschnittes von natürlicher Sprache in formale Boilerplates konvertiert. 
 \section{mögliche Erweiterungen}
 \section{Test}
 \subsection{Methodik}
