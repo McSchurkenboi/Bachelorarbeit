@@ -1,6 +1,7 @@
 \babel@toc {german}{}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+<<<<<<< HEAD
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Nicht-deterministischer Zustandswandler der able-Regel \cite {rs18}\relax }}{22}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Überblick der 3 Qualitätsstufen von Anforderungen im \textit {Requirements-Management \& Engineering} (RM \& E) gemäß \cite {hp12}\relax }}{46}
@@ -17,6 +18,28 @@
 \contentsline {figure}{\numberline {4.6}{\ignorespaces JAPE-Regel zur Markierung von Sätzen für Boilerplate85 [eigene Darstellung]\relax }}{74}
 \contentsline {figure}{\numberline {4.7}{\ignorespaces Initialisierung der GATE-Ressourcen in \textit {initFromRestore()}-Methode der Klasse AnnieHandler [eigene Darstellung]\relax }}{77}
 \contentsline {figure}{\numberline {4.8}{\ignorespaces Ausführung der ANNIE-Pipeline, Verarbeitung der Annotationen in BoilerplateHandler in \textit {convert()}-Methode der Klasse AnnieHandler [eigene Darstellung]\relax }}{78}
+=======
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Nicht-deterministischer Zustandswandler der able-Regel \cite {rs18}\relax }}{23}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Überblick der 3 Qualitätsstufen von Anforderungen im \textit {Requirements-Management \& Engineering} (RM \& E) gemäß \cite {hp12}\relax }}{47}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Szenario für Unterstützung durch R2BC-Komponente [eigene Darstellung]\relax }}{52}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Szenario für Unterstützung durch DA-Komponente [eigene Darstellung]\relax }}{53}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Verteilung der R2BC-Ressourcen [eigene Darstellung]\relax }}{55}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Verteilung der DA-Ressourcen [eigene Darstellung]\relax }}{58}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Zuordnung der R2BC-Klassen zu Paketen nach Abb.3.x [eigene Darstellung]\relax }}{63}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Klassendiagramm R2BC [eigene Darstellung]\relax }}{63}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Anforderung mit farbig markierten Token-Annotationen in GATE\relax }}{67}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Ausgewählte Token-Annotation und dessen Features in GATE\relax }}{68}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Verwendete ANNIE-Verarbeitungsressourcen in GATE [eigene Darstellung]\relax }}{69}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Verarbeitungslogik aus ANNIE und JAPE Transducern \cite {tol09}\relax }}{70}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Beispielhafte JAPE-Regel [eigene Darstellung]\relax }}{71}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Ausschnitt der \textit {SystemName}-Liste des Annie-Gazetteers [eigene Darstellung]\relax }}{74}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Definitionsdatei des Annie-Gazetteers [eigene Darstellung]\relax }}{75}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces JAPE-Regel zur Erkennung von eingeschränkten Akteuren [eigene Darstellung]\relax }}{75}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces JAPE-Regel zur Markierung von Sätzen für Boilerplate85 [eigene Darstellung]\relax }}{77}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Alle Features eines \textit {Boilerplate85}-Satzes in GATE [eigene Darstellung]\relax }}{78}
+>>>>>>> d24a00251a0051f556f4889efeb189f1646fbf6c
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

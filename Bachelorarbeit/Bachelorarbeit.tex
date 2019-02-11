@@ -993,11 +993,21 @@ In GATE wird die sprachliche Analyse durch eine Verarbeitungslogik durchgeführt
 
 Führt man eine Verarbeitungslogik auf einem Corpus bzw. auf dessen Dokumenten aus, so werden durch die verschiedenen Verarbeitungsressourcen an bestimmten Stellen im Text bestimmte Informationen hinzugefügt. Dies bezeichnet man als \textit{annotieren}. Dabei wird der Text an sich nicht geändert, die Annotationen können jedoch etwa durch farbige Unterlegung des betroffenen Texts in der GATE-Benutzeroberfläche gezeigt und als XML-Datei exportiert werden. 
 
-HIER SCREENSHOT VON BUNTER GATE ANNOTATION\\
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.9]{Bilder/ANNIEinGATE.jpg}
+\caption{Anforderung mit farbig markierten Token-Annotationen in GATE}
+\end{center}
+\end{figure}   
 
 Einer Annotation können sog. \textit{Features} also Eigenschaften zugewiesen werden, welche dann noch weitere Informationen enthalten können, wie z.B. Länge der Annotation und die betroffene Zeichenkette.
 
-HIER SCRRENSHOT MIT FEATURES\\
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.9]{Bilder/FeaturesInGATE.jpg}
+\caption{Ausgewählte Token-Annotation und dessen Features in GATE}
+\end{center}
+\end{figure}  
 
 Die für diese Arbeit verwendeten und besonders relevanten ANNIE- Verarbeitungsressourcen und die dadurch entstehenden Annotationen sind: 
 
@@ -1012,7 +1022,12 @@ Die für diese Arbeit verwendeten und besonders relevanten ANNIE- Verarbeitungsr
 \item \textit{ANNIE POS Tagger}: Der Part-of-Speech Tagger annotiert alle Wörter und Symbole gemäß ihrer grammatikalischen Funktion. Hierfür wird keine neue Annotation angelegt, es werden jedoch das wichtige \textit{category}-Feature an die Token-Annotationen angefügt. Dies ist wichtige Grundlage für grammatikalische Analyse von Sätzen. Dazu gehören Dafür nutzt dieser Standard-Lexika und Regelwerke, welche auf dem Corpus-Training des Wall Street Journal beruhen.
 \end{enumerate}
 
-HIER BILD MIT DEN KOMPONENTEN\\
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.9]{Bilder/ANNIEinGATE.jpg}
+\caption{Verwendete ANNIE-Verarbeitungsressourcen in GATE [eigene Darstellung]}
+\end{center}
+\end{figure}   
 
 \subsubsection{JAPE Transducer}
 
@@ -1096,11 +1111,23 @@ Damit ist eine neue Annotation Namens \textit{NNP} mit dem Feature \textit{rule}
 \subsubsection{JAPE-Regeln in der Praxis}
 In diesem Abschnitt werden einige der in der Sprachverarbeitung verwendeten JAPE-Regeln und deren Funktionsweise genauer erläutert. 
 
-Die Regel X.X in Abbildung X.X ist dafür zuständig Systemnamen zu erkennen. Ursprünglich war hierfür der Ansatz eine genaue grammatikalische Analyse zu nutzen um solche Namen komplett erfassen zu können. Dieser wurde jedoch nach verschiedene Tests für zu unpräzise befunden. Grund dafür war, dass in den Systemnamen keine ausreichende Regelmäßigkeit erkannt werden konnte, um ein verlässliche Erfassung zu gewährleisten. 
+Ursprünglich war der Ansatz für die Erkennung von Systemnamen eine genaue grammatikalische Analyse zu nutzen um solche Namen komplett erfassen zu können. Dieser wurde jedoch nach verschiedene Tests für zu unpräzise befunden. Grund dafür war, dass in den Systemnamen keine ausreichende Regelmäßigkeit erkannt werden konnte, um ein verlässliche Erfassung zu gewährleisten. 
 
-Daher wurde als nächstes ein Ansatz mit einer simpleren, jedoch auch besser umsetzbaren Methode verfolgt. Durch die Nutzung eines Gazetteers, kann die korrekte Erkennung von Eigennamen stark verbessert werden. Der einzige Nachteil ist, dass diese Eigennamen zuvor bekannt sein müssen, dies ist jedoch im betrieblichen Kontext gut umsetzbar. Um dies zu demonstrieren wurde der ANNIE-Gazetteer um einige Systemnamen erweitert und sowohl für Beispiele, als auch für komplette Lastenhefte getestet. \\
+Daher wurde als nächstes ein Ansatz mit einer simpleren, jedoch auch besser umsetzbaren Methode verfolgt. Durch die Nutzung eines Gazetteers, kann die korrekte Erkennung von Eigennamen stark verbessert werden. Der einzige Nachteil ist, dass diese Eigennamen zuvor bekannt sein müssen, dies ist jedoch im betrieblichen Kontext gut umsetzbar. Um dies zu demonstrieren wurde ein ANNIE-Gazetteer mit einigen Systemnamen angelegt und sowohl für Beispiele, als auch für komplette Lastenhefte getestet. Daher wird im Folgenden anstelle einer JAPE-Regel der verwendete Gazetteer vorgestellt. Solch ein Gazetteer besteht aus einer Menge von \textit{.lst}-Dateien welche als Listen fungieren und mindestens einer \textit{.def}-Datei, welche definiert wie mit den einzelnen Listen umzugehen ist. In Abbildung X.X ist ein Ausschnitt einer solchen Listendatei zu sehen. Abbildung X.X zeigt die direkte Definition einer bestimmten Annotation innerhalb der Definitionsdatei. Dies ermöglicht das Einsparen einer JAPE-Regel, welche die standardisierte \textit{Lookup}-Annotation abfragen und einordnen muss.
 
-HIER SCREENSHOT VON LOOKUP REGEL UND ERKLÄRUNG\\
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=1]{Bilder/SystemNameGazetteer.jpg}
+\caption{Ausschnitt der \textit{SystemName}-Liste des Annie-Gazetteers [eigene Darstellung]}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=1]{Bilder/DefGazetteer.jpg}
+\caption{Definitionsdatei des Annie-Gazetteers [eigene Darstellung]}
+\end{center}
+\end{figure}
 
 Die Regel \textit{recognize\_conditional\_actor} wird dazu verwendet, im Falle einer Anforderung mit Bedingung den Akteur zu ermitteln, welcher durch die Bedingung eingeschränkt wird. Diese Anforderungen können dann später in die \textit{Boilerplate85} überführt werden, welche in Abschnitt X.X dargestellt ist. 
 
@@ -1129,7 +1156,7 @@ Daraufhin werden die folgenden Tokens als \textit{conditionalactor} getaggt, jed
 
 Nachlaufend ist es jedoch nötig, dass eines dieser Wörter auftaucht (außerhalb des conditionaleactor-Taggings), da der Satz sonst nicht für die gewollte Boilerplate geeignet sein kann.
 
-Damit ist LHS bzw. die Erkennung abgeschlossen und die als conditionalactor getaggten Bereiche werden mit der \textit{ConditionalActor}-Annotation versehen. Features werden dabei nicht benötigt. 
+Damit ist LHS bzw. die Erkennung abgeschlossen und die als conditionalactor getaggten Bereiche werden mit der \textit{ConditionalActor}-Annotation versehen. Features werden dabei nicht benötigt. \\
 
 Sobald alle benötigten Satzbestandteile erfasst sind, lässt sich auf deren Grundlage nun eine geeignete Boilerplate definieren. Diese wird mit der JAPE-Regel \textit{BP85\_bsp} in Abbildung X.X erkannt und markiert. 
 
@@ -1141,6 +1168,31 @@ Sobald alle benötigten Satzbestandteile erfasst sind, lässt sich auf deren Gru
 \end{figure}
 
 \subsubsection{JAPE Transducer in GATE}
+Im Regelkopf ist hierbei zu beachten, dass alle für die Boilterplate benötigten Satzbestandteile als Input definiert werden. In diesem Fall werden also die \textit{Condition}-, \textit{ConditionalActor}- und \textit{FunctionDescription}-Annotationen verwendet. 
+
+Daraufhin werden in den regulären Ausdrücken der LHS die zwei Satzschemata abgefragt, welche schon bei der Erkennung des \textit{ConditionalActor} eine wichtige Rolle gespielt hatten:
+\begin{enumerate}
+\item Unter der Bedingung \textit{A}, soll das System \textit{B} die Aktion \textit{C} durchführen.
+\item Das System \textit{B} soll die Aktion \textit{C} durchführen, unter der Bedingung \textit{A}.
+\end{enumerate}
+
+Zwischen den Satzbestandteilen vorkommende Tokens werden dabei ignoriert, solange diese keine \textit{Split}-Annotation enthalten, also mit Punkten oder Zeilenumbrüchen den Satz beenden. Alle Sätze die mit den Satzschemata entsprechen und die gestellten Bedingungen erfüllen werden als \textit{ann} gelabelt und auf der RHS der Regel verarbeitet.
+
+Im Gegensatz zu den vorherigen Regeln ist auf dieser RHS die Vergabe von Features von entscheidender Bedeutung. Da man in dieser Regel verschiedene Annotationen zusammenfasst, ist es wichtig Informationsverlust zu verhindern, vor allem, weil die Satzbestandteile später noch vorliegen müssen um die Boilerplates zu befüllen. Daher erhält jede erstellte Boilerplate-Annotation auch ihren kompletten Text, sowie jeweils den Text jedes wichtigen Satzbestandteils als Feature. Dies macht es außerdem später im Programm einfacher diese abzufragen. Alle Features der Annotation sind in Abbildung X.X zu sehen. 
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.9]{Bilder/BP85Features.jpg}
+\caption{Alle Features eines \textit{Boilerplate85}-Satzes in GATE [eigene Darstellung]}
+\end{center}
+\end{figure}
+
+\subsubsection{JAPE Transducer in GATE}
+
+Sobald alle benötigten JAPE-Regeln definiert sind, lassen sich diese unter JAPE-Hauptdateien zusammenfassen um die benötigte Anzahl von JAPE Transducern zu verringern. Es sollte jedoch nur soweit zusammengefasst werden, dass einzelne Transducer noch austauschbar sind, wenn man die Sprachverarbeitung ändern möchte. 
+Die Transducer lassen sich (mit dem ANNIE-Plugin) über die Benutzeroberfläche von GATE leicht als Verarbeitungsressource anlegen und erhalten beim Initialisieren direkt die jeweilige JAPE-Datei. Syntaxfehler innerhalb der Dateien werden sofort erkannt und im Hauptfenster ausgegeben. 
+Sollten keine Fehler vorhanden sein erhält man die fertige Verarbeitungsressource, welche man an beliebiger Stelle in die Verarbeitungs-Pipeline einbauen kann.
+Obwohl in dem Programm GATE Embedded verwendet wurde und die Benutzeroberfläche somit nicht direkt verwendet werden konnte, bietet GATE die wichtige Funktion Corpora und Verarbeitungslogiken zu speichern und zu laden. Somit kann in man eine Verarbeitungslogik in GATE erstellen diese als sogenannte \textit{.gapp}-Datei speichern und anschließend in der Embedded-Version von GATE innerhalb des Programms laden. Außerdem lässt sich dabei der verwendete Corpus leicht ändern bzw. neu bestimmen. Das Laden einer solchen Datei in das Programm wird im folgenden Abschnitt genauer erläutert. 
 
 \subsection{Converter-Funktionalität}
 In diesem Abschnitt wird die Funktionalität der Converter-Komponente des Programms erläutert. Diese dient, wie bereits beschrieben, zur automatisierten Transformation der gelesenen Lastenhefte in sog. Boilerplates. In unserem Programm greift die Verarbeitungslogik dabei auf die Funktionen der unter 4.x beschriebenen Klassen bzw. Methoden, sowie auf die im vorigen Abschnitt behandelten JAPE-Regeln zur Textannotation zu. 
