@@ -1023,16 +1023,16 @@ Die für die Verarbeitung wichtigsten Komponenten sind in der normalen ANNIE-Ver
 \includegraphics[scale=0.7]{Bilder/ANNIE-Pipeline.jpg}
 \caption{Verarbeitungslogik aus ANNIE und JAPE Transducern \cite{tol09}}
 \end{center}
-\end{figure}
-
-Um ein Verständnis von JAPE Transducern aufzubauen ist jedoch zunächst einer Erläuterung von JAPE und JAPE-Dateien nötig, welche im Folgenden gegeben ist.   
+\end{figure}   
 
 In JAPE-Transducern\footnote{sowie in einigen der anderen Verarbeitungsressourcen} wird die im Namen vorhandene \textit{JAPE} (Java Annotation Patterns Engine) verwendet. Jape fungiert dabei als endlicher Zustandswandler\footnote{Für Erläuterung siehe \cite{rs18}} der reguläre Ausdrücke prüft und abhängig davon 
 Annotationen erzeugt oder JAVA-Code ausführt.
  
-
 HIER EVTL QUELLE VERWENDEN\\
 
+Um ein Verständnis von JAPE Transducern aufzubauen ist jedoch zunächst einer Erläuterung von JAPE-Dateien bzw. JAPE-Regeln nötig, welche im Folgenden gegeben ist.
+
+\subsubsection{Einführung zu JAPE-Regeln}
 Jape Transducer werden immer mit einer \textit{Jape-Datei} initialisiert. JAPE-Dateien sind erkennbar an der \textit{.jape}-Endung und können entweder eine JAPE-Regel oder eine JAPE-Hauptklasse (\textit{main.jape}) darstellen. 
 
 Eine Hauptklasse wird dazu verwendet, mehrere JAPE-Regeln zu vereinen. Dadurch lassen sich auch Transducer mit mehreren Regeln initialisieren und unnötig lange Verarbeitungs-Pipelines verhindern. 
@@ -1057,12 +1057,92 @@ Im Kopf der Regel befinden sich die Parameter \textit{Phase}, \textit{Input}, \t
 \item Input: Das Definieren des Inputs ist vor allem später für die LHS von entscheidender Bedeutung. Hier wird angegeben, welche Annotationen in den regulären Ausdrücken abgefragt werden können.
 
 Wenn ein Annotationstyp im Input nicht angegeben ist,jedoch in der LHS verwendet wird, führt dies zu einem Fehler beim Erstellen des Transducers. Wenn im Input Annotationen angegeben sind, welche in der LHS nicht verwendet werden, schadet dies unnötig der Laufzeit des Transducers.
-\item Options: Hier können verschiedene Optionen zum verhalten der Regel in bestimmten Fällen angegeben werden. Dies beinhaltet hauptsächlich die Anpassung der \textit{control}-Option. Diese entscheidet über das Resultat der Regel, wenn sich etwa mehrere Annotationen der Ausgabe überschneiden. So kann etwa jede einzelne Annotation oder auch nur die längste Annotation (welche die kleineren abdeckt) ausgegeben werden. Andere Optionen wie \textit{negationGroupng} können benötigt werden, um bestimmte reguläre Ausdrücke in der LHS zu ermöglichen.
-\item Rule:
-\end{enumerate}
-In der JAPE-Regel befindet sich auf der LHS eine Menge von Regulären ausdrücken, welche 
 
-JAPE Transducer in GATE 
+\item Options: Hier können verschiedene Optionen zum verhalten der Regel in bestimmten Fällen angegeben werden. Dies beinhaltet hauptsächlich die Anpassung der \textit{control}-Option. Diese entscheidet über das Resultat der Regel, wenn sich etwa mehrere Annotationen der Ausgabe überschneiden. So kann etwa jede einzelne Annotation oder auch nur die längste Annotation (welche die kleineren abdeckt) ausgegeben werden. Andere Optionen wie \textit{negationGroupng} können benötigt werden, um bestimmte reguläre Ausdrücke in der LHS zu ermöglichen.
+
+\item Rule: Hier wird der Name der Regel definiert. Dieser weist üblicherweise auf die Funktion der Regel, bzw. die erzeugte Annotation hin. Außerdem wird er oftmals als Feature der erzeugten Annotationen hinzugefügt, um die Nachvollziehbarkeit einer Verarbeitungslogik zu erhöhen. 
+\end{enumerate}
+
+In der JAPE-Regel befindet sich unterhalb des Kopfes die LHS.  Diese umfasst eine Menge von Regulären ausdrücken, basierend auf den Annotationen welche als Input deklariert wurden. Diese werden in dem Text gesucht und auf die angegebenen Bedingungen geprüft. Sollten gefundene Annotationen diese Erfüllen, so werden diese mit einem Label versehen. 
+
+Ein Pfeil trennt die LHS von der RHS. Unterhalb der Pfeils befindet sich die RHS, in welcher abhängig von den vergebenen Labels nun neue Annotationen und deren Features mit Werten definiert werden können. 
+
+Alternativ kann sich auf der RHS in einer JAPE-Regel auch JAVA-Code befinden um erweiterte Funktionalitäten nutzen zu können. Dies war für das Projekt jedoch nicht nötig, da die Ergebnisse der JAPE-Regeln ohnehin später in eine JAVA-Programm verwendet wurden. Daher wird diese Option im Verlauf der Arbeit nicht weiter berücksichtigt. \\ 
+
+Der Aufbau von JAPE-Regeln soll an dem Beispiel in Abbildung X.X genauer erläutert werden:
+
+Zunächst wird die Phase \textit{NNP} benannt und die \textit{Token}-Annotation als Input deklariert. Die \textit{control}-Option wird auf \textit{appelt} gesetzt. Diese wird im Normalfall verwendet und bewirkt, dass eine betroffene Stelle im Text nur von einer Regel genutzt werden kann\footnote{Setzen zwei Regeln am gleichen Startpunkt an, so erhält die Regel mit der längeren Übereinstimmung Vorrang, sind beide gleich lang, so erhält die Regel mit der höheren Priorität Vorrang, haben beide die gleiche Priorität, so erhält die Regel Vorrang, welche als erste in der Grammatik definiert wurde.\cite{tol09}}. Die Regel selbst wird mit \textit{allNNP} benannt, dies wird jedoch im Rest der Regel nicht wieder verwendet. 
+
+In der LHS wird mit der Abfrage\\
+
+$\{Token.category==NNP\}$\\
+
+das \textit{category}-Feature der \textit{Token}-Annotation auf den Wert \textit{NNP} geprüft\footnote{Erinnerung: Die \textit{Token}-Annotation wird von dem Tokenizer erstellt, das \textit{category}-Feature und dessen Wert jedoch von dem POS-Tagger}. Die Abfrage entspricht also der Form\\
+
+$\{Annotation.Feature==Wert\}$\\
+
+Alle Tokens, welche diese Bedingung erfüllen, werden daraufhin mit dem Label \textit{nnp} versehen, welches auf die RHS der Regel übernommen wird. 
+
+Unterhalb des Pfeils wird nun durch die Zeile\\
+
+$:nnp.NNP=\{\}$\\
+
+jede mit \textit{nnp} markierte Stelle mit der \textit{NNP}-Annotation versehen. In den geschweiften Klammern könnten dieser Annotation außerdem Features übergeben werden. Möchte man wie zuvor erwähnt den Namen der Regel als Feature hinzufügen, so lässt sich dies mit der folgenden Ergänzung tun:\\
+
+$:nnp.NNP=\{rule=\grqq allNNP\grqq \}$\\
+
+Damit ist eine neue Annotation Namens \textit{NNP} mit dem Feature \textit{rule} erzeugt, welche von späteren Regeln mit der einfachen Abfrage $\{NNP\}$ genutzt werden kann, ohne den Wert eines Features abfragen zu müssen.
+
+\subsubsection{JAPE-Regeln in der Praxis}
+In diesem Abschnitt werden einige der in der Sprachverarbeitung verwendeten JAPE-Regeln und deren Funktionsweise genauer erläutert. 
+
+Die Regel X.X in Abbildung X.X ist dafür zuständig Systemnamen zu erkennen. Ursprünglich war hierfür der Ansatz eine genaue grammatikalische Analyse zu nutzen um solche Namen komplett erfassen zu können. Dieser wurde jedoch nach verschiedene Tests für zu unpräzise befunden. Grund dafür war, dass in den Systemnamen keine ausreichende Regelmäßigkeit erkannt werden konnte, um ein verlässliche Erfassung zu gewährleisten. 
+
+Daher wurde als nächstes ein Ansatz mit einer simpleren, jedoch auch besser umsetzbaren Methode verfolgt. Durch die Nutzung eines Gazetteers, kann die korrekte Erkennung von Eigennamen stark verbessert werden. Der einzige Nachteil ist, dass diese Eigennamen zuvor bekannt sein müssen, dies ist jedoch im betrieblichen Kontext gut umsetzbar. Um dies zu demonstrieren wurde der ANNIE-Gazetteer um einige Systemnamen erweitert und sowohl für Beispiele, als auch für komplette Lastenhefte getestet. \\
+
+HIER SCREENSHOT VON LOOKUP REGEL UND ERKLÄRUNG\\
+
+Die Regel \textit{recognize\_conditional\_actor} wird dazu verwendet, im Falle einer Anforderung mit Bedingung den Akteur zu ermitteln, welcher durch die Bedingung eingeschränkt wird. Diese Anforderungen können dann später in die \textit{Boilerplate85} überführt werden, welche in Abschnitt X.X dargestellt ist. 
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.8]{Bilder/ConditionalActor.jpg}
+\caption{JAPE-Regel zur Erkennung von eingeschränkten Akteuren [eigene Darstellung]}
+\end{center}
+\end{figure}
+
+In der Phase und der Benennung der Regel sind soweit keine Besonderheiten. Als Input sind hier jedoch \textit{Token}, \textit{Split} und \textit{Condition}. Token ist die bereits bekannte Annotation des Tokenizers und Split ist eine Annotation des Sentence Splitters, welche das Ende einse Satzes (z.B. durch Punkt oder Leerzeile) markiert. Außerdem wird die eigens erstellte Condition-Annotation verwendet, welche auf Grundlage von Schlagwörtern wie \textit{if} oder \textit{when} die Bedingung in einem Satz erkennen und markieren kann\footnote{Auch zu dieser Annotation gibt es natürlich eine Regel, diese wird jedoch aus Platzgründen nicht genauer erläutert und befindet sich mit den restlichen Regeln in den Anlagen der Arbeit}. Außerdem wird die Option \textit{negationGrouping} auf \textit{false} gesetzt, um es zu ermöglichen mehrere negierte Abfragen auf der gleichen Token-Annotation auszuführen. \\
+
+Generell muss die Regel die folgenden zwei Satzstellungen berücksichtigen können: 
+\begin{enumerate}
+\item Unter der Bedingung \textit{A}, soll das System \textit{B} die Aktion \textit{C} durchführen.
+\item Das System \textit{B} soll die Aktion \textit{C} durchführen, unter der Bedingung \textit{A}.
+\end{enumerate}
+Die LHS der Regel beginnt daher mit einer optionalen Abfrage auf eine Condition, ein Komma und einen \textit{Determiner} (the, this, a usw.). Dies sorgt dafür, dass diese Elemente nicht mit als \textit{ContitionalActor} markiert werden, falls sie wie in \textit{1.} vor dem Akteur im Satz auftauchen. 
+
+Daraufhin werden die folgenden Tokens als \textit{conditionalactor} getaggt, jedoch nur solange:
+\begin{enumerate}
+\item keine Split-Annotation enthalten ist,
+\item kein \textit{shall}
+\item und kein \textit{should} im Text auftauchen.
+\end{enumerate}
+
+Nachlaufend ist es jedoch nötig, dass eines dieser Wörter auftaucht (außerhalb des conditionaleactor-Taggings), da der Satz sonst nicht für die gewollte Boilerplate geeignet sein kann.
+
+Damit ist LHS bzw. die Erkennung abgeschlossen und die als conditionalactor getaggten Bereiche werden mit der \textit{ConditionalActor}-Annotation versehen. Features werden dabei nicht benötigt. 
+
+Sobald alle benötigten Satzbestandteile erfasst sind, lässt sich auf deren Grundlage nun eine geeignete Boilerplate definieren. Diese wird mit der JAPE-Regel \textit{BP85\_bsp} in Abbildung X.X erkannt und markiert. 
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.8]{Bilder/Boilerplate85Jape.jpg}
+\caption{JAPE-Regel zur Markierung von Sätzen für Boilerplate85 [eigene Darstellung]}
+\end{center}
+\end{figure}
+
+
+
+\subsubsection{JAPE Transducer in GATE}
 \subsection{Converter-Funktionalität}
 \subsection{GUI - Nutzerinteraktion und Workflow}
 \section{mögliche Erweiterungen}
