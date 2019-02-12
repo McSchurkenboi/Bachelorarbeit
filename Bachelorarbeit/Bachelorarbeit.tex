@@ -1269,7 +1269,70 @@ If there is a connection to the internet, the Bluetooth connected phone shall tr
 When filtering the results, only the existing results shall be affected.\\
 \\ \rm
 Dieses prototypische Lastenheft wird im Laufe dieses Abschnittes von natürlicher Sprache in formale Boilerplates konvertiert. 
-\section{mögliche Erweiterungen}
+\section{Mögliche Erweiterungen}
+In diesem Abschnitt werden mögliche Verbesserungen bzw. Erweiterungen des Programms aufgelistet und erläutert. Diese konnten hauptsächlich auf Zeit- bzw. Aufwandsgründen nicht während der Arbeit bei HELLA implementiert werden. Einige erfordern außerdem eine hohes Maß an spezifischer Fachkenntnis in bestimmten Bereichen. 
+
+Die Erweiterungen sind zur Übersichtlichkeit in drei wichtige Bereiche unterteilt:
+\begin{enumerate}
+\item Benutzeroberfläche: Hier werden die Erweiterungen dargestellt, welche im direkten Zusammenhang mit der Nutzerinteraktion des Programms stehen und neue Ansichten auf der Benutzeroberfläche ermöglichen. 
+\item Nutzbarkeit: Hierzu gehören alle Erweiterungen, welche die Verwendbarkeit des Programms verbessern, jedoch nicht von Nutzer gesteuert werden. Dazu gehören Aspekte die Performanz, Abdeckungsgrad und präzise Sprachverarbeitung.
+\item Konzept: Hier sind alle Erweiterungen aufgelistet, welche das Programm konzeptuell Verändern, wichtige Vorarbeiten leisten oder alternative Technologien verwenden.  
+\end{enumerate}
+
+\subsection{Benutzeroberfläche}
+Im Folgenden sind die Erweiterungen zur Verbesserung der Nutzeroberfläche und dessen Funktionalität aufgeführt. 
+
+\subsubsection{Kontext-Anzeige}
+Eine mögliche Verbesserung der Benutzeroberfläche könnte durch das Anzeigen von relevantem Kontext zu der aktuellen Anforderung erzielt werden. Dies bedeutet, dass der Nutzer die aktuelle Anforderung besser einordnen kann, wenn die beispielsweise mit der vorherigen oder der darauffolgenden zu tun hat. 
+
+Wie weit der relevante Kontext ausfällt ist hierbei an konkreten Lastenheften zu testen. Mögliche Ausführungen wären etwa das Anzeigen der umgebenden Anforderungen oder der letzten Information vor der Anforderung.  
+
+Außerdem könnte dies von entscheidender Bedeutung bei der Auflösung von Referenzen (wie zum Beispiel durch Pronomen) sein. Wörter wie \glqq it\grqq{}, \glqq that\grqq{} usw. sollten zwar in Lastenheften wegen der Entstehung von Uneindeutigkeiten nicht verwendet werden, jedoch kann man dies in der Praxis nicht annehmen. Daher wären die Markierung von betroffenen Wörtern oder gar deren automatische Auflösung sehr nützlich.
+
+\subsubsection{Markieren von Unterschieden}
+Eine wichtige Hilfestellung bei der Übersichtlichkeit und somit bei der Verarbeitungsgeschwindigkeit durch den Programm-Nutzer könnte durch die farbliche Markierung von relevanten Textstellen erzeugt werden.
+ 
+Wie in Abbildung X.X gezeigt, werden der Ursprungssatz und mögliche Übersetzungen in Boilerplates auf dem selben Nutzer-Bildschirm abgebildet. Jedoch kann es durch die vorgegebene Satzstruktur der Boilerplates zur Umstellung der Eingabesatzes kommen. Dies ist für den Nutzer nur schwer auf den ersten Blick zu erkennen.
+
+Eine farbige Markierung der wichtigen Satzbestandteile im Eingabesatz und der entsprechenden Gegenstücke in der übersetzten Boilerplate könnten dort für einen sofortigen Überblick sorgen. Die Markierung könnte abhängig von den durch GATE vergebenen Annotationen stattfinden und würde es dem Nutzer ermöglichen einige der angezeigten Möglichkeiten direkt auszuschließen bzw. zu bestätigen.
+
+\subsubsection{Vorher/Nachher Abgleich}
+Falls der Nutzer beabsichtigt die Ergebnisse der Dokumentkonvertierung noch einmal zu überprüfen könnte eine eingebaute Ansicht sehr nützlich sein. Diese zeigt das Eingabe- und das Ausgabedokument nebeneinander an. Gegebenenfalls könnten die Eingabe-Anforderungen passen zu den entsprechenden Übersetzungen markiert oder gefärbt werden. 
+
+Dadurch würden Fehler durch den Nutzer noch weiter eingeschränkt und somit die Konsistenz des Ausgabedokuments stark verbessert. Vor allem für die spätere Weiterverarbeitung durch den Delta-Analyser ist dies wichtig. 
+
+\subsubsection{Eingabe des Dokumenttyps}
+Eine weitere Möglichkeit für den Nutzer das Programm zu verbessern könnte darin bestehen die Art des Eingabedokuments zu spezifizieren. Da in der Automobilindustrie viele verschiedene OEM mit verschiedenen Standards Pflichtenhefte für die Zulieferer verfassen, sind die eingehenden Anforderungsdokumente sehr heterogen und können auch bei der Formatierung voneinander abweichen. 
+
+Wenn der Nutzer jedoch die Möglichkeit hat, z.B. den OEM schon vor der Verarbeitung einzugeben und das Programm dementsprechend dynamisch angepasst wird, könnten auch ohne großen Aufwand für den Nutzer Lastenhefte verschiedener OEMs verarbeitet werden. 
+
+\subsection{Nutzbarkeit}
+Hier werden die Erweiterungen behandelt, welche sich positiv auf die Nutzbarkeit des Programms auswirken könnten. Dazu gehören vor allem Performanz- und Automatisierungsaspekte.
+\subsubsection{Implementierung weiterer Boilerplates}
+Eine naheliegende Verbesserung des Programms wäre das umsetzen weiterer Boilerplates. Dies ist jedoch nicht nur wichtig, um die Abdeckung des Testes zu verbessern, sonder auch auch um die Auswahl an Boilerplates zu verbessern. 
+
+Zunächst ergibt sich durch das Implementieren weiterer Boilerplates die Möglichkeit mehr Anforderungen des Quelldokuments in Boilerplates zu überführen. Damit geht jedoch auch ein Problem einher. Bei mehr Boilerplates steigt auch die Anzahl der vorgeschlagenen Boilerplates zu den einzelnen Sätzen. Im Optimalfall wird jedoch nur genau eine Boilerplate als Übersetzung vorgeschlagen, und zwar die richtige. 
+
+Es gilt also einen Anstieg an unpassend vorgeschlagenen Boilerplates so gering wie möglich zu halten und somit die Nutzbarkeit des Programms zu gewährleisten. Dies lässt sich erreichen in dem man die hinzugefügten Boilerplates abhängig von den verwendeten Satzbestandteilen in einer Hierarchie anordnet. 
+
+Angenommen eine Boilerplate \textit{A} enthält die Satzbestandteile \textit{1}, \textit{2} und \textit{3} und die Boilerplate \textit{B} enthält \textit{1}, \textit{2}, \textit{3} und \textit{4}. Ein Satz der die Bestandteile \textit{1-4} beinhaltet würde von in beide Boilerplates konvertierbar sein, da die Boilerplate \textit{A} jedoch Bestandteil \textit{4} nicht berücksichtigen kann, führt diese sicherlich zu Informationsverlust und ist somit falsch. Es lässt sich also schließen, dass die Boilerplate A niemals richtig sein kann, sobald Boilerplate \textit{B} eine  mögliche Übersetzung darstellt. Somit muss auch Boilerplate \textit{A} nicht als möglicher Vorschlag angegeben werden. 
+\subsubsection{JAPE-Optimierung}
+Die in der Sprachverarbeitung implementierten JAPE-Regeln wurden lediglich im Hinblick auf Funktionalität entworfen. Aufgrund der generell niedrigen Laufzeit\footnote{Die Testergebnisse zur Laufzeit des Programms werden in Abschnitt X.X genauer erläutert} wurde die Performanz der Regeln nicht extra optimiert. Es ist also möglich, dass dort noch Verbesserungspotential ausgeschöpft werden kann. 
+
+Die Implementierung weiterer Boilerplates sollte die Laufzeit des Programms nicht sonderlich beeinflussen, da der mit Abstand größte Annotations-Aufwand bei dem Tokenizer und dem Part Of Speech Tagger liegt. Diese werden jedoch auf jeden Fall genau ein mal ausgeführt. 
+
+Außerdem ist es möglich die JAPE-Transducer durch sogenannte \textit{JAPE+} -Transducer zu ersetzen. Diese sind vor allem bei der Verarbeitung langer Dokumente sehr viel effizienter als herkömmliche JAPE-Transducer. Daher sind sie in dem Anwendungsfall mit Anforderungsdokumenten besonders geeignet. Abbildung X.X zeigt Testergebnisse der GATE-Entwickler zu den verschiedenen Transducern \cite{gm19}.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.7]{Bilder/TransducerTest.jpg}
+\caption{JAPE und JAPE+ Zeitaufwand abhängig von der Dokumentlänge}
+\end{center}
+\end{figure}
+
+
+\subsubsection{Größtmögliche Automatisierung}
+\subsubsection{Filtern von Anforderungen}
 \section{Test}
 \subsection{Methodik}
 \subsection{Durchführung}
@@ -1354,6 +1417,7 @@ Der Arbeitsablauf des Programms lässt sich anhand des zustandswandlers in Abb. 
 \bibitem[DGE19]{dge19} Deutsche Gesellschaft für EMV-Technologie e.V. \glqq CRS Customer Requirements Specification\grqq, aus https://www.demvt.de/publish/viewfull.cfm?ObjectID=ba9a0878\_e081\\ \_515d\_74a3411df6771be8, abgerufen am 09.01.19.
 \bibitem[FF11]{ff11} Farfeleder, Stefan, et al. \glqq DODT: Increasing requirements formalism using domain ontologies for improved embedded systems development. \grqq{} Design and Diagnostics of Electronic Circuits \& Systems (DDECS), 2011 IEEE 14th International Symposium on. IEEE, 2011.
 \bibitem[FH14]{fh14} Fockel, Markus, and Jörg Holtmann. \glqq A requirements engineering methodology combining models and controlled natural language.\grqq{} Model-Driven Requirements Engineering Workshop (MoDRE), 2014 IEEE 4th International. IEEE, 2014.
+\bibitem[GM19]{gm19} https://gate.ac.uk/sale/tao/split.html GATE User Guide, aufgerufen am 12.02.2019
 \bibitem[HAO14]{hao14} Hao Wu, et al. \glqq  ILLINOISCLOUDNLP: Text Analytics Services in the Cloud.\grqq{}  LREC. 2014.
 \bibitem[HE13]{he13} Alexander Heßeler, et al. \glqq Anforderungsmanagement: Formale Prozesse, Praxiserfahrungen, Einführungsstrategien und Toolauswahl.\grqq{} Springer-Verlag, 2013.
 \bibitem[HE18]{he18} HELLA Geschäftsbericht des Geschäftsjahres 2017/2018, von https://www.hella.com/hella-com/assets/media\_global/2018.08.10\_HELLA\_Geschaeftsbericht\_2018\_geschuetzt.pdf, aufgerufen am 16.01.2019
