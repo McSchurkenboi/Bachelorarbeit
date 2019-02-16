@@ -28,12 +28,16 @@
 \contentsline {figure}{\numberline {4.17}{\ignorespaces Überführung der Anforderungen in passende Boilerplates in \textit {convertBPs()}-Methode [eigene Darstellung]\relax }}{85}
 \contentsline {figure}{\numberline {4.18}{\ignorespaces Formatierung des Textes für Typ-65c-Boilerplates in \textit {formatBP()}-Methode [eigene Darstellung]\relax }}{85}
 \contentsline {figure}{\numberline {4.19}{\ignorespaces UML-Aktivitätsdiagramm User-Workflow mit dem Werkzeug [eigene Darstellung]\relax }}{87}
+<<<<<<< HEAD
 \contentsline {figure}{\numberline {4.20}{\ignorespaces R2BC-GUI beim Programmstart [eigene Darstellung]\relax }}{88}
 \contentsline {figure}{\numberline {4.21}{\ignorespaces Anforderung 1, Boilerplate65c korrekt übersetzt [eigene Darstellung]\relax }}{91}
 \contentsline {figure}{\numberline {4.22}{\ignorespaces Anforderung 2, keine passende Boilerplate [eigene Darstellung]\relax }}{92}
 \contentsline {figure}{\numberline {4.23}{\ignorespaces Anforderung 3, fehlerhafte Konvertierung [eigene Darstellung]\relax }}{93}
 \contentsline {figure}{\numberline {4.24}{\ignorespaces Anforderung 4, Boilerplate85 korrekt übersetzt [eigene Darstellung]\relax }}{94}
 \contentsline {figure}{\numberline {4.25}{\ignorespaces JAPE und JAPE+ Zeitaufwand abhängig von der Dokumentlänge \cite {gm19}\relax }}{97}
+=======
+\contentsline {figure}{\numberline {4.20}{\ignorespaces JAPE und JAPE+ Zeitaufwand abhängig von der Dokumentlänge \cite {gm19}\relax }}{92}
+>>>>>>> 712857d9769f38dd1c18318f7bee364370c21fad
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

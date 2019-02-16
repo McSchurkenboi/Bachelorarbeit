@@ -1443,6 +1443,10 @@ Die korrekte Konvertierung wird erneut durch \textit{Confirm} bestätigt.
 In Abs. 4.x wird auf Basis der prototypischen Implementierung die Funktionalität des gesamten Programms mit realen Lastenheften erprobt. Im nächsten Abscnitt werden mögliche konzeptuelle Ergänzungen der GUI vorgestellt. 
 
 \section{mögliche Erweiterungen}
+When filtering the results, only the existing results \\shall be affected.\\
+\\ \rm
+Dieses prototypische Lastenheft wird im Laufe dieses Abschnittes von natürlicher Sprache in formale Boilerplates konvertiert. Die sechs Beispielanforderungen sind dabei an betriebliche Produktspezifikationen, z.B. an ein Auto \textit{Golf7}, angelehnt. Jede Anforderung repräsentiert konkrete Szenarien, die im Programm bei der Analyse und Konvertierung auftreten können. Dies beinhaltet sowohl die Boilerplates, die für jeden Satz infrage kommen, als auch typische Fehler bei der Erkennung, die bei der Verarbeitung entsteht.
+
 \section{Mögliche Erweiterungen}
 In diesem Abschnitt werden mögliche Verbesserungen bzw. Erweiterungen des Programms aufgelistet und erläutert. Diese konnten hauptsächlich auf Zeit- bzw. Aufwandsgründen nicht während der Arbeit bei HELLA implementiert werden. Einige erfordern außerdem eine hohes Maß an spezifischer Fachkenntnis in bestimmten Bereichen. 
 
@@ -1504,9 +1508,45 @@ Außerdem ist es möglich die JAPE-Transducer durch sogenannte \textit{JAPE+} -T
 \end{center}
 \end{figure}
 
-
 \subsubsection{Größtmögliche Automatisierung}
+Um dem Nutzer so viel Arbeit wie möglich zu ersparen, ist es wichtig so viele Arbeitsschritte wie möglich zu automatisieren. Dabei darf jedoch nicht die Fehlerquote steigen. Unter der Annahme, dass ein Nutzer 99% der Anforderungen richtig verarbeitet, könnte man die Verarbeitung von Anforderungen bei einer Trefferquote des Programms von über 99% automatisieren.
+
+Dies könnte beispielsweise geschehen, indem bei bestimmten Boilerplates mit sehr hoher Trefferwahrscheinlichkeit der Nutzer die Boilerplate nicht mehr überprüfen und bestätigen muss. Voraussetzung für eine Automatisierung könnte etwa eine Trefferquote von 99,5% sein, in Verbindung mit nur einer möglichen vorgeschlagenen Boilerplate.
+
+Um dies zu realisieren sind jedoch die Implementierung einer ausführlichen Heuristik und weitläufige Tests nötig. Sollten diese jedoch erfolgreich sein, könnte der Nutzen enorm sein, da die Nutzerinteraktion mit großem Abstand die meiste Zeit der Verarbeitung benötigt.
 \subsubsection{Filtern von Anforderungen}
+Eine weitere Möglichkeit die Zeit der Nutzerinteraktion zu verringern könnte durch das Filtern von Anforderungen aus dem Dokument realisiert werden. Dies wird im Programm bereits teilweise getan, so wurden Zeilen des DOORS-Exportes wie\\
+\tt
+H\_ObjectContent: Requirement
+\rm 
+und 
+\tt
+ID: 382
+\rm\\
+bereits dem Nutzer nicht mehr angezeigt. Aus diesen könnten jedoch auch einige Informationen genutzt werden, wie die Erfassung und Speicherung der ID-Nummer und das Erkennen des \textit{ObejctContent}. Damit könnte außerdem abgewogen werden, ob es möglich ist auf die Verarbeitung der \textit{Information}-Objekte zu verzichten und sich auf die \textit{Requirement}-Objekte zu beschränken. Dies kann jedoch in der Praxis schwierig sein, da oftmals \textit{Information} und \textit{Requirement} nicht zuverlässig deklariert werden oder ein Großteil der Sätze mit \textit{TBD}(to be determined/ noch zu bestimmen) gekennzeichnet sind.
+\subsection{Konzept}
+In diesem Abschnitt werden Modifizierungen des Programms aufs der Konzeptebene erläutert. Dies beinhaltet etwa das Nutzen anderer Technologien und Anbindungs-Konzepte. 
+\subsubsection{Preprocessing}
+Ein großes Problem mit den aus DOORS exportierten PDF-Dateien war die Zerstückelung der Sätze, auf denen die Sprachverarbeitung aufbaut. Oftmals waren beispielsweise Anforderungen aufgeteilt in einen Hauptteil und danach eine Auflistung von Bedingungen als eigenen Anforderung.
+
+Dies ist problematisch, weil die Sprachverarbeitung auf ganzen Sätzen beruht und aus Bruchstücken nur schlecht wichtige Informationen filtern kann. Daher wäre eine Preprocessing des Dokumentes hilfreich, welches etwa den Hauptteil noch einmal vor jede der Bedingungen knüpft. Später wären die Bedingungen außerdem besser miteinander Verbunden, da immer der gleiche Hauptteil erkannt wurde.
+
+Des Weiteren könnte schon im Preprocessing versucht werden einige grammatikalische Schwierigkeiten wie fehlende Kommasetzung und Nutzung von Referenzen oder Passiv-Konstruktionen zu verhindern\footnote{Passiv-Konstruktionen sind nicht direkt falsch, sind jedoch in vielen Standards falls möglich zu vermeiden}. 
+\subsubsection{Anbindung an DOORS und verschiedene Dateiformate}
+Im betrieblichen Kontext ist ein besonders wichtiger Aspekt des Programms die An- bzw. Einbindung in bestimmte Arbeitsabläufe. Da ein Großteil des Requirements Engineering mit Hilfe von DOORS durchgeführt wird ist eine gute Anbindung an das Werkzeug sehr zu empfehlen. 
+
+Andere Programme welche in der PMT-Abteilung verwendet werden wie z.B. \textit{ReqPat} befinden sich bereits in DOORS oder haben zumindest eine Anbindung. Außerdem stellt DOORS auch einige der zuvor in diesem Kapitel vorgeschlagenen Erweiterungen wie Benutzeransichten zur Verfügung. 
+
+Zukünftig könnte es ansonsten auch Nützlich sein, das Programm an verschiedene Dateiformate wie .pdf und .docx anzupassen. Diese können in GATE bereits eingelesen und verwendet werden \cite{rs18}, jedoch werden dabei Bilder nicht berücksichtigt. Außerdem hat man in GATE nur noch den Klartext und die entsprechenden Annotationen, also auch keine Formatierung oder ähnliches. 
+
+Wenn man als Ergebnis der R2BC-Konvertierung also wieder eine .pdf- oder .docx-Datei haben möchte, ist diese selbst zu generieren. Eine Hilfestellung könnte jedoch die von von GATE bereitgestellte \textit{Doc.alter()}-Methode bieten. Diese ermöglicht es Text an der entsprechenden Stelle des GATE-internen Dokuments direkt zu ändern Stelle und Reihenfolge des Textabschnittes nicht zu verfälschen.
+\subsubsection{Machine Learning}
+Während des Entwicklungsprozesses wurde oftmals nach der Nutzung von \textit{Machine Learning} bzw. künstlicher Intelligenz (\textit{KI}) gefragt. Dies konnte von uns wegen der kurzen Zeit und einem Mangel an Daten nicht implementiert werden. 
+
+Anhaltspunkt für die Nutzung von KI ist etwa die Verbesserung der Präzision (bis hin zur möglichen Automatisierung) durch das Erfassen von Nutzerentscheidungen. Dazu wird davon ausgegangen, dass der Nutzer aus einer Menge von Vorschlägen immer den richtigen (bzw. keinen falls nicht vorhanden) akzeptiert. 
+
+Der Grundstein für diese Erfassung ist durch die Modularität des Programms bereits gegeben. Die in Abschnitt X.X beschriebenen internen Listen beinhalten immer alle ausgegebenen Vorschläge und die jeweilige Entscheidung des Nutzers, was den Abgleich und die Datensammlung stark vereinfachen sollte. 
+
 \section{Test}
 \subsection{Methodik}
 \subsection{Durchführung}
@@ -1515,6 +1555,8 @@ Außerdem ist es möglich die JAPE-Transducer durch sogenannte \textit{JAPE+} -T
 \section{Architektur}
 \section{Implementierung}
 \section{mögliche Erweiterungen}
+\subsubsection{Ontologien zur Entity-Einordnung}
+Wichtig für die korrekte Sprachverarbeitung ist 
 \section{Test}
 \subsection{Methodik}
 \subsection{Durchführung}
