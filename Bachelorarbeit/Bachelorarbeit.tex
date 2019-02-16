@@ -102,6 +102,7 @@ Abkürzungsverzeichnis
 \end{huge}
 \vspace{12pt}
 \begin{acronym}[Abkürzungsverzeichnis]
+\acro{BP}{Boilerplate}
 \acro{CRS}{Customer Requirement Specification}
 \acro{DA}{Delta-Analyser}
 \acro{E-AE}{Electronics-Advanced Engineering}
@@ -122,7 +123,9 @@ An dieser Stelle möchten wir uns bei allen Personen bedanken, die uns bei unser
 \vspace{12pt} \\
 Der Dank gebührt unseren Familien und Freunden aus der Heimat und aus dem Studium für ihre Unterstützung.
 \vspace{12pt} \\
-Wir danken auch allen Kollegen aus der Abteilung E-AE bei der Firma HELLA in Lippstadt für ihr Interesse und die großartige Zusammenarbeit. Die einzigartigen Erfahrungen, die wir während unseres Praktikums und später während der Bachelorarbeit in der Firma sammeln konnten, haben uns wirklich motiviert. Besonderer Dank geht dabei an Konstantin Zichler, der weit mehr als nur Betreuer in der Firma, sondern auch Mentor und Ideengeber unserer Arbeit war.
+Wir danken auch allen Kollegen aus der Abteilung E-AE der Firma HELLA in Lippstadt für ihr Interesse und die großartige Zusammenarbeit. Die einzigartigen Erfahrungen, die wir während unseres Praktikums und später während der Bachelorarbeit in der Firma sammeln konnten, haben uns wirklich motiviert. 
+
+Besonderer Dank geht dabei an Konstantin Zichler, der weit mehr als nur Betreuer in der Firma, sondern auch Mentor und Ideengeber unserer Arbeit war.
 \vspace{12pt} \\
 Schlussendlich danken wir unseren Betreuern Prof. Dr. Sebastian Bab und Prof. Dr. Steffen Helke für die zahlreichen Tipps und Anregungen während der Bachelorarbeit.
 \newpage
@@ -218,11 +221,37 @@ Die Arbeit wird von Kapitel 7 abgeschlossen. Dieses beinhaltet eine Zusammenfass
 
 \item[] \textbf{2.: Ritter, Schul}
 \begin{compactitem}
-\item[] 2.1: Schul
+\item[] 2.1: Ritter
+\item[] 2.2: Schul
+\item[] 2.3: Ritter
+\end{compactitem}
+
+\item[] \textbf{3.: Ritter, Schul}
+\begin{compactitem}
+\item[] 3.1: Schul
+\item[] 3.2: Schul
+\item[] 3.3: Ritter
+\item[] 3.4: Schul
+\item[] 3.5: Ritter
+\end{compactitem}
+
+\item[] \textbf{4.: Ritter, Schul}
+\begin{compactitem}
+\item[] 4.1: Schul
+\item[] 4.2: Ritter
+\item[] 4.3: Ritter, Schul
+\begin{compactitem}
+\item[] 4.3.1: Schul
+\item[] 4.3.2: Ritter
+\item[] 4.3.3: Ritter
+\end{compactitem}
+\item[] 4.4: Schul
+\item[] 4.5: Ritter
 \end{compactitem}
 
 \end{compactitem}
 \end{multicols}
+\captionof{table}{Autorenverzeichnis}
 
 \chapter{Stand der Technik}
 In diesem Kapitel wird zunächst ein Rückblick auf die zuvor von den Autoren verfasste Projektarbeit und die darin enthaltenen Grundlagen von NLP gegeben. 
@@ -1200,15 +1229,20 @@ In diesem Abschnitt wird die Funktionalität der Converter-Komponente des Progra
 Diese Ressourcen werden im Programm dann nacheinander genutzt, um die Boilerplate-Konvertierung durchzuführen. In der Regel sind verschiedene Programmfunktionen dabei zur Nutzerinteraktion Buttons in der GUI zugeordnet (siehe Abs. 4.x). Für ein besseres Verständnis der Zusammenhänge ist das R2BC-Klassendiagramm, sowie der kommentierte Quellcode des Prototypen im Anhang hilfreich.
 
 \subsubsection{Listen-Architektur}
-Der Convert-Vorgang teilt sich auf die zwei Klassen AnnieHandler und BoilerplateHandler auf. AnnieHandler dient dabei zur Erstellung von Annotationen über den Text durch die Anbindung an GATE. BoilerplateHandler erstellt auf Baisis der dort gefundenen Annotationen dann entsprechende Boilerplates. 
+Der Convert-Vorgang teilt sich auf die zwei Klassen AnnieHandler und BoilerplateHandler auf. AnnieHandler dient dabei zur Erstellung von Annotationen über den Text durch die Anbindung an GATE. BoilerplateHandler erstellt auf Basis der dort gefundenen Annotationen anschließend entsprechende Boilerplates. 
 
 Es ist dabei zu beachten, dass mehrere Deutungen bzw. erzeugbare Boilerplates aus einem Satz existieren können. Ferner muss vor dem Export des konvertierten Textes in ein Ausgabedokument die eine richtige Konvertierung jedes Satzes gespeichert werden.
 
 Das Datenmodell des Programms muss daher sowohl den ursprünglichen Text mitsamt Annotationen beinhalten, als auch alle möglichen Konvertierungen zu einem Satz in Boilerplates auflisten können.
 
-Dieser Ansatz hat zur konkreten Erstellung von drei Listen im Programm geführt, \textit{sentenceList}, \textit{bpList} und \textit{bpExportList}. Die Listen sind in Abb. 4.x prinzipiell in ihrer Verknüpfung dargestellt. 
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.63]{Bilder/Listenarchitektur.png}
+\caption{R2BC-Datenmodell aus Listen zur Speicherung von Annotationen(1), möglichen Konvertierungen(2) und Export(3) [eigene Darstellung]}
+\end{center}
+\end{figure}
 
-LISTENDARSTELLUNG Datenmodell R2BC aus drei Listen zur Speicherung von Annotationen(1), möglichen Konvertierungen(2) und Export(3) [eigene Darstellung]
+Dieser Ansatz hat zur konkreten Erstellung von drei Listen im Programm geführt, \textit{sentenceList}, \textit{bpList} und \textit{bpExportList}. Die Listen sind in Abb. 4.x prinzipiell in ihrer Verknüpfung dargestellt. 
 
 \begin{itemize}
 \item \textit{sentenceList} repräsentiert dabei alle Paragraphen des Quelldokuments, da Anforderungen immer durch einen Zeilenumbruch getrennt sind.\footnote{In unserem Programm wird konkret die Sentence-Annotation aus dem ANNIE-SentenceSplitter von GATE verwendet, um Sätze zu trennen.} soll dabei gefundene GATE-Annotaionen zu jedem Satz beinhalten, die mithilfe der Klasse AnnieHandler angebundenen Verarbeitung generiert werden.
@@ -1442,11 +1476,6 @@ Die korrekte Konvertierung wird erneut durch \textit{Confirm} bestätigt.
 
 In Abs. 4.x wird auf Basis der prototypischen Implementierung die Funktionalität des gesamten Programms mit realen Lastenheften erprobt. Im nächsten Abscnitt werden mögliche konzeptuelle Ergänzungen der GUI vorgestellt. 
 
-\section{mögliche Erweiterungen}
-When filtering the results, only the existing results \\shall be affected.\\
-\\ \rm
-Dieses prototypische Lastenheft wird im Laufe dieses Abschnittes von natürlicher Sprache in formale Boilerplates konvertiert. Die sechs Beispielanforderungen sind dabei an betriebliche Produktspezifikationen, z.B. an ein Auto \textit{Golf7}, angelehnt. Jede Anforderung repräsentiert konkrete Szenarien, die im Programm bei der Analyse und Konvertierung auftreten können. Dies beinhaltet sowohl die Boilerplates, die für jeden Satz infrage kommen, als auch typische Fehler bei der Erkennung, die bei der Verarbeitung entsteht.
-
 \section{Mögliche Erweiterungen}
 In diesem Abschnitt werden mögliche Verbesserungen bzw. Erweiterungen des Programms aufgelistet und erläutert. Diese konnten hauptsächlich auf Zeit- bzw. Aufwandsgründen nicht während der Arbeit bei HELLA implementiert werden. Einige erfordern außerdem eine hohes Maß an spezifischer Fachkenntnis in bestimmten Bereichen. 
 
@@ -1548,9 +1577,82 @@ Anhaltspunkt für die Nutzung von KI ist etwa die Verbesserung der Präzision (b
 Der Grundstein für diese Erfassung ist durch die Modularität des Programms bereits gegeben. Die in Abschnitt X.X beschriebenen internen Listen beinhalten immer alle ausgegebenen Vorschläge und die jeweilige Entscheidung des Nutzers, was den Abgleich und die Datensammlung stark vereinfachen sollte. 
 
 \section{Test}
-\subsection{Methodik}
-\subsection{Durchführung}
-\subsection{Ergebnisse}
+In diesem Abschnitt wird die Funktionalität des R2BC anhand von realen Tests geprüft. Wie bereits erwähnt, bestand durch die Zusammenarbeit mit RE-Experten bei HELLA die Möglichkeit, die Konvertierung unter Verwendung realer Lastenhefte aus dem betrieblichen Alltag zu testen. Dazu konnten diverse Indikatoren für die Trefferquote unseres Programms definiert werden, die während der Konvertierung von drei zur Verfügung gestellten Lastenheften gemessen wurden.
+
+Die Tests, die für dieses Kapitel durchgeführt wurden, wurden dabei schon in der Veröffentlichung \cite{zh19} beschrieben, die parallel zu dieser Arbeit veröffentlicht wurde.
+
+\subsubsection{Methodik}
+In diesem Abschnitt wird das genaue Testszenario hinsichtlich der zu messenden Werte definiert. Das Programm entspricht dem unter 4.4 skizzierten Ablauf bei der Nutzung, d.h. die möglichen Konvertierungen wurden durch den R2BC vollautomatisch ermittelt und erzeugt. Zu jeder Anforderung wurden dann diese Konvertierungen angezeigt und bewertet. Auf dieser Basis konnten korrekte und fehlerhafte Verhaltensweisen des Programms gezählt und nachvollzogen werden.
+
+Konkret existieren zwei primäre Werte, anhand derer die Erkennungsrate anhand der JAPE-Regeln zu den Boilerplates und Übersetzung im Converter evaluiert werden können. Bei der Konvertierung der Lastenheften sind dabei folgende Fehler, die aufgetreten sind, zu unterscheiden:
+\begin{itemize}
+\item \textit{Recall - Erkennungsgrad der Boilerplates} 
+
+Als recall wurde gemessen, ob alle passenden Boilerplates typmäßig zu einer Anforderung gefunden wurden. Es wird gemessen, ob ein erkannter Boilerplate-Typ zu einer Anforderung prinzipiell korrekt waren, d.h. ob eine vorgeschlagene Konvertierung in eine Boilerplate, die dem Nutzer vorgeschlagen wird, grundsätzlich korrekt ist. Sollte eine Konvertierung fälschlicherweise erkannt worden sein oder fehlen, obwohl sie zu der Anforderung gepasst hätte, liegt ein Fehler in der Erkennung vor.
+
+\item \textit{Precision - Übersetzung in erzeugte Boilerplate} 
+
+Der precision-Score stellt dar, wieviele von den richtig erkannten Boilerplates (\textit{recall}) anschließend korrekt in eine erzeugte Boilerplate-Anforderung übersetzt wurden. Hier liegt ein Fehler immer dann vor, wenn z.B. Teile eines \textit{CompleteSystem} oder einer \textit{Condition} bei der Übersetzung abgeschnitten wurden und somit in der Boilerplate fehlen. Dies kann etwa dann passieren, wenn nur ein Teil des Systemnamens im Gazetteer enthalten ist. 
+\end{itemize}
+
+\subsection{Testdokumente}
+Im Rahmen der Tests wurden insgesamt drei Lastenhefte getestet, die aktuelle Produktspezifikationen von zu entwickelnden Fahrzeugkomponenten enthalten. Diese wurden dabei als repräsentative Dokumente von den RE-Experten der \textit{PMT}-Abteilung zur Verfügung gestellt. Dazu wurden sie aus dem Programm \textit{DOORS} als .pdf exportiert.\footnote{Beim DOORS-Export sind neben den Anforderungen als Text auch Bilder und Meta-Informationen wie etwa die Objekt-ID der Anforderung als DOORS-Objekt exportiert worden, die für die Tests nicht mit konvertiert wurden.} 
+
+\vspace{12pt}
+\tt
+\begin{center}
+\begin{tabular}{llllll}
+\multicolumn{6}{l}{\textbf{Informationen}}                                                                                                   \\
+\multicolumn{1}{l|}{}             & Seiten & \multicolumn{1}{l|}{Absätze} & Ladezeit  & \multicolumn{1}{l|}{Konvertierung} & Dateigröße \\ \hline
+\multicolumn{1}{l|}{\textbf{LH1}} & 88     & \multicolumn{1}{l|}{2693}    & 0,07 sek. & \multicolumn{1}{l|}{10,97 sek.}         & 344 KB     \\
+\multicolumn{1}{l|}{\textbf{LH2}} & 567    & \multicolumn{1}{l|}{17766}   & 0,29 sek. & \multicolumn{1}{l|}{98,63 sek.}         & 3492 KB    \\
+\multicolumn{1}{l|}{\textbf{LH3}} & 60     & \multicolumn{1}{l|}{1669}    & 0,15 sek. & \multicolumn{1}{l|}{7,71 sek.}          & 1156 KB   
+\end{tabular}
+\end{center}
+\captionof{table}{Metainformationen zu Testlastenheften [eigene Darstellung]}
+\rm
+\vspace{12pt}
+
+Tabelle 4.1 enthält die Metainformationen zu den getesteten Anforderungsdokumenten, die vor bzw. während des Programmdurchlaufs ermittelt wurden.\footnote{Absätze repräsentieren stellvertretend einzelne Anforderungen, da im Programm die \textit{sentence}-Annotation von GATE zur Trennung von Anforderungen verwendet wird. Dabei kann es vorkommen, dass mehrere Anforderungen als ein Satz zusammengefasst analysiert wurden und dass etwa Aufzählungen als verschiedene Sätze annotiert wurden. Dies hat keinen direkten Einfluss auf die Konvertierung.} Auf dieser Basis konnte dann zu jeder Anforderungen die Programmausgabe auf die Genauigkeit hin geprüft werden.
+Lastenheft 1 (LH1) enthält demnach 2693 Anforderungen und wurde innerhalb von 10,97 Sekunden konvertiert. LH1 stellt inhaltlich eine Teilspezifikation des mit 567 Seiten und 17766 Anforderungen wesentlich größeren Lastenheft 2 dar, dass innerhalb von ca. 11 Sekunden automatisch konvertiert wurde. LH3 enthält einige bruchstückhafte bzw. teilvollständige Anforderungen; der R2BC hat 1669 Sätze unterschieden.
+
+\subsection{Resultate}
+LH1 wurde zunächst manuell durchlaufen, um auf dieser Basis Regelmäßigkeiten in der Satzstruktur zu finden und Gazetter-Einträge hinzuzufügen. Dabei wurden aus jedem Dokument Systemnamen und -eigenschaften hinzugefügt. Auf dieser Basis wurden dann die JAPE-Regeln für die Analyse definiert. In Abs. 4.7 werden Ansätze zum automatischen Sammeln der Entitäten beschrieben. Bis auf den Gazetteer, der spezifische Eigennamen für z.B. Komponenten enthält, wurde für alle drei Lastenhefte mit dem identischen Programm getestet.
+
+\vspace{12pt}
+\tt
+\begin{center}
+\begin{tabular}{lllll}
+\multicolumn{5}{l}{\textbf{Testresultate}}                                                                            \\
+\multicolumn{1}{l|}{}             & \multicolumn{2}{l|}{Boilerplate 65c}    & \multicolumn{2}{l|}{Boilerplate 85}     \\
+\multicolumn{1}{l|}{}             & Recall & \multicolumn{1}{l|}{Precision} & Recall & \multicolumn{1}{l|}{Precision} \\ \hline
+\multicolumn{1}{l|}{\textbf{LH1}} & 100\%  & \multicolumn{1}{l|}{100\%}     & 89,3\% & \multicolumn{1}{l|}{66,7\%}    \\
+\multicolumn{1}{l|}{\textbf{LH2}\footnote{Testwerte basieren auf den ersten 400 Seiten des Dokuments}} &        & \multicolumn{1}{l|}{93,3\%}    & 67,7\% & \multicolumn{1}{l|}{}          \\
+\multicolumn{1}{l|}{\textbf{LH3}} & ???\%  & \multicolumn{1}{l|}{???\%}     & ???\%  & \multicolumn{1}{l|}{???\%}    
+\end{tabular}
+\end{center}
+\captionof{table}{Testergebnisse nach R2BC-Durchlauf [eigene Darstellung]}
+\rm
+\vspace{12pt}
+
+Wie in Tab. 4.2 sichtbar ist, wurden bei LH1 für die Boilerplate 65c 100\% recall und 100\% precision erreicht. Der \textit{recall}-Wert zeigt, dass alle passenden Anforderungen für diese Boilerplate erkannt wurden. 100\% Präzision der Übersetzung lassen sich auf den Umstand zurückführen, dass alle zu erkennenden Systemnamen für die BP65c im Gazetteer vorhanden waren und dementsprechend gefunden werden konnten. Nichtsdestotrotz wurde bei 37,5\% der Boilerplates das \textit{completeSystemName} unvoltsändig eingetragen, wenn mehrere Einträge im Gazetteer vorhanden waren. Wenn im Gazetteer etwa sowohl \textit{controller}, als auch \textit{headlamps controller} enthalten sind, wurde stets nur \textit{controller} in die Boilerplate eingetragen, obwohl \textit{headlamp controller} als System in der Anforderung stand. Dieser prinzipielle Mangel lässt sich jedoch durch Optimierung oder hierarchische Anordnung mehrerer Gazetters beheben und wurde daher nicht als \textit{precision}-Fehler gewertet.
+
+Für Boilerplate 85 wurde 66,7\% Erkennungsrate und 89,3\% korrekte Übersetzung ermittelt. Wurde also eine bedingte Anforderung erkannt, hat das Programm diese in den meisten Fällen auch korrekt übersetzt. Eigenheiten der Formulierung der Autoren und Rechtschreibfehler in den Anfordeurngen haben den \textit{recall}-Score verringert. Manche Autoren nutzen etwa \textit{In the event of} anstelle von \textit{if} (zu Deutsch: \glqq Im Fall von\grqq{} anstatt \glqq Wenn\grqq{}) oder haben nach dem if fälschlicherweise kein Komma geschrieben. Auch wurde beobachtet, dass manche Anforderungen mehrere Bedingungen auf einmal oder verschachtelte Bedingungen enthielten, die zu einer Uneindeutigkeit der Bedingung führen können.
+
+\vspace{12pt}
+Lastenheft 2 wurde, aufgrund des großen Umfangs des Dokumentes, nur auf die Präzision der Übersetzung hin geprüft. Bereits durch den Test von LH1 konnte manches Verbesserungspotential in der Erkennung der Boilerplates identifiziert werden, weshalb nur die Korrektheit der übersetzten Boilerplates getestet wurde. LH2 wurde außerdem nicht gänzlich, sondern nur auf Basis der ersten 400 Seiten getestet. Die Konvertierungszeit belief sich dabei auf lediglich 89 Sekunden und hat zu positiven Testresultaten geführt.
+
+Boilerplates 65c wurde mit 93,3\% iger Genauigkeit übersetzt, was sich wieder auf den Einsatz des Gazetteers zurückführen lässt. Teilweise wurden erneut Satzbestandteile nur teilweise erkannt bzw. in die Boilerplate übersetzt, wenn mehrere Gazetteereinträge einen Teilwort aus dem Satzteil enthielten.
+
+Boilerplate 85 wurde zu 67,6\% korrekt erzeugt. Dies lässt sich erneut damit begründen, dass die BP85 nur für eine Bedingung pro Anforderung geeignet ist, manche Autoren aber fälschlicherweise mehrere Bedingungen für eine Systemfunktion in eine Anforderung verpacken. Aus diesen Anforderungen werden dann die zusätzlichen Bedingungen bei der Konvertierung abgeschnitten.
+
+\vspace{12pt}
+Lastenheft 3 zeigte beim Test ähnliche Werte für \textit{precision} und \textit{recall}, wie durch den Test von LH1 und LH2. Auffällig war, dass Teilsätze durch den R2BC teilweise zu mehreren neuen Sätzen geführt haben, die inhaltlich aber nicht zur Füllung von Boilerplates genügt haben. Dieser Umstand lässt sich auf die Textformatierung zurückführen bzw. auf die Verwendung der \textit{sentence}-Annotaion, die Sätze nicht korrekt abgrenzt.
+
+\subsubsection{Bewertung der Ergebnisse}
+Insgesamt lässt sich jedoch sagen, dass insbesondere Precision-Fehler durch die Bewertung der Anforderung in der GUI leicht auffallen und korrigiert werden können. Diese Fehler sind meist weniger drastisch und erfordern nur kleine Korrekturen, etwa wenn ein Systemname nicht ganz korrekt übernommen wurde. Ein Großteil der Arbeit im Programm entsteht bei der Konvertierung, die keinen Eingriff und Aufmerksamkeit des Nutzers erfordert.
+
+Momentan arbeitet der R2BC semi-automatisch, da der Nutzer jede Konvertiergun manuell bestätigen muss. Bei hinreichend hohen trefferquoten und Implementierung einer heuristik, die die best-passende Konvertierung aus mehreren Möglichkeiten identifiziert, wäre jedoch auch ein vollautomatischer Einsatz des Werkzeugs denkbar. Im Kapitel Evaluation werden dazu Maßnahmen für Erweiterungen vorgestellt.
 \chapter{Delta-Analyse}
 \section{Architektur}
 \section{Implementierung}
@@ -1563,7 +1665,7 @@ Wichtig für die korrekte Sprachverarbeitung ist
 \subsection{Ergebnisse}
 \chapter{Evaluation}
 \subsection{Umsetzung der NLP-Architektur in unserem Werkzeug}
-In diesem Abschnitt wird die Einordnung unseres Prototypen als NLP-Werkzeug in die von \cite{cop04} definierte Architektur behandelt. Die verschiedenen Schritte aus Kap. 2.2. haben wir bei der Analyse und Verarbeitung der Lastenhefte in Programmbestandteilen umgesetzt. Anhand der Verarbeitungskette unseres Werkzeugs können wir die prinzipiellen Aufgaben von NLP-Werkzeugen dort wie folgt einordnen:
+In diesem Abschnitt wird die Einordnung unseres Prototypen als NLP-Werkzeug in die von \cite{cop04} definierte Architektur behandelt. Die verschiedenen Schritte aus Kap. 2.2. haben die Autoren bei der Analyse und Verarbeitung der Lastenhefte in Programmbestandteilen umgesetzt. Anhand der Verarbeitungskette unseres Werkzeugs können wir die prinzipiellen Aufgaben von NLP-Werkzeugen dort wie folgt einordnen:
 
 \begin{enumerate}
 \item \textit{Input Processing} - Einlesen von Quelldaten: Zunächst kann der Nutzer Dateien für die Verarbeitung im Programm eingeben. Dazu wählt der diese Dateien in der GUI des Programms aus. Unser Werkzeug extrahiert daraus dann den enthaltenen Text.

@@ -21,23 +21,20 @@
 \contentsline {figure}{\numberline {4.10}{\ignorespaces JAPE-Regel zur Erkennung von eingeschränkten Akteuren [eigene Darstellung]\relax }}{75}
 \contentsline {figure}{\numberline {4.11}{\ignorespaces JAPE-Regel zur Markierung von Sätzen für Boilerplate85 [eigene Darstellung]\relax }}{77}
 \contentsline {figure}{\numberline {4.12}{\ignorespaces Alle Features eines \textit {Boilerplate85}-Satzes in GATE [eigene Darstellung]\relax }}{78}
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Initialisierung der GATE-Ressourcen in \textit {initFromRestore()}-Methode der Klasse AnnieHandler [eigene Darstellung]\relax }}{81}
-\contentsline {figure}{\numberline {4.14}{\ignorespaces Ausführung der ANNIE-Pipeline, Verarbeitung der Annotationen in BoilerplateHandler in \textit {convert()}-Methode [eigene Darstellung]\relax }}{82}
-\contentsline {figure}{\numberline {4.15}{\ignorespaces Initialisierung des Datenmodells aus Listen der Sätze in \textit {initializeParagraphs()}-Methode [eigene Darstellung]\relax }}{83}
-\contentsline {figure}{\numberline {4.16}{\ignorespaces Suche nach Boilerpalte-Annotationen in \textit {findPossibleConversions()}-Methode [eigene Darstellung]\relax }}{84}
-\contentsline {figure}{\numberline {4.17}{\ignorespaces Überführung der Anforderungen in passende Boilerplates in \textit {convertBPs()}-Methode [eigene Darstellung]\relax }}{85}
-\contentsline {figure}{\numberline {4.18}{\ignorespaces Formatierung des Textes für Typ-65c-Boilerplates in \textit {formatBP()}-Methode [eigene Darstellung]\relax }}{85}
-\contentsline {figure}{\numberline {4.19}{\ignorespaces UML-Aktivitätsdiagramm User-Workflow mit dem Werkzeug [eigene Darstellung]\relax }}{87}
-<<<<<<< HEAD
-\contentsline {figure}{\numberline {4.20}{\ignorespaces R2BC-GUI beim Programmstart [eigene Darstellung]\relax }}{88}
-\contentsline {figure}{\numberline {4.21}{\ignorespaces Anforderung 1, Boilerplate65c korrekt übersetzt [eigene Darstellung]\relax }}{91}
-\contentsline {figure}{\numberline {4.22}{\ignorespaces Anforderung 2, keine passende Boilerplate [eigene Darstellung]\relax }}{92}
-\contentsline {figure}{\numberline {4.23}{\ignorespaces Anforderung 3, fehlerhafte Konvertierung [eigene Darstellung]\relax }}{93}
-\contentsline {figure}{\numberline {4.24}{\ignorespaces Anforderung 4, Boilerplate85 korrekt übersetzt [eigene Darstellung]\relax }}{94}
-\contentsline {figure}{\numberline {4.25}{\ignorespaces JAPE und JAPE+ Zeitaufwand abhängig von der Dokumentlänge \cite {gm19}\relax }}{97}
-=======
-\contentsline {figure}{\numberline {4.20}{\ignorespaces JAPE und JAPE+ Zeitaufwand abhängig von der Dokumentlänge \cite {gm19}\relax }}{92}
->>>>>>> 712857d9769f38dd1c18318f7bee364370c21fad
+\contentsline {figure}{\numberline {4.13}{\ignorespaces R2BC-Datenmodell aus Listen zur Speicherung von Annotationen(1), möglichen Konvertierungen(2) und Export(3) [eigene Darstellung]\relax }}{80}
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Initialisierung der GATE-Ressourcen in \textit {initFromRestore()}-Methode der Klasse AnnieHandler [eigene Darstellung]\relax }}{82}
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Ausführung der ANNIE-Pipeline, Verarbeitung der Annotationen in BoilerplateHandler in \textit {convert()}-Methode [eigene Darstellung]\relax }}{83}
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Initialisierung des Datenmodells aus Listen der Sätze in \textit {initializeParagraphs()}-Methode [eigene Darstellung]\relax }}{84}
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Suche nach Boilerpalte-Annotationen in \textit {findPossibleConversions()}-Methode [eigene Darstellung]\relax }}{84}
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Überführung der Anforderungen in passende Boilerplates in \textit {convertBPs()}-Methode [eigene Darstellung]\relax }}{85}
+\contentsline {figure}{\numberline {4.19}{\ignorespaces Formatierung des Textes für Typ-65c-Boilerplates in \textit {formatBP()}-Methode [eigene Darstellung]\relax }}{86}
+\contentsline {figure}{\numberline {4.20}{\ignorespaces UML-Aktivitätsdiagramm User-Workflow mit dem Werkzeug [eigene Darstellung]\relax }}{88}
+\contentsline {figure}{\numberline {4.21}{\ignorespaces R2BC-GUI beim Programmstart [eigene Darstellung]\relax }}{89}
+\contentsline {figure}{\numberline {4.22}{\ignorespaces Anforderung 1, Boilerplate65c korrekt übersetzt [eigene Darstellung]\relax }}{91}
+\contentsline {figure}{\numberline {4.23}{\ignorespaces Anforderung 2, keine passende Boilerplate [eigene Darstellung]\relax }}{92}
+\contentsline {figure}{\numberline {4.24}{\ignorespaces Anforderung 3, fehlerhafte Konvertierung [eigene Darstellung]\relax }}{93}
+\contentsline {figure}{\numberline {4.25}{\ignorespaces Anforderung 4, Boilerplate85 korrekt übersetzt [eigene Darstellung]\relax }}{94}
+\contentsline {figure}{\numberline {4.26}{\ignorespaces JAPE und JAPE+ Zeitaufwand abhängig von der Dokumentlänge \cite {gm19}\relax }}{97}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
