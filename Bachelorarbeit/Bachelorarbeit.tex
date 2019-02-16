@@ -1299,7 +1299,7 @@ Verschiedene Features für eine Boilerpalte definieren dabei eine jeweilige konk
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=1]{Bilder/Boilerplate-formatBP.png}
-\caption{Formatierung des Textes für Tyü-65c-Boilerplates in \textit{formatBP()}-Methode [eigene Darstellung]}
+\caption{Formatierung des Textes für Typ-65c-Boilerplates in \textit{formatBP()}-Methode [eigene Darstellung]}
 \end{center}
 \end{figure}
 
@@ -1317,7 +1317,7 @@ Im Kontext dieser Arbeit stand besonders die die Verdeutlichung des späteren Wo
 
 In diesem Abschnitt wird daher anhand eines prototypischen Lastenheftes der Umgang der späteren Nutzer mit dem Werkzeug evaluiert. Es soll demonstriert werden, inwiefern solche Werkzeuge Potential für eine Unterstützung der RE-Prozesse bieten.
 
-Die prototypische Interaktion verschiedener Nutzergruppen mit NLP-Werkzeugen wurde bereits in \cite{rs18} skizziert. Das dort beschriebene Aktivitätsdiagramm dient dabei zur Visualisierung der Interaktionspunkte mit dem Werkzeug von Anfang bis Ende der Nutzung. Die enthaltenen Interaktionspunkte haben sich in einer spezifischen GUI für das Werkzeug manifestiert. Werden die dort enthaltetenen Aktivitäten auf das in dieser Arbeit vorgestellte Werkzeug angewandt, ergibt sich folgende Konkretisierung der Aktivitäten, die ein Nutzer (hier RE-Experte) mit dem Tool hat:
+Die prototypische Interaktion verschiedener Nutzergruppen mit NLP-Werkzeugen wurde bereits in \cite{rs18} skizziert. Das dort beschriebene Aktivitätsdiagramm dient dabei zur Visualisierung der Interaktionspunkte mit dem Werkzeug von Anfang bis Ende der Nutzung. Die enthaltenen Aktivitäten haben sich in einer spezifischen GUI für das Werkzeug manifestiert. Werden die dort enthaltenen Aktivitäten auf das in dieser Arbeit vorgestellte Werkzeug angewandt, ergibt sich folgende Konkretisierung des Arbeitsprozesses, den ein Nutzer (hier RE-Experte) mit dem Tool durchläuft:
 
 \begin{center}
 \begin{figure}
@@ -1328,12 +1328,12 @@ Die prototypische Interaktion verschiedener Nutzergruppen mit NLP-Werkzeugen wur
 \node[activity](b) at (0,-4) {Verarbeitungs-logik auf Text ausführen};
 \node[activity](c) at (0,-7.5) [text width=5cm] {Nächste Anforderung und Vorschläge anzeigen};
 \node[activity](d) at (0,-16) {Ergebnisse exportieren};
-\node[activity](e) at (-4, -11) {Satz überspringen};
-\node[activity](f) at (0, -11) {Vorschlag anpassen};
-\node[activity](g) at (4, -11) {Konvertierung übernehmen};
+\node[activity](e) at (-3, -11) {Satz überspringen};
+\node[activity](f) at (3, -10) {Konvertierung auswählen};
+\node[activity](g) at (3, -12) {Konvertierung bestätigen};
 \node[dia](d1) at (0,-5.5){ };
 \node[dia](d2) at (0,-9){ };
-\node[dia](d3) at (0,-12.5){ };
+\node[dia](d3) at (0,-13){ };
 \node[dia](d4) at (-7,-14){ };
 \node[circle, draw, minimum size=0.5cm,fill=black] at (3,-16) {};
 \node[circle, draw, minimum size=0.7cm](end) at (3,-16) {};
@@ -1342,14 +1342,12 @@ Die prototypische Interaktion verschiedener Nutzergruppen mit NLP-Werkzeugen wur
 \draw[->] (b) to (d1);
 \draw[->] (d1) to (c);
 \draw[->] (c) to (d2);
-\draw[->] (d2) to node[xshift=1.75cm, text width = 3cm] {[Fehlerhafter Vorschlag]} (f);
-\draw[->] (d2) -| node[xshift=-0.5cm, yshift=0.5cm, text width = 3.5cm] {[keine Boilerplate gefunden]} (e);
-\draw[->] (d2) -| node[xshift=0.75cm, yshift=0.5cm, text width = 3cm] {[Korrekte Konvertierung]} (g);
+\draw[->] (d2) -| node[xshift=-1.5cm, yshift=0.5cm, text width = 3.5cm] {[keine Boilerplate gefunden]} (e);
+\draw[->] (d2) -| node[xshift=1.5cm, yshift=0.5cm, text width = 3cm] {[Korrekte Konvertierung]} (f);
 \draw[->] (d4) |- node[yshift=0.5cm, xshift=2.25cm] {[Alle Sätze verarbeitet]} (d);
-\draw[->] (d4) |- node[xshift=2cm, yshift=0.5cm] {[Nächsten Satz bewerten]} (d1);
-
+\draw[->] (d4) |- node[xshift=2cm, yshift=0.5cm] {[Noch Sätze übrig]} (d1);
+\draw[->] (f) -- (g);
 \draw[->] (e) |- (d3);
-\draw[->] (f) -- (d3);
 \draw[->] (g) |- (d3);
 \draw[->] (d3) |- (d4);
 \draw[->] (d) to (end);
@@ -1359,24 +1357,91 @@ Die prototypische Interaktion verschiedener Nutzergruppen mit NLP-Werkzeugen wur
 \end{center}
 
 \subsubsection{Programmoberfläche}
+Um zu prüfen, wie Nutzer mit dem Programm interagieren, wurde neben der Fachlogik auch eine prototypische GUI implementiert. Diese orientiert sich grob an dem Vorschlag aus \cite{zh17} und beinhaltet einige weitere Elemente, die in Rücksprache mit den Experten evaluiert wurden. 
 
+Sie beinhaltet demnach Buttons zum laden und speichern von Dokumenten, sowie zur Bewertung der angezeigten Sätze bzw. Konvertierungen als richtig, falsch und unklar, wenn die Anforderung uneindeutig bzw. unverständlich formuliert ist. Die Anforderungen aus dem Quelldokument werden mit den vorgeschlagenen Konvertierungen in den Textfeldern angezeigt. Die \textit{Progress-Bar} und die Anzeige unterhalb stellen den Anteil der bereits bewerteten Anforderungen prozentual bzw. absolut dar.
+
+In Abb.4.x ist die GUI aus dem \textit{java}-Programm dargestellt.
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.7]{Bilder/GUI-leer.png}
+\caption{R2BC-GUI beim Programmstart [eigene Darstellung]}
+\end{center}
+\end{figure}
+
+Je nach Aktivität, in der sich der Nutzer mit dem Programm befindet, ist nur eine Auswahl der Buttons der GUI aktiv. Der Arbeitsprozess gliedert sich dabei wie folgt:
+\begin{enumerate}
+\item \textit{Initlialisierung und Konvertierung} Zunächst kann über einen Klick von \textit{Load document...} über ein Dialogfenster ein Lastenheft ausgewählt werden, das konvertiert werden soll. Über den Convert-Button wird anschließend der komplette Verarbeitungsprozess, der im vorigen Kapitel beschrieben ist, durchlaufen.
+\item \textit{Bewertung der Konvertierungen} Nach der Analyse wird automatisch die erste Anforderung geladen. Oben erscheint das Original, in den unteren Textfeldern drei mögliche Boilerplates, die der R2BC dazu ermittelt hat. 
+
+Der Nutzer kann nun durch die Radio-Buttons rechts eine davon auswählen und über den Button \textit{Confirm} bestätigen, wobei zuvor noch Anpassungen des Textes möglich sind. Alternativ kann er, sollte keine Konvertierung bzw. passende Boilerpalte gefunden werden, über \textit{Skip} zur nächsten Anforderung springen. Die Methode \textit{storeProcessedReq()} speichert die Auswahl für den Export. Der Button \textit{Review with OEM} dient zur Markierung der Anforderung als unklar, wenn Klärungsbedarf mit dem Autoren beim OEM besteht. 
+
+Das nächste Tupel aus Original und Boilerplate-Liste einer Anforderungen wird anschließend über die Methode \textit{loadNextReq()} geladen.
+\item \textit{Export der Ergebnisse} Wenn alle Anforderungen verarbeitet sind, können die Ergebnisse in Textform über \textit{Export results...} in eine Datei geschrieben werden. Zur weiteren Verarbeitung der Ergebnisse, z.B. durch den DA, können auch die Boilerpalte-Objekte über den Button \textit{Export BPs}serialisiert und exportiert werden.
+\end{enumerate}
 
 \subsubsection{Beispielhafte Arbeit mit dem Werkzeug}
-Für ein besseres Verständnis wird sich hier auf ein kleines Beispiel beschränkt, ausführliche Tests mit realen Lastenheften aus dem betrieblichen Alltag werden unter 6.x behandelt. Die Implementierung der Nutzerinteraktion wird daher anhand der Konvertierung der folgenden Sätze demonstriert, die in einem eingelesenen Lastenheft enhalten sein könnten:
+In diesem Abschnitt wird der Arbeitsprozess mit dem R2BC näher beschrieben.
+Für ein besseres Verständnis wird sich hier auf ein kleines Beispiel beschränkt, ausführliche Tests mit realen Lastenheften aus dem betrieblichen Alltag werden unter 6.x behandelt. Die Implementierung der Nutzerinteraktion lässt sich anhand der Konvertierung der folgenden Sätze demonstrieren, die in einem eingelesenen Lastenheft enhalten sein könnten:
 \tt \\
-The Golf7 shall perform TestDriveCityTour.\\
-
-The Golf7 shall perform Charge4FreeCharging.\\
-
-The EBus2X is part of Golf7.\\
-
-The durability of EBus2X shall be at least 12000 h.\\
-
-If there is a connection to the internet, the \\Bluetooth connected phone shall transmit the data to a server.\\
-
-When filtering the results, only the existing results \\shall be affected.\\
+1. The Golf7 shall perform TestDriveCityTour.\\
+\newline
+2. The EBus2X is part of Golf7.\\
+\newline
+3. The durability of EBus2X shall be at least 12000 h.\\
+\newline
+4. If there is a connection to the internet, the \\Bluetooth connected phone shall transmit the data to a server.\\
 \\ \rm
-Dieses prototypische Lastenheft wird im Laufe dieses Abschnittes von natürlicher Sprache in formale Boilerplates konvertiert. Die sechs Beispielanforderungen sind dabei an betriebliche Produktspezifikationen, z.B. an ein Auto \textit{Golf7}, angelehnt. Jede Anforderung repräsentiert konkrete Szenarien, die im Programm bei der Analyse und Konvertierung auftreten können. Dies beinhaltet sowohl die Boilerplates, die für jeden Satz infrage kommen, als auch typische Fehler bei der Erkennung, die bei der Verarbeitung entsteht.
+Dieses prototypische Lastenheft wird im Laufe dieses Abschnittes von natürlicher Sprache in formale Boilerplates konvertiert. Die vier Beispielanforderungen sind dabei an betriebliche Produktspezifikationen angelehnt, z.B. an ein Auto \textit{Golf7}. Jede Anforderung repräsentiert konkrete Szenarien, die im Programm bei der Analyse und Konvertierung auftreten können. Dies beinhaltet sowohl die Boilerplates, die für jeden Satz infrage kommen, als auch typische Fehler bei der Erkennung, die bei der Verarbeitung auftreten.
+
+Zunächst wird der R2BC mit dem Lastenheft initialisiert und die Konvertierung gestartet, indem der Convert-Button geklickt wird. Anschließend liegen die verarbeiteten Anforderungen im Programm vor und der Nutzer beginnt mit dem \textit{Review} der Konvertierungen. 
+
+Zunächst wird Anforderung 1 angezeigt, zu der eine passende Boilerplate gefunden wurde (Abb.4.x):
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.7]{Bilder/GUI-req1.png}
+\caption{Anforderung 1, Boilerplate65c korrekt übersetzt [eigene Darstellung]}
+\end{center}
+\end{figure}
+
+Aus dieser Anforderung wurde im R2BC die Boilerplate65c erzeugt und nun als einziger Vorschlag angezeigt. Die Konvertierung ist korrekt, da sowohl die Boilerplate richtig erkannt wurde, als auch das completeSystem \textit{Golf7} und die FunctionDescription aus der Anforderung extrahiert und in die Schablone der Boilerplate65c eingebettet sind. Der Satz ist also stimmig und die Konvertierung wird über \textit{Confirm} bestätigt. 
+
+Zu Anforderung 2 wurde im Programm keine passende Boilerplate gefunden, da die \textit{is-part-of}-Beziehung nicht durch eine entsprechende Boilerpalte abgedeckt ist. Das Programm kann also keine Konvertierung durchführen, da der Satz nicht alle Elemente für die Befüllung der Schablonen enthält (Abb.4.x).
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.7]{Bilder/GUI-req2.png}
+\caption{Anforderung 2, keine passende Boilerplate [eigene Darstellung]}
+\end{center}
+\end{figure}
+
+Dementsprechend wird der Satz mit \textit{Skip} übersprungen und die Anforderung wird ohne Konvertierung in die \textit{exportList} geschrieben.
+
+Anforderung 3 stellt beispielhaft den Fall einer fehlerhaften Erkennung bzw. Übersetzung dar. Die erkannte Boilerplate ist prinzipielle nicht geeignet, da die Anforderung eine Eigenschaft des Systems definiert (\textit{durability of ... at least 12000 h.} und im Gegensatz zur Boilerplate65c keine Funktionen eines Systems. Ferner wurde bei der Übersetzung der Boilerplate der Teil \textit{durability of} vor dem System abgeschnitten.
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.7]{Bilder/GUI-req3.png}
+\caption{Anforderung 3, fehlerhafte Konvertierung [eigene Darstellung]}
+\end{center}
+\end{figure}
+
+Der Nutzer hat nun zwei Möglichkeiten: entweder überspringt er die fehlerhafte Konvertierung mit \textit{Skip}, oder er fügt \textit{durability of} vor \textit{EBus2X} hinzu, um die sinngemäße Aussage zu erhalten und eine Boilerplate zu erhalten.
+
+Zu Anforderung 4 erscheint die korrekte Konvertierung in die Boilerplate85. Die Bedingung \textit{if ...} vor der Beschreibung der Funktion hat dazu geführt, der R2BC diese identifiziert hat. Somit wurde keine Boilerplate65c erzeugt, für die ja prinzipiell der Teilsatz nach dem Komma ausreichen würde.
+Die korrekte Konvertierung wird erneut durch \textit{Confirm} bestätigt.
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.7]{Bilder/GUI-req4.png}
+\caption{Anforderung 4, Boilerplate85 korrekt übersetzt [eigene Darstellung]}
+\end{center}
+\end{figure}
+
+In Abs. 4.x wird auf Basis der prototypischen Implementierung die Funktionalität des gesamten Programms mit realen Lastenheften erprobt. Im nächsten Abscnitt werden mögliche konzeptuelle Ergänzungen der GUI vorgestellt. 
+
 \section{mögliche Erweiterungen}
 \section{Mögliche Erweiterungen}
 In diesem Abschnitt werden mögliche Verbesserungen bzw. Erweiterungen des Programms aufgelistet und erläutert. Diese konnten hauptsächlich auf Zeit- bzw. Aufwandsgründen nicht während der Arbeit bei HELLA implementiert werden. Einige erfordern außerdem eine hohes Maß an spezifischer Fachkenntnis in bestimmten Bereichen. 
