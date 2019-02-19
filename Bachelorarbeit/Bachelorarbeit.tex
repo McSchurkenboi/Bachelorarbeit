@@ -1692,7 +1692,7 @@ Die verwendete Software ist die selbe wie in bei dem R2BC (siehe Abschnitt 4.1.1
 Da die Sprachverarbeitung durch GATE bereits im R2BC integriert ist, können dessen Ergebnisse im DA weiterverwendet werden\footnote{Dies wird im Implementierungs-Abschnitt genauer erläutert.}. Daher ist es nicht nötig GATE in den DA zu integrieren oder dort eine sprachliche Analyse durchzuführen.
 
 \subsection{Klassenarchitektur}
-Der Delta Analyser ist aufgeteilt auf zwei Pakete mit insgesamt vier Klassen (und einer \textit{Enumeration}). Das Paket \textit{DAGUI} enthält dabei gesondert die Benutzeroberfläche in der \textit{DAMainWindow}-Klasse. Die restlichen Ressourcen befinden sich zusammen in dem \textit{DA}-Paket.
+Der Delta Analyser ist aufgeteilt auf drei Pakete mit insgesamt sieben Klassen\footnote{Das Boilerplate-Paket mit dessen drei Klassen wurde im R2BC-Kapitel bereits ausreichend erläutert und wird daher hier nicht wiederholt.} (und einer \textit{Enumeration}). Das Paket \textit{DAGUI} enthält dabei gesondert die Benutzeroberfläche in der \textit{DAMainWindow}-Klasse. Die restlichen Ressourcen befinden sich zusammen in dem \textit{DA}-Paket.
 Abbildung X.X zeigt ein UML-Klassendiagramm des Programms mit den Klassen, sowie deren relevanten Attributen und Methoden. Im Folgenden sind die einzelnen Ressourcen kurz erläutert.
 
 \begin{enumerate}
@@ -1732,10 +1732,15 @@ In \textit{analyseDeltas} werden die beiden internen Lastenhefte in einer gescha
 
 Dabei wird für eine grobe Voreinordnung die \textit{compare}-Methode der \textit{BoilerplateComparator}-Klasse aufgerufen. Diese prüft den Type der Boilerplates auf Gleichheit. Ist dieser gleich, wird die komplette Boilerplate abgeglichen. Bei einem Treffer gibt die Methode 0 zurück, bei dem gleichen Typen eine 1 und bei keinerlei Übereinstimmung eine 2. 
 
-Abhängig von diesem Ergebnis wird in der \textit{analyseDeltas}-Methode weiter vorgegangen. Bei einer 0 ist eine perfekte Übereinstimmung gefunden und die Suche muss für diese Boilerplate nicht weitergeführt werden.
+Abhängig von diesem Ergebnis wird in der \textit{analyseDeltas}-Methode weiter vorgegangen.
+
+\begin{itemize}
+\item
+Bei einer 0 ist eine perfekte Übereinstimmung gefunden und die Suche muss für diese Boilerplate nicht weitergeführt werden.
 
 Die HELLA-Boilerplate welche den Treffer ergab wird zunächst in ein Boilerplate-Objekt namens \textit{tempsBP} abgespeichert. In diesem Objekt befindet sich immer die bisher passendste HELLA-Boilerplate zu der momentanen OEM-Boilerplate. 
 
+\item 
 Wurde eine 1 zurückgegeben so wird auf den beiden Boilerplates die \textit{annotationCompare}-Methode aufgerufen. Hier werden auch einzelne Satzbestandteile der beiden Boilerplates verglichen. Die vorherige Überprüfung der Boilerplate-Typen garantiert, dass hier vergleichbare Satzbestandteile vorliegen. 
 
 \begin{figure}[H]
@@ -1745,11 +1750,60 @@ Wurde eine 1 zurückgegeben so wird auf den beiden Boilerplates die \textit{anno
 \end{center}
 \end{figure}
 
+An dieser Stelle kommt die \textit{Vehicle}-Aufzählung zum Einsatz und ermöglicht es, Satzbestandteile wie \textit{CompleteSystemText} nicht nur auf komplette Gleichheit, sondern auch auf Typgleichheit zu prüfen. Hierzu wird zu beiden Systemtexten mit Hilfe der \textit{contains}-Methode nachgeschaut, ob sie in der gleichen Aufzählung auftauchen. 
 
+Abhängig vom Übereinstimmungsgrad der Satzbestandteile kann dann eine genauere Bewertung der Unterschiede erfolgen. Ist diese Bewertung besser als die momentane Bewertung der \textit{tempBP}-Boilerplate, so wird diese durch die betroffene neue Boilerplate ersetzt und die Suche wird fortgesetzt.
+
+\item Gibt die \textit{compare}-Methode eine 2 zurück, so sind die verglichenen Boilerplates nicht kompatibel und es wird im HELLA-Dokument weiter nach einer passenderen Boilerplate gesucht.
+
+\end{itemize}
+
+Abbildung X.X zeigt den hier beschriebenen Ausschnitt der \textit{analyseDeltas}-Methode.
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.7]{Bilder/analyseDeltas.jpg}
+\caption{Ausschnitt der \textit{analyseDeltas}-Methode [eigene Darstellung]}
+\end{center}
+\end{figure}
+
+Effektiv löst diese Art des Iterierens das Minimierungsproblem des Abweichung zwischen den Boilerplates. Es wird als immer die HELLA-Boilerplate mit der geringsten Abweichung (gespeichert in der \textit{result}-Variablen) bzw. der höchsten Übereinstimmung zu der momentanen OEM-Boilerplate gefunden.
+
+Sobald dies geschehen und spätestens wenn das HELLA-Dokument durchlaufen ist, wird mit den beiden Boilerplates und deren Übereinstimmungsfaktor die \textit{printResult}-Methode aufgerufen. 
+
+Diese gibt je nach Boilerplate-Typ und Übereinstimmung der Boilerplates einen Satz aus, welcher das Ergebnis zusammenfasst und erläutert. Bei Unterschieden in bestimmten Satzbestandteilen werden beispielsweise beide betroffenen Komponenten zum Vergleich ausgegeben. 
+
+Dieser Satz wird für jede OEM-Anforderung über einen \textit{FileOutputStream} in eine Datei geschrieben, welche später als Delta-Report verwendet wird. Sobald die letzte OEM-Anforderung verarbeitet ist, werden zusätzlich die Anzahl der kompletten Übereinstimmungen und die Anzahl der nicht verbundenen Boilerplates in die Datei ausgegeben. Ein fertiger Delta-Report wird am Ende des nächsten Kapitels gezeigt und erläutert.
 \subsection{Nutzerinteraktion}
-\section{mögliche Erweiterungen}
+\section{Mögliche Erweiterungen}
+In diesem Abschnitt werden mögliche Erweiterungen des Delta-Analysers erläutert. Diese sind aufgeteilt in Erweiterungen der Benutzeroberfläche für eine bessere Interaktion mit dem Programm und technische Erweiterungen, welche sich auf Konzept oder Funktionsweise des Programms beziehen.
+\subsection[Benutzeroberfläche]{Erweiterungen der Benutzeroberfläche}
+\subsubsection{DOORS-Anbindung}
+Wie auch beim R2BC gilt für den Delta Analyser, dass einen Anbindung an DOORS von großem Nutzen sein kann. So könnte beispielsweise nach dem Delta Analyser ein direkter Vergleich der beiden Dokumente in DOORS erfolgen.
+
+Dazu könnte eine farbige Unterlegung der Boilerplates auf Grundlage des besten gefundenen Übereinstimmungsfaktors genutzt werden. Übersichtlichkeit würde für den Nutzer dadurch stark verbessert und eine grobe Einschätzung der Dokumente ermöglicht.
+\subsubsection{Möglichkeiten Anzeigen}
+Momentan wird stets nur eine HELLA-Boilerplate mit einer OEM-Boilerplate verbunden und später angezeigt. Es ist jedoch auch möglich das verschiedene Boilerplates den gleichen Übereinstimmungsfaktor haben und nur der Nutzer entscheiden kann welche am besten passt.
+
+Dazu könnte man bei Uneindeutigkeit dem Nutzer (ähnlich zum R2BC) die besten Möglichkeiten anzeigen und ihn eine davon wählen lassen.
+\subsubsection{Delta Report}
+Der wichtigste Teil für die Verwendbarkeit des Programms ist ein übersichtlicher und praktischer Delta Report. Momentan  wird dieser nur prototypisch erstellt und ist noch nicht konkret auf die Bedürfnisse bestimmter Nutzer angepasst.
+
+Feldtests und Experteninterviews im Rahmen einer Anforderungsanalyse könnten die nötigen Informationen für einen optimierten Delta Report liefern.
+\subsubsection{Zusammenlegung}
+Da bei dem Delta Analyser keine komplexe Nutzerinteraktion nötig ist, sondern nur Datei eingelesen und Ergebnisse ausgegeben werden müssen, ließe sich der Delta Analyser evtl. Modul des R2BC in dessen Benutzeroberfläche integrieren. 
+
+Diese würde Modularität der Module etwas schwächen, die Anwendbarkeit durch den Nutzer jedoch erleichtern.
+\subsection{Technische Erweiterungen}
+\subsubsection{Analyse präzisieren}
+Im Delta Analyser werden bereits viele verschiedene Fälle berücksichtigt und unterschiedlich bewertet. Dies ist jedoch abhängig von der Komplexität der verglichenen Boilerplates noch erweiterbar um Unterschiede noch präziser hervorzuheben. 
 \subsubsection{Ontologien zur Entity-Einordnung}
-Wichtig für die korrekte Sprachverarbeitung ist 
+Die komplexeste Art der Deltas tritt auf bei Boilerplates, welche unterschiedlich von einander sind, aber dennoch Gemeinsamkeiten aufweisen. Hierbei ist eine genau Einordnung der Gemeinsamkeiten wichtig um die Deltas besser bewerten zu können. 
+
+Im Delta Analyser wird momentan eine Aufzählung (\textit{Vehicle.java}) verwendet, um unterschiedliche Systeme einer gleichen Gruppe zuzuordnen. Hierfür könnte jedoch auch eine Ontologie verwendet werden, welche eine sehr viel mächtiger Datenstruktur ist. 
+
+Die Baumstruktur von Ontologien würde es beispielsweise ermöglichen, anstelle der Abfrage nach der gleichen Klasse den \glqq größten gemeinsamen Nenner\grqq{} der beiden Komponenten zu finden. Im Optimalfall wäre dies dann die gleiche Klasse, was jedoch andernfalls auch einfach abgestuft würde.
+
+
 \section{Test}
 \subsection{Methodik}
 \subsection{Durchführung}
@@ -1820,6 +1874,13 @@ Der R2BC stellt die erste Stufe der Unterstützung dar, in welcher natürlichspr
 \vspace{12pt}
 Die Evaluation und Tests der Werkzeuge fielen insgesamt positiv aus und deuten das weitere Potential solcher automatisierten Analysewerkzeuge an. Die zu Beginn der Arbeit aufgestellten Hypothesen konnten somit verifiziert werden.
 \section{Ausblick}
+Die prototypischen Implementierungen der Werkzeug haben gezeigt, dass durch den Einsatz von Software im Requirements-Engineering viel Verbesserungspotential ausgeschöpft werden kann. 
+
+Dies ist jedoch höchstwahrscheinlich auch in anderen betriebswirtschaftlichen Bereichen der Fall. Hinzu kommt, dass die Prototypen selbst noch viele Möglichkeiten zur Erweiterung bieten und somit noch weitaus mehr Hilfe für deren Nutzer geschaffen werden kann. 
+
+Mit dem Abschluss dieser Arbeit werden die erstellten Programme daher nicht einfach archiviert, sondern mit der Zeit weiter ausgebaut.
+Auf Anfrage der Requirements-Experten werden die Werkzeuge außerdem einem HELLA-internen Entwickler übergeben, welcher die Implementierung der Werkzeuge für den Betrieb weiterführen wird. 
+
 
 \chapter{Notizen}
 \begin{enumerate}
