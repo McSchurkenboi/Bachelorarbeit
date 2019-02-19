@@ -1670,8 +1670,46 @@ Bei der manuellen Prüfung jeder Anforderung im Programm ließ sich LH2 innerhal
 Wenn der Nutzer nur gefundene Boilerplates bewerten muss (nur die Übersetzung) und automatisch alle nicht-konvertierbaren Sätze übernommen werden, belief sich die Verarbeitungszeit auf lediglich 8,37 Min. . Dabei fallen aber mögliche Boilerplates zu Anforderungen, die fälschlicherweise nicht erkannt wurden, nicht auf (\textit{recall} wird ignoriert).
 
 Insgesamt lässt sich daher sagen, dass der Ansatz des R2BC wesentliches Potential für Zeitersparnisse gegenüber der manuellen Prüfung der Lastenhefte im RE bietet.
+
 \chapter{Delta-Analyse}
++In diesem Kapitel wird das zweite entwickelte Tool, der \textit{Delta Analyser} (DA), vorgestellt. Dieser wird dafür verwendet, zwei Lastenhefte, welche zuvor durch den R2BC verarbeitet wurden, abzugleichen. 
+
+Dabei sollen für den Nutzer wichtige Informationen über Unterschiede und Gemeinsamkeiten erkannt, gefiltert und in Form eines \textit{Delta-Reports} ausgegeben werden. Auf Basis des Delta-Reports soll dann die Arbeit mit dem OEM-Lastenheft stark vereinfacht und eine Kostenabschätzung für dessen Umsetzung ermöglicht werden. 
+
+Ähnlich zur Vorstellung des R2BC wird dabei zunächst die Architektur des Programms vorgestellt. Daraufhin werden wichtige Aspekte der Implementierung erläutert und mögliche Erweiterungen des Programms aufgeführt. Abschließend werden die Tests des Programms beschrieben und die erhobenen Ergebnisse vorgestellt.
+ 
 \section{Architektur}
+In diesem Abschnitt wird die Klassenstruktur des Programms vorgestellt und erläutert, um einen groben Überblick über die Funktion des Programms zu geben. 
+
+Die verwendete Software ist die selbe wie in bei dem R2BC (siehe Abschnitt 4.1.1), weswegen der entsprechende Abschnitt für den Delta-Analyser entfällt. Die einzige Ausnahme davon ist die Verwendung von GATE. 
+
+Da die Sprachverarbeitung durch GATE bereits im R2BC integriert ist, können dessen Ergebnisse im DA weiterverwendet werden\footnote{Dies wird im Implementierungs-Abschnitt genauer erläutert.}. Daher ist es nicht nötig GATE in den DA zu integrieren oder dort eine sprachliche Analyse durchzuführen.
+
+\subsection{Klassenarchitektur}
+Der Delta Analyser ist aufgeteilt auf zwei Pakete mit insgesamt vier Klassen (und einer \textit{Enumeration}). Das Paket \textit{DAGUI} enthält dabei gesondert die Benutzeroberfläche in der \textit{DAMainWindow}-Klasse. Die restlichen Ressourcen befinden sich zusammen in dem \textit{DA}-Paket.
+Abbildung X.X zeigt ein UML-Klassendiagramm des Programms mit den Klassen, sowie deren relevanten Attributen und Methoden. Im Folgenden sind die einzelnen Ressourcen kurz erläutert.
+
+\begin{enumerate}
+\item \textit{DAMainWindow.java}: Diese Klasse wurde als \textit{Swing-JFrame} angelegt und für den Entwurf der Benutzeroberfläche verwendet. Neben der Deklaration der verschiedenen GUI-Elemente, enthält diese Klasse auch alle nötigen \textit{Getter}- und \textit{Setter}-Methoden um die entsprechenden Elemente von den anderen Klassen aus verwenden zu können.
+\item \textit{Main.java}: Die Hauptklasse des Programms wird verwendet, um ein Objekt der \textit{Delta Analyser}-Klasse (beschrieben im nächsten Punkt) zu instanziieren und danach die GUI zu initialisieren.
+
+Beim Initialisieren der GUI werden den in der \textit{DAMainWindow}-Klasse erstellten Oberflächen-Objekten über sogenannte \textit{ActionListener} die Funktionalitäten verliehen. Diese werden dann beim Betätigen der Oberfläche ausgeführt.
+\item \textit{DeltaAnalyser.java}: In dieser Klasse befindet sich der Hauptteil der Verarbeitungslogik. Zunächst werden hier die Boilerplate-Listen deklariert, in welche die Ergebnisse des R2BC geladen werden können. Außerdem wird hier ein Objekt der \textit{BoilerplateComperator}-Klasse instanziiert (beschrieben im nächsten Punkt). 
+Die Kernfunktionalitäten des Programms werden implementiert in den Methoden 
+\begin{itemize}
+\item \textit{loadBPsFromFile},
+\item \textit{analyseDeltas},
+\item \textit{annotationCompare}
+\item und \textit{printResult}.
+\end{itemize}
+Diese werden jeweils genau im Implementierungsabschnitt erläutert. 
+\item \textit{BoilerplateComparator.java}: Diese Klasse dient als Vergleichsklasse von zwei Boilerplate-Objekten. Dazu ist hier die \textit{compare}-Methode implementiert, welche die Boilerplates auf Vergleichbarkeit prüft und eine Voreinordnung vornimmt. Dies ist unabhängig von der Art der  zu vergleichenden Boilerplates möglich. 
+\item \textit{Vehicle.java}: Diese Aufzählung von möglichen Fahrzeugbezeichnungen wurde als möglicher Platzhalter für andere Entitätserkennungen in das Programm integriert. Alternativ könnten auch Gazetteers oder Ontologien (siehe mögliche Erweiterungen) verwendet werden. 
+
+Die Aufzählung wird dazu verwendet voneinander unterschiedliche Elemente eventuell einer gemeinsamen Gruppe zuordnen zu können und somit zwischen komplett oder nur leicht unterschiedlichen Elementen unterscheiden zu können. 
+Dazu ist in der Aufzählung die \textit{contains}-Methode implementiert, welche ein Element auf das vorkommen in der Aufzählung prüfen kann.
+\end{enumerate}
+
 \section{Implementierung}
 \section{mögliche Erweiterungen}
 \subsubsection{Ontologien zur Entity-Einordnung}
