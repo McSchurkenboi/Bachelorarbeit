@@ -763,7 +763,7 @@ Diese Expertengruppe dient dabei abstrakt zur Unterstützung der tatsächlichen 
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=0.5]{Bilder/HOOD-RE.jpg}
-\caption{Überblick der 3 Qualitätsstufen von Anforderungen im \textit{Requirements-Management \& Engineering} (RM \& E) gemäß \cite{hp12}}
+\caption{Überblick der 3 Qualitätsstufen von Anforderungen im \textit{Requirements-Management \& Engineering} (RM \& E) aus \cite{hp12}}
 \end{center}
 \end{figure}
 
@@ -984,9 +984,9 @@ Verschiedene Programmbausteine sind dabei modular aufgebaut und verteilen sich a
 
 Die Funktionalität wurde dabei hauptsächlich mit verschiedenen java-Klassen umgesetzt, die die Umsetzung der Fachlogik darstellen. Die Anbindung an das NLP-Werkzeug GATE-Embedded erfolgte dabei unter Verwendung verschiedener java-Bibliotheken, die extern im Programmordner gespeichert sind. Die GATE-Ressourcen wurden dabei zur Annotation von Text genutzt, die selbst entwickelten java-Klassen einerseits für die GATE-Konfiguration, andererseits für die Auswertung der dort erstellten Annotationen. 
 
-\begin{figure}[H]
+\begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.57]{Bilder/r2bc-klassen.png}
+\includegraphics[scale=0.6]{Bilder/r2bc-klassen.png}
 \caption{Klassendiagramm R2BC [eigene Darstellung]}
 \end{center}
 \end{figure}
@@ -1429,21 +1429,22 @@ Je nach Aktivität, in der sich der Nutzer mit dem Programm befindet, ist nur ei
 Der Nutzer kann nun durch die Radio-Buttons rechts eine davon auswählen und über den Button \textit{Confirm} bestätigen, wobei zuvor noch Anpassungen des Textes möglich sind. Alternativ kann er, sollte keine Konvertierung bzw. passende Boilerpalte gefunden werden, über \textit{Skip} zur nächsten Anforderung springen. Die Methode \textit{storeProcessedReq()} speichert die Auswahl für den Export. Der Button \textit{Review with OEM} dient zur Markierung der Anforderung als unklar, wenn Klärungsbedarf mit dem Autoren beim OEM besteht. 
 
 Das nächste Tupel aus Original und Boilerplate-Liste einer Anforderungen wird anschließend über die Methode \textit{loadNextReq()} geladen.
-\item \textit{Export der Ergebnisse} Wenn alle Anforderungen verarbeitet sind, können die Ergebnisse in Textform über \textit{Export results...} in eine Datei geschrieben werden. Zur weiteren Verarbeitung der Ergebnisse, z.B. durch den DA, können auch die Boilerpalte-Objekte über den Button \textit{Export BPs}serialisiert und exportiert werden.
+\item \textit{Export der Ergebnisse} Wenn alle Anforderungen verarbeitet sind, können die Ergebnisse in Textform über \textit{Export results...} in eine Datei geschrieben werden. Zur weiteren Verarbeitung der Ergebnisse, z.B. durch den DA, können auch die Boilerpalte-Objekte über den Button \textit{Export BPs} serialisiert und exportiert werden.
 \end{enumerate}
 
 \subsubsection{Beispielhafte Arbeit mit dem Werkzeug}
 In diesem Abschnitt wird der Arbeitsprozess mit dem R2BC näher beschrieben.
-Für ein besseres Verständnis wird sich hier auf ein kleines Beispiel beschränkt, ausführliche Tests mit realen Lastenheften aus dem betrieblichen Alltag werden unter 6.x behandelt. Die Implementierung der Nutzerinteraktion lässt sich anhand der Konvertierung der folgenden Sätze demonstrieren, die in einem eingelesenen Lastenheft enhalten sein könnten:
-\tt \\
+Für ein besseres Verständnis wird sich hier auf ein kleines Beispiel beschränkt, ausführliche Tests mit realen Lastenheften aus dem betrieblichen Alltag werden unter 6.x behandelt. Die Implementierung der Nutzerinteraktion lässt sich anhand der Konvertierung der folgenden Sätze demonstrieren, die in einem eingelesenen Lastenheft enhalten sein könnten:\\
+
 1. The Golf7 shall perform TestDriveCityTour.\\
-\newline
+
 2. The EBus2X is part of Golf7.\\
-\newline
+
 3. The durability of EBus2X shall be at least 12000 h.\\
-\newline
+
 4. If there is a connection to the internet, the \\Bluetooth connected phone shall transmit the data to a server.\\
-\\ \rm
+\\ 
+
 Dieses prototypische Lastenheft wird im Laufe dieses Abschnittes von natürlicher Sprache in formale Boilerplates konvertiert. Die vier Beispielanforderungen sind dabei an betriebliche Produktspezifikationen angelehnt, z.B. an ein Auto \textit{Golf7}. Jede Anforderung repräsentiert konkrete Szenarien, die im Programm bei der Analyse und Konvertierung auftreten können. Dies beinhaltet sowohl die Boilerplates, die für jeden Satz infrage kommen, als auch typische Fehler bei der Erkennung, die bei der Verarbeitung auftreten.
 
 Zunächst wird der R2BC mit dem Lastenheft initialisiert und die Konvertierung gestartet, indem der Convert-Button geklickt wird. Anschließend liegen die verarbeiteten Anforderungen im Programm vor und der Nutzer beginnt mit dem \textit{Review} der Konvertierungen. 
@@ -1678,7 +1679,7 @@ Wenn der Nutzer nur gefundene Boilerplates bewerten muss (nur die Übersetzung) 
 Insgesamt lässt sich daher sagen, dass der Ansatz des R2BC wesentliches Potential für Zeitersparnisse gegenüber der manuellen Prüfung der Lastenhefte im RE bietet.
 
 \chapter{Delta-Analyse}
-+In diesem Kapitel wird das zweite entwickelte Tool, der \textit{Delta Analyser} (DA), vorgestellt. Dieser wird dafür verwendet, zwei Lastenhefte, welche zuvor durch den R2BC verarbeitet wurden, abzugleichen. 
+In diesem Kapitel wird das zweite entwickelte Tool, der \textit{Delta Analyser} (DA), vorgestellt. Dieser wird dafür verwendet, zwei Lastenhefte, welche zuvor durch den R2BC verarbeitet wurden, abzugleichen. 
 
 Dabei sollen für den Nutzer wichtige Informationen über Unterschiede und Gemeinsamkeiten erkannt, gefiltert und in Form eines \textit{Delta-Reports} ausgegeben werden. Auf Basis des Delta-Reports soll dann die Arbeit mit dem OEM-Lastenheft stark vereinfacht und eine Kostenabschätzung für dessen Umsetzung ermöglicht werden. 
 
@@ -1693,7 +1694,22 @@ Da die Sprachverarbeitung durch GATE bereits im R2BC integriert ist, können des
 
 \subsection{Klassenarchitektur}
 Der Delta Analyser ist aufgeteilt auf drei Pakete mit insgesamt sieben Klassen\footnote{Das Boilerplate-Paket mit dessen drei Klassen wurde im R2BC-Kapitel bereits ausreichend erläutert und wird daher hier nicht wiederholt.} (und einer \textit{Enumeration}). Das Paket \textit{DAGUI} enthält dabei gesondert die Benutzeroberfläche in der \textit{DAMainWindow}-Klasse. Die restlichen Ressourcen befinden sich zusammen in dem \textit{DA}-Paket.
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=1.0]{Bilder/DA-Pakete.png}
+\caption{Zuordnung der DA-Klassen zu Paketen nach Abb.3.x [eigene Darstellung]}
+\end{center}
+\end{figure}
+
 Abbildung X.X zeigt ein UML-Klassendiagramm des Programms mit den Klassen, sowie deren relevanten Attributen und Methoden. Im Folgenden sind die einzelnen Ressourcen kurz erläutert.
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.635]{Bilder/da-klassen.png}
+\caption{Zuordnung der DA-Klassen zu Paketen nach Abb.3.x [eigene Darstellung]}
+\end{center}
+\end{figure}
 
 \begin{enumerate}
 \item \textit{DAMainWindow.java}: Diese Klasse wurde als \textit{Swing-JFrame} angelegt und für den Entwurf der Benutzeroberfläche verwendet. Neben der Deklaration der verschiedenen GUI-Elemente, enthält diese Klasse auch alle nötigen \textit{Getter}- und \textit{Setter}-Methoden um die entsprechenden Elemente von den anderen Klassen aus verwenden zu können.
@@ -1808,6 +1824,63 @@ Die Baumstruktur von Ontologien würde es beispielsweise ermöglichen, anstelle 
 \subsection{Methodik}
 \subsection{Durchführung}
 \subsection{Ergebnisse}
+Die Arbeit mit dem Delta-Analyser stellt das zweite Werkzeug der Verarbeitungskette dar, wenn Lastenhefte verglichen werden sollen. Ein Nutzer nutzt daher zunächst den R2BC, um Lastenhefte in formale Sprache zu bringen, die sich dann im DA vergleichen lassen. In diesem Abschnitt wird daher anhand des Vergleichs zweier Lastenhefte im DA hauptsächlich auf den Delta-Report eingegangen, der als Ergebnis aus dem DA exportiert wird. 
+
+\subsubsection{Programmoberfläche}
+Für den Test dieser Werkzeugkette und zur Verdeutlichung der Funktionalität vor den Experten, wurde daher auch für den DA eine minimale GUI entwickelt, anhand derer sich der Arbeitsablauf mit dem Programm zeigen lässt. Im Vergleich zum R2BC entfällt jedoch die manuelle Bewertung der Anforderungen durch den Nutzer, weshalb die GUI stark vereinfacht werden konnte.
+
+Da die Analyse der Deltas prinzipiel automatisch anhand von Kriterien bzw. dem Überinstimmungsgrad erfolgt, beinhaltet die GUI im wesentlichen Buttons zum laden der zwei Lastenhefte, die verglichen werden sollen, und zum Start der Analyse, in der auch direkt der Delta-Report erzeugt und als Datei exportiert wird.
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.7]{Bilder/DA-GUI-leer.png}
+\caption{DA-GUI beim Programmstart [eigene Darstellung]}
+\end{center}
+\end{figure}
+Die GUI orientiert sich dabei an dem in Kap. 3.x gezeigten Use-Case, wonach der Delta-Analyser ein Lastenheft V2 auf die Deltas zu einem bereits vorhandenen Lastenheft V1 hin analysieren soll. V2 wird im DA als \textit{OEM-Lastenheft} bezeichnet, da ein OEM neue Anforderungen als Kunde an HELLA gibt, die umgesetzt werden sollen. V1 wird als \textit{internal} bzw. \textit{HELLA}-Lastenheft bezeichnet, da es ein Lastenheft darstellt, dass bereits in der Firma bekannt ist.
+
+Beim Programmstart wählt der Nutzer über \textit{Import OEM CRS...} ein ein Lastenheft mit Kundenanforderungen aus, zu denen passende Anforderungen aus einem internen Lastenheft \textit{Import internal CRS... }gefunden werden sollen. 
+
+\subsection{Beispielhafte Arbeit mit dem Werkzeug}
+In diesem Abschnitt wird der bei der Analyse entstehende Delta-Report näher beschrieben. Die Implementierung der Vergleichsalgorithmen lässt sich anhand der zwei folgenden, prototypischen Lastenhefte nachvollziehen. Diese sind zuvor, wie bereits beschrieben, durch den R2BC konvertiert worden, womit der Vergleich im DA ermöglict wurde. Als V1 könnte bereis ein Anuszug aus dem in Kap. 4.x verarbeiteten Lastenheft in der Firma vorhanden sein:\\
+
+1. The complete system <<Golf7>> shall <<perform TestDriveCityTour>>.\\
+
+2. The durability of EBus2X shall be at least 12000 h.\\
+
+3. Under the condition: <<If there is a connection to the internet>> the actor: <<Bluetooth connected phone>> shall <<transmit the data to a server>>.\\
+\\
+
+Diese Anfordeurngen liegen somit firmenintern vor und neu hinzukommende Anforderungen können mit diesen abgeglichen werden. Die folgenden Anforderungen könnten als neue Anforderungen in V2 enthalten sein:\\
+
+1. The complete system <<Golf7>> shall <<perform TestDriveCityTour>>.\\
+
+2. The complete system <<vehicle>> shall <<perform Charge4FreeCharging>>.\\
+
+3. Under the condition: <<If there is a connection to the internet>> the actor: <<vehicle>> shall <<transmit the data to a server>>.\\
+
+4. Under the condition: <<If the car is turned off>> the actor: <<vehicle>> shall <<not transmit the data to a server>>.\\
+\\
+
+Nach dem Klick auf \textit{Analyse Deltas} ermittelt der R2BC zu jeder Anforderung aus V2 die am besten passende Anforderung aus V1. Der Grad der Übereinstimmung wird zusammen mit den Deltas zwischen den Anforderungen in den Delta-Report exportiert. Dieser ist für die beiden prototypischen Lastenhefte in Abb. 5.x dargestellt:
+\\
+PLATZHALTER DELTA-REPORT
+\\
+Die Einträge zu jeder Anforderung aus V2 im Report sind wie folgt zu bewerten:
+\begin{enumerate}
+\item Zu ersten Anfordeung aus V2 wurde die identische Anorderung 1 in V1 identifiziert, da diese nach der Konvertierung durch den R2BC die identische Boilerplate hervorgebracht haben. Der DA hat also die best-mögliche Übereinstimmung gefunden.
+\item Bei Anforderung 2 liegt ein Delta in den vergleichbaren Anforderungen aus V1 vor. Der DA hat erneut die am besten passende Anforderung 1 identifiziert. Durch Nutzung des Enumerates wurde identifiziert, dass der Systemtyp von \textit{vehicle} und \textit{Golf7} übereinstimmen und somit zumindest vergleichbare Anfordeurngen vorliegen. Da sich die \textit{functionDescription} beider Anforderungen jedoch unterscheidet, ist der Übereinstimmungsgrad eher gering.
+\item Bei Anforderung 3 liegt erneut der Fall vor, dass eine vergleichbare Anforderung in V1 gefunden wurde. Es fällt auf, dass sich lediglich der \textit{ConditionalActor} zu den bekannten Anforderungen unterscheidet, weshalb der DA einen hohen Überinstimmungsgrad beider Anforderungen erreicht. Es muss lediglich geprüft werden, ob tatsächlich eine einfache Adaption von \textit{Bluetooth connected phone} hin zu \textit{vehicle} möglich ist.
+\item Anforderung 4 scheint zunächst sehr ähnlich zu Anf. 3, unterscheitet sich jedoch in sämtlichen Satzbestandteilen von den Anforderungen aus V1. Am ehesten vergleichbar wäre wieder Anf. 3, jedoch sind sowohl \textit{ConditionalActor}, als auch \textit{Condition} und \textit{FunctionDescription} unterschiedlich. Der DA kann also, bis auf den gleichen Typ der Boilerplate, keine Übereinstimmung zu bekannten Anforderungen feststellen.
+\end{enumerate}
+
+Es wurde gezeigt, dass eine recht feingranulare Differenzierung der Deltas im DA möglich ist, die dann an den Nutzer ausgegeben werden. Prinzipiell können auf Basis der Erkennung von Deltas auch weitere Informationen zur Umsetzbarkeit der abweichenden Anforderungen gegeben werden, wenn diese im Programm hinterlegt werden (etwa wenn Materialien direkt mit Kosten verknüpft sind). 
+Dies kann die Bewertung der Anforderungen stark vereinfachen und den Aufwand der Machbarkeitsabschätzung reduzieren.
+Im nächsten Abschnitt werden mögliche Ergänzungen vorgestellt, die auf dem Konzept der DA-Implementierung basieren.
+
+\subsubsection{Ontologien zur Entity-Einordnung}
+Wichtig für die korrekte Sprachverarbeitung ist 
+
 \chapter{Evaluation}
 \subsection{Umsetzung der NLP-Architektur in unserem Werkzeug}
 In diesem Abschnitt wird die Einordnung unseres Prototypen als NLP-Werkzeug in die von \cite{cop04} definierte Architektur behandelt. Die verschiedenen Schritte aus Kap. 2.2. haben die Autoren bei der Analyse und Verarbeitung der Lastenhefte in Programmbestandteilen umgesetzt. Anhand der Verarbeitungskette unseres Werkzeugs können wir die prinzipiellen Aufgaben von NLP-Werkzeugen dort wie folgt einordnen:
