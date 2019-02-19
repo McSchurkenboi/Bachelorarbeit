@@ -970,7 +970,7 @@ GATE ist, wie in Abbildung X.X (Konzept) zu sehen ist, für das NLP, also die Sp
 
 Die genaue Umsetzung vom NLP in unserem Programm und der damit verbundene Einsatz von GATE sind jedoch Teil der Implementierung und werden somit in Abschnitt X.X behandelt.
 
-\section{Klassenstruktur}
+\subsection{Klassenstruktur}
 Im Rahmen der Entwicklung unseres Proof-of-concepts wurde die Funktionalität aus Kap. 3.x auf verschiedene Komponenten aufgeteilt. Hier soll lediglich ein grober Überblick der Ressourcenverteilung im Programm gegeben werden, der Programmablauf findet sich in Kap. 4.x.
 
 Verschiedene Programmbausteine sind dabei modular aufgebaut und verteilen sich auf die Pakete \textit{R2BC}, der die Fachlogik enthält, \textit{R2BCGUI}, das eine simple GUI-Klasse enthält, und \textit{Boilerplates}, das die Objekte zur Erzeugung von Sprachschablonen enthält (siehe Abb. 4.x).
@@ -1790,40 +1790,6 @@ Diese gibt je nach Boilerplate-Typ und Übereinstimmung der Boilerplates einen S
 
 Dieser Satz wird für jede OEM-Anforderung über einen \textit{FileOutputStream} in eine Datei geschrieben, welche später als Delta-Report verwendet wird. Sobald die letzte OEM-Anforderung verarbeitet ist, werden zusätzlich die Anzahl der kompletten Übereinstimmungen und die Anzahl der nicht verbundenen Boilerplates in die Datei ausgegeben. Ein fertiger Delta-Report wird am Ende des nächsten Kapitels gezeigt und erläutert.
 \subsection{Nutzerinteraktion}
-\section{Mögliche Erweiterungen}
-In diesem Abschnitt werden mögliche Erweiterungen des Delta-Analysers erläutert. Diese sind aufgeteilt in Erweiterungen der Benutzeroberfläche für eine bessere Interaktion mit dem Programm und technische Erweiterungen, welche sich auf Konzept oder Funktionsweise des Programms beziehen.
-\subsection[Benutzeroberfläche]{Erweiterungen der Benutzeroberfläche}
-\subsubsection{DOORS-Anbindung}
-Wie auch beim R2BC gilt für den Delta Analyser, dass einen Anbindung an DOORS von großem Nutzen sein kann. So könnte beispielsweise nach dem Delta Analyser ein direkter Vergleich der beiden Dokumente in DOORS erfolgen.
-
-Dazu könnte eine farbige Unterlegung der Boilerplates auf Grundlage des besten gefundenen Übereinstimmungsfaktors genutzt werden. Übersichtlichkeit würde für den Nutzer dadurch stark verbessert und eine grobe Einschätzung der Dokumente ermöglicht.
-\subsubsection{Möglichkeiten Anzeigen}
-Momentan wird stets nur eine HELLA-Boilerplate mit einer OEM-Boilerplate verbunden und später angezeigt. Es ist jedoch auch möglich das verschiedene Boilerplates den gleichen Übereinstimmungsfaktor haben und nur der Nutzer entscheiden kann welche am besten passt.
-
-Dazu könnte man bei Uneindeutigkeit dem Nutzer (ähnlich zum R2BC) die besten Möglichkeiten anzeigen und ihn eine davon wählen lassen.
-\subsubsection{Delta Report}
-Der wichtigste Teil für die Verwendbarkeit des Programms ist ein übersichtlicher und praktischer Delta Report. Momentan  wird dieser nur prototypisch erstellt und ist noch nicht konkret auf die Bedürfnisse bestimmter Nutzer angepasst.
-
-Feldtests und Experteninterviews im Rahmen einer Anforderungsanalyse könnten die nötigen Informationen für einen optimierten Delta Report liefern.
-\subsubsection{Zusammenlegung}
-Da bei dem Delta Analyser keine komplexe Nutzerinteraktion nötig ist, sondern nur Datei eingelesen und Ergebnisse ausgegeben werden müssen, ließe sich der Delta Analyser evtl. Modul des R2BC in dessen Benutzeroberfläche integrieren. 
-
-Diese würde Modularität der Module etwas schwächen, die Anwendbarkeit durch den Nutzer jedoch erleichtern.
-\subsection{Technische Erweiterungen}
-\subsubsection{Analyse präzisieren}
-Im Delta Analyser werden bereits viele verschiedene Fälle berücksichtigt und unterschiedlich bewertet. Dies ist jedoch abhängig von der Komplexität der verglichenen Boilerplates noch erweiterbar um Unterschiede noch präziser hervorzuheben. 
-\subsubsection{Ontologien zur Entity-Einordnung}
-Die komplexeste Art der Deltas tritt auf bei Boilerplates, welche unterschiedlich von einander sind, aber dennoch Gemeinsamkeiten aufweisen. Hierbei ist eine genau Einordnung der Gemeinsamkeiten wichtig um die Deltas besser bewerten zu können. 
-
-Im Delta Analyser wird momentan eine Aufzählung (\textit{Vehicle.java}) verwendet, um unterschiedliche Systeme einer gleichen Gruppe zuzuordnen. Hierfür könnte jedoch auch eine Ontologie verwendet werden, welche eine sehr viel mächtiger Datenstruktur ist. 
-
-Die Baumstruktur von Ontologien würde es beispielsweise ermöglichen, anstelle der Abfrage nach der gleichen Klasse den \glqq größten gemeinsamen Nenner\grqq{} der beiden Komponenten zu finden. Im Optimalfall wäre dies dann die gleiche Klasse, was jedoch andernfalls auch einfach abgestuft würde.
-
-
-\section{Test}
-\subsection{Methodik}
-\subsection{Durchführung}
-\subsection{Ergebnisse}
 Die Arbeit mit dem Delta-Analyser stellt das zweite Werkzeug der Verarbeitungskette dar, wenn Lastenhefte verglichen werden sollen. Ein Nutzer nutzt daher zunächst den R2BC, um Lastenhefte in formale Sprache zu bringen, die sich dann im DA vergleichen lassen. In diesem Abschnitt wird daher anhand des Vergleichs zweier Lastenhefte im DA hauptsächlich auf den Delta-Report eingegangen, der als Ergebnis aus dem DA exportiert wird. 
 
 \subsubsection{Programmoberfläche}
@@ -1876,10 +1842,36 @@ Die Einträge zu jeder Anforderung aus V2 im Report sind wie folgt zu bewerten:
 
 Es wurde gezeigt, dass eine recht feingranulare Differenzierung der Deltas im DA möglich ist, die dann an den Nutzer ausgegeben werden. Prinzipiell können auf Basis der Erkennung von Deltas auch weitere Informationen zur Umsetzbarkeit der abweichenden Anforderungen gegeben werden, wenn diese im Programm hinterlegt werden (etwa wenn Materialien direkt mit Kosten verknüpft sind). 
 Dies kann die Bewertung der Anforderungen stark vereinfachen und den Aufwand der Machbarkeitsabschätzung reduzieren.
-Im nächsten Abschnitt werden mögliche Ergänzungen vorgestellt, die auf dem Konzept der DA-Implementierung basieren.
+Im nächsten Abschnitt werden mögliche Ergänzungen vorgestellt, die auf dem Konzept der DA-Implementierung basieren. 
 
+\section{Mögliche Erweiterungen}
+In diesem Abschnitt werden mögliche Erweiterungen des Delta-Analysers erläutert. Diese sind aufgeteilt in Erweiterungen der Benutzeroberfläche für eine bessere Interaktion mit dem Programm und technische Erweiterungen, welche sich auf Konzept oder Funktionsweise des Programms beziehen.
+\subsection[Benutzeroberfläche]{Erweiterungen der Benutzeroberfläche}
+\subsubsection{DOORS-Anbindung}
+Wie auch beim R2BC gilt für den Delta Analyser, dass einen Anbindung an DOORS von großem Nutzen sein kann. So könnte beispielsweise nach dem Delta Analyser ein direkter Vergleich der beiden Dokumente in DOORS erfolgen.
+
+Dazu könnte eine farbige Unterlegung der Boilerplates auf Grundlage des besten gefundenen Übereinstimmungsfaktors genutzt werden. Übersichtlichkeit würde für den Nutzer dadurch stark verbessert und eine grobe Einschätzung der Dokumente ermöglicht.
+\subsubsection{Möglichkeiten Anzeigen}
+Momentan wird stets nur eine HELLA-Boilerplate mit einer OEM-Boilerplate verbunden und später angezeigt. Es ist jedoch auch möglich das verschiedene Boilerplates den gleichen Übereinstimmungsfaktor haben und nur der Nutzer entscheiden kann welche am besten passt.
+
+Dazu könnte man bei Uneindeutigkeit dem Nutzer (ähnlich zum R2BC) die besten Möglichkeiten anzeigen und ihn eine davon wählen lassen.
+\subsubsection{Delta Report}
+Der wichtigste Teil für die Verwendbarkeit des Programms ist ein übersichtlicher und praktischer Delta Report. Momentan  wird dieser nur prototypisch erstellt und ist noch nicht konkret auf die Bedürfnisse bestimmter Nutzer angepasst.
+
+Feldtests und Experteninterviews im Rahmen einer Anforderungsanalyse könnten die nötigen Informationen für einen optimierten Delta Report liefern.
+\subsubsection{Zusammenlegung}
+Da bei dem Delta Analyser keine komplexe Nutzerinteraktion nötig ist, sondern nur Datei eingelesen und Ergebnisse ausgegeben werden müssen, ließe sich der Delta Analyser evtl. Modul des R2BC in dessen Benutzeroberfläche integrieren. 
+
+Diese würde Modularität der Module etwas schwächen, die Anwendbarkeit durch den Nutzer jedoch erleichtern.
+\subsection{Technische Erweiterungen}
+\subsubsection{Analyse präzisieren}
+Im Delta Analyser werden bereits viele verschiedene Fälle berücksichtigt und unterschiedlich bewertet. Dies ist jedoch abhängig von der Komplexität der verglichenen Boilerplates noch erweiterbar um Unterschiede noch präziser hervorzuheben. 
 \subsubsection{Ontologien zur Entity-Einordnung}
-Wichtig für die korrekte Sprachverarbeitung ist 
+Die komplexeste Art der Deltas tritt auf bei Boilerplates, welche unterschiedlich von einander sind, aber dennoch Gemeinsamkeiten aufweisen. Hierbei ist eine genau Einordnung der Gemeinsamkeiten wichtig um die Deltas besser bewerten zu können. 
+
+Im Delta Analyser wird momentan eine Aufzählung (\textit{Vehicle.java}) verwendet, um unterschiedliche Systeme einer gleichen Gruppe zuzuordnen. Hierfür könnte jedoch auch eine Ontologie verwendet werden, welche eine sehr viel mächtiger Datenstruktur ist. 
+
+Die Baumstruktur von Ontologien würde es beispielsweise ermöglichen, anstelle der Abfrage nach der gleichen Klasse den \glqq größten gemeinsamen Nenner\grqq{} der beiden Komponenten zu finden. Im Optimalfall wäre dies dann die gleiche Klasse, was jedoch andernfalls auch einfach abgestuft würde.
 
 \chapter{Evaluation}
 \subsection{Umsetzung der NLP-Architektur in unserem Werkzeug}
@@ -1953,16 +1945,6 @@ Dies ist jedoch höchstwahrscheinlich auch in anderen betriebswirtschaftlichen B
 
 Mit dem Abschluss dieser Arbeit werden die erstellten Programme daher nicht einfach archiviert, sondern mit der Zeit weiter ausgebaut.
 Auf Anfrage der Requirements-Experten werden die Werkzeuge außerdem einem HELLA-internen Entwickler übergeben, welcher die Implementierung der Werkzeuge für den Betrieb weiterführen wird. 
-
-
-\chapter{Notizen}
-\begin{enumerate}
-\item UML-Klassendiagramme im Vergleich zu Ontologien (Struktur, Beziehungen, Informatik-Bezug)
-\item Nutzen von Ontologien, welcher Mehrwert kommt zur syntax durch sie hinzu?
-\item Betriebliche Anforderungen an Tool: ACID aus DB? 
-\item Aktivitätsdiagramm aus PA mit GUI-User-Interaktion, Konkretisierung dortiger Activities
-\item Use-Case Diagramm beim Konzept, PA nur referenzieren
-\end{enumerate}
 
 \newpage
 \begin{thebibliography}{20}
