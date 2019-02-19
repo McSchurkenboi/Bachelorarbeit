@@ -506,12 +506,17 @@ Die Hierarchie einer Ontologie, also der strukturelle Aufbau, lässt sich in die
 
 Diese Hierarchie ist ggf. beliebig erweiterbar. So könnte man für eine bessere Klassifizierung z.B. die Marke eines Autos zunächst in eine Produktreihe oder nach einer Produkteigenschaft wie \textit{Combi} typisieren und erst davon abhängig die verschiedenen Instanzen zuordnen.
 
-In Abbildung X.X ist eine stark vereinfachte Klassenhierarchie aus Oberklassen, Unterklassen und Instanzen beispielhaft dargestellt. 
-\\
-\newline
-HIER KLASSENHIERARCHIEBILD EINFÜGEN
-\\
-\newline
+In Abbildung X.X ist eine stark vereinfachte Klassenhierarchie aus Oberklassen, Unterklassen und Instanzen beispielhaft dargestellt.
+
+ 
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.8]{Bilder/ontologyClasses.jpg}
+\caption{Beispielhafte Ontologie als Klassenhierarchie [eingene Darstellung (in Protegé)]}
+\end{center}
+\end{figure}
+
+
 Auf der obersten Ebene der Klassen-Hierarchie befindet sich die Klasse \textit{owl: Thing}. Von dieser erben alle Begriffe durch die \textit{hasSubclass}-Relation. Dies ist vergleichbar mit der objektorientierten Programmiersprache \textit{Java} bei welcher alle Klassen direkt oder indirekt von der Oberklasse \textit{Object} erben. 
 
 Auf der nächsten Ebene befinden sich die beiden Begriffe \textit{Automobil} und \textit{Person}. Diese können entweder direkt in Instanzen übergehen, oder zunächst durch Typisierung unterteilt werden. 
@@ -533,17 +538,18 @@ So ließe sich die Voraussetzung, dass ein Automobil motorisiert sein muss durch
 \end{enumerate}
 
 Abbildung X.X zeigt eine beispielhafte, stark vereinfacht Ontologie zu Automobilen und bestimmten im Kontext relevanten Personen. 
-\\
-\newline
-HIER RELATIONEN BILD
-\\
-\newline
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.8]{Bilder/ontologyRelations.jpg}
+\caption{Klassenstruktur mit zusätzlichen Relationen [eingene Darstellung (in Protegé)]}
+\end{center}
+\end{figure}
+
 Die Relationen zwischen den Konten der Ontologie sind dargestellt durch Linien mit einem mittigen Pfeil. Die durchgezogenen Linien zeigen den Grundaufbau der Hierarchie. Die blauen Linien verkörpern die \textit{has subclass}-Beziehung, welche auf Vererbung hinweist. Die violetten Linien stehen für die \textit{has individual}-Beziehung und zeigen auf eine Instanz der Klasse. 
-Außerdem wurden zwei Objekt-Attribute (\textit{object properties}) manuell hinzugefügt. Diese können verwendet werden um Relationen zwischen Klassen aufzuzeigen, welche nicht voneinander erben, sondern sich in unterschiedlichen \glqq Teilbäumen\grqq{} der Ontologie befinden. So verweist, dargestellt durch den braunen Pfeil eine \textit{benutzt}-Relation von dem Autofahrer auf das Automobil, bedeutet also das Autofahrer Automobile verwenden.  
-Ähnlich dazu zeigt von der Klasse Ingenieur eine \textit{entwickelt}-Beziehung auf Automobil.
-\\
-\newline
-NACHSCHAUEN WEGEN VERERBUNG AUF INSTANZEN.
+Außerdem wurden zwei Objekt-Attribute (\textit{object properties}) manuell hinzugefügt. Diese können verwendet werden um Relationen zwischen Klassen aufzuzeigen, welche nicht voneinander erben, sondern sich in unterschiedlichen \glqq Teilbäumen\grqq{} der Ontologie befinden. So verweist, dargestellt durch den gelben Pfeil eine \textit{benutzt}-Relation von dem Autofahrer auf das Automobil, bedeutet also das Autofahrer Automobile verwenden.  
+Ähnlich dazu zeigt von der Klasse Ingenieur eine \textit{entwickelt}-Beziehung (brauner Pfeil) auf Automobil.
+
 \subsubsection{Verwendung von Ontologien}
 Wie eingehend bereits erwähnt sind Ontologien vor allem in der Informatik durch ihre Maschinenlesbarkeit wertvoll. Sie sind außerdem auch geeignet komplexere Sachzusammenhänge abzubilden, was mit primitiven Datentypen wie man sie in einer relationalen Datenbank abspeichern kann nicht möglich wäre. Simple Verbindungen wie sie etwa in den in 2.1.4 beschriebenen Bedeutungspostulaten beschrieben sind lassen sind in Ontologien schnell und effizient darstellen.
 
@@ -1711,6 +1717,36 @@ Dazu ist in der Aufzählung die \textit{contains}-Methode implementiert, welche 
 \end{enumerate}
 
 \section{Implementierung}
+In diesem Abschnitt werden wichtige Aspekte der Implementierung des Delta Analysers erläutert. Wichtig sind dabei vor allem die interne Haltung der zu vergleichenden Boilerplates und die Methoden zum Vergleichen und Bewerten dieser. Außerdem wird die Nutzerinteraktion mit dem Programm dargestellt. 
+\subsubsection{Haltung der Boilerplates}
+Um in der Lage zu sein, zwei komplette Lastenhefte zu vergleichen, sind zwei Datenstrukturen nötig, welche jeweils eines der Lastenhefte komplett beinhalten. Hierzu kann man praktischerweise die im R2BC erstellten Boilerplate-Listen gut verwenden. Entsprechend der \textit{bpExportList} des R2BC ist es ausreichend, wenn diese Listen eindimensional sind und Boilerplate-Objekte aufnehmen können. 
+
+Diese Listen sind Teil der \textit{DeltaAnalyser}-Klasse und können durch die \textit{loadBPsFromFile}-Methode befüllt werden. Sie wird von den zwei \textit{Import}-Buttons aufgerufen (genauer bei Nutzerinteraktion erläutert), deserialisiert eine gespeicherte Boilerplate-Liste und speichert diese in die entsprechende interne Liste ab.
+
+Als Platzhalter für das automatische Auslesen der Requirements-IDs (siehe R2BC/mögliche Erweiterungen X.X) wurde die \textit{initializeIDs}-Methode implementiert. In dieser werden die internen Listen iteriert und die enthaltenen Boilerplate-Objekte fortlaufend nummeriert um den Vergleich der Boilerplates später nachvollziehbarer zu machen. 
+
+\subsubsection{Vergleich der Boilerplates}
+Der Vergleich der Lastenhefte findet vorrangig in der \textit{analyseDeltas}-Methode statt und wird dort teilweise an andere Methoden ausgelagert.
+
+In \textit{analyseDeltas} werden die beiden internen Lastenhefte in einer geschachtelten \textit{for}-Schleife durchlaufen. In der äußeren Schleife wird das OEM-Lastenheft und in der inneren das HELLA-Lastenheft iteriert. Es wird also für jede Boilerplate im OEM-Dokument jede Boilerplate des HELLA-Dokuments durchlaufen. 
+
+Dabei wird für eine grobe Voreinordnung die \textit{compare}-Methode der \textit{BoilerplateComparator}-Klasse aufgerufen. Diese prüft den Type der Boilerplates auf Gleichheit. Ist dieser gleich, wird die komplette Boilerplate abgeglichen. Bei einem Treffer gibt die Methode 0 zurück, bei dem gleichen Typen eine 1 und bei keinerlei Übereinstimmung eine 2. 
+
+Abhängig von diesem Ergebnis wird in der \textit{analyseDeltas}-Methode weiter vorgegangen. Bei einer 0 ist eine perfekte Übereinstimmung gefunden und die Suche muss für diese Boilerplate nicht weitergeführt werden.
+
+Die HELLA-Boilerplate welche den Treffer ergab wird zunächst in ein Boilerplate-Objekt namens \textit{tempsBP} abgespeichert. In diesem Objekt befindet sich immer die bisher passendste HELLA-Boilerplate zu der momentanen OEM-Boilerplate. 
+
+Wurde eine 1 zurückgegeben so wird auf den beiden Boilerplates die \textit{annotationCompare}-Methode aufgerufen. Hier werden auch einzelne Satzbestandteile der beiden Boilerplates verglichen. Die vorherige Überprüfung der Boilerplate-Typen garantiert, dass hier vergleichbare Satzbestandteile vorliegen. 
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.7]{Bilder/annotationCompare.jpg}
+\caption{Ausschnitt der \textit{annotationCompare}-Methode [eigene Darstellung]}
+\end{center}
+\end{figure}
+
+
+\subsection{Nutzerinteraktion}
 \section{mögliche Erweiterungen}
 \subsubsection{Ontologien zur Entity-Einordnung}
 Wichtig für die korrekte Sprachverarbeitung ist 
