@@ -1842,10 +1842,11 @@ Da die Analyse der Deltas prinzipiel automatisch anhand von Kriterien bzw. dem �
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.7]{Bilder/DA-GUI-leer.png}
+\includegraphics[scale=1]{Bilder/DA-GUI-leer.png}
 \caption{DA-GUI beim Programmstart [eigene Darstellung]}
 \end{center}
 \end{figure}
+
 Die GUI orientiert sich dabei an dem in Kap. 3.x gezeigten Use-Case, wonach der Delta-Analyser ein Lastenheft V2 auf die Deltas zu einem bereits vorhandenen Lastenheft V1 hin analysieren soll. V2 wird im DA als \textit{OEM-Lastenheft} bezeichnet, da ein OEM neue Anforderungen als Kunde an HELLA gibt, die umgesetzt werden sollen. V1 wird als \textit{internal} bzw. \textit{HELLA}-Lastenheft bezeichnet, da es ein Lastenheft darstellt, dass bereits in der Firma bekannt ist.
 
 Beim Programmstart wählt der Nutzer über \textit{Import OEM CRS...} ein ein Lastenheft mit Kundenanforderungen aus, zu denen passende Anforderungen aus einem internen Lastenheft \textit{Import internal CRS... }gefunden werden sollen. 
@@ -1872,13 +1873,18 @@ Diese Anfordeurngen liegen somit firmenintern vor und neu hinzukommende Anforder
 \\
 
 Nach dem Klick auf \textit{Analyse Deltas} ermittelt der R2BC zu jeder Anforderung aus V2 die am besten passende Anforderung aus V1. Der Grad der Übereinstimmung wird zusammen mit den Deltas zwischen den Anforderungen in den Delta-Report exportiert. Dieser ist für die beiden prototypischen Lastenhefte in Abb. 5.x dargestellt:
-\\
-PLATZHALTER DELTA-REPORT
-\\
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.81]{Bilder/delta-report.png}
+\caption{Delta-Report der Testlastenhefte [eigene Darstellung]}
+\end{center}
+\end{figure}
+
 Die Einträge zu jeder Anforderung aus V2 im Report sind wie folgt zu bewerten:
 \begin{enumerate}
 \item Zu ersten Anfordeung aus V2 wurde die identische Anorderung 1 in V1 identifiziert, da diese nach der Konvertierung durch den R2BC die identische Boilerplate hervorgebracht haben. Der DA hat also die best-mögliche Übereinstimmung gefunden.
-\item Bei Anforderung 2 liegt ein Delta in den vergleichbaren Anforderungen aus V1 vor. Der DA hat erneut die am besten passende Anforderung 1 identifiziert. Durch Nutzung des Enumerates wurde identifiziert, dass der Systemtyp von \textit{vehicle} und \textit{Golf7} übereinstimmen und somit zumindest vergleichbare Anfordeurngen vorliegen. Da sich die \textit{functionDescription} beider Anforderungen jedoch unterscheidet, ist der Übereinstimmungsgrad eher gering.
+\item Bei Anforderung 2 liegt ein Delta in den vergleichbaren Anforderungen aus V1 vor. Der DA hat erneut die am besten passende Anforderung 1 identifiziert. Durch Nutzung des Enumerates wurde identifiziert, dass der Systemtyp von \textit{vehicle} und \textit{Golf7} übereinstimmen und somit zumindest vergleichbare Anforderungen vorliegen. Da sich die \textit{functionDescription} beider Anforderungen jedoch unterscheidet, ist der Übereinstimmungsgrad eher gering.
 \item Bei Anforderung 3 liegt erneut der Fall vor, dass eine vergleichbare Anforderung in V1 gefunden wurde. Es fällt auf, dass sich lediglich der \textit{ConditionalActor} zu den bekannten Anforderungen unterscheidet, weshalb der DA einen hohen Überinstimmungsgrad beider Anforderungen erreicht. Es muss lediglich geprüft werden, ob tatsächlich eine einfache Adaption von \textit{Bluetooth connected phone} hin zu \textit{vehicle} möglich ist.
 \item Anforderung 4 scheint zunächst sehr ähnlich zu Anf. 3, unterscheitet sich jedoch in sämtlichen Satzbestandteilen von den Anforderungen aus V1. Am ehesten vergleichbar wäre wieder Anf. 3, jedoch sind sowohl \textit{ConditionalActor}, als auch \textit{Condition} und \textit{FunctionDescription} unterschiedlich. Der DA kann also, bis auf den gleichen Typ der Boilerplate, keine Übereinstimmung zu bekannten Anforderungen feststellen.
 \end{enumerate}
@@ -1917,28 +1923,29 @@ Im Delta Analyser wird momentan eine Aufzählung (\textit{Vehicle.java}) verwend
 Die Baumstruktur von Ontologien würde es beispielsweise ermöglichen, anstelle der Abfrage nach der gleichen Klasse den \glqq größten gemeinsamen Nenner\grqq{} der beiden Komponenten zu finden. Im Optimalfall wäre dies dann die gleiche Klasse, was jedoch andernfalls auch einfach abgestuft würde.
 
 \chapter{Fazit}
-\section{Zusammenfassung}
-Die Entwicklung der zwei prototypischen Werkzeuge \textit{Requirements-To-Boilerplate-Converter}(R2BC) und \textit{Delta-Analyser}(DA) als Unterstützung von Requirements-Engineering(RE)-Prozessen bei der Auswertung von Lastenheften stellten die Hauptthemen dieser Arbeit dar.
 
-Im Laufe dieser Arbeit wurde eine Einführung in die Grundlagen aus den Bereichen Natural Language Processing und betrieblichem Requirements-Engineering in der Automobilindustrie gegeben. Dazu wurden die detaillierten Schritte einer natürlichsprachlichen Analyse zur Dokumentenanalyse, wie auch die Kriterien und Ziele des RE vorgestellt. In Zusammenarbeit mit RE-Experten konnten Anforderungen und Potentiale für die softwaremäßige Unterstützung identifiziert und modelliert werden. Der Bezug zur Informatik wurde im Anschluss daran durch den konkreten Entwurf und die prototypische Implementierung der Werkzeuge hergestellt. 
+\section{Zusammenfassung}
+Die Entwicklung und Konzeption der zwei prototypischen Werkzeuge \textit{Requirements-To-Boilerplate-Converter}(R2BC) und \textit{Delta-Analyser}(DA) als Unterstützung von Requirements-Engineering(RE)-Prozessen bei der Auswertung von Lastenheften stellten die Hauptthemen dieser Arbeit dar.
+
+Im Laufe dieser Arbeit wurde eine Einführung in die Bereiche Natural Language Processing(NLP) und betriebliches RE in der Automobilindustrie gegeben. Dazu wurden die detaillierten Schritte der Analyse und Nutzung von Anforderungsdokumenten, wie auch die Kriterien und Ziele des RE vorgestellt. In Zusammenarbeit mit RE-Experten der Firma HELLA konnten Anforderungen und Funktionen für die softwaremäßige Umsetzung identifiziert und modelliert werden. Der Bezug zur Informatik wurde im Anschluss daran durch den konkreten Entwurf und die prototypische Implementierung der Werkzeuge hergestellt. 
 
 \vspace{12pt}
-Aus den Grundlagen zu NLP und Ontologien wurde besonders die hohe Komplexität natürlicher Sprache und der damit begründete hohe Aufwand bei der Entwicklung entsprechender Werkzeuge verdeutlicht. Verschiedene Algorithmen in Modulen einer Verarbeitungskette versuchen dabei, Teilbereiche natürlicher Sprache zu modellieren und Informationen zu generieren. 
+Aus den Grundlagen zu NLP und Ontologien wurde besonders die hohe Komplexität natürlicher Sprache und der damit begründete hohe Aufwand bei der Entwicklung entsprechender Werkzeuge verdeutlicht. Ein häufig anzutreffender Ansatz aktueller Forschungen im Bereich Anforderungsmanagement ist dabei, für ein verbessertes Verständnis zunächst natürlichsprachliche Dokumente in formale Sprachen zu überführen.
 
-Im Teil der betrieblichen Informationen wurde aus Sicht von RE-Experten auf den Aufwand beim Umgang mit Anforderungen im Entwicklungsprozess und Ziele für das RE hingewiesen. Die Notwendigkeit einer Unterstützung wurde im Rahmen der Evaluation der betrieblichen RE-Prozesse betont. Machbarkeit und Qualität von Anforderungen, werden größtenteils manuell geprüft, bieten jedoch großes Potential für Automatisierung und Use-Cases für die in dieser Arbeit skizzierten Werkzeuge. Diese nutzen die Konvertierung der Lastenhefte in formale Sprachschablonen (Boilerplates), um Lastenhefte für die spätere Umsetzung aufzubereiten.
+Im Teil der betrieblichen Informationen wurde aus Sicht von RE-Experten auf den Aufwand beim Umgang mit Anforderungen im Entwicklungsprozess und Ziele für das RE hingewiesen. Machbarkeit und Qualität von Anforderungen werden größtenteils manuell geprüft, bieten jedoch großes Potential für Automatisierung und Use-Cases für die in dieser Arbeit skizzierten Werkzeuge. Diese nutzen die Konvertierung der Lastenhefte in formale Sprachschablonen (Boilerplates), um Lastenhefte für die spätere Umsetzung aufzubereiten.
 
-Zuletzt erfolgte der softwaretechnische Entwurf und die Implementierung der Werkzeuge. Durch den betrieblichen Einsatz entstanden dabei der R2BC und DA auf java-Basis.
+Zuletzt erfolgte der softwaretechnische Entwurf und die Implementierung der Werkzeuge. Durch den betrieblichen Einsatz entstanden dabei der R2BC und DA auf java-Basis unter Nutzung der NLP-Software GATE.
 
-Der R2BC stellt die erste Stufe der Unterstützung dar, in welcher natürlichsprachliche Lastenhefte in Boilerplates überführt werden. Der DA realisiert auf dieser Basis die zweite Stufe der Verarbeitung, dessen Use-Case der Vergleich von zwei Lastenheften auf Basis der enthaltenen Anforderung ist. Die automatisierte Konvertierung und Vergleich von Lastenheften wurde anhand dieser Prototypen umgesetzt. 
+Der R2BC stellt die erste Stufe der Verarbeitung dar, in welcher natürlichsprachliche Lastenhefte in Boilerplates überführt werden. Der DA realisiert auf dieser Basis die zweite Stufe der Verarbeitung, dessen Use-Case der Vergleich von zwei Lastenheften auf Basis der enthaltenen Anforderungen ist. Dazu nutzt er die im R2BC genereierten Textinformationen und kann Deltas präzise identifizieren. Die automatisierte Konvertierung und Vergleich von Lastenheften wurde anhand dieser Prototypen umgesetzt. 
 
 \vspace{12pt}
 Die Evaluation und Tests der Werkzeuge fielen insgesamt positiv aus und deuten das weitere Potential solcher automatisierten Analysewerkzeuge an. Die zu Beginn der Arbeit aufgestellten Hypothesen konnten somit verifiziert werden.
 \section{Ausblick}
 Die prototypischen Implementierungen der Werkzeug haben gezeigt, dass durch den Einsatz von Software im Requirements-Engineering viel Verbesserungspotential ausgeschöpft werden kann. 
 
-Dies ist jedoch höchstwahrscheinlich auch in anderen betriebswirtschaftlichen Bereichen der Fall. Hinzu kommt, dass die Prototypen selbst noch viele Möglichkeiten zur Erweiterung bieten und somit noch weitaus mehr Hilfe für deren Nutzer geschaffen werden kann. 
+Dies ist jedoch höchstwahrscheinlich auch in anderen betriebswirtschaftlichen Bereichen der Fall. Hinzu kommt, dass die Prototypen selbst noch viele Möglichkeiten zur Erweiterung bieten und somit noch weitere Mehrwerte für deren Nutzer geschaffen werden können. 
 
-Mit dem Abschluss dieser Arbeit werden die erstellten Programme daher nicht einfach archiviert, sondern mit der Zeit weiter ausgebaut.
+Mit dem Abschluss dieser Arbeit werden die erstellten Programme daher nicht einfach archiviert, sondern mit der Zeit weiterentwickelt und neue Funktionen eingepflegt.
 Auf Anfrage der Requirements-Experten werden die Werkzeuge außerdem einem HELLA-internen Entwickler übergeben, welcher die Implementierung der Werkzeuge für den Betrieb weiterführen wird. 
 
 \newpage
