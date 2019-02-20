@@ -140,7 +140,7 @@ Dieser Prozess wird dabei sowohl bei kompletten Neuentwicklungen, als auch bei d
 Dem Betrieb liegen anschließend die Aufgaben und Ziele für die Entwicklung als Dokumente vor, auf deren Basis die Produktentwicklung beginnen kann. Die Entwicklung unterliegt dabei bestimmten Kriterien und Faktoren, die den unternehmerischen Erfolg beeinflussen. Neben betriebswirtschaftlichen Einflüssen wie der Einordnung des Produktes in der Wertschöpfungskette sind es dabei besonders technische Anforderungen an das Produkt, die definiert und während der Produktentwicklung eingehalten werden müssen.
 
 \subsubsection{Anforderungen im betrieblichen Entwicklungsprozess}
-Das Resultat ist das sogenannte Lastenheft, in Unternehmen häufig als CRS (\textit{Customer Requirement Specification}) bezeichnet \cite{dge19}. Mithilfe dessen kann nun die Entwicklung eines Produktes begonnen werden. Ein später hergestelltes Produkt sollte möglichst allen beschriebenen Anforderungen entsprechen. Da Betriebe jedoch nur selten alle einzelnen Komponenten des späteren Produktes selbst herstellen können, sind sie auf Zulieferer angewiesen, die einzelne Komponenten entwickeln und produzieren. Diese Hersteller einzelner Komponenten werden als \textit{OEM} (\textit{Original Equipment Manufacturer}), zu Deutsch \textit{Erstausrüster}, bezeichnet \cite{ir09}.  
+Das Resultat ist das sogenannte Lastenheft, in Unternehmen häufig als CRS (\textit{Customer Requirement Specification}) bezeichnet \cite{dge19}. Mithilfe dessen kann nun die Entwicklung eines Produktes begonnen werden. Ein später hergestelltes Produkt sollte möglichst allen beschriebenen Anforderungen entsprechen. Da Betriebe jedoch nur selten alle einzelnen Komponenten des späteren Produktes selbst herstellen können, sind sie auf Zulieferer angewiesen, die einzelne Komponenten entwickeln und produzieren. Die Hersteller fertiger Komponenten werden als \textit{OEM} (\textit{Original Equipment Manufacturer}), zu Deutsch \textit{Erstausrüster}, bezeichnet \cite{ir09}.  
 
 In diesem Fall wird dem Zulieferer ein Lastenheft übergeben, dass allen Anforderungen des Kunden genügt. Das bedeutet jedoch, dass auch die Produktentwicklung anhand des Lastenheftes an den Zulieferer ausgelagert wird. Dem Zulieferer werden damit Möglichkeiten geboten und Verantwortung übertragen, das Produkt weiter zu definieren. Einerseits können etwa interne Richtlinien und Erfahrungen auf dem Gebiet der Produktentwicklung aus früheren Projekten integriert werden, andererseits aber auch weitere Optimierungen sowie Merkmale, die noch nicht im Lastenheft dokumentiert sind. Somit agiert der Zulieferer nicht nur als produzierende Fabrik, sondern nimmt am Entwicklungsprozess teil.
 
@@ -1492,7 +1492,50 @@ Die korrekte Konvertierung wird erneut durch \textit{Confirm} bestätigt.
 \end{center}
 \end{figure}
 
-In Abs. 4.x wird auf Basis der prototypischen Implementierung die Funktionalität des gesamten Programms mit realen Lastenheften erprobt. Im nächsten Abscnitt werden mögliche konzeptuelle Ergänzungen der GUI vorgestellt. 
+In Abs. 4.x wird auf Basis der prototypischen Implementierung die Funktionalität des gesamten Programms mit realen Lastenheften erprobt. In Abschnitt 4.x werden mögliche konzeptuelle Ergänzungen der GUI vorgestellt. 
+
+\subsection{Umsetzung der NLP-Architektur}
+In diesem Abschnitt wird die Einordnung unseres Prototypen als NLP-Werkzeug in die von \cite{cop04} definierte Architektur behandelt. Die verschiedenen Schritte aus Kap. 2.2. zur Analyse und Verarbeitung der Lastenhefte wurden in den oben beschriebenen Programmbestandteilen umgesetzt. Anhand der prinzipiellen Aufgaben von NLP-Werkzeugen kann die Verarbeitungskette unseres Werkzeugs dort wie folgt eingeordnet werden:
+
+\begin{enumerate}
+\item \textit{Input Processing} - Einlesen von Quelldaten: Zunächst kann der Nutzer Dateien für die Verarbeitung im Programm eingeben. Dazu wählt der diese Dateien in der GUI des Programms aus. Unser Werkzeug extrahiert daraus dann den enthaltenen Text.
+
+\item \textit{Morphologische Analyse} - Annotation der Worttypen: Mithilfe der Analyse des Textes durch die GATE-Verarbeitungslogik ANNIE werden einzelne Wörter aus dem Text auf ihre sprachliche Funktion hin überprüft. Dies ermöglicht die weitere Untersuchung bestimmter Worttypen, wie z.B. Nomen, nachdem diese gesammelt wurden. Nomen können etwa in JAPE-Regeln als \textit{NNP} abgefragt werden (siehe 4.x)
+
+\item \textit{Part-of-Speech-Tagging} - Erkennung von Satzbausteinen: Für ein genaues Verständnis, worum es in einer Anforderung geht, müssen die einzelnen Bestandteile des Textes zugeordnet werden. In unserem Programm werden gefundene Wörter etwa dahingehend geprüft, ob diese ein System darstellen können, wenn sie zuvor als Nomen kategorisiert wurden. 
+
+Auf dieser Basis können dann passende Boilerplates identifiziert werden. Für die spätere Befüllung der Boilerplates mit den korrekten Begriffen ist die korrekte Erkennung von Worten im Satzzusammenhang daher wesentlich.
+
+\item \textit{Parsing} - Überführung in Boilerplates: Mithilfe des POS-Tagging wurden zuvor passende Boilerplates auf Basis gefundenen Annotationen innerhalb der Anforderung gefunden. Dies stellt nun die Grundlage für die Zusammensetzung der Boilerplates des entsprechenden Typs dar, indem Boilerplate-Objekte im Programm erzeugt werden. 
+
+Die Platzhalter werden dann von den Begriffen aus der Anforderung ersetzt, womit schlussendlich eine Anforderung in der formalen Sprache der Boilerplates vorliegt.
+
+\item{Disambiguation} - Zuordnung der richtigen Konvertierung: Im Parsing werden zunächst alle möglichen Konvertierungen auf Basis möglicher Boilerplate-Typen durchgeführt. Nach der Erzeugung der Boilerplates liegen somit möglicherweise verschiedene Möglichkeiten der Deutung vor, von denen einzelne unpräzise oder fehlerhaft sein können. 
+
+Unpräzise Formulierungen können etwa durch eine hierarchische Anordnung der Boilerplates reduziert werden, wenn eine spezifische Boilerplate offensichtlich besser den Inhalt der Anforderung repräsentiert als eine eher allgemein formulierte. Die allgemeineren Boilerplates werden somit gleich ausgeschlossen, wenn eine bessere Konvertierung möglich ist. Siehe dazu auch Kap. 4.x.
+
+Diese Unterschiede werden, sofern vorhanden, als mehrere Boilerplates im Programm dargestellt und an den Nutzer ausgegeben. Der Nutzer kann in der GUI dann die am besten zum ursprünglichen Anforderung passende Konvertierung auswählen.
+
+\item \textit{Context Module} - Bewertung im Zusammenhang: Bei der Identifikation der best passendsten Boilerplate wurden in Kap. 4.x Vorschläge zur Abbildung der Semantik gemacht. Diese Ansätze ermöglichen dann die Automatisierung der Auflösung bestimmter Mehrdeutigkeiten, wenn diese das Verständnis des Kontextes aus dem Zusammenhang mehrerer Sätze erfordern. 
+
+Im Kontext mehrerer Anforderungen kann der Nutzer im Rahmen des Review-Prozesses weitere Informationen über den Dokumentenkontext mit einfließen lassen. Dies kann etwa Informationen über vorige Anforderungen beinhalten, die bereits verarbeitet wurden, oder Meta-Informationen über das Anforderungsdokument wie etwa ergänzende, mitgeltende Unterlagen.
+
+\item \textit{Text Planning} - Speichern der korrekten Boilerplate: Nach der Auswahl von einer richtigen Konvertierung innerhalb der GUI hat sich der Nutzer für eine Boilerplate entschieden, die in das Export-Dokument übertragen werden soll. Durch diese Festlegung wird im Programm die entsprechende Boilerplate in die OutputList der Konvertierung eingetragen.
+
+\item \textit{Tactical Generation} - Erzeugung von Text aus BP-Objekten: Die Boilerplates liegen nach der Konvertierung zunächst als Objekte im Programm vor. Vor der Erzeugung des Ausgabe-Dokuments, das alle Anforderungen als Boilerplates enthält, müssen aus diesen Objekten der Text extrahiert werden. 
+
+Dieser Text liegt in den einzelnen Objekten als Zeichenkette vor und wird mithilfe einer Methode formatiert. Im Programm wird bei der Dokumentenerzeugung der Text aller übernommenen Boilerplates abgefragt.
+
+\item \textit{Morphological Generation} - Sprachliche Anpassung: In unserem ersten Entwurf der Prototypen wurde die Analyse auf englischen Text optimiert, da die Lastenhefte überlicherweise auf englisch verfasst sind (siehe Kap. 3.x). Die Boilerplates im Programm sind dementsprechend in englischer Sprache verfasst, wie auch das Ausgabe-Dokument.
+
+Da der Text bereits innerhalb der Boilerplate-Objekte formatiert wurde bzw. vorliegt, entfällt hier eine aufwändige Anpassung an Sprache und ihre Grammatik.
+
+\item \textit{Output-Processing} - Erzeugung des Anforderungsdokuments aus Boilerplates: Nachdem die einzelnen Zeichenketten aus den Boilerpaltes extrahiert wurden, liegen nun die einzelnen Anforderungen in formaler Sprache als Text vor. Die Anforderungen müssen nun vor dem Export in der richtigen Reihenfolge angeordnet und an das Layout des Dokumentes angepasst werden.
+
+Der Nutzer wählt dazu eine Datei über die GUI aus, in welche die Anforderungen exportiert werden. Der Dateityp ist dabei prinzipiell unbeschränkt, zur Vereinfachung wurde sich jedoch auf reine Textdateien (.txt) beim Export beschränkt. 
+
+Das Programm schreibt nun alle Anforderungen, getrennt durch Leerzeilen, in die Datei, sodass schlussendlich alle Anforderungen als Boilerplates exportiert sind.
+\end{enumerate}
 
 \section{Mögliche Erweiterungen}
 In diesem Abschnitt werden mögliche Verbesserungen bzw. Erweiterungen des Programms aufgelistet und erläutert. Diese konnten hauptsächlich auf Zeit- bzw. Aufwandsgründen nicht während der Arbeit bei HELLA implementiert werden. Einige erfordern außerdem eine hohes Maß an spezifischer Fachkenntnis in bestimmten Bereichen. 
@@ -1678,7 +1721,7 @@ Wenn der Nutzer nur gefundene Boilerplates bewerten muss (nur die Übersetzung) 
 
 Insgesamt lässt sich daher sagen, dass der Ansatz des R2BC wesentliches Potential für Zeitersparnisse gegenüber der manuellen Prüfung der Lastenhefte im RE bietet.
 
-\chapter{Delta-Analyse}
+\chapter{Delta-Analyser (DA)}
 In diesem Kapitel wird das zweite entwickelte Tool, der \textit{Delta Analyser} (DA), vorgestellt. Dieser wird dafür verwendet, zwei Lastenhefte, welche zuvor durch den R2BC verarbeitet wurden, abzugleichen. 
 
 Dabei sollen für den Nutzer wichtige Informationen über Unterschiede und Gemeinsamkeiten erkannt, gefiltert und in Form eines \textit{Delta-Reports} ausgegeben werden. Auf Basis des Delta-Reports soll dann die Arbeit mit dem OEM-Lastenheft stark vereinfacht und eine Kostenabschätzung für dessen Umsetzung ermöglicht werden. 
@@ -1873,54 +1916,6 @@ Im Delta Analyser wird momentan eine Aufzählung (\textit{Vehicle.java}) verwend
 
 Die Baumstruktur von Ontologien würde es beispielsweise ermöglichen, anstelle der Abfrage nach der gleichen Klasse den \glqq größten gemeinsamen Nenner\grqq{} der beiden Komponenten zu finden. Im Optimalfall wäre dies dann die gleiche Klasse, was jedoch andernfalls auch einfach abgestuft würde.
 
-\chapter{Evaluation}
-\subsection{Umsetzung der NLP-Architektur in unserem Werkzeug}
-In diesem Abschnitt wird die Einordnung unseres Prototypen als NLP-Werkzeug in die von \cite{cop04} definierte Architektur behandelt. Die verschiedenen Schritte aus Kap. 2.2. haben die Autoren bei der Analyse und Verarbeitung der Lastenhefte in Programmbestandteilen umgesetzt. Anhand der Verarbeitungskette unseres Werkzeugs können wir die prinzipiellen Aufgaben von NLP-Werkzeugen dort wie folgt einordnen:
-
-\begin{enumerate}
-\item \textit{Input Processing} - Einlesen von Quelldaten: Zunächst kann der Nutzer Dateien für die Verarbeitung im Programm eingeben. Dazu wählt der diese Dateien in der GUI des Programms aus. Unser Werkzeug extrahiert daraus dann den enthaltenen Text.
-
-\item \textit{Morphologische Analyse} - Annotation der Worttypen: Mithilfe der Analyse des Textes durch die GATE-Verarbeitungslogik ANNIE werden einzelne Wörter aus dem Text auf ihre sprachliche Funktion hin überprüft. Dies ermöglicht die weitere Untersuchung bestimmter Worttypen, wie z.B. Nomen, nachdem diese gesammelt wurden. Nomen können etwa in JAPE-Regeln als \textit{NNP} abgefragt werden (siehe 4.x)
-
-\item \textit{Part-of-Speech-Tagging} - Erkennung von Satzbausteinen: Für ein genaues Verständnis, worum es in einer Anforderung geht, müssen die einzelnen Bestandteile des Textes zugeordnet werden. In unserem Programm werden gefundene Wörter etwa dahingehend geprüft, ob diese ein System darstellen können, wenn sie zuvor als Nomen kategorisiert wurden. 
-
-Auf dieser Basis können dann passende Boilerplates identifiziert werden. Für die spätere Befüllung der Boilerplates mit den korrekten Begriffen ist die korrekte Erkennung von Worten im Satzzusammenhang daher wesentlich.
-
-\item \textit{Parsing} - Überführung in Boilerplates: Mithilfe des POS-Tagging wurden zuvor passende Boilerplates auf Basis gefundenen Annotationen innerhalb der Anforderung gefunden. Dies stellt nun die Grundlage für die Zusammensetzung der Boilerplates des entsprechenden Typs dar, indem Boilerplate-Objekte im Programm erzeugt werden. 
-
-Die Platzhalter werden dann von den Begriffen aus der Anforderung ersetzt, womit schlussendlich eine Anforderung in der formalen Sprache der Boilerplates vorliegt.
-
-\item{Disambiguation} - Zuordnung der richtigen Konvertierung: Im Parsing werden zunächst alle möglichen Konvertierungen auf Basis möglicher Boilerplate-Typen durchgeführt. Nach der Erzeugung der Boilerplates liegen somit möglicherweise verschiedene Möglichkeiten der Deutung vor, von denen einzelne unpräzise oder fehlerhaft sein können. 
-
-Unpräzise Formulierungen können etwa durch eine hierarchische Anordnung der Boilerplates reduziert werden, wenn eine spezifische Boilerplate offensichtlich besser den Inhalt der Anforderung repräsentiert als eine eher allgemein formulierte. Die allgemeineren Boilerplates werden somit gleich ausgeschlossen, wenn eine bessere Konvertierung möglich ist. Siehe dazu auch Kap. 4.x.
-
-Diese Unterschiede werden, sofern vorhanden, als mehrere Boilerplates im Programm dargestellt und an den Nutzer ausgegeben. Der Nutzer kann in der GUI dann die am besten zum ursprünglichen Anforderung passende Konvertierung auswählen.
-
-\item \textit{Context Module} - Bewertung im Zusammenhang: Bei der Identifikation der best passendsten Boilerplate wurden in Kap. 4.x Vorschläge zur Abbildung der Semantik gemacht. Diese Ansätze ermöglichen dann die Automatisierung der Auflösung bestimmter Mehrdeutigkeiten, wenn diese das Verständnis des Kontextes aus dem Zusammenhang mehrerer Sätze erfordern. 
-
-Im Kontext mehrerer Anforderungen kann der Nutzer im Rahmen des Review-Prozesses weitere Informationen über den Dokumentenkontext mit einfließen lassen. Dies kann etwa Informationen über vorige Anforderungen beinhalten, die bereits verarbeitet wurden, oder Meta-Informationen über das Anforderungsdokument wie etwa ergänzende, mitgeltende Unterlagen.
-
-\item \textit{Text Planning} - Speichern der korrekten Boilerplate: Nach der Auswahl von einer richtigen Konvertierung innerhalb der GUI hat sich der Nutzer für eine Boilerplate entschieden, die in das Export-Dokument übertragen werden soll. Durch diese Festlegung wird im Programm die entsprechende Boilerplate in die OutputList der Konvertierung eingetragen.
-
-\item \textit{Tactical Generation} - Erzeugung von Text aus BP-Objekten: Die Boilerplates liegen nach der Konvertierung zunächst als Objekte im Programm vor. Vor der Erzeugung des Ausgabe-Dokuments, das alle Anforderungen als Boilerplates enthält, müssen aus diesen Objekten der Text extrahiert werden. 
-
-Dieser Text liegt in den einzelnen Objekten als Zeichenkette vor und wird mithilfe einer Methode formatiert. Im Programm wird bei der Dokumentenerzeugung der Text aller übernommenen Boilerplates abgefragt.
-
-\item \textit{Morphological Generation} - Sprachliche Anpassung: In unserem ersten Entwurf der Prototypen wurde die Analyse auf englischen Text optimiert, da die Lastenhefte überlicherweise auf englisch verfasst sind (siehe Kap. 3.x). Die Boilerplates im Programm sind dementsprechend in englischer Sprache verfasst, wie auch das Ausgabe-Dokument.
-
-Da der Text bereits innerhalb der Boilerplate-Objekte formatiert wurde bzw. vorliegt, entfällt hier eine aufwändige Anpassung an Sprache und ihre Grammatik.
-
-\item \textit{Output-Processing} - Erzeugung des Anforderungsdokuments aus Boilerplates: Nachdem die einzelnen Zeichenketten aus den Boilerpaltes extrahiert wurden, liegen nun die einzelnen Anforderungen in formaler Sprache als Text vor. Die Anforderungen müssen nun vor dem Export in der richtigen Reihenfolge angeordnet und an das Layout des Dokumentes angepasst werden.
-
-Der Nutzer wählt dazu eine Datei über die GUI aus, in welche die Anforderungen exportiert werden. Der Dateityp ist dabei prinzipiell unbeschränkt, zur Vereinfachung wurde sich jedoch auf reine Textdateien (.txt) beim Export beschränkt. 
-
-Das Programm schreibt nun alle Anforderungen, getrennt durch Leerzeilen, in die Datei, sodass schlussendlich alle Anforderungen als Boilerplates exportiert sind.
-\end{enumerate}
-
-Der Arbeitsablauf des Programms lässt sich anhand des zustandswandlers in Abb. 4.x nachvollziehen. Dort ist die interne Verarbeitung unter Referenzierung der Stufen aus der NLP-Architektur als Prozess zwischen verschiedenen Akteuren dargestellt.
-\section{Auswertung der Testresultate}
-\section{Mehrwert?}
-\section{Ziel erreicht? Hypothese reviewen und schwafeln}
 \chapter{Fazit}
 \section{Zusammenfassung}
 Die Entwicklung der zwei prototypischen Werkzeuge \textit{Requirements-To-Boilerplate-Converter}(R2BC) und \textit{Delta-Analyser}(DA) als Unterstützung von Requirements-Engineering(RE)-Prozessen bei der Auswertung von Lastenheften stellten die Hauptthemen dieser Arbeit dar.
