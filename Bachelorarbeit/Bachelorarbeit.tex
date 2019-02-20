@@ -131,44 +131,48 @@ Schlussendlich danken wir unseren Betreuern Prof. Dr. Sebastian Bab und Prof. Dr
 \newpage
 \chapter{Einführung}
 \section[Motivation]{Motivation und thematische Grundlagen}
-In einer Vielzahl von Firmen stellt die Erhebung von Anforderungen den ersten Schritt bei der Entwicklung von neuen Produkten dar. Diese Anforderungen manifestieren sich später in der zu entwickelnden Hard- und Software. Spätere Produktmerkmale müssen dabei weit vor der tatsächlichen Entwicklung berücksichtigt werden und fließen in das Anforderungsdokument ein. Die Erhebung und Identifikation dieser Anforderungen wird als \textit{Requirements-Engineering} bezeichnet \cite{bal10}.
+In einer Vielzahl von Firmen stellt die Erhebung von Anforderungen den ersten Schritt bei der Entwicklung von neuen Produkten dar. Diese Anforderungen manifestieren sich später in der zu entwickelnden Hard- und Software. Spätere Produktmerkmale müssen dabei weit vor der tatsächlichen Entwicklung berücksichtigt werden und fließen in das Anforderungsdokument ein. Die Erhebung und Identifikation dieser Anforderungen wird als \textit{Requirements-Engineering}(RE) bezeichnet \cite{bal10}.
 
 Dieser Prozess wird dabei sowohl bei kompletten Neuentwicklungen, als auch bei der Adaption eines bereits vorhandenen Produktes auf neue Projekte durchlaufen. Zur Rolle von Requirements-Engineering in Projekten siehe etwa \cite{mw02} und \cite{hl01}. 
 
-Dem Betrieb liegen anschließend die Aufgaben und Ziele für die Entwicklung als Dokumente vor, auf deren Basis die Produktentwicklung beginnen kann. Die Entwicklung unterliegt dabei bestimmten Kriterien und Faktoren, die den unternehmerischen Erfolg beeinflussen. Neben betriebswirtschaftlichen Einflüssen wie der Einordnung des Produktes in der Wertschöpfungskette sind es dabei besonders technische Anforderungen an das Produkt, die definiert und während der Produktentwicklung eingehalten werden müssen.
+Dem Betrieb liegen anschließend die Spezifikationen des späteren Produktes vor, auf deren Basis die Entwicklung beginnen kann. Die Entwicklung unterliegt dabei bestimmten Kriterien und Faktoren, die den unternehmerischen Erfolg beeinflussen. Neben betriebswirtschaftlichen Einflüssen wie der Einordnung des Produktes in der Wertschöpfungskette sind es dabei besonders technische Anforderungen an das Produkt, die durch die Anforderungen definiert und während der Produktentwicklung eingehalten werden müssen.
 
 \subsubsection{Anforderungen im betrieblichen Entwicklungsprozess}
-Das Resultat ist das sogenannte Lastenheft, in Unternehmen häufig als CRS (\textit{Customer Requirement Specification}) bezeichnet \cite{dge19}. Mithilfe dessen kann nun die Entwicklung eines Produktes begonnen werden. Ein später hergestelltes Produkt sollte möglichst allen beschriebenen Anforderungen entsprechen. Da Betriebe jedoch nur selten alle einzelnen Komponenten des späteren Produktes selbst herstellen können, sind sie auf Zulieferer angewiesen, die einzelne Komponenten entwickeln und produzieren. Die Hersteller fertiger Komponenten werden als \textit{OEM} (\textit{Original Equipment Manufacturer}), zu Deutsch \textit{Erstausrüster}, bezeichnet \cite{ir09}.  
+Diese Anforderungen werden im sogenannten Lastenheft zusammengetragen, in Unternehmen häufig als CRS (\textit{Customer Requirement Specification}) bezeichnet \cite{dge19}. Mithilfe dessen kann nun die Entwicklung eines Produktes begonnen werden. Ein später hergestelltes Produkt sollte möglichst allen beschriebenen Anforderungen entsprechen. 
 
-In diesem Fall wird dem Zulieferer ein Lastenheft übergeben, dass allen Anforderungen des Kunden genügt. Das bedeutet jedoch, dass auch die Produktentwicklung anhand des Lastenheftes an den Zulieferer ausgelagert wird. Dem Zulieferer werden damit Möglichkeiten geboten und Verantwortung übertragen, das Produkt weiter zu definieren. Einerseits können etwa interne Richtlinien und Erfahrungen auf dem Gebiet der Produktentwicklung aus früheren Projekten integriert werden, andererseits aber auch weitere Optimierungen sowie Merkmale, die noch nicht im Lastenheft dokumentiert sind. Somit agiert der Zulieferer nicht nur als produzierende Fabrik, sondern nimmt am Entwicklungsprozess teil.
+Hersteller fertiger Produkte werden auch als \textit{OEM} (\textit{Original Equipment Manufacturer}), zu Deutsch \textit{Erstausrüster}, bezeichnet \cite{ir09}. Diese stellen nur selten alle einzelnen Komponenten des späteren Produktes selbst her und sind daher auf Zulieferer angewiesen, die einzelne Komponenten entwickeln und produzieren. Aus Sicht der Zulieferer ist es dabei betriebswirtschaftlich sinnvoll, nicht bloß für einen Kunden ein komplettes Produkt zu entwickeln, sondern bereits vorhandene Entwicklungen auf möglichst viele Kundenprojekte zu adaptieren. 
+
+Der Zulieferer erhält dabei häufig ein Lastenheft vom OEM, dass alle Anforderungen für die Entwicklung enthält. Das bedeutet jedoch, dass auch die Produktentwicklung anhand des Lastenheftes an den Zulieferer ausgelagert wird. Dem Zulieferer werden damit Möglichkeiten geboten und Verantwortung übertragen, das Produkt im Rahmen der Anforderungen zu definieren. Einerseits können etwa interne Richtlinien und Erfahrungen auf dem Gebiet der Produktentwicklung aus früheren Projekten integriert werden, andererseits aber auch weitere Optimierungen sowie Merkmale, die noch nicht im Lastenheft des OEM dokumentiert sind. Somit agiert der Zulieferer nicht nur als produzierende Fabrik, sondern nimmt am Entwicklungsprozess teil.
 
 Die Anforderungen an ein Produkt, etwa technische Rahmenbedingungen und Qualitätsanforderungen, setzen sich dabei aus einer Auflistung von funktionalen und nicht-funktionalen Anforderungen zusammen \cite{bal10}. Häufig enthält das Lastenheft auch weitere Informationen und abseits von Text Abbildungen, die einzelne Anforderungen ergänzen. 
 
 \subsubsection{Umstände der Anforderungsdefinition}
-Die Anforderungen werden dabei von vielen verschiedenen Domänenexperten beim OEM formuliert und in das Lastenheft für die Entwicklung eingetragen. Verschiedenste Akteure aus einem Unternehmen sind dabei an der Festlegung der Anforderungen an ein Entwicklungsprojekt bzw. Produkt beteiligt. Beteiligte sind etwa Produktdesigner, Ingenieure und Systemtechniker, die an verschiedenen Stellen im Lastenheft Anforderungen an eine Komponente festlegen und an entsprechenden Stellen vermerken. Diese Beteiligten sind in der Regel auf ihren Bereich spezialisiert und nicht interdisziplinär, da häufig an verschiedenen Orten und an spezifischen Aspekten eines Produktes in mehreren Projektteams entwickelt wird. 
+Die Anforderungen werden dabei von vielen verschiedenen Domänenexperten beim OEM formuliert und in das Lastenheft für die Entwicklung eingetragen. Verschiedenste Akteure aus einem Unternehmen sind dabei an der Festlegung der Anforderungen an ein Entwicklungsprojekt bzw. Produkt beteiligt. Dies sind etwa Produktdesigner, Ingenieure und Systemtechniker, die an verschiedenen Stellen im Lastenheft Anforderungen an eine Komponente festlegen und an entsprechenden Stellen vermerken. Diese Beteiligten sind in der Regel auf ihren Bereich spezialisiert und nicht interdisziplinär, da häufig an verschiedenen Orten und an spezifischen Aspekten eines Produktes in mehreren Projektteams entwickelt wird. 
 
-Projektteams aus einem Bereich tauschen sich häufig nicht untereinander aus und legen unabhängig von anderen Beteiligten Anforderungen fest. Demzufolge sammeln sich im Lastenheft schon bei der Entstehung beim OEM verschiedenste Merkmale einer Komponente, die aber nicht im Bezug zueinander stehen und sich im schlimmsten Fall gegenseitig ausschließen. Ferner gibt es sprachliche Eigenheiten der Autoren und sprachliche Fehler, die innerhalb des Teams nicht auffallen und später nicht mehr korrigiert werden. Auch gibt es unternehmensinterne Richtlinien für die Formulierung von Anforderungen beim OEM, die das Verständnis auf Seite des Zulieferers erschweren können. Christian Allmann, Lydia Winkler und Thorsten Kölzow haben in \cite{awk06} solche Herausforderungen für das Requirements-Engineering zwischen OEMs und Zulieferern identifiziert.
+Projektteams aus einem Bereich tauschen sich häufig nicht untereinander aus und legen unabhängig von anderen Beteiligten Anforderungen fest. Demzufolge sammeln sich im Lastenheft schon bei der Entstehung beim OEM verschiedenste Merkmale einer Komponente. Ferner gibt es sprachliche Eigenheiten der Autoren und sprachliche Fehler, die innerhalb des Teams nicht auffallen und später nicht mehr korrigiert werden. Auch gibt es unternehmensinterne Richtlinien für die Formulierung von Anforderungen beim OEM, die das Verständnis auf Seite des Zulieferers erschweren können. Christian Allmann, Lydia Winkler und Thorsten Kölzow haben in \cite{awk06} solche Herausforderungen für das Requirements-Engineering zwischen OEMs und Zulieferern identifiziert.
 
-Durch die entstehende große fachliche Breite und Tiefe der Spezifikationen im Lastenheft, können mitunter Dokumente mit einem Umfang von von mehreren tausend Seiten entstehen. Dies bedeutet einen hohen Aufwand bei der Transformation und Bündelung der Anforderungen in ein tatsächliches Produkt beim Zulieferer. 
+Durch die entstehende große fachliche Breite und Tiefe der Spezifikationen im Lastenheft, können mitunter Dokumente mit einem Umfang von mehreren tausend Seiten entstehen. Dies bedeutet einen hohen Aufwand bei der Transformation und Bündelung der Anforderungen in ein tatsächliches Produkt beim Zulieferer.  
 
 \subsubsection{Prozessoptimierung durch Werkzeuge}
-Bei der Untersuchung von Projektlastenheften muss also nach Zusammenhängen und Bezügen zwischen mehreren Anforderungen gesucht werden, damit die Korrektheit des späteren Produktes gewährleistet ist. Die Analyse von Zusammenhängen zwischen Anforderungen stellt dabei aus Gründen der Effizienz ein Problem dar, wenn jeder Projektbeteiligte von Hand die für ihn relevanten Anforderungen aus dem Lastenheft extrahieren muss. Auch müssen die Lastenhefte an die Formulierungen und Ausdrucksweisen für Requirements-Management im Unternehmen angepasst werden. 
+Bei der Untersuchung von Projektlastenheften ist daher die Formalisierung der Anforderungen wesentlich, damit Korrektheit des späteren Produktes gewährleistet ist. Die Analyse der Anforderungen stellt dabei aus Gründen der Effizienz ein Problem dar, wenn jeder Projektbeteiligte manuell die für ihn relevanten Anforderungen aus dem Lastenheft prüfen muss. Auch müssen die Lastenhefte an die Formulierungen und Ausdrucksweisen für Requirements-Management im Unternehmen angepasst werden. 
 
-Bislang gibt es jedoch kaum Werkzeugunterstützung, die effiziente Möglichkeiten zur automatisierten Überarbeitung und Anpassung einzelner Anforderungen aus dem Dokument bietet. Ansätze aus dem \textit{Natural-Language-Proessing}, kurz NLP, stellen gleichzeitig vielversprechende Forschungsfelder in der Informatik dar, die eine solche automatisierte Verarbeitung auf Basis von Sprachanalyse ermöglichen. Diese werden in Kap. 2 ausführlich erläutert. Syntax und Semantik der einzelnen Sätze und Zusammenhänge in Texten können auf Basis aktueller Trends wie Machine-Learning und dynamischer Programmierung zunehmend besser abgebildet werden.
+Diese Probleme beim Verständnis der Anforderungen bieten Potential für Unterstützung durch Methoden der Informatik, wenn entsprechende Werkzeuge entwickelt werden. In 2.3 werden einige Ansatzpunkte aus der Literatur vorgestellt.
+
+Bislang gibt es jedoch kaum Werkzeugunterstützung, die effiziente Möglichkeiten zur automatisierten Überarbeitung und Anpassung einzelner Anforderungen aus dem Dokument bietet. Ansätze aus dem \textit{Natural-Language-Proessing}, kurz NLP, stellen gleichzeitig vielversprechende Forschungsfelder in der Informatik dar, die eine solche automatisierte Verarbeitung auf Basis von Sprachanalyse ermöglichen. Diese Analysemethoden werden in Kap. 2.1 ausführlich erläutert. Syntax und Semantik der einzelnen Sätze und Zusammenhänge in Texten können auf Basis aktueller Trends wie Machine-Learning und dynamischer Programmierung zunehmend besser abgebildet werden.
 
 \section[Unternehmenskontext]{Unternehmenskontext der Arbeit}
-Besonders betroffen von dem geteilten Entwicklungsprozess zwischen OEMs und Zulieferern ist die Automobilindustrie. Eine Vielzahl von Zulieferern beliefert die Automobilhersteller mit Komponenten für ihre Fahrzeuge. Einzelne Komponenten bestehen dabei häufig auch aus mehreren Einzelteilen, die wiederum von mehreren verschiedenen Zulieferern geliefert werden. \cite{awk06}
+Besonders betroffen von dem geteilten Entwicklungsprozess zwischen OEMs und Zulieferern ist die Automobilindustrie. Eine Vielzahl von Zulieferern beliefert die Automobilhersteller mit Komponenten für ihre Fahrzeuge. Einzelne Komponenten bestehen dabei häufig auch aus mehreren Einzelteilen, die wiederum von mehreren verschiedenen Zulieferern hergestellt werden. \cite{awk06}
 
 \subsection{Einsatz bei HELLA}
 Einer dieser Zulieferer ist die HELLA GmbH \& Co. KGaA (im folgenden (die) HELLA genannt), die sich auf die Entwicklung und Produktion von Licht- und Elektronikkomponenten in Hard- und Software spezialisiert hat. HELLA ist ein international operierender deutscher Automobilzulieferer mit Hauptsitz in Lippstadt und zählt zu den Top 100 Automobilzulieferern weltweit \cite{lv10}. Für weitere Information siehe \cite{he19} sowie die Firmenwebsite. 
 
-Zum Verfassen dieser Arbeit waren die Autoren fünf Monate bei der Firma beschäftigt. Dies beinhaltete zwei Monate Arbeit als Praktikanten und die verbleibenden drei Monate als Bacheloranden. 
+Im Rahmen dieser Arbeit waren die Autoren fünf Monate bei HELLA beschäftigt. Dies beinhaltete zwei Monate Arbeit als Praktikanten und die verbleibenden drei Monate als Bacheloranden. 
 Die Hauptaufgabe dort war die Mitarbeit im Bereich Requirements-Engineering für die Abteilung der Elektronik-Vorentwicklung \textit{E-AE} (\textit{Electronics-Advances Engineering}). 
 
 Die Abteilung ist zuständig für die Planung und Umsetzung von Vorentwicklungsprojekten um die Ergebnisse an die Serienentwicklung oder verschiedene OEMs weiterzuleiten. Dies beinhaltet häufig, wie zuvor beschrieben, den Austausch von Informationen der Firma HELLA mit diversen OEMs bezüglich gemeinsamer Projekte. Die genaue Darstellung dieser Prozesse erfolgt in Kap. 3.1. Somit erhält diese Abteilung auch oft Lastenhefte der OEMs, welche dann an die Projektteams weitergeleitet werden. 
 
 \subsection{Anforderungsmanagement im Unternehmen}
-Die Gewichtung einzelner Anforderungen in einem größeren Systemkontext fällt dort schwer, da nun Projektteams beim Zulieferer, die an der Entstehung des Lastenheftes nicht beteiligt waren, dieses verstehen sollen und auf ihre Teilkomponente anwenden müssen. Zusätzlich zu den teilweise widersprüchlichen Anforderungen aus dem Lastenheft kommen weitere Anforderungen des Zulieferers, wie etwa die Gewinnmarge und unternehmensinternte Richtlinien hinzu. Schlussendlich soll jedoch ein Produkt entwickelt werden, dass möglichst alle Anforderungen berücksichtigt. \cite{mw02}
+Die Gewichtung einzelner Anforderungen in einem größeren Systemkontext fällt dort schwer, da nun Projektteams beim Zulieferer, die an der Entstehung des Lastenheftes nicht beteiligt waren, dieses verstehen sollen und auf ihre Teilkomponente anwenden müssen. Zusätzlich zu den teilweise uneindeutig formulierten Anforderungen aus dem Lastenheft kommen weitere Vorgaben des Zulieferers, wie etwa die Produktkosten und unternehmensinternte Richtlinien, hinzu. Schlussendlich soll jedoch ein Produkt entwickelt werden, dass möglichst alle Anforderungen berücksichtigt. \cite{mw02}
 
 Zu diesem Zweck können bei Zulieferern spezielle Abteilungen existieren, die Projektteams bei der Identifikation und Gewichtung von Anforderungen unterstützen. Diese Abteilungen sind auf die Auswertung der Projektlastenhefte spezialisiert und erstellen Modelle zu Merkmalen des späteren Produktes. Die Experten stellen dabei die Eindeutigkeit und Verständlichkeit sicher und identifizieren relevante Anforderungen für die Mitglieder des Projektteams. Somit kann ein eigenes Anforderungsdokument für das Projektteam beim Zulieferer erstellt werden. 
 Falls nicht vorhanden, muss das Team selbst über die Bewertung von Anforderungen entscheiden und Rücksprache mit dem OEM halten.
@@ -177,32 +181,32 @@ Bei HELLA existiert eine dementsprechende Abteilung, genannt \textit{Projects, M
 
 \section{Hypothese}
 Hypothese dieser Arbeit ist, dass sich mithilfe von NLP Lastenhefte effizient automatisiert verarbeiten lassen. Dadurch kann die Arbeit von Requirements-Engineers, aber auch von Beteiligten an der Entwicklung beim Verständnis der Anforderungen, erleichtert werden. Dabei ist die Auswertung der Syntax und Semantik für ein tieferes Verständnis von Textzusammenhängen, also von verschiedenen Anforderungen, relevant.
+Hypothese dieser Arbeit ist, dass sich mithilfe von NLP Lastenhefte effizient automatisiert verarbeiten lassen. Damit kann die Arbeit von Requirements-Engineers, aber auch von Beteiligten an der Entwicklung beim Verständnis der Anforderungen, erleichtert werden. Die Verarbeitung von Lastenheften bedarf dabei der Modellierung von Syntax und Semantik. Insbesondere durch die hohe Komplexität der Semantik werden dazu Ontologien benötigt. 
 
-Die sprachliche Analyse kann Requirements erkennen und kategorisieren, sowie in Beziehung zueinander setzen. Insbesondere lassen sich die beschriebenen Probleme bei der Überprüfung der Lastenhefte auf Konsistenz lösen oder zumindest vereinfachen. Dies kann mithilfe der in dieser Arbeit beschriebenen Programme geschehen, welche konzeptuell dargestellt und prototypisch implementiert werden. 
+Die sprachliche Analyse kann einzelne Anforderungen erkennen und formalisieren. Insbesondere lassen sich die beschriebenen Probleme bei der Verarbeitung der Lastenhefte lösen oder zumindest vereinfachen. Dies kann mithilfe der in dieser Arbeit beschriebenen Programme erfolgen, welche konzeptuell dargestellt und prototypisch implementiert werden. 
 
-Weiterhin soll geprüft werden, wie stark ein Mehrwert bei der Nutzung solcher Programme für ein Firma ausfallen kann. Dies beinhaltet ersparte Arbeitszeit, Kosten und vermiedene Fehler. 
+Weiterhin soll geprüft werden, wie stark ein Mehrwert bei der Nutzung solcher Programme für betriebliches RE ausfallen kann. Dies betrifft primär ersparte Arbeitszeit bzw. reduzierten manuellen Aufwand.
 
 \section{Methodik}
-Verschiednene Methoden aus dem Bereich Natural Language-Processing werden zunächst anhand des Rückblicks auf die Projektarbeit theoretisch und anhand praktischer Beispiele erläutert. Der betriebliche Kontext der Firma HELLA wird durch genaue Darstellung der dortigen Verfahren beleuchtet. 
+Verschiedene Methoden aus dem Bereich Natural-Language-Processing werden zunächst anhand des Rückblicks auf die Projektarbeit theoretisch und anhand praktischer Beispiele erläutert. Der betriebliche Kontext der Firma HELLA wird durch genaue Darstellung der dortigen Verfahren beleuchtet. 
 
-Mit diesen Grundlagen wird dann die Unterstützung der dortigen Prozesse im Bereich Requirements-Engineering auf Basis von natürlichsprachlicher Textanalyse evaluiert. Die gewonnenen Erkenntnisse aus der Zusammenarbeit mit der Abteilung PMT wurden in Anforderungen an die zu entwickelnden Werkzeuge zusammengefasst, die als Basis für unsere Softwareentwicklung dienten. Dadurch entstand eine genaue Vorstellung der zu entwickelnden Software, welche mit Hilfe der Programmkonzepte von Konstantin Zichler ZIC19 entworfen und implementiert werden konnte. 
+Mit diesen Grundlagen wird dann die Unterstützung der dortigen Prozesse im Bereich Requirements-Engineering auf Basis von natürlichsprachlicher Textanalyse evaluiert. Die gewonnenen Erkenntnisse aus der Zusammenarbeit mit der Abteilung PMT wurden in Anforderungen an die zu entwickelnden Werkzeuge zusammengefasst. Dadurch entstand eine genaue Vorstellung der zu entwickelnden Software, welche mit Hilfe der Programmkonzepte von Konstantin Zichler \cite{zh19} entworfen und implementiert werden konnte. 
 
-Das Ergebnis stellten zwei Software-Prototypen auf \textit{java}-Basis dar, deren Struktur und Funktionsweisen wir anhand von Modellen und Codebeispielen darstellen. Die Prototypen wurden mit originalen Lastenheften von verschiedenen OEMs und der HELLA getestet und evaluiert.
+Das Ergebnis stellten zwei Software-Prototypen auf \textit{java}-Basis dar, deren Struktur und Funktionsweisen anhand von Modellen und Codebeispielen dargestellt werden. Die Prototypen wurden mit originalen Lastenheften von verschiedenen OEMs und der HELLA getestet und evaluiert.
 
 \section{Aufbau der Arbeit}
 In der folgenden Ausarbeitung wird zunächst in Kapitel 2 eine Überblick über den Stand der Technik gegeben. Dies beinhaltet einerseits einen Rückblick auf die zuvor verfasste Projektarbeit zu NLP und einer Erläuterung der Grundlagen von Ontologien und andererseits einen Überblick von Arbeiten, die sich der gleichen oder ähnlichen Problemstellungen gewidmet haben. 
+Kapitel 3 beschäftigt sich zur Motivation der beiden Programme mit dem betrieblichen Umfeld und RE-Prozessen bei der HELLA. Hierzu wird zunächst vor dem Hintergrund der aktuellen Verfahren der Anwendungsfall der Programme genauer beschrieben. Somit lassen sich die betrieblichen Anforderungen an die Werkzeuge erheben, welche dann von den vorgestellten Konzepten abgedeckt werden sollen. 
 
-Kapitel 3 beschäftigt sich für eine bessere Einordnung der beiden Programme mit dem betrieblichen Umfeld bei der HELLA. Hierzu wird zunächst, vor dem Hintergrund des momentanen Vorgehens, der Anwendungsfall der Programme genauer beschrieben. Somit lassen sich die betrieblichen Anforderungen an die Werkzeuge bestimmen, welche dann von den vorgestellten Konzepten abgedeckt werden sollen. 
+In Kapitel 4 wird das erste Werkzeug - der Requirements-to-Boilerplate-Converter(R2BC) - ausführlich beschrieben. Dies beinhaltet die Darstellung von dessen Architektur, eine Vorstellung der Implementierung, eine Auflistung möglicher Erweiterungen und eine genaue Beschreibung durchgeführter Tests. Zu den Tests werden dabei präzise Methodik vorgestellt und Ergebnisse eingeordnet. 
 
-In Kapitel 4 wird das erste Werkzeug - der R2B-Converter - ausführlich beschrieben. Dies beinhaltet die Darstellung dessen Architektur, eine Vorstellung der Implementierung, eine Auflistung möglicher Erweiterungen und eine genaue Beschreibung des Testverfahrens der Software. Zu den Tests werden dabei präzise die Methodik, die Durchführung und die Ergebnisse vorgestellt, welche in dem späteren Evaluations-Kapitel aufgegriffen und eingeordnet werden. 
+Das zweite Werkzeug - der Delta-Analyser(DA) - wird in Kapitel 5 behandelt. Dabei werden ähnlich zu Kapitel 4 die Architektur, die Implementierung und mögliche Erweiterungen beschrieben. 
 
-Das zweite Werkzeug - der Delta-Analyser - wird in Kapitel 5 behandelt. Dabei werden ähnlich zu Kapitel 4 die Architektur, die Implementierung, mögliche Erweiterungen und durchgeführte Tests beschrieben. Es wird genau dargelegt wie die Testergebnisse erzielt wurden, die später zusammen mit den Ergebnissen von Kapitel 4 evaluiert werden, um das Resultat der beiden Werkzeuge bewerten zu können. 
+Die Arbeit wird von Kapitel 6 abgeschlossen. Dieses beinhaltet eine Evaluation des Projekts, die Zusammenfassung der geleisteten Arbeit und einen Ausblick. 
 
-Kapitel 6 stellt das zuvor erwähnte Evaluations-Kapitel dar. Hier findet zunächst die Auswertung der erhobenen Testergebnisse statt.
-Anschließend wird anhand dessen dargestellt, ob und inwiefern das Nutzen der Werkzeuge einen Mehrwert für die Firma erwirtschaften kann und somit im betrieblichen Umfeld eingesetzt werden sollte.  
-Somit lässt sich die Korrektheit der in 1.2 gestellten Hypothese überprüfen.
+In der Evaluation wird dargestellt, ob und inwiefern das Nutzen der Werkzeuge einen Mehrwert für die Firma erwirtschaften kann und somit im betrieblichen Umfeld eingesetzt werden sollte. 
 
-Die Arbeit wird von Kapitel 7 abgeschlossen. Dieses beinhaltet eine Zusammenfassung der geleisteten Arbeit und der Ergebnisse. Außerdem wird zuletzt noch ein Ausblick für die Zukunft der Werkzeuge und die Lösung des Problems erläutert. 
+Der Inhalt der Arbeit wird zusammengefasst und abschließend ein Ausblick für die Zukunft der Werkzeuge und die Lösung des Problems erläutert. 
 
 \section{Autorenverzeichnis}
 \begin{center}
@@ -1840,10 +1844,11 @@ Da die Analyse der Deltas prinzipiel automatisch anhand von Kriterien bzw. dem �
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.7]{Bilder/DA-GUI-leer.png}
+\includegraphics[scale=1]{Bilder/DA-GUI-leer.png}
 \caption{DA-GUI beim Programmstart [eigene Darstellung]}
 \end{center}
 \end{figure}
+
 Die GUI orientiert sich dabei an dem in Kap. 3.x gezeigten Use-Case, wonach der Delta-Analyser ein Lastenheft V2 auf die Deltas zu einem bereits vorhandenen Lastenheft V1 hin analysieren soll. V2 wird im DA als \textit{OEM-Lastenheft} bezeichnet, da ein OEM neue Anforderungen als Kunde an HELLA gibt, die umgesetzt werden sollen. V1 wird als \textit{internal} bzw. \textit{HELLA}-Lastenheft bezeichnet, da es ein Lastenheft darstellt, dass bereits in der Firma bekannt ist.
 
 Beim Programmstart wählt der Nutzer über \textit{Import OEM CRS...} ein ein Lastenheft mit Kundenanforderungen aus, zu denen passende Anforderungen aus einem internen Lastenheft \textit{Import internal CRS... }gefunden werden sollen. 
@@ -1870,13 +1875,18 @@ Diese Anfordeurngen liegen somit firmenintern vor und neu hinzukommende Anforder
 \\
 
 Nach dem Klick auf \textit{Analyse Deltas} ermittelt der R2BC zu jeder Anforderung aus V2 die am besten passende Anforderung aus V1. Der Grad der Übereinstimmung wird zusammen mit den Deltas zwischen den Anforderungen in den Delta-Report exportiert. Dieser ist für die beiden prototypischen Lastenhefte in Abb. 5.x dargestellt:
-\\
-PLATZHALTER DELTA-REPORT
-\\
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.81]{Bilder/delta-report.png}
+\caption{Delta-Report der Testlastenhefte [eigene Darstellung]}
+\end{center}
+\end{figure}
+
 Die Einträge zu jeder Anforderung aus V2 im Report sind wie folgt zu bewerten:
 \begin{enumerate}
 \item Zu ersten Anfordeung aus V2 wurde die identische Anorderung 1 in V1 identifiziert, da diese nach der Konvertierung durch den R2BC die identische Boilerplate hervorgebracht haben. Der DA hat also die best-mögliche Übereinstimmung gefunden.
-\item Bei Anforderung 2 liegt ein Delta in den vergleichbaren Anforderungen aus V1 vor. Der DA hat erneut die am besten passende Anforderung 1 identifiziert. Durch Nutzung des Enumerates wurde identifiziert, dass der Systemtyp von \textit{vehicle} und \textit{Golf7} übereinstimmen und somit zumindest vergleichbare Anfordeurngen vorliegen. Da sich die \textit{functionDescription} beider Anforderungen jedoch unterscheidet, ist der Übereinstimmungsgrad eher gering.
+\item Bei Anforderung 2 liegt ein Delta in den vergleichbaren Anforderungen aus V1 vor. Der DA hat erneut die am besten passende Anforderung 1 identifiziert. Durch Nutzung des Enumerates wurde identifiziert, dass der Systemtyp von \textit{vehicle} und \textit{Golf7} übereinstimmen und somit zumindest vergleichbare Anforderungen vorliegen. Da sich die \textit{functionDescription} beider Anforderungen jedoch unterscheidet, ist der Übereinstimmungsgrad eher gering.
 \item Bei Anforderung 3 liegt erneut der Fall vor, dass eine vergleichbare Anforderung in V1 gefunden wurde. Es fällt auf, dass sich lediglich der \textit{ConditionalActor} zu den bekannten Anforderungen unterscheidet, weshalb der DA einen hohen Überinstimmungsgrad beider Anforderungen erreicht. Es muss lediglich geprüft werden, ob tatsächlich eine einfache Adaption von \textit{Bluetooth connected phone} hin zu \textit{vehicle} möglich ist.
 \item Anforderung 4 scheint zunächst sehr ähnlich zu Anf. 3, unterscheitet sich jedoch in sämtlichen Satzbestandteilen von den Anforderungen aus V1. Am ehesten vergleichbar wäre wieder Anf. 3, jedoch sind sowohl \textit{ConditionalActor}, als auch \textit{Condition} und \textit{FunctionDescription} unterschiedlich. Der DA kann also, bis auf den gleichen Typ der Boilerplate, keine Übereinstimmung zu bekannten Anforderungen feststellen.
 \end{enumerate}
@@ -1930,27 +1940,27 @@ Des Weiteren wurde noch während der Entwicklung viel Potential für die Program
 
 
 \section{Zusammenfassung}
-Die Entwicklung der zwei prototypischen Werkzeuge \textit{Requirements-To-Boilerplate-Converter}(R2BC) und \textit{Delta-Analyser}(DA) als Unterstützung von Requirements-Engineering(RE)-Prozessen bei der Auswertung von Lastenheften stellten die Hauptthemen dieser Arbeit dar.
+Die Entwicklung und Konzeption der zwei prototypischen Werkzeuge \textit{Requirements-To-Boilerplate-Converter}(R2BC) und \textit{Delta-Analyser}(DA) als Unterstützung von Requirements-Engineering(RE)-Prozessen bei der Auswertung von Lastenheften stellten die Hauptthemen dieser Arbeit dar.
 
-Im Laufe dieser Arbeit wurde eine Einführung in die Grundlagen aus den Bereichen Natural Language Processing und betrieblichem Requirements-Engineering in der Automobilindustrie gegeben. Dazu wurden die detaillierten Schritte einer natürlichsprachlichen Analyse zur Dokumentenanalyse, wie auch die Kriterien und Ziele des RE vorgestellt. In Zusammenarbeit mit RE-Experten konnten Anforderungen und Potentiale für die softwaremäßige Unterstützung identifiziert und modelliert werden. Der Bezug zur Informatik wurde im Anschluss daran durch den konkreten Entwurf und die prototypische Implementierung der Werkzeuge hergestellt. 
+Im Laufe dieser Arbeit wurde eine Einführung in die Bereiche Natural Language Processing(NLP) und betriebliches RE in der Automobilindustrie gegeben. Dazu wurden die detaillierten Schritte der Analyse und Nutzung von Anforderungsdokumenten, wie auch die Kriterien und Ziele des RE vorgestellt. In Zusammenarbeit mit RE-Experten der Firma HELLA konnten Anforderungen und Funktionen für die softwaremäßige Umsetzung identifiziert und modelliert werden. Der Bezug zur Informatik wurde im Anschluss daran durch den konkreten Entwurf und die prototypische Implementierung der Werkzeuge hergestellt. 
 
 \vspace{12pt}
-Aus den Grundlagen zu NLP und Ontologien wurde besonders die hohe Komplexität natürlicher Sprache und der damit begründete hohe Aufwand bei der Entwicklung entsprechender Werkzeuge verdeutlicht. Verschiedene Algorithmen in Modulen einer Verarbeitungskette versuchen dabei, Teilbereiche natürlicher Sprache zu modellieren und Informationen zu generieren. 
+Aus den Grundlagen zu NLP und Ontologien wurde besonders die hohe Komplexität natürlicher Sprache und der damit begründete hohe Aufwand bei der Entwicklung entsprechender Werkzeuge verdeutlicht. Ein häufig anzutreffender Ansatz aktueller Forschungen im Bereich Anforderungsmanagement ist dabei, für ein verbessertes Verständnis zunächst natürlichsprachliche Dokumente in formale Sprachen zu überführen.
 
-Im Teil der betrieblichen Informationen wurde aus Sicht von RE-Experten auf den Aufwand beim Umgang mit Anforderungen im Entwicklungsprozess und Ziele für das RE hingewiesen. Die Notwendigkeit einer Unterstützung wurde im Rahmen der Evaluation der betrieblichen RE-Prozesse betont. Machbarkeit und Qualität von Anforderungen, werden größtenteils manuell geprüft, bieten jedoch großes Potential für Automatisierung und Use-Cases für die in dieser Arbeit skizzierten Werkzeuge. Diese nutzen die Konvertierung der Lastenhefte in formale Sprachschablonen (Boilerplates), um Lastenhefte für die spätere Umsetzung aufzubereiten.
+Im Teil der betrieblichen Informationen wurde aus Sicht von RE-Experten auf den Aufwand beim Umgang mit Anforderungen im Entwicklungsprozess und Ziele für das RE hingewiesen. Machbarkeit und Qualität von Anforderungen werden größtenteils manuell geprüft, bieten jedoch großes Potential für Automatisierung und Use-Cases für die in dieser Arbeit skizzierten Werkzeuge. Diese nutzen die Konvertierung der Lastenhefte in formale Sprachschablonen (Boilerplates), um Lastenhefte für die spätere Umsetzung aufzubereiten.
 
-Zuletzt erfolgte der softwaretechnische Entwurf und die Implementierung der Werkzeuge. Durch den betrieblichen Einsatz entstanden dabei der R2BC und DA auf java-Basis.
+Zuletzt erfolgte der softwaretechnische Entwurf und die Implementierung der Werkzeuge. Durch den betrieblichen Einsatz entstanden dabei der R2BC und DA auf java-Basis unter Nutzung der NLP-Software GATE.
 
-Der R2BC stellt die erste Stufe der Unterstützung dar, in welcher natürlichsprachliche Lastenhefte in Boilerplates überführt werden. Der DA realisiert auf dieser Basis die zweite Stufe der Verarbeitung, dessen Use-Case der Vergleich von zwei Lastenheften auf Basis der enthaltenen Anforderung ist. Die automatisierte Konvertierung und Vergleich von Lastenheften wurde anhand dieser Prototypen umgesetzt. 
+Der R2BC stellt die erste Stufe der Verarbeitung dar, in welcher natürlichsprachliche Lastenhefte in Boilerplates überführt werden. Der DA realisiert auf dieser Basis die zweite Stufe der Verarbeitung, dessen Use-Case der Vergleich von zwei Lastenheften auf Basis der enthaltenen Anforderungen ist. Dazu nutzt er die im R2BC genereierten Textinformationen und kann Deltas präzise identifizieren. Die automatisierte Konvertierung und Vergleich von Lastenheften wurde anhand dieser Prototypen umgesetzt. 
 
 \vspace{12pt}
 Die Evaluation und Tests der Werkzeuge fielen insgesamt positiv aus und deuten das weitere Potential solcher automatisierten Analysewerkzeuge an. Die zu Beginn der Arbeit aufgestellten Hypothesen konnten somit verifiziert werden.
 \section{Ausblick}
 Die prototypischen Implementierungen der Werkzeug haben gezeigt, dass durch den Einsatz von Software im Requirements-Engineering viel Verbesserungspotential ausgeschöpft werden kann. 
 
-Dies ist jedoch höchstwahrscheinlich auch in anderen betriebswirtschaftlichen Bereichen der Fall. Hinzu kommt, dass die Prototypen selbst noch viele Möglichkeiten zur Erweiterung bieten und somit noch weitaus mehr Hilfe für deren Nutzer geschaffen werden kann. 
+Dies ist jedoch höchstwahrscheinlich auch in anderen betriebswirtschaftlichen Bereichen der Fall. Hinzu kommt, dass die Prototypen selbst noch viele Möglichkeiten zur Erweiterung bieten und somit noch weitere Mehrwerte für deren Nutzer geschaffen werden können. 
 
-Mit dem Abschluss dieser Arbeit werden die erstellten Programme daher nicht einfach archiviert, sondern mit der Zeit weiter ausgebaut.
+Mit dem Abschluss dieser Arbeit werden die erstellten Programme daher nicht einfach archiviert, sondern mit der Zeit weiterentwickelt und neue Funktionen eingepflegt.
 Auf Anfrage der Requirements-Experten werden die Werkzeuge außerdem einem HELLA-internen Entwickler übergeben, welcher die Implementierung der Werkzeuge für den Betrieb weiterführen wird. 
 
 \newpage
