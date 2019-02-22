@@ -628,123 +628,116 @@ Sampaio et. al. stellen in \cite{as05} den \textit{EA-Miner} vor, der bei der Id
 Heßeler et. al untersuchen in \cite{he13} formale Prozesse für das Anforderungsmanagement in Unternehmen. Sie zeigen die möglichen Verbesserungen  des projektbezogenen Requirements-Engineerings durch die Definition verschiedener Rollen für die beteiligten Entwickler auf. Dabei beschreiben sie explizit Kriterien für die Auswahl von Tools für eine Werkzeugunterstützung der Requirements-Engineers in Firmen. Konkret beschreiben sie Werkzeuge für die Unterstützung der Formulierung von Anforderungen bzw. für die Verifikation von Anforderungen mithilfe grafischer Modelle. Das Tool \textit{DOORS Telematic} dient dabei zur Sammlung von Anforderungen und der Verknüpfung durch Relationen in einer Datenbank, die alle Anforderungen hierarchisch enthält. Tau Generation2 wird für die Visualisierung von Systemeigenschaften in UML2.0-Diagrammen und für den Export als DOORS-Objekte in die Anforderungs-Datenbank genutzt.
 
 \chapter{Betriebliches Umfeld - Use-Case HELLA}
-Im betrieblichen Umfeld liegen zu Beginn jeden Entwicklungsprojektes für neue Produkte die Aufgaben und Ziele für die Entwicklung als Dokumente vor. Forschungsergebnisse finden Anwendung in der Vorentwicklungsphase, in der die Eignung der Erkenntnisse für neue Produkte eines Unternehmens evaluiert wird. Die Produktentwicklung unterliegt dabei bestimmten Kriterien und Faktoren, die den unternehmerischen Erfolg beeinflussen. Neben betriebswirtschaftlichen Einflüssen wie der Einordnung des Produktes in der Wertschöpfungskette sind es dabei besonders technische Anforderungen an das Produkt, die definiert und während der Produktentwicklung eingehalten werden müssen. Verschiedenste Akteure aus einem Umternehmen sind dabei an der Festlegung der Anforderungen an ein Entwicklungsprojekt bzw. Produkt beteiligt. 
+In diesem Kapitel wird der betriebliche Kontext dieser Arbeit genauer vorgestellt. Der im folgenden skizzierte Anwendungsfall des Automobilzulieferers HELLA stellt sie Basis für die später vorgestellten Werkzeuge dar. Die Evaluation und das Konzept für diese Werkzeuge erfolgte vor Ort mit den Experten für Anforderungsmanagement bei HELLA. Daher wird im Folgenden insbesondere der Umgang mit Anforderungen in der Firma, als Basis für die softwaretechnische Entwicklung, beschrieben.
 
-In der Automobilindustrie betrifft dieser Ablauf zumeist die Entwicklung neuer Fahrzeugkomponenten, heutzutage meist elektronische und mechanische Bausteine. Diese Bausteine werden dabei nicht sämtlich vom Fahrzeughersteller (OEM) selbst, sondern durch eine Vielzahl von Zulieferern produziert und entwickelt. Die Produktspezifikationen liegen meist digital als Texte, Tabellen und Grafiken vor und werden an den Zulieferer übermittelt.
-Nach dem Entwicklungsprozess steht dann die (Serien-)entwicklung und -fertigung des Produktes für das Ausrollen in großen Stückzahlen an den Hersteller, der das zugelieferte Produkt dann in seinen Produkten verwendet. Um dies zu erreichen, müssen während des gesamten Prozesses die Anforderungen, die das Systemumfeld des  Fahrzeugherstellers hat, berücksichtigt und eingehalten werden.
-
-Die Anforderungen an das Produkt, etwa technische Rahmenbedingungen, werden dabei von vielen verschiedenen Domänenexperten beim OEM formuliert und in das sogenannte Lastenheft für die Entwicklung eingetragen. Beteiligte sind etwa Produktdesigner, Ingenieure und Systemtechniker, die an verschiedenen Stellen im Lastenheft Anforderungen an eine Komponente festlegen. Diese Beteiligten sind in der Regel auf ihren Bereich spezialisiert und nicht interdisziplinär, zudem gibt es sprachliche Eigenheiten der Autoren und unternehmensinterne Richtlinien für die Formulierung, die das Verständnis erschweren können. Demzufolge sammeln sich im Lastenheft verschiedenste Merkmale einer Komponente, die aber nicht im Bezug zueinander stehen und sich im schlimmsten Fall gegenseitig ausschließen. 
-
-Durch diese fachliche Breite und Tiefe der Spezifikationen im Lastenheft, aber auch durch den Umfang des Lastenheftes von mehreren tausend Seiten, kommt es häufig insbesondere zu Verständnisproblemen auf Seite des Zulieferers. Die Gewichtung einzelner Anforderungen in einem größeren Systemkontext fällt dort schwer, da nun Projektteammitglieder, die an der Entstehung des Lastenheftes nicht beteiligt waren, dieses verstehen und ein Produkt entwickeln sollen, dass möglichst alle Anforderungen berücksichtigt. In Texten muss also nach Zusammenhängen und Bezügen zwischen mehreren Anforderungen gesucht werden, damit die Korrektheit des späteren Produktes gewährleistet ist.
-
-Die Analyse von Zusammenhängen zwischen Anforderungen stellt dabei aus Gründen der Effizienz ein Problem dar, wenn jeder Beteiligte von Hand die für ihn relevanten Anforderungen aus dem Lastenheft extrahieren muss. Auch müssen die Lastenhefte an die Formulierungen und Ausdrucksweisen für Requirements-Management im Unternehmen angepasst werden. Bislang gibt es jedoch kaum Werkzeugunterstützung, die effiziente Möglichkeiten zur automatisierten Überarbeitung und Anpassung einzelner Anforderungen aus dem Dokument bietet. Ansätze aus dem \textit{Natural-Language-Proessing} (NLP) stellen gleichzeitig vielversprechende Forschungsfelder in der Informatik dar, die eine solche automatisierte Verarbeitung auf Basis von Sprachanalyse ermöglichen. Syntax und Semantik der einzelnen Sätze und Zusammenhänge in Texten können auf Basis aktueller Trends wie Machine-Learning und dynamischer Programmierung zunehmend besser abgebildet werden.
 \section{Allgemeines zu HELLA}
-In diesem Abschnitt wird zur besseren Einordnung die Firma HELLA kurz beschrieben. Dies beinhaltet die Geschichte von HELLA und die momentane Aufstellung des Unternehmens. \cite{he18} \cite{he19}
+In diesem Abschnitt wird zur besseren Einordnung die Firma HELLA kurz beschrieben. Dies beinhaltet die Geschichte und die momentane Aufstellung des Unternehmens. \cite{he18} \cite{he19}
 
 \subsubsection{Geschichte}
-Die HELLA GmbH \& Co. KGaA wurde 1899 von Sally Windmüller unter dem damaligen Namen \glqq Westfälische Metall-Industrie Aktien- Gesellschaft(WMI)\grqq{} in Lippstadt gegründet, wo sich bis heute auch ihr Hauptsitz befindet. 
+Die HELLA GmbH \& Co. KGaA wurde 1899 von Sally Windmüller unter dem damaligen Namen \glqq Westfälische Metall-Industrie Aktien-Gesellschaft(WMI)\grqq{} in Lippstadt gegründet, wo sich bis heute auch ihr Hauptsitz befindet. 
 
-Die Hergestellten Produkte beschränkten sich zu diesem Zeitpunkt auf Ballhupen und Lampen für Kutschen. Im Jahr 1908 tauchte mit dem ersten entwickelten elektrischen Scheinwerfer auch der Name \textit{HELLA} zum ersten mal als Warenzeichen auf. Dieser wurde jedoch erst 1986 offiziell in die Firmenbeschreibung aufgenommen. Es wird davon ausgegangen, dass der Name eine Mischung aus der Anlehnung an den Namen von Windmüllers Frau Helene und dem Wortspiel mit \glqq heller\grqq{} ist. 
+Die hergestellten Produkte beschränkten sich zu diesem Zeitpunkt auf Ballhupen und Lampen für Kutschen. Im Jahr 1908 tauchte mit dem ersten entwickelten elektrischen Scheinwerfer auch der Name \textit{HELLA} zum ersten mal als Warenzeichen auf. Dieser wurde jedoch erst 1986 offiziell in die Firmenbeschreibung aufgenommen. Es wird davon ausgegangen, dass der Name eine Mischung aus der Anlehnung an den Namen von Windmüllers Frau Helene und dem Wortspiel mit \glqq heller\grqq{} ist. 
 
 Die erste Tochtergesellschaft gründete HELLA 1951 in Todtnau und dem Namen \glqq Metallwerke Todtnau\grqq. 1961 begann das Unternehmen sich auch international aufzustellen. Dies geschah durch die Gründung der ersten internationalen Produktionsstätte in Mentone in Australien. 
-Das Zentrallager, welches auch heute noch unter dem Namen \textit{HELLA Distribution GMBH} besteht, wurde 1973 in dem Lippstadt nahegelegenen Erwitte errichtet. 
+Das Zentrallager, welches auch heute noch unter dem Namen \textit{HELLA Distribution GmbH} besteht, wurde 1973 in dem Lippstadt nahegelegenen Erwitte errichtet. 
 \subsubsection[Aktueller Stand]{Aktueller Stand des Unternehmens}
-Die HELLA ist in die vier Geschäftsbereiche Elektronik, Scheinwerfer, \textit{Aftermarket} und \textit{Special Applications} unterteilt und verfügt über 125 Standorte in mehr als 35 Ländern.
+Die HELLA ist in die vier Geschäftsbereiche \textit{Elektronik}, \textit{Scheinwerfer}, \textit{Aftermarket} und \textit{Special Applications} unterteilt und verfügt über 125 Standorte in mehr als 35 Ländern.
 
 Nach dem Geschäftsjahr 2017/2018 werden insgesamt über 40.000 Mitarbeiter beschäftigt. Davon arbeiten mehr als 7000 Mitarbeiter in der Forschung und Entwicklung, wodurch sich das Unternehmen mehr Sicherheit und Wachstum für die Zukunft verspricht. 
 
-So konnte HELLA in diesem Geschäftsjahr fast 7,1 Milliarden Euro Umsatz verbuchen, wovon ca. ein drittel außerhalb des europäischen Marktes erzielt wurde. Damit gehört HELLA international zu den Top 40 der weltweiten Automobilzulieferer und befindet sich unter den Top 100 der größten deutschen Industrieunternehmen. 
+So konnte HELLA in diesem Geschäftsjahr fast 7,1 Milliarden Euro Umsatz verbuchen, wovon ca. ein drittel außerhalb des europäischen Marktes erzielt wurde. Damit gehört HELLA international zu den Top 40 der weltweiten Automobilzulieferer und befindet sich unter den Top 100 der größten deutschen Industrieunternehmen. \cite{he19}
 
 \section[RE bei HELLA]{Requirements-Engineering innerhalb der Firma}
-In diesem Abschnitt wird das Requirements-Engineering (RE) der Firma HELLA genauer behandelt. Dies beinhaltet das Vorstellen der zuständigen Abteilungen, sowie die genaue Darstellung der HELLA-internen RE-Prozesse. Des Weiteren werden die bestehenden Probleme dieser Prozesse anhand von Use-Cases (Anwendungsfällen) aufgeführt. In den darauffolgenden Abschnitten werden daraus Anforderungen an eine Lösung erhoben, welche mit den Konzepten der Werkzeuge umzusetzen versucht wird.
+In diesem Abschnitt wird das Requirements-Engineering (RE) der Firma HELLA genauer behandelt. Dies beinhaltet eine Vorstellung der zuständigen Abteilungen, sowie die genaue Darstellung der HELLA-internen RE-Prozesse. Des Weiteren werden die bestehenden Probleme dieser Prozesse anhand von Use-Cases (Anwendungsfällen) aufgeführt. In den darauffolgenden Abschnitten werden daraus Anforderungen an eine Lösung erhoben, welche mit den Konzepten der Werkzeuge umzusetzen versucht wird.
 
-Die getroffenen Aussagen stützen sich dabei auf die angegebenen Lektüren, Unterlagen der Firma und/oder Aussagen Firmen-interner Experten. 
+Die getroffenen Aussagen stützen sich dabei auf die angegebenen Lektüren, Unterlagen der Firma und/oder Gespräche mit firmeninternen Experten. 
+
 \subsection{Abteilung für RE}
-Die in der HELLA überwiegend zuständige Abteilung für Requirements ist die \textit{Processes, Methods and Tools}-Abteilung (PMT). Wörtlich übersetzt bedeutet dies \textit{Prozesse, Methoden und Werkzeuge}. Die Abteilung ist unter anderem für: 
+Die in der HELLA überwiegend zuständige Abteilung für Requirements ist die \textit{Processes, Methods and Tools}-Abteilung (PMT). Wörtlich übersetzt bedeutet dies \textit{Prozesse, Methoden und Werkzeuge}. Die Abteilung ist unter anderem für folgende Aufgaben verantwortlich: 
 \begin{enumerate}
-\item die Standardisierung von Prozessen und das reibungsfrei Verknüpfen von Arbeitsabläufen,
-\item die Einführung von neuen Standards und die Hilfe bei der Umsetzung dieser,
-\item die Entwicklung neuer und effizienterer Arbeitsmethoden zur Einsparung von Zeit und Kosten,
-\item die Entwicklung, Einführung und Verwaltung von neuen (Software-) Werkzeugen, welche in der Lage sind einen Mehrwert für die Firma zu erzeugen,
-\item das Empfangen Firmen-externer (Anforderungs-) Dokumente, welche vor dem Weiterleiten gegebenenfalls zunächst in die Firmen-internen Standards angepasst werden müssen, 
-\item die Unterstützung von Mitarbeitern und Projektteams bei dem Umgang und der Verarbeitung von Projektlastenheften
+\item Standardisierung von Prozessen und reibungsfreies Verknüpfen von Arbeitsabläufen
+\item Einführung von neuen Standards und Hilfe bei der Umsetzung dieser
+\item Entwicklung neuer und effizienterer Arbeitsmethoden zur Einsparung von Zeit und Kosten
+\item Entwicklung, Einführung und Verwaltung neuer (Software-) Werkzeuge, welche in der Lage sind, einen Mehrwert für die Firma zu erzeugen
+\item Empfangen Firmen-externer (Anforderungs-) Dokumente, welche vor dem Weiterleiten an Fachabteilungen gegebenenfalls zunächst auf die firmeninternen Standards angepasst werden müssen
+\item Unterstützung von Mitarbeitern und Projektteams bei dem Umgang und der Verarbeitung von Projektlastenheften
 \end{enumerate}
 
-Oftmals steht diese Abteilung in Verbindung mit den Abteilungen der Vorentwicklung. Dabei spielt vor allem die System-Sparte der elektronischen Vorentwicklung (Electronics - Advanced Engineering Systems, E-AES) eine wichtige Rolle. Hier versuchen Mitarbeite mit Hilfe von Lastenheften einen kompletten Überblick eines Systems zu erlangen um darauf bezogene Projekte besser einschätzen und durchführen zu können. 
+Oftmals steht diese Abteilung in Verbindung mit den Abteilungen der Vorentwicklung. Dabei spielt vor allem die System-Sparte der elektronischen Vorentwicklung (Electronics - Advanced Engineering Systems, E-AES) eine wichtige Rolle. Hier versuchen Mitarbeite mit Hilfe von OEM-Lastenheften, einen kompletten Überblick eines Systems zu erlangen, um darauf bezogene Projekte besser einschätzen und durchführen zu können. 
 
-Was zunächst wie eine recht simple Aufgabenstellung erscheint ist tatsächlich ein hochkomplexer und fehleranfälliger Vorgang. Laut der Aussagen von internen Experten, gibt es nur wenige, die dazu überhaupt in der Lage sein, da dies viele verschiedene Qualitäten eines Mitarbeiters erfordert. Hierzu gehören unter anderem eine hohes Maß an Fachkenntnis für alle relevanten Bereiche des Produkts, ein gründliches und somit aufwendiges Erfassen aller Aspekte des Produkts und die Fähigkeit mit Hilfe dieses Wissens mögliche Probleme oder Fehlerquellen des Produkts zu erfassen. 
+Was zunächst wie eine recht simple Aufgabenstellung erscheint, ist tatsächlich ein hochkomplexer und fehleranfälliger Vorgang. Laut der Aussagen interner Experten gibt es nur wenige, die dazu überhaupt in der Lage seien, da dies viele verschiedene Qualitäten eines Mitarbeiters erfordere. Hierzu gehören unter anderem eine hohes Maß an Fachkenntnissen für alle relevanten Bereiche des Produkts, ein gründliches und somit aufwendiges Erfassen aller Aspekte des Produkts und die Fähigkeit, mit Hilfe dieses Wissens mögliche Probleme oder Fehlerquellen des Produkts zu erfassen. 
 
-Diese Aufgabe kann jedoch von Mitarbeitern der \textit{PMT}-Abteilung (wie in 6. erwähnt) unterstützt werden. Da es erforderlich ist, dass ein einzelner Mitarbeiter der \textit{E-AES} einen Überblick erhält, bietet die klassische Arbeitsteilung, bei welcher der möglicherweise enorme Umfang dieser Projektlastenhefte auf verschiedene Mitarbeiter aufgeteilt wird, keine Lösung.
+Diese Aufgabe kann jedoch von Mitarbeitern der \textit{PMT}-Abteilung (wie in 6. erwähnt) unterstützt werden. Da es erforderlich ist, dass ein einzelner Mitarbeiter der \textit{E-AES} einen Überblick erhält, bietet eine klassische Arbeitsteilung, bei welcher der möglicherweise enorme Umfang dieser Projektlastenhefte auf verschiedene Mitarbeiter aufgeteilt wird, keine Lösung.
 
-Dennoch können klar formulierte, gut sortierte und strukturierte Anforderungen die Arbeit des \textit{E-AES}-Mitarbeiters stark vereinfachen. Dies hilft zwar auch ein wenig bei dem benötigten Arbeitsaufwand des einzelnen Mitarbeiters, verringert aber vor allem die Komplexität und Fehleranfälligkeit des Prozesses. Des weiteren kann die \textit{PMT}-Abteilung bei Rückfragen als Sprachrohr zwischen dem OEM und den internen Mitarbeitern fungieren, da die unkontrollierte Weitergabe von Informationen zwischen einzelnen Mitarbeitern in vielen Konzernen problematisch gesehen wird. 
+Dennoch können klar formulierte, gut sortierte und strukturierte Anforderungen die Arbeit der \textit{E-AES}-Mitarbeiter stark vereinfachen. Dies reduziert ein wenig den benötigten Arbeitsaufwand des einzelnen Mitarbeiters, verringert aber vor allem die Komplexität und Fehleranfälligkeit des Prozesses. Des Weiteren kann die \textit{PMT}-Abteilung bei Rückfragen als Sprachrohr zwischen dem OEM und den internen Mitarbeitern fungieren, da die unkontrollierte Weitergabe von Informationen zwischen einzelnen Mitarbeitern in vielen Konzernen problematisch gesehen wird. 
 \subsection{RE-Prozess}
 In diesem Abschnitt wird der RE-Prozess von HELLA genauer dargestellt. Hierzu wird dieser zunächst in den Kontext eines Entwicklungsprojektes für ein neues Produkt eingeordnet. Daraufhin werden die einzelnen Schritte des Requirements-Engineering genauer beleuchtet. 
 
 \subsubsection{Einordnung in den Entwicklungsprozess}
 Üblicherweise steht der RE-Prozess direkt zu Beginn jeder Entwicklung. Entweder gibt es ein neues Produktkonzept, zu welchen die Anforderungen abhängig von den geplanten Aufgaben und Eigenschaften des Produktes erhoben werden, oder es wird ein Auftrag eingereicht, zu welchem bereits ein komplettes Anforderungsdokument existiert, welches es dann umzusetzten gilt.
 
-In der Ausgangssituation liegt also ein Dokument vor in welchem alle Anforderungen an das Produkt zusammengefasst sind. Dies bedeutet auch, dass die Entwicklung erfolgreich war, sobald alle dieser Anforderungen durch das Produkt erfüllt werden. Dies muss jedoch auch für die Anforderungen gelten, welche sich innerhalb der Entwicklung ändern bzw. hinzugefügt werden.
+In der Ausgangssituation liegt also ein Dokument vor, in welchem alle Anforderungen an das Produkt zusammengefasst sind. Dies bedeutet auch, dass die Entwicklung erfolgreich war, sobald alle dieser Anforderungen durch das Produkt erfüllt werden. Dies muss jedoch auch für jene Anforderungen gelten, welche sich innerhalb der Entwicklung ändern bzw. hinzugefügt werden.
 
-Dies verdeutlicht, dass sich der Prozess des Requirements-Engineering nicht auf den Beginn des Gesamtprozesses, beschränken lässt. Dennoch befindet sich dort der wichtigste Bereich des RE, da zumindest in hohem Maße feststehen muss, was es zu entwickeln gilt, bevor mit der Entwicklung begonnen werden kann.
+Dies verdeutlicht, dass sich der Prozess des Requirements-Engineering nicht auf den Beginn des Gesamtprozesses beschränken lässt. Dennoch befindet sich dort der wichtigste Bereich des RE, da zumindest in hohem Maße feststehen muss, was es zu entwickeln gilt, bevor mit der Entwicklung begonnen werden kann.
 
-Abbildung X.X zeigt die planmäßige Einordnung von RE in den Gesamtprozess der Produktentwicklung bei HELLA. 
+Abbildung 3.1 zeigt die planmäßige Einordnung von RE in den Gesamtprozess der Produktentwicklung bei HELLA. 
 
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=0.7]{Bilder/V-Modell.png}
-\caption{Text ... }
+\caption{Entwicklungsprozess bei HELLA, RE in den Stufen ENG. 1 und ENG. 4 [eigene Darstellung]}
 \end{center}
 \end{figure}
 
-Hierbei ist anzumerken, dass in dem Modell zwischen den Systemanforderungen (\textit{system requirements}) und den funktionalen Anforderungen (\textit{funktional reqirements}) unterschieden wird. 
+Hierbei ist anzumerken, dass in dem Modell zwischen den Systemanforderungen (\textit{system requirements}) und den funktionalen Anforderungen (\textit{functional requirements}) unterschieden wird. 
 
-Die Systemanforderungen\footnote{auch oft als nicht-funktionale Anforderungen bezeichnet} beschreiben Anforderungen, die das System in der Rolle als Umfeld für die Funktionalitäten zu erfüllen hat. Dazu gehören üblicherweise Eckdaten des Systems welche eher generelle Informationen bieten. Eine beispielhafte Anforderung könnte etwa lauten: \glqq Das System muss einer Spannung von bis zu 48V standhalten.\grqq{} oder \glqq Das System soll den Standards \textit{XY} der Norm \textit{Z} entsprechen.\grqq
+Die Systemanforderungen\footnote{Häufig als nicht-funktionale Anforderungen bezeichnet bzw. von den funktionalen Anfordeurngen abgegrenzt} beschreiben Anforderungen, die das System in der Rolle als Umfeld für die Funktionalitäten zu erfüllen hat. Dazu gehören üblicherweise Eckdaten des Systems, welche eher generelle Informationen bieten. Eine beispielhafte Anforderung könnte etwa lauten: \glqq Das System muss einer Spannung von bis zu 48V standhalten.\grqq{} oder \glqq Das System soll den Standards \textit{XY} der Norm \textit{Z} entsprechen.\grqq
 
 Funktionale Anforderungen sind hingegen etwas spezifischer und beschreiben das genaue Handeln einzelner Komponenten und die Ausführung von Funktionalitäten. Hierzu könnten beispielhafte Anforderungen wie folgt aussehen: \glqq Wenn eine Spannung von 24V erreicht wird, soll Komponente \textit{XY} die Funktion \textit{Z} ausführen.\grqq{} oder \glqq Die Funktion \textit{Z} lässt die Leuchten \textit{A} und \textit{B} für 10 Sekunden leuchten.\grqq
 
-Die Unterscheidung zwischen den verschiedenen Anforderungstypen kann jedoch sehr problematisch sein, da sich deren Definition in verschiedenen Firmen unterscheiden kann. Da es also keine Einheitliche Definition gibt und wir uns im Rahmen von natürlicher Sprache bewegen, ist es praktisch unmöglich alle Anforderungen eines Dokuments einheitlich und eindeutig den Kategorien zuzuweisen. Dies ist jedoch auch nicht zwangsläufig nötig, wenn man sich dazu entscheidet alle Anforderungen zunächst gleich und dann abhängig von Inhalt zu verarbeiten. Daher verzichten auch die später vorgestellten Konzepte auf eine erzwungene Unterscheidung verschiedener Anforderungstypen verzichtet.
+Die Unterscheidung zwischen den verschiedenen Anforderungstypen kann jedoch sehr problematisch sein, da sich deren Definition in verschiedenen Firmen unterscheiden kann. Da es also keine einheitliche Abgrenzung gibt und Anforderungen in natürlicher Sprache verfasst werden, ist es praktisch unmöglich, alle Anforderungen eines Dokuments eindeutig den Kategorien zuzuweisen. Dies ist jedoch auch nicht zwangsläufig nötig, wenn man sich dazu entscheidet, alle Anforderungen zunächst gleich und dann abhängig von Inhalt zu verarbeiten. Daher verzichten auch die später vorgestellten Konzepte auf eine erzwungene Unterscheidung verschiedener Anforderungstypen.
 
 \subsubsection{Werkzeuge im RE-Prozess}
-Ein klassischer Requirements-Engineering Prozess der PMT-Abteilung beginnt damit, das von einem OEM ein Lastenheft zu einem bestimmten Auftrag bei der HELLA eingeht. Dieses Lastenheft erhält die PMT-Abteilung üblicherweise in Form einer \textit{DOORS}-Datei (Dynamic Object Oriented Requirements System). 
+Ein klassischer Requirements-Engineering-Prozess der PMT-Abteilung beginnt damit, dass von einem OEM ein Lastenheft zu einem bestimmten Auftrag bei der HELLA eingeht. Dieses Lastenheft erhält die PMT-Abteilung üblicherweise in Form einer \textit{DOORS}-Datei (Dynamic Object Oriented Requirements System). 
 
-DOORS ist ein Werkzeug zur Hilfe beim Requirements-Engineering und speichert Anforderungsdokumente vergleichbar zu einer herkömmlichen Datenbank. Dort wird in einer Tabellenstruktur der gesamte Inhalt eines Anforderungsdokumentes hinterlegt. Die einzelnen Anforderungen sind dabei zeilenweise angeordnet. Zusätzlich befinden sich in verschiedenen Spalten ergänzende Informationen zu der jeweiligen Anforderungen, wie z.B. die eindeutige Identifizierungsnummer oder die Unterscheidung zwischen Anforderung und genereller Information.
+DOORS ist ein Werkzeug zur Hilfe beim Requirements-Engineering und speichert Anforderungsdokumente. Es ist vergleichbar mit einer herkömmlichen Datenbank. Dort wird in einer Tabellenstruktur der gesamte Inhalt eines Anforderungsdokumentes hinterlegt. Die einzelnen Anforderungen sind dabei zeilenweise angeordnet. Zusätzlich befinden sich in verschiedenen Spalten ergänzende Informationen zu der jeweiligen Anforderungen, wie z.B. die eindeutige Identifikationsnummer oder die Unterscheidung zwischen Anforderung und genereller Information.
 
-DOORS bietet zusätzlich eine Vielzahl von Plugins zur Verarbeitung, sowie die Möglichkeit, das DOORS-Objekt als PDF-Datei zu exportieren. Da man Informationsverlust verhindern möchte werden auch alle Zusatzinformationen aus den Spalten der Tabelle in der extrahierten Datei mit aufgenommen, was jedoch zu stark fragmentierten Dokumenten bzw. Texten führt. Dies ist unter anderem ein Problem, welches zu einem späteren Zeitpunkt noch einmal aufgegriffen wird. 
+DOORS bietet zusätzlich eine Vielzahl von Erweiterungen zur Verarbeitung sowie die Möglichkeit, das DOORS-Objekt als PDF-Datei zu exportieren. Da man Informationsverlust verhindern möchte, werden auch alle Zusatzinformationen aus den Spalten der Tabelle in der extrahierten Datei mit aufgenommen, was jedoch zu stark fragmentierten Dokumenten bzw. Texten führt. Dies ist unter anderem ein Problem, welches im Kapitel Implementierung noch einmal aufgegriffen wird. 
 
-Eines der oben erwähnten Plugins ist das von HELLA entwickelte \textit{ReqPat}. Dieses wird dazu verwendet Teile von Anforderungsdokumenten auf Konsistenz zu überprüfen. Dazu werden sogenannte \textit{Boilerplates} als Satzschablonen verwendet um die natürliche Sprache der Anforderungen in eine formalisierte Form zu bringen. Daraus kann dann ein prüfbarer Graph erstellt werden. Grundsätzlich bestehen hier parallelen zu dem später vorgestellten Konzept, jedoch ist ReqPat dabei auf bestimmte Anforderungen beschränkt. 
+Eine der oben erwähnten Erweiterungen ist das von HELLA entwickelte \textit{ReqPat}. Dieses wird dazu verwendet Teile von Anforderungsdokumenten auf Konsistenz zu überprüfen. Dazu werden sogenannte \textit{Boilerplates} als Satzschablonen verwendet um die natürliche Sprache der Anforderungen in eine formalisierte Form zu bringen. Daraus kann dann ein prüfbarer Graph erstellt werden. Grundsätzlich bestehen hier Parallelen zu dem später vorgestellten Konzept, jedoch ist ReqPat dabei auf bestimmte (funktionale) Anforderungen beschränkt. 
 
-Die Anforderungen aus dem DOORS-Objekt werden nun von den Mitarbeitern von PMT überprüft, ggf. an Firmen-interne Standards oder eine formalisierte Form überführt und dann an die verantwortliche Abteilung freigegeben. Dieser Ablauf ist in der Abbildung X.X präziser dargestellt.
+Die Anforderungen aus dem DOORS-Objekt werden nun von den Mitarbeitern von PMT überprüft, ggf. an firmeninterne Standards angepasst oder in eine formalisierte Form überführt und dann für die verantwortliche Abteilung freigegeben. Dieser Ablauf ist in der Abbildung 3.2 präziser dargestellt.
 
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=0.6]{Bilder/HOOD-Definition.jpg}
-\caption{ Text ...  \cite{hp12}}
+\caption{Prozess der Aufbereitung von OEM-Anforderungen für weitere Verwendung \cite{hp12}}
 \end{center}
 \end{figure}
 
-Dies kann etwa mit dem beschrieben ReqPat geschehen. Da dieses Werkzeug jedoch nur einen Teil der bestehenden Anforderungen abdecken kann, muss der Rest der Lastenhefte oftmals manuell verarbeitet werden. Daraus entsteht enormer Aufwand und die Gefahr nicht explizit ausformulierte Abhängigkeiten zu übersehen und somit Fehler in den freigegebenen Anforderungen zu erhalten. 
+Dies kann etwa mit dem beschrieben ReqPat geschehen. Da dieses Werkzeug jedoch nur einen Teil der bestehenden Anforderungen abdecken kann, muss der Rest der Lastenhefte oftmals manuell verarbeitet werden. Daraus entsteht enormer Aufwand und die Gefahr, nicht explizit ausformulierte Abhängigkeiten zu übersehen und somit Fehler in den freigegebenen Anforderungen zu erhalten. 
 
-\section{Anforderungen im RE-Management}
+\section[Anforderungen im RE]{Anforderungen im RE-Management}
 Dieses Kapitel beschäftigt sich mit der Motivation und den Rahmenbedingungen für die später in dieser Arbeit skizzierte Werkzeugunterstützung. Wesentliche Erkenntnisse entstanden dabei in Rücksprache mit dem Requirements-Experten Colin Hood, der als externer Beschäftiger für die PMT-Abteilung von HELLA arbeitet. 
 
-Auf dieser Basis konnten Anforderungen an unser Tool für den Einsatz zur Transformation von Projektlastenheften während des RE erhoben werden. 
+Auf dieser Basis konnten Anforderungen an die Werkzeuge für den Einsatz zur Transformation von Projektlastenheften während des RE erhoben werden. 
 
-Mithilfe unseres Werkzeugs kann, wie später gezeigt wird, das Anforderungsmanagement in Unternehmen maßgeblich verbessert werden. Das Ziel ist es, die im vorigen Abschnitt benannten Komplikationen beim Umgang mit Anforderungen zu bewältigen.
+Mithilfe der Konzepte kann, wie später gezeigt wird, das Anforderungsmanagement in Unternehmen maßgeblich verbessert werden. Das Ziel ist es, die im vorigen Abschnitt benannten Komplikationen beim Umgang mit Anforderungen zu bewältigen.
 
 \subsection{Kriterien der Qualität von Anforderungen}
 Das Ziel von Abteilungen, die sich mit Requirements-Engineering in Unternehmen beschäftigen, ist die Verbesserung der Qualität von Anforderungsdokumenten für die spätere Verwendung. Die Requirements-Experten sind meist zwar nicht direkt am Entwicklungsprozess beteiligt, unterstützen die Experten in der Entwicklung jedoch beim Verständnis und der Umsetzung der Lastenhefte.
 
-Wie im vorigen Abschnitt beschrieben, entsteht bei den Entwicklern auf Seite des Zulieferers häufig mangelndes Verständnis der Anforderungen des OEMs, wenn dort mit der Entwicklung begonnen werden soll. Diese Schwierigkeiten entstehen durch ein unterschiedliches bzw. mangelndes Verständnis der Anforderungen zwischen OEM und Zulieferer während des Entwicklungsprozesses. Die Anforderungen sind meist unvollständig spezifiziert, was zu Inkonsistenzen im Lastenheft führt. Requirements-Experten beim Zulieferer zielen also auf eine Analyse von Abhängigkeiten zwischen Anforderungen des Lastenheftes für die nachgelagerte Entwicklung ab. 
+Wie im vorigen Abschnitt beschrieben, entsteht bei den Entwicklern auf Seite des Zulieferers häufig mangelndes Verständnis der Anforderungen des OEMs, wenn dort mit der Entwicklung begonnen werden soll. Diese Schwierigkeiten entstehen durch ein unterschiedliches bzw. mangelndes Verständnis der Anforderungen zwischen OEM und Zulieferer während des Entwicklungsprozesses. Die Anforderungen sind meist unklar spezifiziert, was zu Inkonsistenzen beim Verständnis des Lastenhefts führt. Requirements-Experten beim Zulieferer zielen also auf eine Formalisierung der Anforderungen aus einem Lastenheftes für die nachgelagerte Entwicklung ab, um solche Missverständnisse zu vermeiden. 
 
 \subsubsection{Qualitätsmerkmale}
-In diesem Zusammenhang existieren Qualitätsmerkmale, die gemäß \cite{zg02} wesentliche Kriterien für die Bewertung von Anforderungen darstellen. Requirements-Experten orientiereren sich dabei an der Unterscheidung der drei wesentlichen Qualitätsmerkmale \textit{Consistency-Correctness-Completeness}, die sich wie folgt auffassen lassen:
+In diesem Zusammenhang existieren Qualitätsmerkmale, die gemäß \cite{zg02} wesentliche Kriterien für die Bewertung von Anforderungen darstellen. Re- \\quirements-Experten orientiereren sich dabei an der Unterscheidung der drei wesentlichen Qualitätsmerkmale \textit{Consistency-Correctness-Completeness}, die sich wie folgt auffassen lassen:
 
 \begin{enumerate}
-\item \textit{Consistency - Einheitlichkeit} Die Anforderungen dürfen sich an verschiedenen Stellen im Lastenheft nicht widersprechen, sondern sollen sich vielmehr an geeigneten Stellen ergänzen. Beispielsweise darf später keine Anforderung im Lastenheft enthalten sein, die im direkten Widerspruch zu anderen Anforderungen steht, die bereits zuvor anders spezifiziert wurden. Entwickler, die nur die für sie relevanten Stellen des Lastenheftes erhalten, würden somit fundamental unterschiedliche Produkte entwerfen. Inkonsistenzen und Abhängigkeiten zwischen Anforderungen bedürfen also Rücksprache mit dem OEM bei der Bewertung.
-\item \textit{Completeness - Vollständigkeit} Es sollten zu allen relevanten Merkmalen des Endproduktes entsprechende Anforderungen existieren. Das Lastenheft sollte also alle Produktmerkmale inhaltlich abdecken, die für die Entwicklung beim Zulieferer relevant sind. Wenn der OEM etwa konkrete Vorstellungen zum Design des Produktes hat, diese jedoch im Lastenheft fehlen, erhält der Zulieferer diese Informationen nicht (etwa implizite Informationen oder Erläuterungen). Es gehen mitunter entscheidende Informationen und Kriterien für den Entwicklungsprozess verloren.
-\item \textit{Correctness - Richtigkeit} \cite{zg02} beschreibt die Richtigkeit von Anforderungen als ein prinzipiell vages Konzept aus zwei verschiedenen Standpunkten:
+\item \textit{Consistency - Einheitlichkeit}: Die Anforderungen dürfen sich an verschiedenen Stellen im Lastenheft nicht widersprechen, sondern sollen sich vielmehr an geeigneten Stellen ergänzen. Beispielsweise darf später keine Anforderung im Lastenheft enthalten sein, die im direkten Widerspruch zu anderen Anforderungen steht, die bereits zuvor anders spezifiziert wurden. Entwickler, die nur die für sie relevanten Stellen des Lastenheftes erhalten, würden somit fundamental unterschiedliche Produkte entwerfen. Inkonsistenzen und Abhängigkeiten zwischen Anforderungen bedürfen also Rücksprache mit dem OEM bei der Bewertung.
+\item \textit{Completeness - Vollständigkeit}: Es sollten zu allen relevanten Merkmalen des Endproduktes entsprechende Anforderungen existieren. Das Lastenheft sollte also alle Produktmerkmale inhaltlich abdecken, die für die Entwicklung beim Zulieferer relevant sind. Wenn der OEM etwa konkrete Vorstellungen zum Design des Produktes hat, diese jedoch im Lastenheft fehlen, erhält der Zulieferer diese Informationen nicht (etwa implizite Informationen oder Erläuterungen). Es gehen mitunter entscheidende Informationen und Kriterien für den Entwicklungsprozess verloren.
+\item \textit{Correctness - Richtigkeit}: \cite{zg02} beschreibt die Richtigkeit von Anforderungen als ein prinzipiell vages Konzept aus zwei verschiedenen Standpunkten:
 \begin{enumerate}
-\item Formal betrachtet ist ein Anforderungsdokument korrekt, wenn es einheitlich und vollständig ist, d.h. frei von Widersprüchen und inhaltlich alles beinhaltet, was als "wahr" über das Produkt bezeichnet werden kann.
+\item Formal betrachtet ist ein Anforderungsdokument korrekt, wenn es einheitlich und vollständig ist, d.h. frei von Widersprüchen und inhaltlich alles beinhaltet, was als \glqq wahr\grqq{} über das Produkt bezeichnet werden kann.
 \item Praktisch erfolgt die Bewertung der Richtigkeit eines Dokumentes anhand von Kriterien, die Stakeholder auswählen. Das Lastenheft wird demnach als richtig empfunden, wenn es Bedürfnisse zufriedenstellend abbildet. Aus Sicht der Kostenkalkulation wird etwa beurteilt, ob die Kosten durch die zu verwendenden Materialien, die im Lastenheft vermerkt sind, gering gehalten werden.
 \end{enumerate}
 \end{enumerate}
@@ -753,10 +746,10 @@ Es lassen sich gemäß \cite{zg02} weitere Abhängigkeiten zwischen den drei Mer
 
 Zur Herstellung von Konsistenz im Lastenheft existiert der Ansatz, einzelne Anforderungen entweder schwerer zu gewichten als andere, oder unpassende Anforderungen komplett zu entfernen. Dies führt jedoch zu verminderter Vollständigkeit. 
 
-Informationsmangel kann zwar ebenfalls recht einfach durch das Hinzufügen neuer Anforderungen ausgeglichen werden, jedoch muss dabei darauf geachtet werden, dass die Spezifikation dann nicht zu umfänglich ausfällt. Verbesserung der Vollständigkeit kann somit auch die Richtigkeit des beschriebenen Produktes beeinflussen, sollten entsprechende Informationen ergänzt werden.
+Informationsmangel kann zwar ebenfalls recht einfach durch das Hinzufügen neuer Anforderungen ausgeglichen werden, jedoch muss dabei darauf geachtet werden, dass die Spezifikation dann nicht zu umfänglich ausfällt. Die Verbesserung der Vollständigkeit kann somit auch die Richtigkeit des beschriebenen Produktes beeinflussen, sollten entsprechende Informationen ergänzt werden.
 
 \subsubsection{Beispiel problematischer Anforderungen}
-Zur Verdeutlichung des resultierenden Aufwands bei der Herstellung hochqualitativer Anforderungen soll das folgende fiktive Beispiel dienen. Die Analyse der Vollständigkeit soll hier vernachlässigt werden, da es sich nur um einen fiktiven Ausschnitt handelt. Folgende funktionale Anforderungen könnten in einem Lastenheft enthalten sein:
+Zur Verdeutlichung des resultierenden Aufwands bei der Herstellung hochqualitativer Anforderungen soll das folgende fiktive Beispiel dienen. Die Analyse der Vollständigkeit soll hier vernachlässigt werden, da es sich nur um einen minimalen Ausschnitt handelt. Folgende funktionale Anforderungen könnten in einem Lastenheft enthalten sein:
 \\
 \\ \tt
 1: Design: Das Gehäuse soll rot gestrichen sein.\\
@@ -764,7 +757,7 @@ Zur Verdeutlichung des resultierenden Aufwands bei der Herstellung hochqualitati
 2: Materialien: Das Gehäuse soll nach außen aus 1mm starkem, \\rostfreiem Stahl bestehen.\\
 \rm
 
-Bei der Prüfung auf Vollständigkeit fallen zunächst keine Konflikte auf, jedoch ist \tt 1\rm recht vage formuliert. Genaue Angaben zur verwendeten Farbe und der genaue Farbton fehlen in der Anforderung. Dieses Problem wird bei der Analyse der Abhängigkeiten offensichtlich, da die Anforderung "rostfreier Stahl" die Verwendung von entsprechender Farbe notwendig macht. 
+Bei der Prüfung auf Vollständigkeit fallen zunächst keine Konflikte auf, jedoch ist \tt 1 \rm recht vage formuliert. Genaue Angaben zur verwendeten Farbe und der genaue Farbton fehlen in der Anforderung. Dieses Problem wird bei der Analyse der Abhängigkeiten offensichtlich, da die Anforderung \glqq rostfreier Stahl\grqq{} die Verwendung entsprechender Farbe notwendig macht. 
 
 Eine solche Anforderung könnte etwa wie folgt lauten:
 \\
@@ -774,14 +767,14 @@ Eine solche Anforderung könnte etwa wie folgt lauten:
 
 Isoliert betrachtet wäre diese Anforderung auch für alle Lackierungen denkbar, nicht nur für das Gehäuse. Daher muss das Ausmaß dieser Anforderung auf das Gehäuse beschränkt werden, etwa durch \tt 1.1 \rm als zugehörig zu \tt 1\rm.
 
-Aus Perspektive der Richtigkeit könnten je nach Stakeholder, der die Bewertung vornimmt, weiter spezifiziert werden. Ein Designer könnte etwa einen genauen Farbcode zur Farbanforderung \glqq rot\grqq{} hinzufügen. Aus Perspektive der Kosten könnte \tt 2\rm auch komplett gegenüber einer günstiger umzusetzenden Anforderung entfallen, die etwa \glqq Kunststoff\grqq{} anstelle von \glqq rostfreiem Stahl\grqq{} vorschreibt.
+Aus Perspektive der Richtigkeit könnten je nach Stakeholder, der die Bewertung vornimmt, weiter spezifiziert werden. Ein Designer könnte etwa einen genauen Farbcode zur Farbanforderung \glqq rot\grqq{} hinzufügen. Aus Perspektive der Kosten könnte \tt 2 \rm auch komplett gegenüber einer günstiger umzusetzenden Anforderung entfallen, die etwa \glqq Kunststoff\grqq{} anstelle von \glqq rostfreiem Stahl\grqq{} vorschreibt.
 
-Problematisch ist bei der Betrachtung des Beispiels auch, dass in der Regel interdisziplinäre Teams jeweils nur einen Abschnitt des Lastenheft erhalten und ausdesignen. Sie verfügen somit nur über einen Teilbereich des Wissens bzw. nur einen Teil der Anforderungen. Es könnte also der Fall eintreten, dass das Design-Team nur \tt 1 \rm und das Ingenieur-Team nur \tt 2 \rm erhält.\footnote{Hier ist kurz ein naiver Ansatz zur Verdeutlichung der Komplikationen beschrieben. \cite{zg02} beschreibt detailliert die Prüfung der Qualitätsmerkmale anhand verschiedener Verfahren und wie diese verbessert werden können. Mithilfe von Werkzeugen können diese auf Basis automatisierter Textanalyse der Anforderungen umgesetzt werden.}
+Problematisch ist bei der Betrachtung des Beispiels auch, dass in der Regel interdisziplinäre Teams jeweils nur einen Abschnitt des Lastenheft erhalten und entwerfen. Sie verfügen somit nur über einen Teilbereich des Wissens bzw. nur einen Teil der Anforderungen. Es könnte also der Fall eintreten, dass das Design-Team nur \tt 1 \rm und das Ingenieur-Team nur \tt 2 \rm erhält.\footnote{Hier ist kurz ein naiver Ansatz zur Verdeutlichung der Komplikationen beschrieben. \cite{zg02} beschreibt detailliert die Prüfung der Qualitätsmerkmale anhand verschiedener Verfahren und wie diese verbessert werden können. Mithilfe von Werkzeugen können diese auf Basis automatisierter Textanalyse der Anforderungen umgesetzt werden.}
 
 Die Relevanz dieser drei Kriterien für das betriebliche Anforderungsmanagement wurde auch in Rücksprache mit internationalen Requirements-Experten bei HELLA betont. Auf dieser Basis realisieren die dortigen Teams Analysen der Projektlastenhefte. 
 
 \subsection{Kriterien zur Herstellung qualitativer Anforderungen}
-Harant und Poethen stellen in \cite{hp12} weitere Maßnahmen für das \\\ Requirements-Management auf Basis des \textit{HOOD Capability Models} (HCM) vor. Dabei ordnen sie die verschiedenen Schritte anhand eines mehrstufigen Prozesses ein, der in jedem Entwicklungspojekt von Requirements-Experten durchgeführt werden soll (siehe Abb. 3.1). 
+Harant und Poethen stellen in \cite{hp12} weitere Maßnahmen für das \\\ Requirements-Management auf Basis des \textit{HOOD Capability Models} (HCM) vor. Dabei ordnen sie die verschiedenen Schritte anhand eines mehrstufigen Prozesses ein, der in jedem Entwicklungspojekt von Requirements-Experten durchgeführt werden soll (siehe Abb. 3.3). 
 
 Diese Expertengruppe dient dabei abstrakt zur Unterstützung der tatsächlichen Entwicklungsarbeit. Weitere Merkmale von qualitativen Anforderungen werden durch das HCM beschrieben und verschieden gewichtet. 
 
@@ -795,29 +788,24 @@ Diese Expertengruppe dient dabei abstrakt zur Unterstützung der tatsächlichen 
 Dabei unterscheidet das Modell zwischen 3 verschiedenen Qualitätsstufen von Anforderungen. Diese werden jeweils durch verschiedene Kriterien dargestellt. Das Ziel der Arbeit der Abteilung bei HELLA stellt demnach das Herstellen einer möglicht hohen Qualitätsstufe der Lastenhefte dar. Im besten Fall erreichen die Experten dort die Stufe \textit{Expert} und machen die Anforderungen somit \textit{vollständig \& verfolgbar}.
 
 \subsection{Umgang mit natürlicher Sprache in Lastenheften}
-Unvollständige Anforderungen lassen sich meist auf falsche Annahmen der Stakeholder beim OEM zurückführen, die implizite Annahmen bei der Formulierung von Anforderungen treffen und diese Annahmen nicht expliziz erneut aufführen. Ergänzenden Informationen zu Anforderungen können jedoch, wie zuvor gezeigt, durchaus andersartig kategorisiert im Lastenheft vermerkt sein. 
+Unvollständige Anforderungen lassen sich meist auf falsche Annahmen der Stakeholder beim OEM zurückführen, die implizite Annahmen bei der Formulierung von Anforderungen treffen und diese Annahmen nicht explizit erneut aufführen. Ergänzenden Informationen zu Anforderungen können jedoch, wie zuvor gezeigt, durchaus andersartig kategorisiert im Lastenheft vermerkt sein. 
 
 Dies resultiert laut \cite{pr15} daher, dass die verschiedenen Autoren des Lastenheftes beim OEM als selbstverständlich erachten und diese nicht nochmal für externe Leser hinzufügen. Es stellt sich jedoch die Frage, ob unterschiedliche Menschen jemals ein verlässlich gleiches Verständnis der gleichen Sache haben. 
 
-Colin Hood formuliert Anforderungen grundsätzlich als \glqq individuelle Bedürfnisse\grqq{}, die immer abhängig von dem Autoren sind.\footnote{Im Rahmen unserer Arbeit konnten wir mehrmals Interviews zur Ausrichtung bzw. dem Ansatz unserer Prototypen führen.} In wird die Verwendung von Sprachschablonen für Projektlastenhefte im Vergleich zu natürlicher Sprache evaluiert. Die grundsätzliche Eignung natürlicher Sprache für die Formulierung von Anforderungen wird dort bezweifelt. 
+Colin Hood formuliert Anforderungen grundsätzlich als \glqq individuelle Bedürfnisse\grqq{}, die immer abhängig von dem Autoren sind.\footnote{Im Rahmen unserer Arbeit konnten wir mehrmals Interviews zur Ausrichtung bzw. dem Ansatz unserer Prototypen führen.} In \cite{kr93} wird die Verwendung von Sprachschablonen für Projektlastenhefte im Vergleich zu natürlicher Sprache evaluiert. Die grundsätzliche Eignung natürlicher Sprache für die Formulierung von Anforderungen wird dort bezweifelt. 
 
-Hood stellte die Eingrenzung der Sprache, die für Projektlastenhefte genutzt werden darf, als eine vielversprechende Möglichkeit vor, sprachliche Eigenheiten der Autoren aus verschiedenen Bereichen effektiv zu vermeiden. Diese Transformation natürlichsprachlicher Anforderungen in formale Sprache als Schablonen stellt auch das Ziel unserer Arbeit dar.
+Hood stellte die Eingrenzung der Sprache, die für Projektlastenhefte genutzt werden darf, als eine vielversprechende Möglichkeit vor, sprachliche Eigenheiten der Autoren aus verschiedenen Bereichen effektiv zu vermeiden. Diese Transformation natürlichsprachlicher Anforderungen in formale Sprache als Schablonen (Boilerplates) stellt auch das Ziel des ersten entworfenen Werkzeugs dar.
 
 \section{Anwendungsfall bei HELLA} 
+Der Anwendungsfall für die zu entwickelnden Werkzeuge ist ähnlich zu dem oben beschriebenen. Es wird davon ausgegangen, dass die HELLA einen Auftrag für ein Produkt von einem OEM erhält. Es ist jedoch bekannt, dass ein ähnliches Produkt, etwa eine frühere Version, bereits von HELLA entwickelt wurde. Somit liegt ein Lastenheft eines OEM in natürlicher Sprache vor. Außerdem existiert zu dem alten Produkt der HELLA bereits ein Lastenheft in formalisierter Form. 
 
-Der Anwendungsfall für die zu entwickelnden Werkzeuge ist ähnlich zu dem oben beschriebenen. Es wird davon ausgegangen, dass die HELLA einen Auftrag für ein Produkt von einem OEM erhält. Es ist jedoch bekannt, dass ein ähnliches Produkt, etwa eine frühere Version, bereits von HELLA entwickelt wurde.
+Ziel ist es, die beiden Anforderungsdokumente inhaltlich zu vergleichen, um alle Unterschiede der beiden Produkte zu ermitteln. Diese könnten dann etwa genutzt werden, um eine sehr frühe und recht präzise Kostenabschätzung der neuen Produktentwicklung an den OEM geben zu können. 
 
-Somit liegt ein Lastenheft eines OEM in natürlicher Sprache vor. Außerdem existiert zu dem alten Produkt der HELLA bereits in Lastenheft in formalisierter Form.
-
-Ziel ist es die beiden Anforderungsdokumente zu vergleichen um alle Unterschiede der beiden Produkte zu ermitteln. Diese könnten dann etwa genutzt werden um eine sehr frühe und recht präzise Kostenabschätzung der neuen Produktentwicklung an den OEM senden zu können. 
-
-Hierzu muss jedoch zunächst das Lastenheft des OEM in eine vergleichbare formalisierte Form gebracht werden. Erst sobald sich also beide Anforderungsdokumente in einer gleichartigen Form befinden kann ein direkter Vergleich der von den Dokumenten beschriebenen Produkte stattfinden. 
-
-Diese Heterogenität von Anforderungsdokumenten ist in der Automobilindustrie vor allem bei der Beziehung zwischen OEM und Zulieferer ein bekanntes und wiederkehrendes Problem.
+Hierzu muss jedoch zunächst das Lastenheft des OEM in eine vergleichbare formalisierte Form gebracht werden. Erst sobald sich also beide Anforderungsdokumente in einer gleichartigen Form befinden, kann ein direkter Vergleich der von den Dokumenten beschriebenen Produkte stattfinden. Diese Heterogenität von Anforderungsdokumenten ist in der Automobilindustrie vor allem bei der Beziehung zwischen OEM und Zulieferer ein bekanntes und wiederkehrendes Problem.
 
 Daher wird zunächst ein Werkzeug benötigt, welches mit kleinstmöglichem Nutzeraufwand und größtmöglicher Sicherheit ein natürlichsprachliches Anforderungsdokument formalisieren kann. 
 
-Verarbeitet man mit diesem Werkzeug das Lastenheft das OEM, so erhält man zwei homogene Dokumente. Hierzu soll außerdem ein Werkzeug entwickelt werden, welches in der Lage ist zwei solcher Dokument zu vergleichen und Unterschiede darzustellen.
+Verarbeitet man mit diesem Werkzeug das Lastenheft das OEM, so erhält man zwei homogene Dokumente. Hierzu soll außerdem ein Werkzeug entwickelt werden, welches in der Lage ist, zwei solcher Dokument zu vergleichen und Unterschiede darzustellen.
 \\ 
 \newline
 HIER USE-CASE ABBILDUNG VON FIRMEN POWERPOINT 
@@ -827,32 +815,33 @@ HIER USE-CASE ABBILDUNG VON FIRMEN POWERPOINT
 Die Ansätze und Konzepte solcher Werkzeuge sind in dem folgenden Abschnitt genau beschrieben.
 
 \section[Ansatz und Konzept]{Ansatz und Konzept der Werkzeuge}
-Wie bereits unter beschrieben, existiert eine Vielzahl an Arbeiten, die sich mit der verlässlichen Überführung der Anforderungen in natürlicher Sprache in Sprachschablonen beschäftigen. Dazu werden Methoden aus dem NLP und Ontologien genutzt, um den Text der Anforderungen zunächst genau zu annotieren. Dieser Ansatz stellt die Basis für die Vorstellung unseres Werkzeugs in diesem Kapitel dar.
+Wie bereits unter beschrieben, existiert eine Vielzahl an Arbeiten, die sich mit der verlässlichen Überführung der Anforderungen in natürlicher Sprache in Sprachschablonen beschäftigen. Dazu werden Methoden aus dem NLP und Ontologien genutzt, um den Text der Anforderungen zunächst genau zu annotieren. Dieser Ansatz stellt die Basis für die Vorstellung unserer Werkzeuge in diesem Kapitel dar.
 
-In \cite{zh17} wurde das Potential einer Verbesserung von RE-Prozessen in Firmen durch Werkzeuge aufgezeigt. Die in den vorigen Kapiteln aufgezeigten Anforderungen an das Requirements-Management schaffen somit die Basis für den konkreten Entwurf von Werkzeugen, die entsprechende Funktionalitäten bereitstellen.
+In \cite{zh17} wurde das Potential einer Verbesserung von RE-Prozessen in Firmen durch Werkzeuge aufgezeigt. Die in den vorigen Kapiteln beschriebenen Anforderungen aus dem Requirements-Management schaffen somit die Basis für den konkreten Entwurf von Werkzeugen, die entsprechende Funktionalitäten bereitstellen.
 
 \subsection{Anforderungen an die Entwicklung}
-Für den Entwurf unserer Prototypen stellt sich einerseits die Frage, an welcher Stelle im abstrakten Modell ein Potential für Werkzeugunterstützung entsteht, auf der anderen Seite aber auch die Definition einer konkreten Zielgruppe bzw. Stakeholdern im tatsächlichen Betrieb bei HELLA, die nachher mit der Software interagieren und diese täglich nutzen.
-Für die Entwicklung unseres Werkzeugs haben wir in Zusammenarbeit mit RE-Experten einige Ziele identifiziert, die eine Unterstützung für die Arbeit ausmachen würden:
+Für den Entwurf der Prototypen stellt sich einerseits die Frage, an welcher Stelle im abstrakten Modell ein Potential für Werkzeugunterstützung entsteht. Auf der anderen Seite müssen aber auch Zielgruppen bzw. Stakeholdern im tatsächlichen Betrieb bei HELLA definiert werden, die nachher mit der Software interagieren und diese täglich nutzen.
+
+Für die Entwicklung unseres Werkzeugs wurden in Zusammenarbeit mit RE-Experten einige Ziele identifiziert, die eine Unterstützung für die Arbeit ausmachen würden:
 \begin{enumerate}
-\item Zeitersparnis bei Arbeit mit dem Werkzeug, da der Aufwand einer manuellen Prüfung reduziert wird
-\item Hoher Automatisierungsgrad bei der Verarbeitung, um Konflikte in den Anforderungen im Voraus aufzulösen
-\item Hoher Abdeckungsgrad verschiedener Problemfälle, da eine einfache Wiederverwendbarkeit den Aufwand zur Anpassung an andere Domänen reduziert
-\item Mehrwert für den Nutzer, da effektiv Arbeitszeit gespart und Aufwand an das Werkzeug abgegeben werden kann
+\item Zeitersparnis bei Arbeit mit dem Werkzeug, da der Aufwand einer manuellen Prüfung reduziert wird. Dieser Aufwand wird an das Werkzeug abgegeben.
+\item Hoher Automatisierungsgrad bei der Verarbeitung, um Konflikte in den Anforderungen im Voraus aufzulösen.
+\item Hoher Abdeckungsgrad verschiedener Problemfälle, da eine einfache Wiederverwendbarkeit den Aufwand zur Anpassung an andere Domänen reduziert.
 \item Anforderungen an NLP-Werkzeuge umsetzen, da eine präzise sprachliche Analyse eine wesentliche Grundlage für die Verlässlichkeit der Verarbeitung darstellt.
 \end{enumerate}
+
 \subsection{Zuordnung einzelner Werkzeuge}
-Verschiedene Verfahren, bereits bei der Spezifikation von Anforderungen im Zusammenhang eines Lastengeftes durch Werkzeuge zu unterstützen, sind unter VERWANDTE AREITEN beschrieben. Es existieren jedoch durch die Besonderheiten im geteilten Entwicklungsprozess zwischen OEM und Zulieferer besondere Herausforderungen für das RE, welche Potential für eine Werkzeugunterstützung bieten. 
+Verschiedene Verfahren, bereits bei der Spezifikation von Anforderungen im Zusammenhang eines Lastenheftes durch Werkzeuge zu unterstützen, sind unter Abs. 2.3 beschrieben. Es existieren jedoch durch die Besonderheiten im geteilten Entwicklungsprozess zwischen OEM und Zulieferer besondere Herausforderungen für das RE, welche Potential für eine Werkzeugunterstützung bieten. 
 
-Wie bereits in Kap. X.X beschrieben, resultieren die Probleme auf Seiten des Zulieferers beim Verständnis der Anforderungen aus dem Umstand, dass dort ein Lastenheft in natürlicher Sprache vorliegt. Dieses verursacht einerseits einen Arbeitsaufwand durch die Probleme beim Umgang mit natürlicher Sprache wie z.B. sprachlichen Mehrdeutigkeiten (Kap. X.X). Andererseits können enthaltenen Anforderungen teilweise nicht korrekt bzw. von niedriger Qualität sein, was zu inhaltlichen Probleme für die Produktentwicklung führt. 
+Wie bereits in Kap. 3.3 beschrieben, resultieren die Probleme auf Seiten des Zulieferers beim Verständnis der Anforderungen aus dem Umstand, dass dort ein Lastenheft in natürlicher Sprache vorliegt. Dieses verursacht einerseits einen Arbeitsaufwand durch die Probleme beim Umgang mit natürlicher Sprache wie z.B. sprachlichen Mehrdeutigkeiten (Abs. 2.1.1). Andererseits können enthaltene Anforderungen teilweise nicht korrekt bzw. von niedriger Qualität sein, was zu inhaltlichen Problemen für die Produktentwicklung führt. 
 
-Auch kann es mehrere Versionen der Spezifikation eines Produktes im Laufe der Zeit geben, deren Unterschiede erkannt werden müssen. Auswirkungen der Überarbeitung des Produktes auf Basis einer neuen Verison des Lastenheftes müssen unter verschiedenen Kriterien gewichtet werden. 
+Auch kann es mehrere Versionen der Spezifikation eines Produktes im Laufe der Zeit geben, deren Unterschiede erkannt werden müssen. Auswirkungen der Überarbeitung des Produktes auf Basis einer neuen Version des Lastenheftes müssen kategorisiert werden. 
 
-Es gilt also, Werkzeuge zu entwerfen, die insbesondere bei der Lösung von sprachlichen Problemen und bei der Identifikation von Konflikten zwischen Anforderungen in Lastenheften unterstützen. 
+Es gilt also, Werkzeuge zu entwerfen, die insbesondere bei der Lösung von sprachlichen Problemen und bei der Identifikation von Unterschieden zwischen Anforderungen in Lastenheften unterstützen. 
 
-Daher werden im folgenden die Ansätze aus \cite{zh17} beschrieben, die eine Transformation von bereits spezifizierten Anforderungen in bestehenden Lastenheften in eine besser verständliche und eindeutige formale Sprache vorschlagen. Dieser Schritt soll für jedes neu eintreffende Lastenheft durchgeführt werden, damit dieses dann standardisiert vorliegt. Die zweite Software-Komponente dient zum automatisierten Vergleich mehrerer verschiedener Lastenhefte unter der Verwendung von Ontologien. 
+Daher werden im Folgenden die Ansätze aus \cite{zh17} beschrieben, die eine Transformation von bereits spezifizierten Anforderungen in bestehenden Lastenheften in eine besser verständliche und eindeutige formalere Sprache vorschlagen. Dieser Schritt soll für jedes neu eintreffende Lastenheft durchgeführt werden, damit dieses dann standardisiert vorliegt. Die zweite Software-Komponente dient zum automatisierten Vergleich mehrerer verschiedener Lastenhefte. 
 
-Diese Ansätze haben zur konkreten Entwicklung von zwei Werkzeugen geführt, dem \textit{Requirements-To-Boilerplate-Converter} (R2BC) und dem \textit{Delta-Analyser} (DA). Diese identifizierten Software-Artefakte werden für die Verwendung in einer prototypischen Werkzeugkette hintereinander angeordnet. Somit erfolgt auf Basis der Konvertierung in Schritt 1 die Delta-Analyse in Schritt 2.
+Diese Ansätze haben zur konkreten Entwicklung von zwei Werkzeugen geführt, dem \textit{Requirements-to-Boilerplate-Converter} (R2BC) und dem \textit{Delta-Analyser} (DA). Diese identifizierten Software-Artefakte werden für die Verwendung in einer prototypischen Werkzeugkette hintereinander angeordnet. Somit erfolgt auf Basis der Konvertierung in Schritt 1 die Delta-Analyse in Schritt 2.
 
 \subsubsection{R2BC}
 Zu Beginn des Verarbeitungsprozesses liegen die Lastenhefte in natürlicher Sprache vor, die der Zulieferer vom Kunden erhalten hat. Im ersten Schritt werden diese natürlichsprachlich formulierten Anforderungen durch den R2BC in Sprachschablonen überführt. 
