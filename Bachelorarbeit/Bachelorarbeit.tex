@@ -74,17 +74,15 @@ Dortmund, 28.02.2019\\
 
 \newpage
 \begin{abstract}
-Ein weitläufiges Problem in der Autoindustrie ist die effiziente Verarbeitung von Lastenheften. Einer der Gründe dafür ist, dass viele verschiedene Bereiche bei der Entwicklung der Fahrzeuge und Einzelteile beteiligt sind. So müssen zu Beginn einer Produktentwicklung etwa Betriebswirtschaftler, Designer und Ingenieure zusammen ein Dokument entwerfen, das die Produktmerkmale widerspiegelt. Darin müssen die Anforderungen an das gewünschte Produkt so genau beschrieben sein, sodass es anhand dieses Dokuments entwickelt werden kann. Das entstandene Dokument kann dabei mehrere Hundert Seiten lang werden. Ein solches Dokument nennt man Lastenheft. Die manuelle Verarbeitung von Lastenheften ist auf Grund der verschiedenen Domänen und des großen Umfangs mit einem enormen Arbeitsaufwand verbunden. Hinzu kommt, dass dieser Aufwand oft aus Übersichtsgründen nur von nur einer Personen bewältigt werden muss. Außerdem ist die Verarbeitung der Lastenhefte durch den Menschen sehr fehleranfällig, da es so gut wie unmöglich ist den Überblick über das gesamte Dokument zu behalten. Das Resultat können Fehler in der Entwicklung sein, welche zu zeitlicher Verzögerung, zusätzlichen Kosten oder dem Abbruch des Projekts führen kann. Methoden aus dem Natural Language Processing (NLP) können dabei helfen, die Überprüfung der Lastenhefte stark zu vereinfachen oder sogar teilweise zu automatisieren. Dafür kann beispielsweise der Text in den Lastenheften analysiert und dessen Inhalt formalisiert und weiterverwendet werden.
-In dieser Arbeit wird daher die Entwicklung zweier NLP-basierter Werkzeuge zur Vereinfachung bzw. Lösung dieser Probleme vorgestellt werden. Zum einen ein \textit{Requirements-to-Boilerplate-Converter} (R2BC), welches dem Nutzer helfen soll, das Lastenheft eines Auftraggebers in die betriebsinternen Richtlinien und Standards zu überführen und dadurch zu formalisieren. Zum anderen wird der \textit{Delta-Analyser} vorgestellt, welcher auf dem R2BC aufbaut, indem er automatisch zwei homogene Lastenhefte vergleicht und dadurch im Kontext der gesamten Lastenhefte Gemeinsamkeiten und Unterschiede (Deltas) erkennt. Ziel ist es dabei, jeweils einen Prototypen als \glqq\textit{proof of concept}\grqq, also als Machbarkeitsstudie, zu implementieren. Nach dieser Vorstellung wird zusätzlich das weitere Potential der Programme erläutert, welches sich bei der Entwicklung der Prototypen gezeigt hat. Diese bietet Vorschläge zur weiteren bzw. vollständigen Implementierung der Programme.
+Ein weitläufiges Problem in der Autoindustrie ist die effiziente Verarbeitung von Lastenheften. Einer der Gründe dafür ist, dass viele verschiedene Bereiche bei der Entwicklung der Fahrzeuge und Einzelteile beteiligt sind. So müssen zu Beginn einer Produktentwicklung etwa Betriebswirtschaftler, Designer und Ingenieure zusammen ein Dokument entwerfen, das die Produktmerkmale widerspiegelt. Darin müssen die Anforderungen an das gewünschte Produkt so genau beschrieben sein, sodass es anhand dieses Dokuments entwickelt werden kann. Das entstandene Dokument kann dabei mehrere Hundert Seiten lang werden. Die manuelle Verarbeitung von Lastenheften ist auf Grund der verschiedenen Domänen und des großen Umfangs mit einem enormen Arbeitsaufwand verbunden. Hinzu kommt, dass dieser Aufwand oft aus Übersichtsgründen nur von nur einer Personen bewältigt werden muss. Außerdem ist die Verarbeitung der Lastenhefte durch den Menschen sehr fehleranfällig, da es so gut wie unmöglich ist, den Überblick über das gesamte Dokument zu behalten. Das Resultat können Fehler in der Entwicklung sein, welche zu zeitlicher Verzögerung, zusätzlichen Kosten oder dem Abbruch des Projekts führen können. Methoden aus dem Natural Language Processing (NLP) können dabei helfen, die Überprüfung der Lastenhefte stark zu vereinfachen oder sogar teilweise zu automatisieren. Dafür kann beispielsweise der Text aus den Lastenheften analysiert und dessen Inhalt formalisiert und weiterverwendet werden.
+In dieser Arbeit wird daher die Entwicklung zweier NLP-basierter Werkzeuge zur Vereinfachung bzw. Lösung dieser Probleme vorgestellt werden. Zum einen ein \textit{Requirements-to-Boilerplate-Converter} (R2BC), welcher dem Nutzer helfen soll, das Lastenheft eines Auftraggebers in die betriebsinternen Richtlinien und Standards zu überführen und dadurch zu formalisieren. Zum anderen wird der \textit{Delta-Analyser} (DA) vorgestellt, welcher auf dem R2BC aufbaut, indem er automatisch zwei formalisierte Lastenhefte vergleicht und dadurch im Kontext der gesamten Lastenhefte Gemeinsamkeiten und Unterschiede (Deltas) erkennt. Ziel ist es dabei, jeweils einen Prototypen als \glqq\textit{proof of concept}\grqq, also als Machbarkeitsstudie, zu implementieren. Nach dieser Vorstellung wird zusätzlich das weitere Potential der Programme erläutert, welches sich bei der Entwicklung der Prototypen gezeigt hat. Diese bietet Vorschläge zur Weiterentwicklung der Programme.
 
 \end{abstract}
 
 \renewcommand{\abstractname}{Abstract}
 \begin{abstract}
-A widespread problem in the auto industry is the efficient processing of specifications. One of the reasons for this is that many different areas are involved in the development of vehicles and even the smallest of parts. For example, at the beginning of product development, managers, designers, technicians, and engineers all need to design a single document together. The requirements for the desired product must be described in such detail that it can be developed using this document. As experts in their domain, everyone knows exactly what is needed. However, as soon as effects go beyond the own domain, it can quickly happen that contradictions or dependencies arise. These are quickly overlooked later, as such responsibilities are not clearly clarified. The result is then a mistake in the development, which can lead from time delay over additional costs up to the demolition of the project.
-Methods from Natural Language Processing (NLP) can help to simplify or even partially automate the review of functional specifications for consistency. For example, the text in the specifications can be analyzed and its contents stored within a knowledge base, so-called ontology.
-In this work, therefore, the development of two NLP-based tools to simplify or solve these problems will be presented. On the one hand, there is a program called Requirements-to-Boilerplate Converter (R2BC), which should help the user to transfer the specifications of a client into the company's internal guidelines and standards. On the other hand, the so-called delta analyzer is shown, which is based on the R2BC, in that it automatically compares two homogeneous specification sheets and thereby highlights contradictions and dependencies in the context of the entire specification.
-The goal here is to implement a prototype as a proof of concept of the program concepts from ZIC19. Due to the limited resources of this work, a list with further potential of the programs, which has been shown during the development of the prototypes, is additionally explained. This offers suggestions for further or complete implementation of the programs.
+A major problem in the auto industry is the efficient processing of specifications. One of the reasons for this is that many different areas are involved in the development of vehicles and individual parts. For example, at the beginning of product development, business administrators, designers, and engineers all need to design a document that reflects the product features. The requirements for the desired product must be described in detail so that it can be developed using this document. The resulting document can be several hundred pages long. The manual processing of specifications is involved in an enormous amount of work due to the different domains and the large amount of text. In addition, this effort often has to be handled by only one person for reasons of clarity. Furthermore, the processing of the specifications by the people is very error-prone, since it is almost impossible to keep track of the entire document. The result may be developmental errors that can lead to delays, additional costs or the demolition of the project. Methods from Natural Language Processing (NLP) can help simplify or even partially automate the review of specifications. For example, the text from the specifications can be analyzed and its content formalized and reused.
+In this work, therefore, the development of two NLP-based tools to simplify or solve these problems will be presented. On the one hand, a \textit{Requirements-to-Boilerplate Converter} (R2BC), which should help the user to transfer the specifications of a client into the internal guidelines and standards and thereby formalize them. On the other hand, the \textit{Delta Analyzer} (DA) is introduced, which builds on the R2BC by automatically comparing two formalized specifications and thereby recognizing similarities and differences (deltas) in the context of the entire specification. The aim is to implement one prototype each as "\textit{proof of concept}", ie as a feasibility study. After this presentation, the further potential of the programs, which has been discovered during the development of the prototypes, will be explained. This offers suggestions for the further development of the programs.
 \end{abstract}
 
 \newpage
@@ -224,11 +222,16 @@ Der Inhalt der Arbeit wird zusammengefasst und abschließend ein Ausblick für d
 
 \item[] \textbf{2.: Ritter, Schul}
 \begin{compactitem}
-\item[] 2.1: Ritter
+\item[] 2.1: Ritter, Schul
+\begin{compactitem}
+\item[] 2.1.1: Schul
+\item[] 2.1.2: Ritter
+\item[] 2.1.3: Ritter
+\item[] 2.1.4: Ritter
+\end{compactitem}
 \item[] 2.2: Schul
 \item[] 2.3: Ritter
 \end{compactitem}
-
 \item[] \textbf{3.: Ritter, Schul}
 \begin{compactitem}
 \item[] 3.1: Schul
@@ -237,55 +240,74 @@ Der Inhalt der Arbeit wird zusammengefasst und abschließend ein Ausblick für d
 \item[] 3.4: Schul
 \item[] 3.5: Ritter
 \end{compactitem}
-
+\vspace{12pt}
 \item[] \textbf{4.: Ritter, Schul}
 \begin{compactitem}
-\item[] 4.1: Schul
-\item[] 4.2: Ritter
-\item[] 4.3: Ritter, Schul
+\item[] 4.1: Ritter, Schul
 \begin{compactitem}
-\item[] 4.3.1: Schul
-\item[] 4.3.2: Ritter
-\item[] 4.3.3: Ritter
+\item[] 4.1.1: Schul
+\item[] 4.1.1: Ritter
 \end{compactitem}
-\item[] 4.4: Schul
-\item[] 4.5: Ritter
+\item[] 4.2: Ritter, Schul
+\begin{compactitem}
+\item[] 4.2.1: Schul
+\item[] 4.2.2: Ritter
+\item[] 4.2.3: Ritter
+\item[] 4.2.4: Ritter
 \end{compactitem}
-
+\item[] 4.3: Schul
+\item[] 4.4: Ritter
+\end{compactitem}
+\item[] \textbf{5.: Ritter, Schul}
+\begin{compactitem}
+\item[] 5.1: Schul
+\item[] 5.2: Ritter, Schul
+\begin{compactitem}
+\item[] 5.2.1: Schul
+\item[] 5.2.2: Ritter
+\end{compactitem}
+\item[] 5.3: Schul
+\end{compactitem}
+\item[] \textbf{6.: Ritter, Schul}
+\begin{compactitem}
+\item[] 6.1: Schul
+\item[] 6.2: Ritter
+\item[] 6.3: Schul
+\end{compactitem}
 \end{compactitem}
 \end{multicols}
 \end{center}
 
 \chapter{Stand der Technik}
 In diesem Kapitel wird zunächst ein Rückblick auf die zuvor von den Autoren verfasste Projektarbeit und die darin enthaltenen Grundlagen von NLP gegeben. 
-Aufgrund ihrer besonderen Relevanz für die Programme werden anschließend zusätzliche Ontologien als Teil von NLP genauer beleuchtet. 
+Aufgrund ihrer möglichen Relevanz für die Programme werden anschließend zusätzlich Ontologien als Teil von NLP genauer beleuchtet. 
 Außerdem wird mit Hilfe von verwandten Arbeiten ein Überblick über die Problematik und verschiedene Lösungsansätze geboten. 
 
 \section[Rückblick auf die PA]{Rückblick auf die Projektarbeit}
 In \cite{rs18} sind die Grundlagen von NLP im Rahmen einer Projektarbeit zusammengefasst. In diesem Abschnitt werden die für die Arbeit relevanten Aspekte kurz wiederholt. 
 \subsection{Grundlagen zu Natural Language Processing}
 \subsubsection{Definition und Ziel}
-Natural Language Processing ist zu verstehen als die automatisierte oder halb-automatisierte Verarbeitung von natürlicher Sprache mit Hilfe eines Computers. In NLP sind verschiedenste wissenschaftliche Bereiche verknüpft.\footnote{Es ist anzumerken, dass verschieden weit gefasste Definitionen von NLP existieren. Manche schließen etwa auch die Erfassung von Sprache mit ein, etwa durch Interaktion mit Sprachcomputern. Andere beschränken sich ausschließlich auf den Verarbeitungsprozess der Sprachdaten im Computer selbst, siehe 2.1.2.} Hauptsächlich handelt es sich dabei um Linguistik und Informatik, jedoch gibt es auch viele Verbindungen zur Psychologie, Philosophie Mathematik und Logik. \cite{cop04}
+Natural Language Processing ist zu verstehen als die automatisierte oder halb-automatisierte Verarbeitung von natürlicher Sprache mit Hilfe eines Computers. In NLP sind verschiedenste wissenschaftliche Bereiche verknüpft.\footnote{Es ist anzumerken, dass verschieden weit gefasste Definitionen von NLP existieren. Manche schließen etwa auch die Erfassung von Sprache mit ein, etwa durch Interaktion mit Sprachcomputern. Andere beschränken sich ausschließlich auf den Verarbeitungsprozess der Sprachdaten im Computer selbst, siehe 2.1.2.} Hauptsächlich handelt es sich dabei um Linguistik und Informatik, jedoch gibt es auch viele Verbindungen zur Psychologie, Philosophie, Mathematik und Logik. \cite{cop04}
 
-Ziel von NLP ist üblicherweise die Extraktion von Informationen aus einem Text durch kleinschrittige Textanalyse. Diese Informationen werden dem Text direkt über sogenannte Annotationen angehängt oder anders abgespeichert, etwa in Ontologien, welche in einem späteren Abschnitt genauer erläutert werden.
+Ziel von NLP ist üblicherweise die Extraktion von Informationen aus einem Text durch kleinschrittige Textanalyse. Diese Informationen werden dem Text direkt über sogenannte \textit{Annotationen} angehängt oder anders abgespeichert, etwa in Ontologien, welche in einem späteren Abschnitt genauer erläutert werden.
 
 \subsubsection{Beispiele von Forschung und Entwicklung}
-Die wissenschaftliche Erforschung von NLP entstand Mitte des 20. Jahrhunderts, als der Linguist Noam Chomsky zeigte, dass sich Merkmale der englischen Sprache formalisieren und somit automatisieren lassen \cite{cho57}. 
+Die wissenschaftliche Erforschung von NLP entstand Mitte des 20. Jahrhunderts, als der Linguist Noam Chomsky zeigte, dass sich Merkmale der englischen Sprache formalisieren und somit automatisiert verarbeiten lassen \cite{cho57}. 
 
-Frühe Projekte wie der Sprachcomputer ELIZA aus den 1960er Jahren waren somit bereits in der Lage eine natürlichsprachliche Frage als Texteingabe entgegenzunehmen und üblicherweise eine plausible Antwort zu liefern.   
+Frühe Projekte wie der Sprachcomputer ELIZA aus den 1960er Jahren waren somit bereits in der Lage, eine natürlichsprachliche Frage als Texteingabe entgegenzunehmen und eine plausible Antwort zu liefern. Siehe dazu \cite{wei66}.  
 
-Heutzutage gibt es ein Vielzahl von Spracherkennungssoftware auf Smartphones oder Smart-Devices wie ALEXA, welche in der Lage sind gesprochene Kommandos zu erkennen und über das Internet an Server zu leiten, welche in der Lage sind diese Kommandos schnell und effizient zu verarbeiten \cite{hao14}.
+Heutzutage gibt es ein Vielzahl von Spracherkennungssoftware auf Smartphones oder Smart-Devices wie ALEXA, welche in der Lage sind, gesprochene Kommandos zu erkennen und über das Internet an Server zu leiten. Diese können diese Kommandos schnell und effizient in der Cloud verarbeiten \cite{hao14}.
 
 \subsubsection{Herausforderungen von NLP}
-Durch die Verbindung von Linguistik und Informatik stellt sich NLP generell der Herausforderung sowohl inhärente Probleme der Sprache, als auch Probleme der Automatisierung lösen zu müssen. 
+Durch die Verbindung von Linguistik und Informatik stellt sich NLP generell der Herausforderung, sowohl inhärente Probleme der Sprache, als auch Probleme der Automatisierung lösen zu müssen. 
 
 Zu den sprachlichen Problemen gehören Aspekte wie Mehrdeutigkeit, Sarkasmus und Umgangssprache bzw. Redewendungen. Diese lassen sich oft nicht einzig und allein durch den gegebenen Text erklären, sondern beruhen auf Kontext und Situation.
 
-Vor allem bei der Erfassung von Semantik, also dem Inhalt der Texte, können komplexe Probleme auftreten. So gibt es beispielsweise Mehrdeutigkeiten, welche selbst für den Menschen nicht einfach zuzuordnen sind. So kann \glqq \textit{Die Betrachtung des Studenten}\grqq etwa bedeuten, dass der Student etwas betrachtet. Genauso kann es jedoch sein, dass jemand anderes den Studenten betrachtet. 
+Vor allem bei der Erfassung von Semantik, also dem Inhalt der Texte, können komplexe Probleme auftreten. So gibt es beispielsweise Mehrdeutigkeiten, welche selbst für den Menschen nicht einfach zuzuordnen sind. \glqq \textit{Die Betrachtung des Studenten}\grqq kann etwa bedeuten, dass der Student etwas betrachtet. Genauso kann es jedoch sein, dass jemand anderes den Studenten betrachtet. 
 
-Eine andere häufige Fehlerquelle ist das korrekte Zuordnen von sprachlichen Bezügen. Betrachtet man die Frage \glqq \textit{Verkaufen Sie Handys und Computer von Samsung}\grqq, so ist diese eindeutig grammatikalisch korrekt. Dennoch ist es uneindeutig, ob sich die Frage auf nach der Marke der Handys richtet, oder ob dies lediglich auf die Computer bezogen ist. 
+Eine andere häufige Fehlerquelle ist das korrekte Zuordnen von sprachlichen Bezügen. Betrachtet man die Frage \glqq \textit{Verkaufen Sie Handys und Computer von Samsung?}\grqq, so ist diese eindeutig grammatikalisch korrekt. Dennoch ist es uneindeutig, ob sich die Frage auch nach der Marke der Handys richtet, oder ob dies lediglich auf die Computer bezogen ist. 
 
-Noch komplexer wird es, wenn sich diese Bezüge über verschieden Sätze bzw. Teilsätze erstrecken. So ist der Satz \glqq \textit{Tom schenkt Tim ein Fahrrad, weil er nett ist}\grqq ebenfalls auf zwei verschieden Arten zu deuten. Einerseits kann es sein, das Tom das Fahrrad verschenkt, weil Tom ein netter Mensch ist, andererseits kann es sein, das Tom das Fahrrad verschenkt, weil Tim nett zu ihm ist. 
+Noch komplexer wird es, wenn sich diese Bezüge über verschieden Sätze bzw. Teilsätze erstrecken. So ist der Satz \glqq \textit{Tom schenkt Tim ein Fahrrad, weil er nett ist}\grqq{} ebenfalls auf zwei verschieden Arten zu deuten. Einerseits kann es sein, das Tom das Fahrrad verschenkt, weil Tom ein netter Mensch ist. Andererseits kann es sein, das Tom das Fahrrad verschenkt, weil Tim nett zu ihm ist. 
 
 Weiterhin können auch bei der korrekten Erfassung des Sprachinhalts weitere Probleme die Kommunikation stark beeinflussen. So kann etwa die Intention der Sprache dem Inhalt widersprechen, wie es bei Sarkasmus üblicherweise der Fall ist. 
 
@@ -348,18 +370,18 @@ Wie später gezeigt wird, kann die in dieser Arbeit beschriebene Entwicklung der
 In diesem Abschnitt wird die Zerlegung der Syntax anhand logischer Modelle von Sprache beschrieben. Begonnen wird mit der einfachen Struktur und Zusammensetzung einzelner Wörter aus der Grammatik. Die Kombination aus Wortstämmen mit Prä- und Suffixen kann etwa in einem Lexikon gesucht werden, dass alle Wörter einer Sprache enthält.  Basierend auf dieser Morphologie eines Wortes kann dann in der Analyse mehrerer Wörter auf die Rolle von Wörtern im Satzzusammenhang geschlossen werden. 
 
 \subsubsection{Morphologie}
-Dieser Abschnitt befasst sich genauer mit der Analyse der Struktur und Zusammensetzung von Wörtern. Dies wird als morphologische Analyse bezeichnet. Wie im folgenden beschrieben, können auf dieser Basis logische Modelle wie etwa Automaten erstellt werden, die zulässige Wörter aus einer Sprache auf Basis grammatikalischer Regeln erzeugen können. Für ein besseres Verständnis der im Rahmen dieser Arbeit vorgestellten Ergebnisse beschränkt sich diese Arbeit auf die vergleichsweise einfach strukturierte englische Sprache. Aufgrund der großen Fortschritte und Erfahrungen in der Sprachforschung, werden die folgenden Beispiele auf Englisch behandelt.
+Dieser Abschnitt befasst sich genauer mit der Analyse der Struktur und Zusammensetzung von Wörtern. Dies wird als morphologische Analyse bezeichnet. Wie im folgenden beschrieben, können auf dieser Basis logische Modelle wie etwa Automaten erstellt werden, die zulässige Wörter aus einer Sprache auf Basis grammatikalischer Regeln erzeugen können. Für ein besseres Verständnis später vorgestellten Ergebnisse beschränkt sich diese Arbeit auf die vergleichsweise einfach strukturierte englische Sprache. Aufgrund der großen Fortschritte und Erfahrungen in der Sprachforschung, werden die folgenden Beispiele auf Englisch behandelt.
 
-In der englischen Sprache besteht jedes Wort aus einem Wortstamm, sowie den sogenannten Affixen. In einem Satz könnte etwa das Wort \glqq \textit{believable} \grqq auftauchen. Das Wort stammt von der Grundform \glqq \textit{(to) believe} \grqq (zu Deutsch: \glqq glauben \grqq) ab. Das \textit{-able} stellt ein Suffix dar, also eine Wortendung. Zusammen mit den Präfixen, die dem Wortstamm vorangestellt sind, gehört \textit{-able} somit zur Kategorie der Affixe. 
+In der englischen Sprache besteht jedes Wort aus einem Wortstamm, sowie den sogenannten Affixen. In einem Satz könnte etwa das Wort \glqq \textit{believable}\grqq{} auftauchen. Das Wort stammt von der Grundform \glqq \textit{(to) believe}\grqq{} (zu Deutsch: \glqq glauben \grqq{}) ab. Das \textit{-able} stellt ein Suffix dar, also eine Wortendung. Zusammen mit den Präfixen, die dem Wortstamm vorangestellt sind, gehört \textit{-able} somit zur Kategorie der Affixe. 
 
-Das Ziel der morphologischen Analyse ist nun, die Zusammensetzung des Wortes nachzuvollziehen und die Information für die weitere Verarbeitung bereitzustellen. Die Generierung des Wortes \textit{believable} kann anhand von Buchstabierregeln erfolgen, die alle zulässigen Wörter auf englisch anhand der Wortstämme und Affixe erzeugen können. Es fällt auf, dass in unserem Beispiel \textit{believable} vor dem Hinzufügen des Suffixes \textit{-able} zunächst das \textit{-e} von der Grundform \textit{(to) believe} entfernt werden muss. Eine Grammatik, die zur Erzeugung dieser Wörter genutzt werden kann, muss dementsprechend eine solche Regel vorhanden sein. Gemäß \cite{rs18} bedeutet dies formal ausgedrückt:
+Das Ziel der morphologischen Analyse ist nun, die Zusammensetzung des Wortes nachzuvollziehen und die Information für die weitere Verarbeitung bereitzustellen. Die Generierung des Wortes \textit{believable} kann anhand von Buchstabierregeln erfolgen, die alle zulässigen Wörter auf englisch anhand der Wortstämme und Affixe erzeugen können. Es fällt auf, dass in unserem Beispiel \textit{believable} vor dem Hinzufügen des Suffixes \textit{-able} zunächst das \textit{-e} von der Grundform \textit{(to) believe} entfernt werden muss. In einer Grammatik, die zur Erzeugung dieser Wörter genutzt werden kann, muss dementsprechend eine solche Regel vorhanden sein. Gemäß \cite{rs18} bedeutet dies formal ausgedrückt:
 \tt
 \begin{center}
 e $\rightarrow \varepsilon \textasciicircum \_$able
 \end{center}
 \rm
 
-In der Logik kann man diese Regeln als nicht-deterministischer \textit{Zustandswandler} visualisieren.\footnote{In \cite{rs18} wurde darauf hingewiesen, dass nicht-deterministische Zusatandswandler trotzdem mithilfe der \textit{Potenzmengenkonstruktion} in einen äquivalenten deterministischen Zustandswandler überführt werden kann. Sie kommen somit zu einem eindeutigen Ergebnis \textit{erzeugbar} oder \textit{nicht erzeugbar} in der Sprache.} In Abb. 2.1 ist der Zustandswandler gezeigt, die das Suffix \textit{-able} an entsprechende Wörter anhängen kann.
+In der Logik kann man diese Regeln als nicht-deterministische \textit{Zustandswandler} visualisieren.\footnote{In \cite{rs18} wurde darauf hingewiesen, dass nicht-deterministische Zusatandswandler trotzdem mithilfe der \textit{Potenzmengenkonstruktion} in einen äquivalenten deterministischen Zustandswandler überführt werden kann. Sie kommen somit zu einem eindeutigen Ergebnis \textit{erzeugbar} oder \textit{nicht erzeugbar} in der Sprache.} In Abb. 2.1 ist der Zustandswandler gezeigt, die das Suffix \textit{-able} an entsprechende Wörter anhängen kann.
 \\
 
 \begin{figure}[h!]
@@ -389,7 +411,7 @@ Die Bestandteile von Wörtern können dabei in verschiedenen Lexika enthalten se
 
 Es ist zu beachten, dass die in der morphologischen Analyse verwendeten Buchstabierregeln zwar zu jeweils eindeutigen Ergebnissen kommen können, die Analyse selbst jedoch nicht eindeutig sein muss. Dies kann, wie bereits zuvor beschreiben, durch sprachliche Mehrdeutigkeiten entstehen. 
 
-Das Wort \glqq \textit{even}\grqq könnte isoliert etwa einmal als \textit{gleichmäßig}, also als Adjektiv kategorisiert, ins Deutsche übersetzt werden, jedoch auch sinngemäß \textit{sogar}, also das Adverb mit einem oder mehreren Bezugswörtern meinen.\footnote{Aus Gründen der Vereinfachung wurde sich hier auf zwei erkennbar verschiedene Bedeutungen beschränkt. Tatsächlich stellt sich neben Bestimmung des grammatikalischen Typs auch die Frage, ob sich die verschiedenen Übersetzungen derselben Kategorie, z.B. \textit{even} als \textit{gerade} und \textit{gleichmäßig}, in ihrer Bedeutung im Sachzusammenhang unterscheiden.} Die mehreren möglichen Bedeutungen des einzelnen Wortes können jedoch in der Regel durch die Position und grammatikalische Funktion im Satz aufgelöst werden. Diese Eigenschaften werden durch das \textit{Part-of-Speech-Tagging} identifiziert.
+Das Wort \glqq \textit{even}\grqq{} könnte isoliert etwa einmal als \textit{gleichmäßig}, also als Adjektiv kategorisiert, ins Deutsche übersetzt werden. Jedoch kann auch sinngemäß \textit{sogar}, also das Adverb mit einem oder mehreren Bezugswörtern, gemeint sein.\footnote{Aus Gründen der Vereinfachung wurde sich hier auf zwei erkennbar verschiedene Bedeutungen beschränkt. Tatsächlich stellt sich neben Bestimmung des grammatikalischen Typs auch die Frage, ob sich die verschiedenen Übersetzungen derselben Kategorie, z.B. \textit{even} als \textit{gerade} und \textit{gleichmäßig}, in ihrer Bedeutung im Sachzusammenhang unterscheiden.} Die mehreren möglichen Bedeutungen des einzelnen Wortes können jedoch in der Regel durch die Position und grammatikalische Funktion im Satz aufgelöst werden. Diese Eigenschaften werden durch das \textit{Part-of-Speech-Tagging} identifiziert.
 
 \subsubsection{Part-Of-Speech-Tagging}
 Die Ergebnisse der morphologischen Analyse von mehreren Wörtern, etwa in einem Satz, können zur Analyse von Zusammenhängen zwischen diesen Wörtern genutzt werden. Somit kann die grammatikalische Struktur des Satzes auf Basis der einzelnen Wörter dargestellt werden. Der grammatikalische Typ jedes Wortes wird durch das Part-Of-Speech-Tagging festgelegt und jedes Wort wird \textit{annotiert}. Wie später in dieser Arbeit beschrieben wird, dienen solche Annotationen in NLP-Werkzeugen der Sammlung der bekannten Informationen zu einem Wort oder Satz. 
@@ -401,9 +423,9 @@ Als Beispiel soll der Satz
 \tt
 \\I love trains.\\
 \\ \rm 
-dienen. Das Part-of-Speech tagging zum Wort \glqq \textit{trains}\grqq soll hier veranscheulicht werden. Das Wort \glqq \textit{trains}\grqq allein ist ein Nomen im Plural, jedoch könnte es sowohl das Subjekt, als auch das Objekt im Satz darstellen. im Im Englischen sollte ein POS-Tagger aber erkennen, dass \textit{Subjekt-Prädikat-Objekt} eine gültige Satzkonstruktion darstellt, die zu dem Beispielsatz passt. Dementsprechend entfällt die Möglichkeit von \textit{trains} als Subjekt, da es hinter einem Verb als Akkusativobjekt des Satzes auftaucht.
+dienen. Das Part-of-Speech tagging zum Wort \glqq \textit{trains}\grqq{} soll hier veranschaulicht werden. Das Wort \glqq \textit{trains}\grqq{} allein ist ein Nomen im Plural, jedoch könnte es sowohl das Subjekt, als auch das Objekt im Satz darstellen. Im Englischen sollte ein POS-Tagger aber erkennen, dass \textit{Subjekt-Prädikat-Objekt} eine gültige Satzkonstruktion darstellt, die zu dem Beispielsatz passt. Dementsprechend entfällt die Möglichkeit von \textit{trains} als Subjekt, da es hinter einem Verb als Akkusativobjekt des Satzes auftaucht.
 
-Es existieren verschiedene Techniken für diese Beurteilungen der POS-Tagger. Verschiedene gültige Satzkonstruktionen sind häufig als sog. \textit{corpora} gespeichert. Diese stellen repräsentative Trainingsdaten dar, die beispielsweise aus der Zeitung \textit{Wall-Street-Journal} stammen. 
+Es existieren verschiedene Techniken für diese Beurteilungen der POS-Tagger. Verschiedene gültige Satzkonstruktionen sind häufig in sog. \textit{Corpora} gespeichert. Diese stellen repräsentative Trainingsdaten dar, die beispielsweise aus der Zeitung \textit{Wall-Street-Journal} stammen. 
 In diesem Corpus könnten etwa die annotierten Sätze
 \\
 \tt
@@ -414,20 +436,20 @@ I(subj) go(vb) home(obj) .(punc)\\
 \\ \rm
 enthalten sein.\footnote{Die tatsächliche Annotation kann durch POS-Tagger i.d.R. feiner erfolgen, sodass etwa Pronomen von Subjekten unterschieden werden. Auch können, wie später in dieser Arbeit gezeigt wird, eigene Annotationen bei Bedarf nach neuen Kategorien hinzugefügt werden. Der Corpus hier stellt ein stark vereinfachtes Beispiel dar. Ein ausführliches Beispiel unter der Verwendung der CLAWS-7-POS-Taggers findet sich in \cite{rs18}.}
 
-Mithilfe dieser Menge von Daten kann POS-Tagging auch heuristisch, d.h. auf Basis von Wahrscheinlichkeiten bzw. Metriken, erfolgen, indem das Auftauchen verschiedener Satzbauten im Trainingscorpus gezählt wird. Auf dieser Basis können dann Wahrscheinlichkeiten für verschiedene Möglichkeiten berechnet werden, wenn es mehrere mögliche Zuordnungen gibt. 
+Mithilfe dieser Menge von Daten kann POS-Tagging auch heuristisch, d.h. abhängig von Wahrscheinlichkeiten bzw. Metriken, erfolgen, indem das Auftauchen verschiedener Satzbauten im Trainingscorpus gezählt wird. Auf dieser Basis können dann Wahrscheinlichkeiten für verschiedene Möglichkeiten berechnet werden, wenn es mehrere mögliche Zuordnungen gibt. 
 
 \subsubsection{Nutzen syntaktischer Analyse für NLP}
-Ein wichtiges Einsatzgebiet für POS-Tagger ist auch die Wortvorhersage bzw. \textit{prediction} auf Basis solcher Heuristiken. Diese kann im Kontext der zuvor vorgenommen Annotationen von Wörtern erfolgen. Beispielsweise werden sog. \textit{n-gramme} verwendet, um unter Berücksichtigung der Annotation von \textit{n} gelesenen Wörtern die Möglichkeiten für das folgende Wort zu berechnen. In \cite{rs18} findet sich ein vollständiges Beispiel anhand eines \textit{Bigramms} mit Corpus.
+Ein wichtiges Einsatzgebiet für POS-Tagger ist auch die Wortvorhersage bzw. \textit{prediction} auf Basis solcher Heuristiken. Diese kann im Kontext der zuvor vorgenommen Annotationen von Wörtern erfolgen. Beispielsweise werden sog. \textit{n-Gramme} verwendet, um unter Berücksichtigung der Annotation von \textit{n} gelesenen Wörtern die Möglichkeiten für das folgende Wort zu berechnen. In \cite{rs18} findet sich ein vollständiges Beispiel anhand eines \textit{Bigramms} mit Corpus.
 
 Die heutigen Verfahren zur syntaktischen Analyse nutzen zur Steigerung der Genauigkeit u.a. Verfahren aus dem maschinellen und automatisierten Lernen und können somit hohe Trefferquoten erzielen.\footnote{In \cite{she07} wird ein POS-Tagger auf der Basis von bidirektionaler Analyse und Machine-Learning zum Erstellen der Trainingsdaten beschrieben. Obwohl nur auf Basis der Textsyntax erzielt, sind die Ergebnisse zu 97,33\% korrekt.} Um ein tieferes Verständnis von Texten zu erzielen, reicht die in diesem Abschnitt beschriebene syntaktische Analyse anhand der Grammatik nicht aus. Die tatsächliche Abbildung von Wissen über semantische Zusammenhänge stellt eine verlässlichere Möglichkeit dar, sprachliche Zusammenhänge zu identifizieren. 
 
 \subsection{Umgang mit Semantik}
 Wie im letzten Abschnitt aufgezeigt wurde, können nicht alle Informationen aus einem Text eindeutig anhand der Erfassung der Grammatik eines Satzes extrahiert werden. Die Syntax eines Satzes ist häufig mehrdeutig, da der Zusammenhang einzelner Wörter verschieden interpretiert werden kann. Auf der semantischen Ebene, d.h. der Bedeutung, existieren jedoch bereits bei einzelnen Wörtern verschiedene Deutungen. 
 
-Schon bei der Mensch-Mensch-Kommunikation kommt es somit häufig zu Missverständnisse, wenn die Bedeutung hinter einer Aussage nicht eindeutig ist. Auf Basis des Kontextes einer Aussage bzw. der Domäne des Inhalts kann jedoch meist zu einer mehrdeutigen Aussage eine eindeutige Deutung identifiziert werden.
+Schon bei der Mensch-Mensch-Kommunikation kommt es somit häufig zu Missverständnissen, wenn die Bedeutung hinter einer Aussage nicht eindeutig ist. Auf Basis des Kontextes einer Aussage bzw. der Domäne des Inhalts kann jedoch meist zu einer mehrdeutigen Aussage eine eindeutige Deutung identifiziert werden.
 
-NLP beschäftigt sich daher auch intensiv mit der Abbildung und Modellierung der Semantik von Sprache, die in der Logik häufig als \glqq \textit{Logik einer Aussage}\grqq bezeichnet wird.\footnote{Bereits in den 1980er Jahren wurden Konzepte auf Basis logischer Modelle, mit denen Semantik abgebildet werden kann, mithilfe von Theorembeweisern und Model-Checking beschrieben. \cite{sb88} \cite{kn85}} Die Formalisierung mehrerer Bedeutungen kann dabei mithilfe von Symbolen der Aussagenlogik erfolgen, die Symbole dienen dabei als Platzhalter für Wörter bzw. Satzteile. Etwa das Beispiel aus \cite{rs18}:
-
+NLP beschäftigt sich daher auch intensiv mit der Abbildung und Modellierung der Semantik von Sprache, die in der Logik häufig als \glqq \textit{Logik einer Aussage}\grqq{} bezeichnet wird.\footnote{Bereits in den 1980er Jahren wurden Konzepte auf Basis logischer Modelle, mit denen Semantik abgebildet werden kann, mithilfe von Theorembeweisern und Model-Checking beschrieben. \cite{sb88} \cite{kn85}} Die Formalisierung mehrerer Bedeutungen kann dabei mithilfe von Symbolen der Aussagenlogik erfolgen. Die Symbole dienen als Platzhalter für Wörter bzw. Satzteile. Etwa das Beispiel aus \cite{rs18}:
+\vspace{12pt}
 \tt
 Every man loves a woman.
 \rm
@@ -438,7 +460,7 @@ Zu deutsch \textit{\glqq  Jeder Mann liebt...\grqq{}} ist semantisch mehrdeutig 
 \item \textit{\glqq  ...irgendeine Frau\grqq{}}: $\forall x [man'(x) \Rightarrow \exists y [woman'(y) \bigwedge love'(x,y)]]$
 \end{enumerate}
 
-Bereits durch den Menschen fällt die Deutung anhand von Symbolen der Aussagenlogik nicht leicht. Daher wurden verschiedene Arten von Zusammenhängen, u.a. auf Basis von Symbolen der Mengenlehre, anhand welcher die Deutung vereinfacht und klarer erkennbar wird. 
+Bereits durch den Menschen fällt die Deutung anhand von Symbolen der Aussagenlogik nicht leicht. Daher wurden verschiedene Arten von Zusammenhängen, u.a. durch Abbildung auf Symbole der Mengenlehre definiert, anhand welcher die Deutung vereinfacht und klarer erkennbar wird. 
 
 \subsubsection{Meaning-Postulates}
 Linguisten und Philosophen haben Regeln für die Abbildung von Zusammenhängen auf eindeutige Kategorien formalisiert. Dabei wurden verschiedene Bedeutungen von Wortzussammenhängen identifiziert, die als (Bedeutungs-)Mengenbeziehung bzw. Relation zwischen Symbolen visualisiert werden können \cite{car52}:
@@ -475,16 +497,16 @@ In der Praxis stellt sich daher die Frage, in welchem Umfang Semantiken für NLP
 
 \section{Ontologien}
 
-Dieser Abschnitt befasst sich genauer mit dem Begriff der Ontologien im Kontext der Informatik. 
+Dieser Abschnitt befasst sich genauer mit dem Begriff der Ontologien im Kontext der Informatik. Ein weit verbreitetes Werkzeug für die Arbeit mit Ontologien ist \textit{Protegé}. Dieses wird im Folgenden für die Modellierung verwendet.
 
 \subsection{Definition}
-Ontologien lassen sich allgemein definieren als \glqq formale, schematische Abbildungen eines Wissensbereichs, bestehend aus einem Vokabular und Regeln zu seiner Zusammensetzung\grqq \cite{we13}.
+Ontologien lassen sich allgemein definieren als \glqq formale, schematische Abbildungen eines Wissensbereichs, bestehend aus einem Vokabular und Regeln zu seiner Zusammensetzung\grqq{} \cite{we13}.
 
-Zunächst bedeutet dies, dass eine Ontologie stets auf nur Wissen aus einer bestimmten Domäne bezieht und nicht versucht das gesamte über die Welt bzw. sehr allgemeines Wissen abzubilden. 
+Zunächst bedeutet dies, dass sich eine Ontologie stets nur auf Wissen aus einer bestimmten Domäne bezieht und nicht versucht, das gesamte über die Welt bzw. sehr allgemeines Wissen abzubilden. 
 
-Des weiteren Besteht eine Unterteilung in ein Vokabular und in eine Menge von Regeln. 
+Des Weiteren besteht eine Unterteilung der Ontologie in ein Vokabular und in eine Menge von Regeln. 
 
-Einer der Aspekte von Ontologien, welche sie für die Informatik so geeignet machen ist, dass sie in maschienenlesbaren Ontologiesprachen verfasst werden. Somit können Computersysteme diese automatisch auslesen und ggf. interpretieren und daraus schlussfolgern. 
+Einer der Aspekte von Ontologien, welche sie für die Informatik so geeignet machen, ist, dass sie in maschienenlesbaren Ontologiesprachen verfasst werden. Somit können Computersysteme diese automatisch auslesen, ggf. interpretieren und daraus schlussfolgern. 
 
 Da Terminologie und bestimmte Formalitäten zwischen Ontologiesprachen variieren können, wird im Folgenden der Bezug auf die weit verbreitete Ontologiesprache \glqq Web Ontology Language\grqq{} (OWL) angenommen.
 
@@ -492,28 +514,29 @@ Da Terminologie und bestimmte Formalitäten zwischen Ontologiesprachen variieren
 Der Aufbau von Ontologien lässt sich grob in zwei Aspekte unterteilen: 
 
 \begin{enumerate}
-\item Das Vokabular: Hier sind alle Dinge innerhalb des Wissensbereiches aufgeführt, welcher von der Ontologie abgedeckt werden soll. Dazu gehören sowohl die Oberbegriffe dieser Dinge, als auch die Instanzen selbst. 
-\item Die Regeln: Diese beschreiben die Dinge genauer und bilden deren Beziehung untereinander ab. Sie können eigenständig existieren oder im Bezug zu den vorhandenen Dingen stehen. 
+\item \textit{Das Vokabular}: Hier sind alle Dinge innerhalb des Wissensbereiches aufgeführt, welche von der Ontologie abgedeckt werden sollen. Dazu gehören sowohl die Oberbegriffe dieser Dinge, als auch die Instanzen selbst. 
+\item \textit{Die Regeln}: Diese beschreiben die Dinge genauer und bilden deren Beziehung untereinander ab. Sie können eigenständig existieren oder im Bezug zu den vorhandenen Dingen stehen. 
 \end{enumerate}
+
 \subsubsection{Klassenhierarchie}
 Die Hierarchie einer Ontologie, also der strukturelle Aufbau, lässt sich in die folgenden drei Komponenten unterteilen:
 \begin{enumerate}
-\item Begriffe: Die Grundlage für die Struktur einer Ontologie stellt der hierarchische Aufbau von \textit{Begriffen} (\textit{concepts}). Diese Repräsentieren eine Art Klassenstruktur und werden daher oft auch als Klassen bezeichnet. Sie können in aus der Informatik bekannten Ansätzen wie Ober- und Unterklassen angeordnet werden. Begriffe sind üblicherweise sehr generell gehalten und könnten etwa die Klasse \textit{Auto} abbilden. 
+\item \textit{Begriffe}: Die Grundlage für die Struktur einer Ontologie stellt der hierarchische Aufbau von \textit{Begriffen} (\textit{concepts}) dar. Diese repräsentieren eine Art Klassenstruktur und werden daher oft auch als Klassen bezeichnet. Sie können in aus der Informatik bekannten Ansätzen wie Ober- und Unterklassen angeordnet werden. Begriffe sind üblicherweise sehr generell gehalten und könnten etwa die Klasse \textit{Auto} abbilden. 
 
-\item Typen: In vielen Fällen lässt sich ein Begriff in verschiedene \textit{Typen} aufteilen. Ein Auto kann beispielsweise nach verschiedenen Automarken typisiert werden. Diese Typen werden dann ebenfalls durch Klassen verkörpert und bilden in dem hierarchischen Aufbau eine Unterklasse des jeweiligen Begriffs. Da sowohl Begriffe, als auch Typen in Klassen verkörpert werden, wird in der Praxis oftmals nicht zwischen den beiden unterschieden. Man kann jedoch üblicherweise über einer Unterklasse als Typ der Oberklasse sprechen. 
+\item \textit{Typen}: In vielen Fällen lässt sich ein Begriff in verschiedene \textit{Typen} aufteilen. Ein Auto kann beispielsweise nach verschiedenen Automarken typisiert werden. Diese Typen werden dann ebenfalls durch Klassen verkörpert und bilden in dem hierarchischen Aufbau eine Unterklasse des jeweiligen Begriffs. Da sowohl Begriffe, als auch Typen in Klassen verkörpert werden, wird in der Praxis oftmals nicht zwischen den beiden unterschieden. Man kann jedoch üblicherweise über einer Unterklasse als Typ der Oberklasse sprechen. 
 
-\item Instanzen: Die sogenannten \textit{Instanzen} (\textit{instances}) verkörpern konkrete Objekte dieser Klassen und werden nicht weiter aufgespalten bzw. typisiert. Ein Instanz wäre dann etwa ein bestimmtes Modell, einer bestimmten Marke von Autos. 
+\item \textit{Instanzen}: Die sogenannten \textit{Instanzen} (\textit{instances}) verkörpern konkrete Objekte dieser Klassen und werden nicht weiter aufgespalten bzw. typisiert. Ein Instanz wäre dann etwa ein bestimmtes Modell einer bestimmten Marke von Autos. 
 \end{enumerate}
 
-Diese Hierarchie ist ggf. beliebig erweiterbar. So könnte man für eine bessere Klassifizierung z.B. die Marke eines Autos zunächst in eine Produktreihe oder nach einer Produkteigenschaft wie \textit{Combi} typisieren und erst davon abhängig die verschiedenen Instanzen zuordnen.
+Diese Hierarchie ist ggf. beliebig erweiterbar. So könnte man für eine bessere Klassifizierung z.B. die Marke eines Autos zunächst in eine Produktreihe oder nach einer Produkteigenschaft wie \textit{Kombi} typisieren und erst davon abhängig die verschiedenen Instanzen zuordnen.
 
-In Abbildung X.X ist eine stark vereinfachte Klassenhierarchie aus Oberklassen, Unterklassen und Instanzen beispielhaft dargestellt.
+In Abbildung 2.2 ist eine stark vereinfachte Klassenhierarchie aus Oberklassen, Unterklassen und Instanzen beispielhaft dargestellt.
 
  
 \begin{figure}[H]
 \begin{center}
 \includegraphics[scale=0.8]{Bilder/ontologyClasses.jpg}
-\caption{Beispielhafte Ontologie als Klassenhierarchie [eingene Darstellung (in Protegé)]}
+\caption{Beispielhafte Ontologie als Klassenhierarchie  in Protegé [eingene Darstellung]}
 \end{center}
 \end{figure}
 
@@ -522,23 +545,23 @@ Auf der obersten Ebene der Klassen-Hierarchie befindet sich die Klasse \textit{o
 
 Auf der nächsten Ebene befinden sich die beiden Begriffe \textit{Automobil} und \textit{Person}. Diese können entweder direkt in Instanzen übergehen, oder zunächst durch Typisierung unterteilt werden. 
 
-Somit finden sich in der nächsten Ebene die drei nach Marke getrennten Automobil-Typen \textit{VW}, \textit{BMW} und \textit{Audi}. Außerdem werden Autofahrer und Ingenieure als Personen unterschieden. Es ist anzumerken, dass es nicht ausgeschlossen ist, das ein Ingenieur auch Autofahren ist. Wegen der möglichen Mehrfachvererbung lassen sich jedoch Typen oder Instanzen erzeugen, welche sowohl von Autofahrer, als auch von Ingenieur erben. Somit stellt eine Unterteilung in Typen ohne gegenseitigen Ausschluss in der Praxis kein Problem dar und kann sogar nützlich sein, wie später anhand von Relationen gezeigt wird. 
+Somit finden sich in der nächsten Ebene die drei nach Marke getrennten Automobil-Typen \textit{VW}, \textit{BMW} und \textit{Audi}. Außerdem werden Autofahrer und Ingenieure als Personen unterschieden. Es ist anzumerken, dass es nicht ausgeschlossen ist, das ein Ingenieur auch Autofahrer ist. Aufgrund der möglichen Mehrfachvererbung lassen sich jedoch Typen oder Instanzen erzeugen, welche sowohl von Autofahrer, als auch von Ingenieur erben. Somit stellt eine Unterteilung in Typen ohne gegenseitigen Ausschluss in der Praxis kein Problem dar und kann sogar nützlich sein, wie später anhand von Relationen gezeigt wird. 
 
-In der vierten Ebene sind einzig zu Demonstrationszwecken einige der Typen weiter unterteilt und andere nicht. Man sieht, dass die Hierarchie also keineswegs gleichmäßig sein muss, um eine sinnvolle Unterteilung zu gewährleisten. 
+In der vierten Ebene sind einzig zu Demonstrationszwecken einige der Typen weiter unterteilt und andere nicht. Dies zeigt, dass die Hierarchie also keineswegs gleichmäßig sein muss, um eine sinnvolle Unterteilung zu gewährleisten. 
 
-In der letzten Ebene befinden sich einige Instanzen von Autos welche durch konkrete Modelle dargestellt werden. Theoretisch ließen sich auch diese weiter unterteilen, etwa nach Innenausstattung. Diesbezüglich ist je nach Verwendungszweck der Ontologie genau festzulegen, wie die Hierarchie zu strukturieren und wie weit sie auszuführen ist. Beispielsweise macht es für einen großen Autohersteller keinen Sinn, wenn in einer konzernübergreifenden Ontologie jeder Ingenieur instantiiert ist.
+In der letzten Ebene befinden sich einige Instanzen von Autos, welche durch konkrete Modelle dargestellt werden. Theoretisch ließen sich auch diese weiter unterteilen, etwa nach Innenausstattung. Diesbezüglich ist je nach Verwendungszweck der Ontologie genau festzulegen, wie die Hierarchie zu strukturieren und wie weit sie auszuführen ist. Beispielsweise macht es für einen großen Autohersteller keinen Sinn, wenn in einer konzernübergreifenden Ontologie jeder Ingenieur instantiiert ist.
 
 \subsubsection{Regeln}
 Die Regeln in einer Ontologie lassen sich in die folgenden zwei Komponenten unterteilen:
 \begin{enumerate}
-\item Relationen: Einen wichtigen Bestandteil von Ontologien bilden die sogenannten \textit{Relationen} (\textit{properties}).
+\item \textit{Relationen}: Einen wichtigen Bestandteil von Ontologien bilden die sogenannten \textit{Relationen} (\textit{properties}).
 Relationen beschreiben Beziehungen zwischen Begriffen und werden oft auch als Eigenschaften verwendet und bezeichnet. Ähnlich zu vielen Programmiersprachen können diese Relationen und Eigenschaften eines Begriffs an die Instanzen des Begriffs vererbt werden. Grundsätzlich ist dabei auch eine Mehrfachvererbung möglich. 
 
-\item Axiome: Des Weiteren können Ontologien durch sogenannte \textit{Axiome} (\textit{restictions})  genauer modelliert bzw. eingeschränkt werden. Axiome verkörpern dabei Regeln in der Ontologie welche stets zutreffen müssen. Üblicherweise werden diese dazu verwendet, Einschränkungen vorzunehmen, die nicht effizient durch den abgebildeten Wissensbereich darzustellen sind. Dies könnte Beispielsweise in einer Ontologie über verschiedene Automodelle verschiedenster Marken eine generelle Definition von Automobilen sein. 
-So ließe sich die Voraussetzung, dass ein Automobil motorisiert sein muss durch eine Klasse \textit{Bauteil} mit der Unterklasse \textit{Motor} darstellen, welche dann über eine \textit{muss verbaut sein in}-Relation mit der Klasse \textit{Automobil} verbunden ist. Ist es jedoch nicht Zweck der Ontologie Bauteile genauer abzudecken, wäre dies unnötiger Aufwand, der außerdem die Übersichtlichkeit der Ontologie einschränken könnte.
+\item \textit{Axiome}: Des Weiteren können Ontologien durch sogenannte \textit{Axiome} (\textit{restictions})  genauer modelliert bzw. eingeschränkt werden. Axiome verkörpern dabei Regeln in der Ontologie, welche stets zutreffen müssen. Üblicherweise werden diese dazu verwendet, Einschränkungen vorzunehmen, die nicht effizient durch den abgebildeten Wissensbereich darzustellen sind. Dies könnte Beispielsweise in einer Ontologie über verschiedene Automodelle verschiedenster Marken eine generelle Definition von Automobilen sein. 
+So ließe sich die Voraussetzung, dass ein Automobil motorisiert sein muss, durch eine Klasse \textit{Bauteil} mit der Unterklasse \textit{Motor} darstellen, welche dann über eine \textit{muss verbaut sein in}-Relation mit der Klasse \textit{Automobil} verbunden ist. Ist es jedoch nicht Zweck der Ontologie, Bauteile genauer abzudecken, wäre dies unnötiger Aufwand, der außerdem die Übersichtlichkeit der Ontologie einschränken könnte.
 \end{enumerate}
 
-Abbildung X.X zeigt eine beispielhafte, stark vereinfacht Ontologie zu Automobilen und bestimmten im Kontext relevanten Personen. 
+Abbildung 2.3 zeigt eine beispielhafte, stark vereinfachte Ontologie zu Automobilen und bestimmten im Kontext relevanten Personen. 
 
 \begin{figure}[H]
 \begin{center}
@@ -547,53 +570,54 @@ Abbildung X.X zeigt eine beispielhafte, stark vereinfacht Ontologie zu Automobil
 \end{center}
 \end{figure}
 
-Die Relationen zwischen den Konten der Ontologie sind dargestellt durch Linien mit einem mittigen Pfeil. Die durchgezogenen Linien zeigen den Grundaufbau der Hierarchie. Die blauen Linien verkörpern die \textit{has subclass}-Beziehung, welche auf Vererbung hinweist. Die violetten Linien stehen für die \textit{has individual}-Beziehung und zeigen auf eine Instanz der Klasse. 
-Außerdem wurden zwei Objekt-Attribute (\textit{object properties}) manuell hinzugefügt. Diese können verwendet werden um Relationen zwischen Klassen aufzuzeigen, welche nicht voneinander erben, sondern sich in unterschiedlichen \glqq Teilbäumen\grqq{} der Ontologie befinden. So verweist, dargestellt durch den gelben Pfeil eine \textit{benutzt}-Relation von dem Autofahrer auf das Automobil, bedeutet also das Autofahrer Automobile verwenden.  
-Ähnlich dazu zeigt von der Klasse Ingenieur eine \textit{entwickelt}-Beziehung (brauner Pfeil) auf Automobil.
+Die Relationen zwischen den Knoten der Ontologie sind durch Linien mit einem mittigen Pfeil dargestellt. Die durchgezogenen Linien zeigen den Grundaufbau der Hierarchie. Die blauen Linien verkörpern die \textit{has subclass}-Beziehung, welche auf Vererbung hinweist. Die violetten Linien stehen für die \textit{has individual}-Beziehung und zeigen auf eine Instanz der Klasse. 
+Außerdem wurden zwei Objekt-Attribute (\textit{object properties}) manuell hinzugefügt. Diese können verwendet werden, um Relationen zwischen Klassen aufzuzeigen, welche nicht voneinander erben, sondern sich in unterschiedlichen \glqq Teilbäumen\grqq{} der Ontologie befinden. So verweist, dargestellt durch den gelben Pfeil, eine \textit{benutzt}-Relation von dem Autofahrer auf das Automobil. Dies bedeutet also, dass Autofahrer Automobile verwenden.  
+
+Ähnlich dazu zeigt von der Klasse \textit{Ingenieur} eine \textit{entwickelt}-Beziehung (brauner Pfeil) auf \textit{Automobil}.
 
 \subsubsection{Verwendung von Ontologien}
-Wie eingehend bereits erwähnt sind Ontologien vor allem in der Informatik durch ihre Maschinenlesbarkeit wertvoll. Sie sind außerdem auch geeignet komplexere Sachzusammenhänge abzubilden, was mit primitiven Datentypen wie man sie in einer relationalen Datenbank abspeichern kann nicht möglich wäre. Simple Verbindungen wie sie etwa in den in 2.1.4 beschriebenen Bedeutungspostulaten beschrieben sind lassen sind in Ontologien schnell und effizient darstellen.
+Wie eingehend bereits erwähnt, sind Ontologien vor allem in der Informatik durch ihre Maschinenlesbarkeit verbreitet. Sie sind außerdem auch geeignet, komplexere Sachzusammenhänge abzubilden. Dies ist mit primitiven Datentypen, wie man sie in einer relationalen Datenbank abspeichern kann, nicht möglich. Simple Verbindungen, wie sie etwa in den in 2.1.4 beschriebenen Bedeutungspostulaten beschrieben sind, lassen sind in Ontologien schnell und effizient darstellen.
 
-Betrachte man zum Beispiel das Satzschema \glqq B ist ein A\grqq{} so würde dies durch eine einfache \textit{hasSubclass}-Beziehung von der Klasse \textit{A} zu der Klasse \textit{B} dargestellt.
+Betrachtet man zum Beispiel das Satzschema \glqq B ist ein A\grqq{}, so würde dies durch eine einfache \textit{hasSubclass}-Beziehung von der Klasse \textit{A} zu der Klasse \textit{B} dargestellt.
 Erstellt man nun die beiden Instanzen \textit{b1} und \textit{b2} der Klasse B, so liegen implizit bereits die Informationen vor, dass sie beide auch ein \textit{A} sind. Außerdem ist ihre Homogenität durch die Abstammung von der gleichen Klasse gewährleistet. Daher brauchen die Instanzen hierfür weder eine Beziehung untereinander, noch zu der Oberklasse \textit{A} ihrer Elternklasse \textit{B}.
-\\
-\newline
-Grafik mit A,B,b1 und b2 und Tier, Vierbeiner, Hund und Katze
-\\
-\newline
 
-Im Zusammenhang dieser Arbeit sollen später Ontologien dazu verwendet werden den Inhalt betrieblichen Anforderungen aus einem Lastenheft abzuspeichern. Lastenhefte sind dabei stark domänenbezogen und somit optimal geeignet um in Ontologien abgespeichert zu werden. Des Weiteren lassen sich stets Relationen zwischen den einzelnen Teilbereichen ziehen, was für einen einzelnen Domänenexperten schwierig wäre. Eine üblicherweise vorausgesetzte Eigenschaft für Anforderungen ist Atomarität [QUELLE], was bedeutet, dass jeder Satz nur genau eine Aussage beinhalten soll. Dies hat zur Folge, dass viele betriebliche Anforderungen tatsächlich den vorgestellten, knappen Satzschemata entsprechen.
+
+Im Zusammenhang dieser Arbeit könnten Ontologien später zur Modellierung der Anforderungen aus Lastenheften dienen. Die durch die Anforderungen beschriebenen Dinge sind sind dabei stark domänenbezogen und somit optimal geeignet, um in Ontologien abgespeichert zu werden. 
+
+Eine üblicherweise vorausgesetzte Eigenschaft für Anforderungen ist etwa Atomarität \cite{hp12}, was bedeutet, dass jeder Satz nur genau eine Aussage beinhalten soll. Dies hat zur Folge, dass viele betriebliche Anforderungen tatsächlich den vorgestellten, knappen Satzschemata entsprechen. Maßnahmen zur Herstellung konsistenter Anforderungen sind in Abs. 3.3.1 beschrieben.
 
 \section{Verwandte Arbeiten}
-Dieses Kapitel stellt einen Überblick über bereits veröffentlichte Arbeiten dar, die sich mit dem Themen Natural Language Processing für Anforderungsmanagement, sowie die Unterstützung durch Werkzeuge beim Requirements-Engineering befassen. 
+Dieses Kapitel stellt einen Überblick über bereits veröffentlichte Arbeiten dar, die sich mit dem Themen Natural Language Processing für Anforderungsmanagement, sowie die Unterstützung durch Werkzeuge beim Require- \\ments-Engineering befassen. 
 
 \subsubsection{Grundlage dieser Arbeit}
 K. Zichler und S. Helke stellen in \cite{zh17} und \cite{zh19} die wesentlichen Aspekte für den Entwurf einer Softwareunterstützung für Requirements-Engineering in Firmen vor. 
 
 In \cite{zh17} wird zunächst der Bedarf nach solcher Unterstützung besonders für die Automobilindustrie beschrieben, da die Verbesserung herkömmlicher Methoden im Requirements-Engineering dort wesentliches Potential bietet. Der Vorschlag beinhaltet die Unterstützung von Projektteams durch ein Expertenteam aus Requirements-Experten, die Anforderungen aufbereiten und deren konsistente Umsetzung verbessern. 
 
-Auf dieser Basis stellen sie in \cite{zh19} konkret einen Entwurf eines Werkzeugs für die automatisierte Analyse von Projektlastenheften vor. Das Werkzeug gliedert sich dabei in eine Komponente zur Überführung natürlichsprachlicher Anforderungen in vordefinierte Sprachschablonen, genannt Requirements-to-Boilerplate-Converter (\textit{R2BC}). Auf dieser Basis arbeitet dann der \textit{Delta-Analyser} der die Unterschiede zwischen mehreren Lastenheften, die in Schablonen überführt sind, darstellen kann. Dabei kommen auch Ontologien und NLP-Methoden zum Einsatz. Die Prototypen basieren dabei auf der Open-Source-Software \textit{GATE} zur sprachlichen Auswertung und sollen als 3-Schichten-Architektur umgesetzt werden. 
+Auf dieser Basis stellen sie in \cite{zh19} konkret einen Entwurf eines Werkzeugs für die automatisierte Analyse von Projektlastenheften vor. Das Werkzeug gliedert sich dabei in eine Komponente zur Überführung natürlichsprachlicher Anforderungen in vordefinierte Sprachschablonen, genannt \textit{Re- \\quirements-to-Boilerplate-Converter} (R2BC). Auf dieser Basis arbeitet dann der \textit{Delta-Analyser} (DA), der die Unterschiede zwischen mehreren Lastenheften, die in Schablonen überführt sind, darstellen kann. Dabei kommen auch Ontologien und NLP-Methoden zum Einsatz. Die Prototypen basieren dabei auf der Open-Source-Software \textit{GATE} zur sprachlichen Auswertung und sollen als 3-Schichten-Architektur umgesetzt werden. 
 
-Diese Arbeiten stellen die wesentliche Grundlage für die in unserer Arbeit entworfenen Prototypen dar. Die Implementierung erfolgte in Zusammenarbeit mit dem Autoren Konstantin Zichler bei der Firma HELLA, die den konkreten Anwendungsfall für seine Entwürfe und unsere Umsetzung dargestelt hat.
+Diese Arbeiten stellen die wesentliche Grundlage für die in dieser Arbeit entworfenen Prototypen dar. Die Implementierung erfolgte in Zusammenarbeit mit dem Autoren Konstantin Zichler bei der Firma HELLA, die den konkreten Anwendungsfall für seine Entwürfe und unsere Umsetzung dargestellt hat.
 
 \vspace{12pt}
 
-Es ist anzumerken, dass eine Vielzahl betrachteter Arbeiten das Verbessern von Requirements mithilfe von Schablonen zum Thema haben, sich diese jedoch auf eine Unterstützung bei der Formulierung von Anforderungen beschränken. Eine Umsetzung einer automatisierten Verbesserung und Anpassung bestehender Anforderungen wird häufig zwar umrissen, jedoch selten implementiert bzw. real getestet.
+Es ist anzumerken, dass eine Vielzahl betrachteter Arbeiten das Verbessern von Requirements mithilfe von Schablonen zum Thema haben, sich diese jedoch auf eine Unterstützung bei der Formulierung von Anforderungen beschränken. Eine Umsetzung einer automatisierten Verbesserung und Anpassung bestehender Anforderungen wird häufig zwar umrissen, jedoch selten implementiert bzw. real getestet. 
+
+Im Kontext der Beziehung zwischen OEM und Zulieferer kann jedoch aus Sicht des Zulieferers kein Einfluss auf die Qualität der beim OEM formulierten Anforderungen genimmen werden. Für diesen Anwendungsfall stellt eine Unterstützung der Formulierung also generell keinen Lösungsansatz dar. Die folgenden Arbeiten beinhalten jedoch vielversprechende Techniken für die Modellierung von Anforderungen. 
 
 \subsubsection{Literatur}
-In \cite{kr93} untersuchte Kevin Ryan bereits vor modernen Entwicklungen im Bereich NLP in die Möglichkeiten einer Unterstützung von Requirements-Engeneering durch natürlichsprachliche Analyse (NLP). Dabei weist er auf die Vorteile einer formalen Einschränkung bereits bei der Spezifikation von Anforderungen hin, womit die Möglichkeit einer Fehlinterpretation vermindert wird. Ryan stuft jedoch auch die Verifikation von Anforderungen durch NLP als geeignet ein, um Konsistenz und Eindeutigkeit der Anforderungen zu gewährleisten. Dazu generieren sie Schemas aus der Analyse der Anforderungen, die dann inhaltlich mit neu dazukommenden Anforderungen im späteren Entwicklungsprozess abgeglichen werden können. Auch schlägt er die Einteilung besonders von Text im Anforderungsdokument in Kategorien vor, damit die Sichtbarkeit von Anforderungen verbessert wird.
+In \cite{kr93} untersuchte Kevin Ryan bereits vor modernen Entwicklungen im Bereich NLP die Möglichkeiten einer Unterstützung von Requirements-Engeneering durch natürlichsprachliche Analyse (NLP). Dabei weist er auf die Vorteile einer formalen Einschränkung bereits bei der Spezifikation von Anforderungen hin, womit die Möglichkeit einer Fehlinterpretation vermindert wird. Ryan stuft jedoch auch die Verifikation von Anforderungen durch NLP als geeignet ein, um Konsistenz und Eindeutigkeit der Anforderungen zu gewährleisten. Dazu generieren sie Schemas aus der Analyse der Anforderungen, die dann inhaltlich mit neu dazukommenden Anforderungen im späteren Entwicklungsprozess abgeglichen werden können. Auch schlägt er die Einteilung besonders von Text im Anforderungsdokument in Kategorien vor, damit die Sichtbarkeit von Anforderungen verbessert wird.
 
 \vspace{12pt}
 
-In \cite{ff11} beschäftigen sich Farfelder et. al mit der Unterstützung von Requirements-Experten bei der Anforderungsspezifikation durch vorgefertigte Sprachschablonen und Ontologien, womit Fehler bei der Konsistenz von Anforderungen vermeiden werden. Sie stellen das Tool \textit{DODT} vor, dass als Alternative zur natürlichsprachlichen Formulierung das Erstellen von Anforderungen anhand von Schablonen anbietet, aus denen der Nutzer im Programm auswählen kann. Dabei greift das Werkzeug auf eine Ontologie zu, welche alle möglichen Begriffe zum Einsetzen in die Schablone enthält. Die Eintragungen des Nutzers stellen dann eine Anforderung dar, die in der Ontologie gespeichert wird.
+In \cite{ff11} beschäftigen sich Farfelder et. al mit der Unterstützung von Requirements-Experten bei der Anforderungsspezifikation durch vorgefertigte Sprachschablonen und Ontologien, womit Fehler bei der Konsistenz von Anforderungen vermieden werden. Sie stellen das Tool \textit{DODT} vor, dass als Alternative zur natürlichsprachlichen Formulierung das Erstellen von Anforderungen anhand von Schablonen anbietet, aus denen der Nutzer im Programm auswählen kann. Dabei greift das Werkzeug auf eine Ontologie zu, welche alle möglichen Begriffe zum Einsetzen in die Schablone enthält. Die Eintragungen des Nutzers stellen dann eine Anforderung dar, die in der Ontologie gespeichert wird.
 
 \vspace{12pt}
 
-In \cite{fh14} wird das Vorgehen für die Dokumentation und logische Einordnung von funktionalen Anforderungen mithilfe von Sprachschablonen beschrieben. Dazu werden aus den Anforderungen für jedes Gesamtsystem zunächst die einzelnen Komponenten benannt und einzeln anhand ihrer Eigenschaften gespeichert. Die einzelnen Komponenten des Modells können dann in Beziehung zueinander gesetzt werden. Auf Basis der einzelnen Komponenten und der Beziehungen kann dann ein Netz aus allen Komponenten des Gesamtsystems erstellt werden. Zur Erstellung dieser formalen Modelle mittels verschiedener Sprachschablonen haben sie das Werkzeug \textit{ReqPat} entwickelt, das als Erweiterung in Anforderungsmanagament-Programmen wie \textit{IBM Rational-DOORS} integriert werden kann. Ferner kann zur grafischen Darstellung des erstellten Modells ein Export aus Reqpat in UML-Diagramme erfolgen.
+In \cite{fh14} wird das Vorgehen für die Dokumentation und logische Einordnung von funktionalen Anforderungen mithilfe von Sprachschablonen beschrieben. Dazu werden aus den Anforderungen für jedes Gesamtsystem zunächst die einzelnen Komponenten benannt und anhand ihrer Eigenschaften gespeichert. Die verschiedenen Komponenten des Modells können dann in Beziehung zueinander gesetzt werden. Auf Basis der einzelnen Komponenten und der Beziehungen kann dann ein Netz aus allen Komponenten des Gesamtsystems erstellt werden. Zur Erstellung dieser formalen Modelle mittels verschiedener Sprachschablonen haben sie das Werkzeug \textit{ReqPat} entwickelt, das als Erweiterung in Anforderungsmanagament-Programmen wie \textit{IBM Rational-DOORS} integriert werden kann. Ferner kann zur grafischen Darstellung des erstellten Modells ein Export aus ReqPat in UML-Diagramme erfolgen. Dies deckt jedoch nur funktionale Anforderungen ab und kann daher nicht für vollständige Lastenhefte verwendet werden.
 
 \vspace{12pt}
 
-Sampaio et. al. stellen in \cite{AS05} den \textit{EA-Miner} vor, der bei der Identifizierung von Systemaspekten hilft, die dann in Anforderungen überführt werden. Dazu modellieren sie inhaltliche Bezüge von Anfordeurngen zueinander auf Basis von NLP und Sprachschablonen, die der Nutzer im Programm anlegen kann. Dazu nutzen sie sog. \textit{aspect-orientated-Requirements-Engineering} (AORE), das Anforderungen anhand verschiedener Use-Cases bzw. Blickpunkten auf das Gesamtsystem identifiziert und einordnet. Dieser Ansatz hilft insbesondere dann, wenn mehrere Autoren aus verscheidenen Fachbereichen unabhängig Anforderungen definieren.
+Sampaio et. al. stellen in \cite{as05} den \textit{EA-Miner} vor, der bei der Identifizierung von Systemaspekten hilft, die dann in Anforderungen überführt werden. Dazu modellieren sie inhaltliche Bezüge von Anforderungen zueinander auf Basis von NLP und Sprachschablonen, die der Nutzer im Programm anlegen kann. Dazu nutzen sie sog. \textit{aspect-orientated-Requirements-Engineering} (AORE), das Anforderungen anhand verschiedener Use-Cases bzw. Blickpunkten auf das Gesamtsystem identifiziert und einordnet. Dieser Ansatz hilft insbesondere dann, wenn mehrere Autoren aus verschiedenen Fachbereichen unabhängig Anforderungen definieren.
 
 \vspace{12pt}
 
@@ -601,7 +625,7 @@ Sampaio et. al. stellen in \cite{AS05} den \textit{EA-Miner} vor, der bei der Id
 
 \vspace{12pt}
 
-Heßeler et. al untersuchen in \cite{he13} formale Prozesse für das Anforderungsmanagement in Unternehmen. Sie zeigen die möglichen Verbesserungen  des projektbezogenen Requirements-Engineerings durch die Definition verschiedener Rollen für die beteiligten Entwickler auf. Dabei beschreiben sie explizit Kriterien für die Auswahl von Tools für eine Werkzeugunterstützung der Requirements-Engineers in Firmenr. Konkret beschreiben sie Werkzeuge für die Unterstützung der Formulierung von Anforderungen bzw. für die Verifikation von Anforderungen mithilfe grafischer Modelle. Das Tool \textit{DOORS Telematic} dient dabei zur Sammlung von Anforderungen und der Verknüpfung durch Relationen in einer Datenbank, die alle Anforderungen hierarchisch enthält. Tau Generation2 wird für die Visualisierung von Sytemeigenschaften in UML2.0-Diagrammen und für den Export als DOORS-Objekte in die Anforderungs-Datenbank genutzt.
+Heßeler et. al untersuchen in \cite{he13} formale Prozesse für das Anforderungsmanagement in Unternehmen. Sie zeigen die möglichen Verbesserungen  des projektbezogenen Requirements-Engineerings durch die Definition verschiedener Rollen für die beteiligten Entwickler auf. Dabei beschreiben sie explizit Kriterien für die Auswahl von Tools für eine Werkzeugunterstützung der Requirements-Engineers in Firmen. Konkret beschreiben sie Werkzeuge für die Unterstützung der Formulierung von Anforderungen bzw. für die Verifikation von Anforderungen mithilfe grafischer Modelle. Das Tool \textit{DOORS Telematic} dient dabei zur Sammlung von Anforderungen und der Verknüpfung durch Relationen in einer Datenbank, die alle Anforderungen hierarchisch enthält. Tau Generation2 wird für die Visualisierung von Systemeigenschaften in UML2.0-Diagrammen und für den Export als DOORS-Objekte in die Anforderungs-Datenbank genutzt.
 
 \chapter{Betriebliches Umfeld - Use-Case HELLA}
 Im betrieblichen Umfeld liegen zu Beginn jeden Entwicklungsprojektes für neue Produkte die Aufgaben und Ziele für die Entwicklung als Dokumente vor. Forschungsergebnisse finden Anwendung in der Vorentwicklungsphase, in der die Eignung der Erkenntnisse für neue Produkte eines Unternehmens evaluiert wird. Die Produktentwicklung unterliegt dabei bestimmten Kriterien und Faktoren, die den unternehmerischen Erfolg beeinflussen. Neben betriebswirtschaftlichen Einflüssen wie der Einordnung des Produktes in der Wertschöpfungskette sind es dabei besonders technische Anforderungen an das Produkt, die definiert und während der Produktentwicklung eingehalten werden müssen. Verschiedenste Akteure aus einem Umternehmen sind dabei an der Festlegung der Anforderungen an ein Entwicklungsprojekt bzw. Produkt beteiligt. 
@@ -940,7 +964,7 @@ Die Implementierung des DA auf Basis des zuvor implementierten R2BC ist in Kap. 
 \chapter{Requirements-To-Boilerplate-Converter (R2BC)}
 Dieses Kapitel behandelt den \textit{Requirements-to-Boilerplate-Converter} (\textit{R2BC}) ausführlich. Hierzu wird zunächst der Aufbau des Tools aus den verschiedenen Klassen und der verwendeten Software beschrieben. Daraufhin wird die Implementierung wichtiger Funktionalitäten und Datenstrukturen mit Auszügen des Quellcodes gezeigt und erläutert. Anschließend wird das Testverfahren für das Werkzeug beschrieben und die dadurch erzielten Ergebnisse aufgeführt. Die Evaluation der Ergebnisse findet in einem späteren Kapitel statt. Abschließend wird ein Katalog mit möglichen Erweiterung und Verbesserungen für das Werkzeug geliefert, welche auf Grund mangelnder Zeit und Ressourcen von uns nicht mehr umgesetzt werden konnten. 
 
-\section{Architektur, Klassen und Verteilung der Ressourcen}
+\section{Architektur}
 In diesem Abschnitt soll die Architektur des R2BC vorgestellt und erläutert werden. Dazu gehört die zur Entwicklung verwendete Software, sowie ein Überblick über die Klassenstruktur des Werkzeugs. 
 
 \subsection{Verwendete Software}
@@ -1776,8 +1800,10 @@ Die Aufzählung wird dazu verwendet voneinander unterschiedliche Elemente eventu
 Dazu ist in der Aufzählung die \textit{contains}-Methode implementiert, welche ein Element auf das vorkommen in der Aufzählung prüfen kann.
 \end{enumerate}
 
-\section{Implementierung}
+\section{Werkzeug-Implementierung}
 In diesem Abschnitt werden wichtige Aspekte der Implementierung des Delta Analysers erläutert. Wichtig sind dabei vor allem die interne Haltung der zu vergleichenden Boilerplates und die Methoden zum Vergleichen und Bewerten dieser. Außerdem wird die Nutzerinteraktion mit dem Programm dargestellt. 
+
+\subsection{Analyse-Funktionalität}
 \subsubsection{Haltung der Boilerplates}
 Um in der Lage zu sein, zwei komplette Lastenhefte zu vergleichen, sind zwei Datenstrukturen nötig, welche jeweils eines der Lastenhefte komplett beinhalten. Hierzu kann man praktischerweise die im R2BC erstellten Boilerplate-Listen gut verwenden. Entsprechend der \textit{bpExportList} des R2BC ist es ausreichend, wenn diese Listen eindimensional sind und Boilerplate-Objekte aufnehmen können. 
 
@@ -1833,7 +1859,8 @@ Sobald dies geschehen und spätestens wenn das HELLA-Dokument durchlaufen ist, w
 Diese gibt je nach Boilerplate-Typ und Übereinstimmung der Boilerplates einen Satz aus, welcher das Ergebnis zusammenfasst und erläutert. Bei Unterschieden in bestimmten Satzbestandteilen werden beispielsweise beide betroffenen Komponenten zum Vergleich ausgegeben. 
 
 Dieser Satz wird für jede OEM-Anforderung über einen \textit{FileOutputStream} in eine Datei geschrieben, welche später als Delta-Report verwendet wird. Sobald die letzte OEM-Anforderung verarbeitet ist, werden zusätzlich die Anzahl der kompletten Übereinstimmungen und die Anzahl der nicht verbundenen Boilerplates in die Datei ausgegeben. Ein fertiger Delta-Report wird am Ende des nächsten Kapitels gezeigt und erläutert.
-\subsection{Nutzerinteraktion}
+
+\subsection{GUI - Nutzerinteraktion und Workflow}
 Die Arbeit mit dem Delta-Analyser stellt das zweite Werkzeug der Verarbeitungskette dar, wenn Lastenhefte verglichen werden sollen. Ein Nutzer nutzt daher zunächst den R2BC, um Lastenhefte in formale Sprache zu bringen, die sich dann im DA vergleichen lassen. In diesem Abschnitt wird daher anhand des Vergleichs zweier Lastenhefte im DA hauptsächlich auf den Delta-Report eingegangen, der als Ergebnis aus dem DA exportiert wird. 
 
 \subsubsection{Programmoberfläche}
@@ -1852,7 +1879,7 @@ Die GUI orientiert sich dabei an dem in Kap. 3.x gezeigten Use-Case, wonach der 
 
 Beim Programmstart wählt der Nutzer über \textit{Import OEM CRS...} ein ein Lastenheft mit Kundenanforderungen aus, zu denen passende Anforderungen aus einem internen Lastenheft \textit{Import internal CRS... }gefunden werden sollen. 
 
-\subsection{Beispielhafte Arbeit mit dem Werkzeug}
+\subsubsection{Beispielhafte Arbeit mit dem Werkzeug}
 In diesem Abschnitt wird der bei der Analyse entstehende Delta-Report näher beschrieben. Die Implementierung der Vergleichsalgorithmen lässt sich anhand der zwei folgenden, prototypischen Lastenhefte nachvollziehen. Diese sind zuvor, wie bereits beschrieben, durch den R2BC konvertiert worden, womit der Vergleich im DA ermöglict wurde. Als V1 könnte bereis ein Anuszug aus dem in Kap. 4.x verarbeiteten Lastenheft in der Firma vorhanden sein:\\
 
 1. The complete system <<Golf7>> shall <<perform TestDriveCityTour>>.\\
@@ -1992,6 +2019,7 @@ Auf Anfrage der Requirements-Experten werden die Werkzeuge außerdem einem HELLA
 \bibitem[SHE07]{she07} L. Shen, G. Satta, A. K. Joshi. In Meeting of the Association for Computational Linguistics (ACL), \glqq  Guided learning for bidirectional sequence classification\grqq{} , 2007.
 \bibitem[TOL09]{tol09}Dhaval Thakker, Taha Osman, Phil Lakin. \glqq Gate jape grammar tutorial.\grqq{} Nottingham Trent University, UK, Phil Lakin, UK, Version 1, 2009.
 \bibitem[WE13]{we13} Weller, Katrin. \glqq Ontologien.\grqq{} 2013. S. 207-218.
+\bibitem[WEI66]{wei66}Joseph Weizenbaum, \glqq  ELIZA—a computer program for the study of natural language communication between man and machine.\grqq{}  Communications of the ACM 9.1, 36-45, 1966
 \bibitem[ZG02]{zg02} Zowghi, Didar, and Vincenzo Gervasi. \glqq The Three Cs of requirements: consistency, completeness, and correctness.\grqq{} International Workshop on Requirements Engineering: Foundations for Software Quality, Essen, Germany: Essener Informatik Beitiage. 2002.
 \bibitem[ZH17]{zh17} Zichler, Konstantin, Steffen Helke. \glqq Ontologiebasierte Abhängigkeitsanalyse im Projektlastenheft.\grqq{} Automotive-Safety \& Security 2017-Sicherheit und Zuverlässigkeit für automobile Informationstechnik. 2017.
 \bibitem[ZH19]{zh19} Zichler, Konstantin, Steffen Helke. \glqq R2BC: Tool-Based Requirements Preparation for Delta Analyses by Conversion into Boilerplates \grqq{} Gesellschaft für Informatik. 2019.
