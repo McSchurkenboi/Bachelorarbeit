@@ -848,7 +848,7 @@ Diese Ansätze haben zur konkreten Entwicklung von zwei Werkzeugen geführt, dem
 \subsubsection{R2BC}
 Zu Beginn des Verarbeitungsprozesses liegen die Lastenhefte in natürlicher Sprache vor, die der Zulieferer vom Kunden erhalten hat. Im ersten Schritt werden diese natürlichsprachlich formulierten Anforderungen durch den R2BC in Sprachschablonen überführt. 
 
-Nach der Verarbeitung liegt das Lastenheft des OEM somit in formaler Sprache vor. Diese Version des Lastenheftes kann dann für den Entwicklungsprozess genutzt werden. Das Ziel des R2BC ist es also, die Lesbarkeit bzw. die Eindeutigkeit der Anfordeungen durch Formalisierung zu verbessern. Auf dieser Basis kann dann der Inhalt des Lastenheftes eindeutig durch die Entwickler beim Zulieferer verstanden werden. Der Prozess ist in Abb. 3.2 dargestellt.
+Nach der Verarbeitung liegt das Lastenheft des OEM somit in formaler Sprache vor. Diese Version des Lastenheftes kann dann für den Entwicklungsprozess genutzt werden. Das Ziel des R2BC ist es also, die Lesbarkeit bzw. die Eindeutigkeit der Anforderungen durch Formalisierung zu verbessern. Auf dieser Basis kann dann der Inhalt des Lastenheftes eindeutig durch die Entwickler beim Zulieferer verstanden werden. Der Prozess ist in Abb. 3.5 dargestellt.
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=0.5]{Bilder/Prozess-R2BC.jpg}
@@ -857,15 +857,15 @@ Nach der Verarbeitung liegt das Lastenheft des OEM somit in formaler Sprache vor
 \end{figure}
 
 \subsubsection{DA}
-Diese logisch eindeutige Form der Anforderungen ermöglicht auch einen Vergleich mehrerer Lastenhefte anhand der Struktur der einzelnen Anforderungen in einer Ontologie. Diese Unterschiede können durch den DA identifiziert und in Form eines Deta-Reports ausgegeben werden. Unterschiede können anschließend etwa für einen RE-Experten auf dem Bildschirm bzw. in eine Datei ausgegeben werden. Der Ablauf ist in Abb. 3.3 dargestellt.
+Diese logisch eindeutige Form der Anforderungen ermöglicht auch einen Vergleich mehrerer Lastenhefte anhand der Struktur der einzelnen Anforderungen. Diese Unterschiede können durch den DA identifiziert und in Form eines Delta-Reports ausgegeben werden. Unterschiede können anschließend etwa für einen RE-Experten auf dem Bildschirm bzw. in eine Datei ausgegeben werden. Der Ablauf ist in Abb. 3.6 dargestellt.
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.5]{Bilder/Prozess-DA.jpg}
+\includegraphics[scale=0.55]{Bilder/Prozess-DA.jpg}
 \caption{Szenario für Unterstützung durch DA-Komponente [eigene Darstellung]}
 \end{center}
 \end{figure}
 
-Alternativ können Änderungen auch automatisiert durch eine Integration der Anpassungen in das interne Lastenheft übernommen werden. Dazu müssen im Programm Verfahren zur Gewichtung der Deltas bzw. Metriken zur Entscheidung zwischen Anforderungen hinterlegt sein.
+Alternativ können Abweichungen auch automatisiert durch eine Integration der Anpassungen in das interne Lastenheft übernommen werden. Dazu müssen im Programm Verfahren zur Bewertung der Deltas bzw. Metriken zur Entscheidung zwischen Anforderungen hinterlegt sein. Auf Basis der Annotationen kann eine solche Kategorisierung erfolgen.
 
 Angesichts der Aufgaben für die Werkzeuge stellt sich die Frage nach dem erreichbaren Grad der Automatisierung bei hoher Verlässlichkeit im Gegensatz zu möglichen erforderlichen Interaktionspunkten mit dem Nutzer. 
 
@@ -874,131 +874,139 @@ Der prinzipielle Aufbau beider Werkzeuge wird in den folgenden Abschnitten besch
 \subsection{R2BC-Funktionalität}
 Wie bereits zuvor beschrieben wurde, stellt der \textit{Requirements-To-Boilerplate-Converter} die erste wesentliche Stufe bei der automatisierten Verarbeitung von Lastenheften dar. Die Textverarbeitung erfolgt dabei sukzessive bzw. satzweise aus dem Quelldokument in ein Zieldokument, dass am Ende alle Anforderungen in angepasster Form enthält. 
 
-Dabei greift er auf eine formale Sprache zurück, die in verschiedenen Schablonen repräsentiert und im Programm gespeichert ist. Diese eingeschränkte Sprache ist Zulieferer-intern fest dokumentiert und wurde zuvor durch RE-Experten eindeutig definiert, was zu einer verbesserten Verständlichkeit führt. Sprachschablonen stellen demnach, im Kontrast zu natürlicher Sprache, eine eindeutige Deutung der Anforderungen sicher. Im besten Fall wurden somit insbesondere sprachliche Mehrdeutigkeiten im Sinne der Atomarität von Anforderungen eliminiert bzw. aufgeschlüsselt.
+Dabei greift der R2BC auf eine semiformale Sprache zurück, die in verschiedenen Schablonen repräsentiert und im Programm gespeichert ist. Diese eingeschränkte Sprache ist zuliefererintern fest dokumentiert und wurde zuvor durch RE-Experten eindeutig definiert, was zu einer verbesserten Verständlichkeit führt. Sprachschablonen stellen demnach, im Kontrast zu natürlicher Sprache, eine eindeutige Deutung der Anforderungen sicher. Im besten Fall wurden somit insbesondere sprachliche Mehrdeutigkeiten im Sinne der Atomarität von Anforderungen eliminiert bzw. aufgeschlüsselt.
+
+Im Rahmen dieser Arbeit wurden zwei repräsentative Anforderungen aus dem betrieblichen Umfeld implementiert. Dies beinhaltet Boilerplates, die durch ein System abgedeckte Funktionen beschreiben. Diese orientieren sich dabei namentlich an den intern bei HELLA vorkommenden Boilerplates. Fester Teil Variablen, Annotationsbasiert durch GATE-NLP. Variabler Teil durch Vergleichszeichen gekennzeichnet, fester Teil definiert die Schablone. Beides ermöglicht semiformale Formulierung
 
 Der R2BC verarbeitet die Lastenhefte unter Zugriff auf diese formalen Sprachschablonen (\textit{Boilerplates}) automatisiert und ein Eingreifen des Nutzers ist nur im Ausnahmefall erforderlich. 
 
 \subsubsection{Programmablauf und Artefakte}
-Auf Basis dieses Ansatzes wurde ein Algorithmus zur satzweisen Verarbeitung der Sätze unter Verwendung des NLP-Werkzeugs GATE entwickelt, der aus natürlichsprachlichen Eingaben (Input) eine Ausgabe (Output) in formaler Sprache erzeugt. Dabei werden auch Metainformationen über den Text generiert und zur weiteren Verarbeitung ausgegeben.
+Auf Basis dieses Ansatzes wurde ein Algorithmus zur satzweisen Verarbeitung der Sätze unter Verwendung des NLP-Werkzeugs GATE entwickelt, der aus natürlichsprachlichen Eingaben (Input) eine Ausgabe (Output) in eingeschränkter Sprache erzeugt. Dabei werden auch Metainformationen über den Text generiert und zur weiteren Verarbeitung ausgegeben.
 
 Der prinzipielle Programmablauf gliedert sich wie folgt:
 \begin{enumerate}
 \item Zunächst werden die Sätze für eine sukzessive Verarbeitung getrennt. Dies erfolgt mithilfe des NLP-Werkzeugs GATE.
-\item Für jeden Satz wird geprüft, ob und in welchem Maße Anpassungen an die formale Sprache der Boilerplates erforderlich sind. Dazu werden Syntax bzw. Satzbestandteile analysiert.
-\item Passende Boilerplate-Typen für die Anforderung wird identifiziert. Dieser leitet sich aus den unter 2. gefundenen Merkmalen ab. Es können etwa funktionale von nicht-funktionalen unterschieden sowie Bedingungen für die Anforderung modelliert werden.
-\item Sind Anpassungen erforderlich, so wird eine Konvertierung in die jweils passende Boilerplate durchgeführt und diese werden im Programm gesammelt. 
+\item Für jeden Satz wird geprüft, ob und in welchem Maße Anpassungen an die formale Sprache der Boilerplates erforderlich sind. Dazu werden Syntax bzw. Satzbestandteile mittels GATE analysiert.
+\item Passende Boilerplate-Typen für die Anforderung werden identifiziert. Diese leitet sich aus den unter 2. gefundenen Merkmalen ab. Es können etwa Kategorien von Anforderungen unterschieden sowie Bedingungen für die Anforderung modelliert werden, unter welchen sie gilt.
+\item Sind Anpassungen erforderlich, so wird eine Konvertierung in die jeweils passende Boilerplate durchgeführt und diese werden im Programm gesammelt. 
 \item Die erzeugte Boilerplate, die am besten zum Inhalt der Anforderung passt, wird identifiziert. Dies kann automatisiert oder unter Einbezug des Nutzers geschehen. Der Nutzer kann dazu beispielsweise aus mehreren Vorschlägen auswählen.
 \item Sind alle Anforderungen aus dem Quelldokument verarbeitet, wird auf Basis der erzeugten Anforderungen in Boilerplates ein Zieldokument für die weitere Verwendung erzeugt.
 \end{enumerate}
 
-Auf Basis dieses Konzeptes wurde in QUELLE PAPER ein Vorschlag zur Aufteilung der Ressourcen in verschiedene Bereiche gemacht. Dabei gliedern sich die Funktionalitäten in drei Software-Komponenten, die in Abb. 3.4 dargestellt sind.
+Auf Basis dieses Konzeptes wurde in \cite{zh17} ein Vorschlag zur Aufteilung der Ressourcen in verschiedene Bereiche gemacht. Dabei gliedern sich die Funktionalitäten in drei Software-Komponenten, die in Abb. 3.7 dargestellt sind.
+
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=0.5]{Bilder/Verteilung-R2BC.jpg}
 \caption{Verteilung der R2BC-Ressourcen [eigene Darstellung]}
 \end{center}
 \end{figure}
+
 Der Programmablauf ist durch die Schritte 1 und 2 grob dargestellt und verteilt sich hauptsächlich auf die zwei entsprechenden Artefakte. Die Komponenten lassen sich dabei wie folgt definieren:
+
 \begin{itemize}
-\item Die \textit{NL pre-processing} Komponente stellt das backend für die Sprachverarbeitung des Quelldokumentes dar. Dabei werden verschiedene Textbereiche mithilfe des NLP-Werkzeugs GATE annotiert und somit relevante Informationen über den Text generiert. Das Ziel ist es, konkrete Anforderungen im Lastenheft eindeutig zu identifizieren. GATE stellt ein in hohem Maße konfigurierbares Werkzeug auf \textit{java}-Basis dar, dass in Kap. 4.1 näher beschrieben wird.
-\item Die zweite Komponente beinhaltet die Konvertierung der Sätze aus dem Quelldokument in Sprachscablonen. Der \textit{Converter} nutzt dabei die zuvor erstellten Annotationen, um für jeden Satz im Anforderungsdokument eine oder mehrere passende Sprachschablonen zu finden. Diese Schablonen werden dann durch das Programm generiert bzw. passend \glqq befüllt\grqq{}. Der \textit{Converter} wird ebenfalls mit \textit{java} implementiert.
+\item Die \textit{NL pre-processing} Komponente stellt das backend für die Sprachverarbeitung des Quelldokumentes dar. Dabei werden verschiedene Textbereiche mithilfe des NLP-Werkzeugs GATE annotiert und somit relevante Informationen über den Text generiert. Das Ziel ist es, konkrete Anforderungen im Lastenheft eindeutig zu identifizieren. GATE stellt ein in hohem Maße konfigurierbares Werkzeug auf \textit{java}-Basis dar, dass in Abs. 4.2.1 näher beschrieben wird.
+\item Die zweite Komponente beinhaltet die Konvertierung der Sätze aus dem Quelldokument in Sprachschablonen. Der \textit{Converter} nutzt dabei die zuvor erstellten Annotationen, um für jeden Satz im Anforderungsdokument eine oder mehrere passende Sprachschablonen zu finden. Diese Schablonen werden dann durch das Programm generiert bzw. passend \glqq befüllt\grqq{}. Der \textit{Converter} wird ebenfalls mit \textit{java} implementiert.
 \item Die Interaktion mit dem Nutzer wird durch ein herkömmliches \textit{GUI} realisiert, dass dem Nutzer die Navigation im Programm ermöglicht. Auch kann dort etwa die Anzeige und Auswahl von einer aus mehreren möglichen Konvertierungen erfolgen.
 \end{itemize}
 
 In Kap. 4 erfolgt auf dieser Basis die konkrete Implementierung eines Prototypen für den R2BC.
+
 \subsection{DA-Funktionalität}
 Auf Basis des zuvor beschriebenen R2BC stellt der \textit{Delta-Analyser} die Softwarekomponente für einen kriteriengeleiteten Vergleich zweier Anforderungsdokumente dar. Das Ziel ist es, auf Basis der Informationen zu jeweils einem der Lastenhefte den Grad der inhaltlichen Überschneidung zum anderen Lastenheft zu messen. 
 
-Im Kontext des Use-Cases dieser Arbeit geht es dabei insbesondere um den Vergleich von zwei Versionen des gleichen Anforderungsdokumentes, wenn auf Unterschiede in der Überarbeitung geprüft werden soll. Zu Anforderungen aus dem Lastenheft V2 müssen also inhaltlich passende Anforderungen aus Lastenheft V1 gefunden werden, um anschließend Deltas zwischen diesen Anforderungen zu identifizieren bzw. für den Nutzer hervorzuheben. Diese Verarbeitung erfolgt dabei satzweise für das komplette Lastenheft. 
+Im Kontext des Use-Cases dieser Arbeit geht es dabei insbesondere um den Vergleich von zwei verschiedenen Anforderungsdokumenten zur Version V1 und V2 eines gleichen Produktes. Zu Anforderungen aus dem Lastenheft V2 müssen also inhaltlich passende Anforderungen aus Lastenheft V1 gefunden werden, um anschließend Deltas zwischen diesen Anforderungen zu identifizieren bzw. für den Nutzer hervorzuheben. Diese Verarbeitung erfolgt dabei satzweise für das komplette Lastenheft. 
 
-Für ein automatisiertes Finden passender Requirements in unserem Werkzeug müssen daher die Anforderungen in einheitlicher Form dargestellt sein, damit verlässlich nach einzelnen Satz- bzw. Textbestandteilen in den Anforderungen gesucht und verglichen werden kann.
-Dabei stellt, wie zuvor beschrieben, die Überführung der Anfordeurngen aus den Dokumenten aus der natürlichen in eine fest definierte, formale Sprache, eine wesentliche Grundlage dar. Der zuvor skizzierte R2BC bietet eben diese Funktionalität.
+Für ein automatisiertes Finden passender Requirements im DA müssen daher die Anforderungen in einheitlicher Form dargestellt sein. Somit können verlässlich nach einzelnen Satz- bzw. Textbestandteilen in den Anforderungen gesucht und Anforderungen verglichen werden.
+Dabei stellt, wie zuvor beschrieben, die Überführung der Anforderungen aus den Dokumenten aus der natürlichen in eine fest definierte, formalere Sprache, eine wesentliche Grundlage dar. Der zuvor skizzierte R2BC bietet eben diese Funktionalität.
 
 \subsubsection{Programmablauf und Artefakte}
-Die bechriebenen Funktionen ermöglichen den Entwurf eines Verfahrens für einen automatisierten Vergleich von zwei Lastenheften im DA. Dazu wird jede Anforderungen aus dem Lastenheft V2 mit denen aus V1 abgegelichen, um jeweils zueinander passende zu finden.
+Die beschriebenen Funktionen ermöglichen den Entwurf eines Verfahrens für einen automatisierten Vergleich von zwei Lastenheften im DA. Dazu wird jede Anforderungen aus dem Lastenheft V2 mit denen aus V1 abgeglichen, um jeweils bestmöglich zueinander passende zu finden.
 Folgendes Vorgehen wurde dazu entwickelt:
+
 \begin{enumerate}
 \item Die einzelnen Anforderungen in Boilerplates werden für Lastenheft V1 und V2 geladen.
-\item Für jede Boilerplate aus Lastenheft V2 wird geprüft, ob es identische, vergleichbare oder keine zuordbaren Anforderungen in Lastenheft V1 gibt. Diese drei Kategorien werden auf Basis der GATE-Annotationen aus dem R2BC identifiziert.
-\item Entsprechend des gefundenen Überinstimmungsgrades werden die Deltas zwischen den Anforderungen identifiziert:
+\item Für jede Boilerplate aus Lastenheft V2 wird geprüft, ob es identische, vergleichbare oder keine zuzuordnende Anforderungen in Lastenheft V1 gibt. Diese drei Kategorien werden auf Basis der GATE-Annotationen aus dem R2BC identifiziert.
+\item Entsprechend des gefundenen Übereinstimmungsgrades werden die Deltas zwischen den Anforderungen identifiziert:
 \begin{enumerate}
 \item \textit{Identische Anforderung}: Es wurde eine identische Anforderung in beiden Lastenheften gefunden. Die Anforderung kann ohne gesonderte Betrachtung übernommen werden.
 
-\item \textit{Verglichbare Anforderung}: Es wurden nur eine teilweise übereinstimmende Anforderung gefunden. Dies ist etwa der Fall, wenn sich Anforderungen geändert haben bzw. überarbeitet wurden. Zwischen diesen Anforderungen existiert also ein Delta, das eine Änderung in den Anforderungen signalisiert und somit den Produktspezifikationen bedeuten würde. 
+\item \textit{Vergleichbare Anforderung}: Es wurden nur eine teilweise übereinstimmende Anforderung gefunden. Dies ist etwa der Fall, wenn sich Anforderungen geändert haben bzw. überarbeitet wurden. Zwischen diesen Anforderungen existiert also ein Delta, das eine Änderung in den Anforderungen signalisiert und somit eine geänderte Produktspezifikationen bedeuten würde. 
 
-Eine feingranulare Aufschlüsselung der erwartbaren Deltas findet sich in der Implementierung in Kap. 4.x. Dort werden auch Vorschläge zur Gewichtung verschiedener Deltas im Kontext des RE gemacht.
+Eine feingranulare Aufschlüsselung der erwartbaren Deltas findet sich in der Implementierung in Kap. 5.2.2 .
 
 \item \textit{Keine vergleichbare Anforderung}: Es konnte keine Anforderung aus V1 gefunden werden. In Lastenheft V2 könnten etwa neue Anforderungen enthalten sein, die in V1 noch in keiner Weise spezifiziert wurden. Dies kann etwa Eigenschaften betreffen, die erst später im Entwicklungsprozess definiert wurden oder zu der vorher noch keine Informationen bekannt waren. Im Kontext anderer Anforderungen muss dabei auf Konsistenz geprüft werden.
-
 \end{enumerate} 
 \item Falls es noch mehr mindestens vergleichbare Anforderungen in V1 gibt, wird die am besten passende Anforderung gefunden. 
 \item Der Delta-Report für den Nutzer wird unter Zugriff auf die Ergebnisse aus 4. erzeugt, wenn V2 vollständig durchlaufen wurde.
 \end{enumerate}
 Insofern Deltas gefunden wurden, muss immer auch die Umsetzbarkeit dieser neuen Anforderungen gesondert geprüft werden. Die weitere Korrektheit des Lastenheftes V2 zu V1 kann bei vielen Deltas nicht gewährleistet werden, was eine Umsetzung der Anforderungen erschwert. Es können massive Unterschiede in den Spezifikationen auftreten, was zu einer teilweisen oder kompletten Neuentwicklung des Produktes führen kann.
 
-Die beschriebene Funktionalität hat in der Entwicklung unseres Werkzeugs zur konkreten Herausbildung von drei Kernbestandtreilen geführt. Unser Werkzeug beinhaltet dabei Komponenten zur Abbildung von Fachlogik und GUI. Die Verteilung der Ressourcen ist in Abb. 3.4 dargestellt. 
+Die beschriebene Funktionalität hat in der Entwicklung des Werkzeugs zur konkreten Herausbildung von drei Kernbestandteilen geführt. Das Werkzeug beinhaltet dabei Komponenten zur Abbildung von Fachlogik und GUI. Die Verteilung der Ressourcen ist in Abb. 3.8 dargestellt.
+ 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.6]{Bilder/Verteilung-DA.jpg}
+\includegraphics[scale=0.55]{Bilder/Verteilung-DA.jpg}
 \caption{Verteilung der DA-Ressourcen [eigene Darstellung]}
 \end{center}
 \end{figure}
+
 Die Komponenten realisieren dabei die zwei Hauptfunktionalitäten 1 und 2 in Form von GATE und java-Ressourcen. Auf dieser Basis können den einzelnen Komponenten Funktionalitäten wie folgt zugeordnet werden:
 \begin{itemize}
-\item \textit{NL-pre-processing} Wie schon beim R2BC dient diese Komponente zur Generierung von Informationen über den annotierten Text. Da der DA die zweite Stufe der Verarbeitung darstellt, nutzen wir hierzu die Ergebnisse aus dem R2BC, d.h. die dort generierten Annotationen, die wir in den DA einlesen. Somit können die Anforderungen, die nach dem R2BC in Boilerpaltes vorliegen, anhand ihrer Annotaionen verglichen werden.
-\item Der \textit{Delta-Analyser} prüft die verschiedenen Anforderungen aus Lastenheft V2 auf ihren Übereinstimmungsgrad mit den Anforderungen aus V1. Dabei greft er auf die geladenen Annotationen beider Lastenhefte zu und vergleicht daran verschiedene Anforderungen. Schlussendlich wird ein Delta-Report erstellt, der alle Deltas zwischen den Anforderungen enthält.
-\item Die \textit{GUI} ermöglicht dem Nutzer die Eingabe der zwei zu vergleichenden Lastenhefte. Nach der Verarbeitung erhält der Nutzer dort eine Übersicht der Unterschiede der beiden Lastenhefte, indem die jeweils verglichenen Anforderungen dort angezeigt werden.
+\item \textit{NL-pre-processing} Da der DA die zweite Stufe der Verarbeitung darstellt, nutzen dieser die Ergebnisse aus dem R2BC, d.h. die dort generierten Annotationen. Diese werden unter Zugriff auf das Programm in den DA eingelesen. Somit können die Anforderungen, die nach dem R2BC in Boilerpaltes vorliegen, anhand ihrer Annotaionen verglichen werden.
+\item Der \textit{Delta-Analyser} prüft die verschiedenen Anforderungen aus Lastenheft V2 auf ihren Übereinstimmungsgrad mit den Anforderungen aus V1. Dabei greift er auf die geladenen Annotationen beider Lastenhefte zu und vergleicht daran verschiedene Anforderungen. Schlussendlich wird ein Delta-Report erstellt, der alle Deltas zwischen den Anforderungen übersichtlich darstellt.
+\item Die \textit{GUI} ermöglicht dem Nutzer die Eingabe der zwei zu vergleichenden Lastenhefte. Nach der Verarbeitung kann der Nutzer dort außerdem den Delta-Report exportieren, der die jeweils verglichenen Anforderungen enthält.
 \end{itemize}
+
 Die Implementierung des DA auf Basis des zuvor implementierten R2BC ist in Kap. 5 beschrieben. Dort werden auch konkrete Erweiterungen und Verbesserungspotentiale des Programms beschrieben, die nach der Entwicklung identifiziert wurden.
 
-
 \chapter{Requirements-To-Boilerplate-Converter (R2BC)}
-Dieses Kapitel behandelt den \textit{Requirements-to-Boilerplate-Converter} (\textit{R2BC}) ausführlich. Hierzu wird zunächst der Aufbau des Tools aus den verschiedenen Klassen und der verwendeten Software beschrieben. Daraufhin wird die Implementierung wichtiger Funktionalitäten und Datenstrukturen mit Auszügen des Quellcodes gezeigt und erläutert. Anschließend wird das Testverfahren für das Werkzeug beschrieben und die dadurch erzielten Ergebnisse aufgeführt. Die Evaluation der Ergebnisse findet in einem späteren Kapitel statt. Abschließend wird ein Katalog mit möglichen Erweiterung und Verbesserungen für das Werkzeug geliefert, welche auf Grund mangelnder Zeit und Ressourcen von uns nicht mehr umgesetzt werden konnten. 
+Dieses Kapitel behandelt den \textit{Requirements-to-Boilerplate-Converter} (\textit{R2BC}) ausführlich. Hierzu wird zunächst der Aufbau des Tools aus den verschiedenen Klassen und der verwendeten Software beschrieben. Daraufhin wird die Implementierung wichtiger Funktionalitäten und Datenstrukturen mit Auszügen des Quellcodes gezeigt und erläutert. Anschließend wird das Testverfahren für das Werkzeug beschrieben und die dadurch erzielten Ergebnisse aufgeführt. Die Evaluation der Ergebnisse findet in einem späteren Kapitel statt. Abschließend wird ein Katalog mit möglichen Erweiterungen und Verbesserungen für das Werkzeug geliefert. 
 
 \section{Architektur}
-In diesem Abschnitt soll die Architektur des R2BC vorgestellt und erläutert werden. Dazu gehört die zur Entwicklung verwendete Software, sowie ein Überblick über die Klassenstruktur des Werkzeugs. 
+In diesem Abschnitt soll die Architektur des R2BC vorgestellt und erläutert werden. Dazu gehört die zur Entwicklung verwendete Software sowie ein Überblick über die Klassenstruktur des Werkzeugs. 
 
 \subsection{Verwendete Software}
-Als verwendete Software werden sämtliche Programme aufgeführt, welche eine Hilfe bei der Implementierung oder Teile der Funktionalität des Programmes darstellen. 
+Als verwendete Software werden sämtliche Programme aufgeführt, welche eine Hilfe bei der Implementierung oder Teile der Funktionalität des Programmes dargestellt haben. 
 
 \subsubsection{Implementierungsunterstützung}
-Das Werkzeug wurde auf Basis der Programmiersprache JAVA geschrieben. Hierzu wurde das JDK (\textit{JAVA development kit}) 8.1 verwendet. 
+Das Werkzeug wurde auf Basis der Programmiersprache \textit{java} geschrieben. Hierzu wurde das JDK (\textit{java development kit}) 8.1 verwendet. 
 
-Die Wahl der Programmiersprache fiel aufgrund von zwei Hauptfaktoren auf JAVA: 
+Die Wahl der Programmiersprache fiel aufgrund von zwei Hauptfaktoren auf java: 
 \begin{enumerate}
-\item JAVA ist eine weit verbreitete und entwicklerfreundliche Programmiersprache. Vorteile der Sicherheit von JAVA werden außerdem in \cite{rs18} aufgeführt.
-\item Das Programm, welches für das NLP-Preprocessing verwendet wird ist JAVA-basiert. Somit fällt die Integration des Programms in unser Werkzeug einfacher. Dies wird jedoch noch genauer in einem späteren Abschnitt behandelt.
+\item java ist eine weit verbreitete und entwicklerfreundliche Programmiersprache. Vorteile der Sicherheit von java werden außerdem in \cite{rs18} aufgeführt.
+\item Das Programm, welches für das NL-preprocessing verwendet wird ist java-basiert. Somit fällt die Integration des Programms in das Werkzeug einfacher. Dies wird jedoch noch genauer in einem späteren Abschnitt behandelt.
 \end{enumerate}
 
-Als Programmierumgebung\footnote{oft als IDE, also \textit{integrated development enviroment} bezeichnet} wurde die Netbeans 8.2 IDE verwendet. Diese mit mit \textit{Eclipse} eine der am weitesten verbreitete Programmierumgebung für JAVA-Programme. 
+Als Programmierumgebung\footnote{Entwicklungswerkzeuge lassen sich als IDE, also \textit{integrated development enviroment}, abkürzen} wurde die Netbeans 8.2 IDE verwendet. Diese ist gemeinsam mit \textit{Eclipse} eine der am weitesten verbreitete Programmierumgebungen für java-Programme. 
 
-Außerdem wurde die Software \textit{Apache Maven} als Build-Management-Tool (\textit{BMT}) verwendet. Dieses wird vor allem für JAVA-Programme verwendet und war daher sehr geeignet für die Verwendung in unserem Werkzeug. Außerdem wurde das selbe BMT auch in dem später beschriebene Tool zur Bereitstellung bestimmter Funktionalitäten verwendet. 
-Build-Management-Tools helfen grundsätzlich dabei bestimmte, zuvor nicht vorhandene Bibliotheken und deren Funktionalitäten nachzuladen und in ein Programm zu integrieren. Außerdem helfen sie bei dem späteren Ausliefern des Programms, also der Erstellung eines unabhängig ausführbaren Programms außerhalb der Programmierumgebung.
-In unserem Fall wurde also eine \textit{Executable JAR} (ausführbares JAVA-Archiv) erstellt. 
+Außerdem wurde die Software \textit{Apache Maven} als Build-Management-Tool (\textit{BMT}) verwendet. Dieses wird vor allem für java-Programme verwendet und war daher sehr geeignet für die Verwendung in unserem Werkzeug. Außerdem wurde dieses BMT auch in dem später beschriebenen Tool zur Bereitstellung bestimmter Funktionalitäten verwendet. 
+
+Build-Management-Tools helfen grundsätzlich dabei, bestimmte, zuvor nicht vorhandene Bibliotheken und deren Funktionalitäten nachzuladen und in ein Programm zu integrieren. Außerdem helfen sie bei dem späteren Ausliefern des Programms, also der Erstellung eines unabhängig ausführbaren Programms außerhalb der Programmierumgebung.
+Im Fall des R2BC wurde also eine \textit{Executable JAR} (ausführbares JAVA-Archiv) erstellt. 
 
 \subsubsection{Funktionalitätsunterstützung}
-
 Das zuvor bereits erwähnte Programm zur Bereitstellung von Funktionen ist bekannt unter dem Namen GATE (\textit{General Architecture for Text Engineering}). Dies ist ein Werkzeug zur Erstellung von NLP-Programmen und wird ausführlich in \cite{rs18} behandelt. 
 
-In unserem Programm wird \textit{GATE Embedded} verwendet. Dies ist eine Ansammlung von JAVA-Bibliotheken, welche alle Funktionen von GATE bieten. Man erhält also das gesamte Programm, nur ohne Benutzeroberfläche. Im folgenden wird daher im Zusammenhang auf die entwickelten Werkzeug nicht zwischen GATE und GATE Embedded unterschieden. 
+Für diesen Prototypen des R2BC wird \textit{GATE Embedded} verwendet. Dies ist eine Ansammlung von java-Bibliotheken, welche alle Funktionen von GATE bieten. Man erhält also das gesamte Programm mit Ausnahme der Benutzeroberfläche. Im Folgenden wird daher im Zusammenhang auf die entwickelten Werkzeug nicht zwischen GATE und GATE Embedded unterschieden. 
 
-GATE ist, wie in Abbildung X.X (Konzept) zu sehen ist, für das NLP, also die Sprachverarbeitung in unserem Werkzeug zuständig und bildet somit das \textit{Backend} des Programms.
+GATE ist, wie in Abbildung 3.7 (Konzept) zu sehen ist, für das NLP, also die Sprachverarbeitung in unserem Werkzeug zuständig und bildet somit das \textit{Backend} des Programms.
 
-Die genaue Umsetzung vom NLP in unserem Programm und der damit verbundene Einsatz von GATE sind jedoch Teil der Implementierung und werden somit in Abschnitt X.X behandelt.
+Die genaue Umsetzung von NLP im Programm und der damit verbundene Einsatz von GATE sind jedoch Teil der Implementierung und werden somit in Abschnitt 4.2.1 behandelt.
 
 \subsection{Klassenstruktur}
-Im Rahmen der Entwicklung unseres Proof-of-concepts wurde die Funktionalität aus Kap. 3.x auf verschiedene Komponenten aufgeteilt. Hier soll lediglich ein grober Überblick der Ressourcenverteilung im Programm gegeben werden, der Programmablauf findet sich in Kap. 4.x.
+Im Rahmen der Entwicklung des Proof-of-concepts wurde die Funktionalität aus Abs. 3.5.3 auf verschiedene Komponenten aufgeteilt. Hier soll lediglich ein grober Überblick der Ressourcenverteilung im Programm gegeben werden, der Programmablauf findet sich in Kap. 4.2.3.
 
-Verschiedene Programmbausteine sind dabei modular aufgebaut und verteilen sich auf die Pakete \textit{R2BC}, der die Fachlogik enthält, \textit{R2BCGUI}, das eine simple GUI-Klasse enthält, und \textit{Boilerplates}, das die Objekte zur Erzeugung von Sprachschablonen enthält (siehe Abb. 4.x).
+Verschiedene Programmbausteine sind dabei modular aufgebaut und verteilen sich auf die Pakete \textit{R2BC}, der die Fachlogik enthält, \textit{R2BCGUI}, das eine simple GUI-Klasse enthält, und \textit{Boilerplates}, das die Objekte zur Erzeugung von Sprachschablonen enthält (siehe Abb. 4.1).
 
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=1.0]{Bilder/R2BC-Pakete.png}
-\caption{Zuordnung der R2BC-Klassen zu Paketen nach Abb.3.x [eigene Darstellung]}
+\caption{Zuordnung der R2BC-Klassen zu Paketen nach Abb. 3.7 [eigene Darstellung]}
 \end{center}
 \end{figure}
 
-Die Funktionalität wurde dabei hauptsächlich mit verschiedenen java-Klassen umgesetzt, die die Umsetzung der Fachlogik darstellen. Die Anbindung an das NLP-Werkzeug GATE-Embedded erfolgte dabei unter Verwendung verschiedener java-Bibliotheken, die extern im Programmordner gespeichert sind. Die GATE-Ressourcen wurden dabei zur Annotation von Text genutzt, die selbst entwickelten java-Klassen einerseits für die GATE-Konfiguration, andererseits für die Auswertung der dort erstellten Annotationen. 
+Die Funktionalität wurde dabei hauptsächlich mit verschiedenen java-Klassen umgesetzt, die die Umsetzung der Fachlogik darstellen. Die Anbindung an das NLP-Werkzeug GATE Embedded erfolgte dabei unter Verwendung verschiedener java-Bibliotheken, die extern im Programmordner gespeichert sind. Die GATE-Ressourcen wurden dabei zur Annotation von Text genutzt. Die selbst entwickelten java-Klassen einerseits für die GATE-Konfiguration, andererseits für die Auswertung der dort erstellten Annotationen. 
 
 \begin{figure}[h!]
 \begin{center}
@@ -1007,16 +1015,16 @@ Die Funktionalität wurde dabei hauptsächlich mit verschiedenen java-Klassen um
 \end{center}
 \end{figure}
 
-Auf Basis des in Kap. 3.x beschriebenen Algorithmus können die Aufgaben der verschiedenen Klassen in Abb. 4.x wie folgt erläutert werden:\footnote{Die Darstellung der GUI-Klasse in Abb. 4.x ist für eine bessere Übersichtlichkeit vereinfacht worden. Enthaltene Objekte und Funktionalitäten beziehen sich dabei jedoch nur auf die GUI-Elemente.}
+Auf Basis des in Kap. 3.5.3 beschriebenen Algorithmus können die Aufgaben der verschiedenen Klassen in Abb. 4.2 wie folgt erläutert werden:\footnote{Die Darstellung der GUI-Klasse in Abb. 4.2 ist für eine bessere Übersichtlichkeit vereinfacht worden. Enthaltene Objekte und Funktionalitäten beziehen sich dabei jedoch nur auf die GUI-Elemente.}
 
 \begin{itemize}
 \item \textit{Main -} Die Hauptklasse ermöglicht den Zugriff auf alle Funktionen des Programms. Es erfolgt die Initialisierung aller Programmkomponenten. Es werden dazu verschiedene Objekte für die Textverarbeitung (\textit{AnnieHandler}, \textit{BoilerplateHandler}) sowie für die GUI (\textit{R2BMainWindow}) erzeugt. Hauptsächlich dient die Hauptklasse auch der Initialisierung der GUI, um die dortigen Schaltflächen mit Funktionen zu belegen. In der GUI ist beispielsweise ein Button zum Starten der Konvertierung enthalten, der eine Funktion des BoilerplateHandler aufruft. 
-\item \textit{AnnieHandler -} Der Annie-Handler realisiert den Zugriff auf die Bestandteile der Sprachverarbeitung aus dem Werkzeug GATE. Hauptsächlich betrifft dies die Verarbeitungslogik ANNIE, die konkrete Komponenten zur Textverarbeitung enthält (siehe Abschnitt 4.x). Im AnnieHandler werden dazu neben den Verarbeitungswerkzeugen auch die Textressourcen, die im Programm verarbeitet werden sollen, initialisiert. Diese \textit{Language-Ressourcen} aus GATE beinhalten neben dem Text auch alle generierten Annotationen. Der AnnieHandler beinhaltet nach der Verarbeitung somit alle Informationen zu den Anforderungen in einer Liste. Auf Basis dieser Informationen kann dann die Transformation von Anforderungen in Boilerplates im \textit{BoilerplateHandler} erfolgen.
-\item \textit{BoilerplateHandler -} Die Klasse dient der Erzeugung von jeweils passenden Boilerplates zu einer Anforderung, indem aus dem Text alle relevanten Informationen zur Erzeugung passender Boilerplates extrahiert werden. Der BoilerplateHandler beinhaltet dazu sowohl Funktionen zur Identifikation passender Boilerplates auf Basis der Annotationen aus der GATE-Verarbeitung, als auch die Erzeugung von konkreten Boilerplate-Objekten aus der abstrakten Klasse Boilerplate, wenn die passenden Annotationen dazu gefunden wurden.
-\item \textit{Boilerplate -} Die Klasse bündelt alle Kernmerkmale der Boilerplates, die durch das Programm erzeugt wurden. Dies betrifft in erster Linie den Gesamttext, die einzelnen Satzbestandteile und Metainformationen über die Anforderung, wie etwa eine ID.
-\item \textit{Boilerplate65c} und \textit{Boilerplate85 -} Wie bereits unter 3.x beschrieben, wurden im Zuge der Entwicklung dieses Werkzeugs zwei prototypische Boilerplates implementiert. Diese konkreten Boilerpalte-Objekte beinhalten eine Repräsentation der GATE-Annotation einzelner Satzbestandteile als Zeichenketten, um daraus ganze Sätze zu erzeugen. Der Boilerplate-Handler "befüllt" somit konkrete Boilerplates mit allen erforderlichen Begriffen anhand der dort definierten Bestandteile.
+\item \textit{AnnieHandler -} Der Annie-Handler realisiert den Zugriff auf die Bestandteile der Sprachverarbeitung aus dem Werkzeug GATE. Hauptsächlich betrifft dies die Verarbeitungslogik ANNIE, die konkrete Komponenten zur Textverarbeitung enthält (siehe Abs. 4.2.1). Im AnnieHandler werden dazu neben den Verarbeitungswerkzeugen auch die Textressourcen, die im Programm verarbeitet werden sollen, initialisiert. Diese \textit{Language-Ressourcen} aus GATE beinhalten neben dem Text auch alle generierten Annotationen. Der AnnieHandler beinhaltet nach der Verarbeitung somit alle Informationen zu den Anforderungen in einer Liste. Auf Basis dieser Informationen kann dann die Transformation von Anforderungen in Boilerplates im \textit{BoilerplateHandler} erfolgen.
+\item \textit{BoilerplateHandler -} Die Klasse dient der Erzeugung von jeweils passenden Boilerplates zu einer Anforderung, indem aus dem Text alle relevanten Informationen zur Erzeugung passender Boilerplates extrahiert werden. Der BoilerplateHandler beinhaltet dazu einerseits Funktionen zur Identifikation passender Boilerplates auf Basis der Annotationen aus der GATE-Verarbeitung. Andererseits ist auch die Erzeugung von konkreten Boilerplate-Objekten aus der abstrakten Klasse Boilerplate möglich, wenn die passenden Annotationen dazu gefunden wurden.
+\item \textit{Boilerplate -} Die Klasse bündelt alle Kernmerkmale der Boilerplates, die durch das Programm erzeugt wurden. Dies betrifft in erster Linie den Gesamtsatz, die einzelnen Satzbestandteile und Metainformationen über die Anforderung, wie etwa eine ID.
+\item \textit{Boilerplate65c} und \textit{Boilerplate85 -} Wie bereits unter 3.5.3 beschrieben, wurden im Zuge der Entwicklung dieses Werkzeugs zwei prototypische Boilerplates implementiert. Diese konkreten Boilerpalte-Objekte beinhalten eine Repräsentation der GATE-Annotation einzelner Satzbestandteile als Zeichenketten, um daraus ganze Sätze zu erzeugen. Der Boilerplate-Handler \glqq befüllt\grqq{} somit konkrete Boilerplates mit allen erforderlichen Begriffen anhand der dort definierten Bestandteile.
 \begin{itemize}
-\item Die Klasse \textit{Boilerplate65c} stellt eine Schablone für Systemfunktionen dar und enthält demnach Platzhalter für ein System und eine Funktion dieses Systems, die dann bei der Erzeugung konkreter Boilerplate-Objekte in das Grundgerüst des Satzes eingefügt werden. Typ 65c Boilerplates sehen demnach etwa so aus: 
+\item Die Klasse \textit{Boilerplate65c} stellt eine Schablone für Systemfunktionen dar. Demnach enthält sie Platzhalter für ein System und eine Funktion dieses Systems, die dann bei der Erzeugung konkreter Boilerplate-Objekte in das Grundgerüst des Satzes eingefügt werden. Typ 65c Boilerplates sehen demnach etwa so aus: 
 
 \tt
 The complete system <<System>> shall perform \\
@@ -1028,46 +1036,46 @@ The complete system <<System>> shall perform \\
 \tt
 Under the condition: <<conditionText>> the actor: \\
 <<conditionalActorText>> shall \\
-<<functionDescriptionText>>.\footnote{Eine Unterscheidung zu Typ65c scheint zunächst nicht trivial, da conditionText auch einfach leer sein kann und somit Typ 65c fälschlicherweise als Typ 85 erzeugt werden können. Durch die unterschiedliche ANnotation der beiden Typen schon bei der GATE-Verarbeitung kann dennoch eine verlässliche Unterscheidung erfolgen.}
+<<functionDescriptionText>>.\footnote{Eine Unterscheidung zu Typ 65c scheint zunächst nicht trivial, da conditionText auch einfach leer sein kann und somit Typ 65c fälschlicherweise als Typ 85 erzeugt werden können. Durch die unterschiedliche Annotation der beiden Typen schon bei der GATE-Verarbeitung kann dennoch eine verlässliche Unterscheidung erfolgen.}
 \rm
 \end{itemize}
 
 \end{itemize}
-Die Funktionalität des Gesamtprogramms, das sich aus dem Zusammenspiel der KOmponenten ergibt, ist in den folgenden Abschnitten dargestellt.
-
+Die Funktionalität des Gesamtprogramms, das sich aus dem Zusammenspiel der Komponenten ergibt, ist in den folgenden Abschnitten dargestellt.
 
 \section{Werkzeug-Implementierung}
-In diesem Abschnitt werden wichtige Aspekte der praktischen Umsetzung des Programms genau erläutert. Die bezieht sich sowohl auf präzisere Vertiefung der Konzepte, also auch Quellcode-Beispiele der Implementierung zur Erläuterung des Programmvorgehens und die daraus resultierenden Interaktionsmöglichkeiten der Benutzer.  
+In diesem Abschnitt werden wichtige Aspekte der praktischen Umsetzung des Programms genau erläutert. Dies bezieht sich sowohl auf die präzisere Vertiefung der Konzepte, als auch auf Quellcode-Beispiele der Implementierung zur Erläuterung des Programmvorgehens und die daraus resultierenden Interaktionsmöglichkeiten der Benutzer.  
+
 \subsection{Sprachverarbeitung mit GATE}
-Dieser Abschnitt beschäftigt sich mit der automatischen Sprachverarbeitung der Anforderungsdokumente mit Hilfe des angekündigten NLP-Werkzeugs \textit{GATE}. Dies beinhaltet, das Einlesen der Lastenhefte, die Erstellung einer Verarbeitungslogik, die Erstellung und Auswertung von Verarbeitungsregeln und das Einbinden von GATE in das spätere Programm. Fokus liegt dabei auf der praxisnahen Verwendung in dem Projekt. Ein genereller Überblick und Einordnung des Werkzeugs finden sich in der vorherigen Arbeit \cite{rs18}.
+Dieser Abschnitt beschäftigt sich mit der automatischen Sprachverarbeitung der Anforderungsdokumente mit Hilfe des angekündigten NLP-Werkzeugs \textit{GATE}. Dies beinhaltet das Einlesen der Lastenhefte, die Erzeugung einer Verarbeitungslogik, die Erstellung und Auswertung von Verarbeitungsregeln und die Einbindung von GATE in das spätere Programm. Der Fokus liegt dabei auf der praxisnahen Verwendung in dem Projekt. Ein genereller Überblick und Einordnung des Werkzeugs finden sich in der vorherigen Arbeit \cite{rs18}.
 
 \subsubsection{Einlesen von Lastenheften}
-In GATE benötigt man zum einlesen und verwenden von Dokumenten zunächst einen \textit{Corpus}, also einen Textkörper. Dieser kann später mehrere Dokumente enthalten und diese verwalten. Außerdem wird eine Verarbeitungslogik immer auf einem Korpus (nicht auf einem Dokument) ausgeführt. Im Zusammenhang dieser Arbeit war es nicht nötig einen Corpus mit verschiedenen Dokumenten zu befüllen, daher ist zukünftig die Verarbeitung eines Corpus gleichbedeutend mit der Verarbeitung eines Dokuments. 
+In GATE benötigt man zum Einlesen und Verwenden von Dokumenten zunächst einen \textit{Corpus}, also einen Textkörper. Dieser kann später mehrere Dokumente enthalten und diese verwalten. Außerdem wird eine Verarbeitungslogik immer auf einem Corpus (nicht auf einem Dokument) ausgeführt. Im Zusammenhang dieser Arbeit war es nicht nötig, einen Corpus mit verschiedenen Dokumenten zu befüllen. Daher ist zukünftig die Verarbeitung eines Corpus gleichbedeutend mit der Verarbeitung eines Dokuments. 
 
-Ein Corpus kann in der Benutzeroberfläche von GATE schnell als neue \textit{language resource} (Sprachliche Ressource) erzeugt werden. In GATE Embedded ist dies ohne Benutzeroberfläche natürlich nicht möglich, lässt sich jedoch ähnlich einfach durch den Aufruf von \textit{new Corpus} durchführen. 
+Ein Corpus kann in der Benutzeroberfläche von GATE schnell als neue \textit{language resource} (sprachliche Ressource) erzeugt werden. In GATE Embedded ist dies ohne Benutzeroberfläche natürlich nicht möglich, lässt sich jedoch ähnlich einfach durch den Aufruf von \textit{new Corpus()} durchführen. 
 
-Sobald der Corpus erstellt ist, lassen sich dort Dokumente einfügen. \footnote{Alternativ kann auch erst ein Dokument eingelesen und anschließend ein Corpus um dieses angelegt werden.} Auch dies geschieht in GATE direkt über die Benutzeroberfläche. In GATE Embedded verwendet man hierzu den \textit{add}-Aufruf eines Corpus-Objekts mit einem übergebenen Dokument. 
+Sobald der Corpus erstellt ist, lassen sich dort Dokumente einfügen.\footnote{Alternativ kann auch erst ein Dokument eingelesen und anschließend ein Corpus um dieses Dokument angelegt werden.} Auch dies geschieht in GATE direkt über die Benutzeroberfläche. In GATE Embedded verwendet man hierzu den \textit{add()}-Aufruf eines Corpus-Objekts mit einem übergebenen Dokument. 
 
-Sobald man einen Corpus mit mindestens einem Dokument hat, kann man auf diesem Corpus eine Verarbeitungslogik aufrufen (oft auch Verarbeitungs-Pipeline genannt, wegen der Aneinanderreihung mehrerer Verarbeitungskomponenten). Diese werden im folgenden Abschnitt genauer beschrieben.
+Sobald man einen Corpus mit mindestens einem Dokument hat, kann man auf diesem Corpus eine Verarbeitungslogik aufrufen (oft aufgrund der Aneinanderreihung mehrerer Verarbeitungskomponenten auch als Verarbeitungs-Pipeline bezeichnet). Diese werden im folgenden Abschnitt genauer beschrieben.
 
 \subsubsection{GATE-Verarbeitungslogik}
-In GATE wird die sprachliche Analyse durch eine Verarbeitungslogik durchgeführt, welche aus verschiedene Verarbeitungsressourcen (\textit{processing resource}) aufgebaut ist. Eine Standard-Verarbeitungslogik wird durch das GATE-Plugin \textit{ANNIE} zur Verfügung gestellt. Die einzelnen ANNIE-Verarbeitungsressourcen sind in \cite{rs18} beschrieben. 
+In GATE wird die sprachliche Analyse durch eine Verarbeitungslogik durchgeführt, welche aus verschiedene Verarbeitungsressourcen (\textit{processing resource}) aufgebaut ist. Eine Standard-Verarbeitungslogik wird durch das GATE-Plugin \textit{ANNIE} zur Verfügung gestellt. Die einzelnen ANNIE-Verarbeitungs- ressourcen sind in \cite{rs18} beschrieben. 
 
 Führt man eine Verarbeitungslogik auf einem Corpus bzw. auf dessen Dokumenten aus, so werden durch die verschiedenen Verarbeitungsressourcen an bestimmten Stellen im Text bestimmte Informationen hinzugefügt. Dies bezeichnet man als \textit{annotieren}. Dabei wird der Text an sich nicht geändert, die Annotationen können jedoch etwa durch farbige Unterlegung des betroffenen Texts in der GATE-Benutzeroberfläche gezeigt und als XML-Datei exportiert werden. 
 
 \begin{figure}[H]
 \begin{center}
 \includegraphics[scale=0.9]{Bilder/ANNIEinGATE.jpg}
-\caption{Anforderung mit farbig markierten Token-Annotationen in GATE}
+\caption{Anforderung mit farbig markierten Token-Annotationen in GATE [eigene Darstellung]}
 \end{center}
 \end{figure}   
 
-Einer Annotation können sog. \textit{Features} also Eigenschaften zugewiesen werden, welche dann noch weitere Informationen enthalten können, wie z.B. Länge der Annotation und die betroffene Zeichenkette.
+Einer Annotation können sog. \textit{Features} also Eigenschaften zugewiesen werden, welche dann noch weitere Informationen enthalten können. Dies sind z.B. die Länge der Annotation und die betroffene Zeichenkette.
 
 \begin{figure}[H]
 \begin{center}
 \includegraphics[scale=0.9]{Bilder/FeaturesInGATE.jpg}
-\caption{Ausgewählte Token-Annotation und dessen Features in GATE}
+\caption{Ausgewählte Token-Annotation und dessen Features in GATE [eigene Darstellung]}
 \end{center}
 \end{figure}  
 
@@ -1075,13 +1083,13 @@ Die für diese Arbeit verwendeten und besonders relevanten ANNIE- Verarbeitungsr
 
 
 \begin{enumerate}
-\item \textit{ANNIE Tokenizer}: Der Tokenizer unterteilt den Text oberflächlich in Zeichen oder Zeichenketten, welche als Zahlen, Wörter (Groß- und Kleinschreibung wird unterschieden) und Interpunktion kategorisiert werden. Dies fügt an den betroffenen Stellen die \textit{Token}-Annotation hinzu, welche jeweils Typ (Zahl, Wort usw.) und Länge in Zeichen . Die Verarbeitung durch den Tokenizer soll so effizient wie möglich sein und nur als Grundlage etwa für spätere Grammatikregeln dienen.
+\item \textit{ANNIE Tokenizer}: Der Tokenizer unterteilt den Text oberflächlich in Zeichen oder Zeichenketten, welche als Zahlen, Wörter (Groß- und Kleinschreibung wird unterschieden) und Interpunktion kategorisiert werden. Dies fügt an den betroffenen Stellen die \textit{Token}-Annotation hinzu, welche jeweils Typ (Zahl, Wort usw.) und Länge in Zeichen beinhalten. Die Verarbeitung durch den Tokenizer soll so effizient wie möglich sein und nur als Grundlage, etwa für spätere Grammatikregeln, dienen.
 
-\item \textit{ANNIE Gazetteer}: Ein Gazetteer beinhaltet relevante Eigennamen aus bestimmten Bereichen. Es handelt sich dabei um eine geschachtelte Liste, welche für jeden Bereich (beispielsweise Städte, Flughäfen, Fußball Clubs) über eine Liste der jeweils bekannten Eigennamen verfügt. Gazetteers werden verwendet, um domänenspezifisch Entitäten zu erkennen, da diese in einem normalen Wörterbuch nicht zu finden sind. Die vorgefertigten Listen sind also je nach Dokument individuell zu erweitern bzw. zu erstellen. Wird ein Listenelement im Text wiedererkannt, so erhält es Standardmäßig die \textit{Lookup}-Annotation. Das lässt sich jedoch auch schon im Gazetteer ändern und jeweils Listen-abhängig bestimmen. 
+\item \textit{ANNIE Gazetteer}: Ein Gazetteer beinhaltet relevante Eigennamen aus bestimmten Bereichen. Es handelt sich dabei um eine geschachtelte Liste, welche für jeden Bereich (beispielsweise Städte, Flughäfen, Fußball Clubs) über eine Liste der jeweils bekannten Eigennamen verfügt. Gazetteers werden verwendet, um domänenspezifisch Entitäten zu erkennen, da diese in einem normalen Wörterbuch nicht zu finden sind. Die vorgefertigten Listen sind also je nach Dokument individuell zu erweitern bzw. zu erstellen. Wird ein Listenelement im Text wiedererkannt, so erhält es standardmäßig die \textit{Lookup}-Annotation. Das lässt sich jedoch auch schon im Gazetteer ändern und jeweils Listen-abhängig bestimmen. 
 
 \item \textit{ANNIE Sentence Splitter}: Der Sentence-Splitter unterteilt den gesamten Text in einzelne Sätze. Dadurch wird jeder komplette Satz von einer \textit{Sentence}-Annotation umschlossen. Dies wird später für den Part-of-Speech Tagger benötigt. Der Splitter verwendet dazu einen Gazetteer mit Abkürzungen, um Interpunktion wie etwa Fragezeichen, Ausrufezeichen und Punkte von anderen Sonderzeichen wie Semikola und Doppelpunkten zu unterscheiden. 
 
-\item \textit{ANNIE POS Tagger}: Der Part-of-Speech Tagger annotiert alle Wörter und Symbole gemäß ihrer grammatikalischen Funktion. Hierfür wird keine neue Annotation angelegt, es werden jedoch das wichtige \textit{category}-Feature an die Token-Annotationen angefügt. Dies ist wichtige Grundlage für grammatikalische Analyse von Sätzen. Dazu gehören Dafür nutzt dieser Standard-Lexika und Regelwerke, welche auf dem Corpus-Training des Wall Street Journal beruhen.
+\item \textit{ANNIE POS-Tagger}: Der Part-of-Speech-Tagger annotiert alle Wörter und Symbole gemäß ihrer grammatikalischen Funktion. Hierfür wird keine neue Annotation angelegt, es werden jedoch das wichtige \textit{category}-Feature an die Token-Annotationen angefügt. Dies ist eine wichtige Grundlage für grammatikalische Analyse von Sätzen. Dazu nutzt dieser Standard-Lexika und Regelwerke, welche auf dem Corpus-Training des \textit{Wall Street Journal} beruhen. Siehe dazu auch Abs. 2.1.1.
 \end{enumerate}
 
 \begin{figure}[H]
@@ -1092,8 +1100,7 @@ Die für diese Arbeit verwendeten und besonders relevanten ANNIE- Verarbeitungsr
 \end{figure}   
 
 \subsubsection{JAPE Transducer}
-
-Die für die Verarbeitung wichtigsten Komponenten sind in der normalen ANNIE-Verarbeitungslogik jedoch noch nicht vorhanden. Die sogenannten \textit{JAPE Transducer} werden individuell angelegt und verwenden die Annotationen der vorherigen Verarbeitungsressourcen, um dem Text wichtige Informationen hinzuzufügen. Diese können im Gegensatz zu den vorherigen jedoch auch von großer inhaltlicher bzw. semantischer Relevanz sein. Jape Transducer lassen sich wie die anderen Verarbeitungsressourcen hintereinander reihen und somit in eine Verarbeitungslogik einfügen.
+Die für die Verarbeitung wichtigsten Komponenten sind in der normalen ANNIE-Verarbeitungslogik jedoch noch nicht enthalten. Die sogenannten \textit{JAPE Transducer} werden individuell angelegt und verwenden die Annotationen der vorherigen Verarbeitungsressourcen, um dem Text wichtige Informationen hinzuzufügen. Diese können im Gegensatz zu den vorherigen Annotationen jedoch auch von großer inhaltlicher bzw. semantischer Relevanz und spezifischer sein. JAPE Transducer lassen sich wie die anderen Verarbeitungsressourcen hintereinander reihen und somit in eine Verarbeitungslogik einfügen.
 
 \begin{figure}[H]
 \begin{center}
@@ -1102,21 +1109,18 @@ Die für die Verarbeitung wichtigsten Komponenten sind in der normalen ANNIE-Ver
 \end{center}
 \end{figure}   
 
-In JAPE-Transducern\footnote{sowie in einigen der anderen Verarbeitungsressourcen} wird die im Namen vorhandene \textit{JAPE} (Java Annotation Patterns Engine) verwendet. Jape fungiert dabei als endlicher Zustandswandler\footnote{Für Erläuterung siehe \cite{rs18}} der reguläre Ausdrücke prüft und abhängig davon 
-Annotationen erzeugt oder JAVA-Code ausführt.
- 
-HIER EVTL QUELLE VERWENDEN\\
+In JAPE-Transducern\footnote{sowie in einigen der anderen Verarbeitungsressourcen} wird die im Namen vorhandene \textit{JAPE} (Java Annotation Patterns Engine) verwendet. JAPE fungiert dabei als endlicher Zustandswandler\footnote{Für Erläuterung siehe \cite{rs18}}, der reguläre Ausdrücke prüft und abhängig davon Annotationen erzeugt oder java-Code ausführt.\cite{tol09}
 
-Um ein Verständnis von JAPE Transducern aufzubauen ist jedoch zunächst einer Erläuterung von JAPE-Dateien bzw. JAPE-Regeln nötig, welche im Folgenden gegeben ist.
+Um ein Verständnis von JAPE Transducern aufzubauen ist jedoch zunächst eine Erläuterung von JAPE-Dateien bzw. JAPE-Regeln nötig, welche im Folgenden gegeben wird.
 
 \subsubsection{Einführung zu JAPE-Regeln}
-Jape Transducer werden immer mit einer \textit{Jape-Datei} initialisiert. JAPE-Dateien sind erkennbar an der \textit{.jape}-Endung und können entweder eine JAPE-Regel oder eine JAPE-Hauptklasse (\textit{main.jape}) darstellen. 
+JAPE Transducer werden immer mit einer \textit{JAPE-Datei} initialisiert. JAPE-Dateien sind erkennbar an der \textit{.jape}-Endung und können entweder eine JAPE-Regel oder eine JAPE-Hauptklasse (\textit{main.jape}) darstellen. 
 
 Eine Hauptklasse wird dazu verwendet, mehrere JAPE-Regeln zu vereinen. Dadurch lassen sich auch Transducer mit mehreren Regeln initialisieren und unnötig lange Verarbeitungs-Pipelines verhindern. 
 
 Die JAPE-Regeln bilden die eigentliche Logik der jeweiligen Verarbeitungsressource und ähneln kleinen Programmen mit der Erkennung einer Eingabe und der Erzeugung einer bestimmten Ausgabe. Daher wird im Folgenden auch von JAPE-Code gesprochen. 
 
-Der Code in einer JAPE-Regel ist immer unterteilt in einen Regel-Kopf eine linke Seite (\textit{LHS} für left hand side) und eine rechte Seite (\textit{RHS} für right hand side). Diese Benennung kann jedoch irreführend sein, wenn man eine JAPE-Regel betrachtet, da die Regeln von oben (Kopf, LHS) nach unten (RHS) aufgebaut sind, so wie es für Quellcode üblich ist. Abbildung X.X zeigt beispielhaft eine stark vereinfachte JAPE-Regel.
+Der Code in einer JAPE-Regel ist immer in einen Regel-Kopf, eine linke Seite (\textit{LHS} für left hand side) und eine rechte Seite (\textit{RHS} für right hand side) unterteilt. Bei der Betrachtung einer JAPE-Regel kann diese Benennung jedoch irreführend sein, da die Regeln von oben (Kopf, LHS) nach unten (RHS) aufgebaut sind, so wie es für Quellcode üblich ist. Abbildung 4.7 zeigt beispielhaft eine stark vereinfachte JAPE-Regel.
 
 \begin{figure}[H]
 \begin{center}
@@ -1126,35 +1130,34 @@ Der Code in einer JAPE-Regel ist immer unterteilt in einen Regel-Kopf eine linke
 \end{figure}
 
 Im Kopf der Regel befinden sich die Parameter \textit{Phase}, \textit{Input}, \textit{Options} und \textit{Rule}.
-
  
 \begin{enumerate}
-\item Phase: Hier lässt sich eine Phase festlegen, in welcher die Regel ausgeführt werden soll. Dies kann wichtig sein, wenn z.B. eine Regel eine Annotation verwenden möchte, welche zuvor von einer anderen Regel angelegt werden muss. In unserem Projekt wurden für eine bessere Übersicht verschiedene Transducer angelegt, welche dann hintereinander durchlaufen werden. Daher wird die Phase im weiteren Verlauf der Arbeit nicht weiter verwendet oder behandelt.
+\item Phase: Hier lässt sich eine Phase festlegen, in welcher die Regel ausgeführt werden soll. Dies kann wichtig sein, wenn z.B. eine Regel eine Annotation verwenden möchte, welche zuvor von einer anderen Regel angelegt werden muss. In diesem Projekt wurden für eine bessere Übersicht verschiedene Transducer angelegt, welche dann hintereinander durchlaufen werden. Daher wird die Phase im weiteren Verlauf der Arbeit nicht weiter betrachtet.
 
 \item Input: Das Definieren des Inputs ist vor allem später für die LHS von entscheidender Bedeutung. Hier wird angegeben, welche Annotationen in den regulären Ausdrücken abgefragt werden können.
 
-Wenn ein Annotationstyp im Input nicht angegeben ist,jedoch in der LHS verwendet wird, führt dies zu einem Fehler beim Erstellen des Transducers. Wenn im Input Annotationen angegeben sind, welche in der LHS nicht verwendet werden, schadet dies unnötig der Laufzeit des Transducers.
+Wenn ein Annotationstyp im Input nicht angegeben ist, jedoch in der LHS verwendet wird, führt dies zu einem Fehler beim Erstellen des Transducers. Wenn im Input Annotationen angegeben sind, welche in der LHS nicht verwendet werden, schadet dies unnötig der Laufzeit des Transducers.
 
-\item Options: Hier können verschiedene Optionen zum verhalten der Regel in bestimmten Fällen angegeben werden. Dies beinhaltet hauptsächlich die Anpassung der \textit{control}-Option. Diese entscheidet über das Resultat der Regel, wenn sich etwa mehrere Annotationen der Ausgabe überschneiden. So kann etwa jede einzelne Annotation oder auch nur die längste Annotation (welche die kleineren abdeckt) ausgegeben werden. Andere Optionen wie \textit{negationGroupng} können benötigt werden, um bestimmte reguläre Ausdrücke in der LHS zu ermöglichen.
+\item Options: Hier können verschiedene Optionen zum verhalten der Regel in bestimmten Fällen angegeben werden. Dies beinhaltet hauptsächlich die Anpassung der \textit{control}-Option. Diese entscheidet über das Resultat der Regel, wenn sich etwa mehrere gleiche Annotationen überschneiden. So kann etwa jede einzelne Annotation oder auch nur die längste Annotation (welche die kleineren abdeckt) ausgegeben werden. Andere Optionen wie \textit{negationGrouping} werden benötigt, um bestimmte reguläre Ausdrücke in der LHS zu ermöglichen.
 
-\item Rule: Hier wird der Name der Regel definiert. Dieser weist üblicherweise auf die Funktion der Regel, bzw. die erzeugte Annotation hin. Außerdem wird er oftmals als Feature der erzeugten Annotationen hinzugefügt, um die Nachvollziehbarkeit einer Verarbeitungslogik zu erhöhen. 
+\item Rule: Hier wird der Name der Regel definiert. Dieser weist üblicherweise auf die Funktion der Regel, bzw. die erzeugte Annotation, hin. Außerdem wird der Name oftmals als Feature der erzeugten Annotationen hinzugefügt, um die Nachvollziehbarkeit einer Verarbeitungslogik zu erhöhen. 
 \end{enumerate}
 
-In der JAPE-Regel befindet sich unterhalb des Kopfes die LHS.  Diese umfasst eine Menge von Regulären ausdrücken, basierend auf den Annotationen welche als Input deklariert wurden. Diese werden in dem Text gesucht und auf die angegebenen Bedingungen geprüft. Sollten gefundene Annotationen diese Erfüllen, so werden diese mit einem Label versehen. 
+In der JAPE-Regel befindet sich unterhalb des Kopfes die LHS.  Diese umfasst eine Menge von regulären Ausdrücken, basierend auf den Annotationen, welche als Input deklariert wurden. Diese werden in dem Text gesucht und auf die angegebenen Bedingungen geprüft. Sollten bestimmte Textstellen diese Bedingungen erfüllen, werden diese mit einem Label versehen. 
 
 Ein Pfeil trennt die LHS von der RHS. Unterhalb der Pfeils befindet sich die RHS, in welcher abhängig von den vergebenen Labels nun neue Annotationen und deren Features mit Werten definiert werden können. 
 
-Alternativ kann sich auf der RHS in einer JAPE-Regel auch JAVA-Code befinden um erweiterte Funktionalitäten nutzen zu können. Dies war für das Projekt jedoch nicht nötig, da die Ergebnisse der JAPE-Regeln ohnehin später in eine JAVA-Programm verwendet wurden. Daher wird diese Option im Verlauf der Arbeit nicht weiter berücksichtigt. \\ 
+Alternativ kann sich auf der RHS in einer JAPE-Regel auch java-Code befinden, um erweiterte Funktionalitäten nutzen zu können. Dies war für das Projekt jedoch nicht nötig, da die Ergebnisse der JAPE-Regeln ohnehin später in eine java-Programm verwendet wurden. Daher wird diese Option im Verlauf der Arbeit nicht weiter berücksichtigt. \\ 
 
-Der Aufbau von JAPE-Regeln soll an dem Beispiel in Abbildung X.X genauer erläutert werden:
+Der Aufbau von JAPE-Regeln soll anhand des Beispiels in Abbildung 4.7 genauer erläutert werden:
 
-Zunächst wird die Phase \textit{NNP} benannt und die \textit{Token}-Annotation als Input deklariert. Die \textit{control}-Option wird auf \textit{appelt} gesetzt. Diese wird im Normalfall verwendet und bewirkt, dass eine betroffene Stelle im Text nur von einer Regel genutzt werden kann\footnote{Setzen zwei Regeln am gleichen Startpunkt an, so erhält die Regel mit der längeren Übereinstimmung Vorrang, sind beide gleich lang, so erhält die Regel mit der höheren Priorität Vorrang, haben beide die gleiche Priorität, so erhält die Regel Vorrang, welche als erste in der Grammatik definiert wurde.\cite{tol09}}. Die Regel selbst wird mit \textit{allNNP} benannt, dies wird jedoch im Rest der Regel nicht wieder verwendet. 
+Zunächst wird die Phase \textit{NNP} benannt und die \textit{Token}-Annotation als Input deklariert. Die \textit{control}-Option wird auf \textit{appelt} gesetzt. Diese wird im Normalfall verwendet und bewirkt, dass eine betroffene Stelle im Text nur von einer Regel genutzt werden kann.\footnote{Setzen zwei Regeln am gleichen Startpunkt an, so erhält die Regel mit der längeren Übereinstimmung Vorrang, sind beide gleich lang, so erhält die Regel mit der höheren Priorität Vorrang, haben beide die gleiche Priorität, so erhält die Regel Vorrang, welche als erste in der Grammatik definiert wurde.\cite{tol09}} Die Regel selbst wird mit \textit{allNNP} benannt, dies wird jedoch im Rest der Regel nicht wieder verwendet. 
 
 In der LHS wird mit der Abfrage\\
 
 $\{Token.category==NNP\}$\\
 
-das \textit{category}-Feature der \textit{Token}-Annotation auf den Wert \textit{NNP} geprüft\footnote{Erinnerung: Die \textit{Token}-Annotation wird von dem Tokenizer erstellt, das \textit{category}-Feature und dessen Wert jedoch von dem POS-Tagger}. Die Abfrage entspricht also der Form\\
+das \textit{category}-Feature der \textit{Token}-Annotation auf den Wert \textit{NNP} geprüft.\footnote{Erinnerung: Die \textit{Token}-Annotation wird von dem Tokenizer erstellt, das \textit{category}-Feature und dessen Wert jedoch von dem POS-Tagger} Die Abfrage entspricht also der Form\\
 
 $\{Annotation.Feature==Wert\}$\\
 
@@ -1168,30 +1171,32 @@ jede mit \textit{nnp} markierte Stelle mit der \textit{NNP}-Annotation versehen.
 
 $:nnp.NNP=\{rule=\grqq allNNP\grqq \}$\\
 
-Damit ist eine neue Annotation Namens \textit{NNP} mit dem Feature \textit{rule} erzeugt, welche von späteren Regeln mit der einfachen Abfrage $\{NNP\}$ genutzt werden kann, ohne den Wert eines Features abfragen zu müssen.
+Damit ist eine neue Annotation namens \textit{NNP} mit dem Feature \textit{rule} erzeugt, welche von späteren Regeln mit der einfachen Abfrage $\{NNP\}$ genutzt werden kann, ohne den Wert eines Features abfragen zu müssen.
 
 \subsubsection{JAPE-Regeln in der Praxis}
 In diesem Abschnitt werden einige der in der Sprachverarbeitung verwendeten JAPE-Regeln und deren Funktionsweise genauer erläutert. 
 
-Ursprünglich war der Ansatz für die Erkennung von Systemnamen eine genaue grammatikalische Analyse zu nutzen um solche Namen komplett erfassen zu können. Dieser wurde jedoch nach verschiedene Tests für zu unpräzise befunden. Grund dafür war, dass in den Systemnamen keine ausreichende Regelmäßigkeit erkannt werden konnte, um ein verlässliche Erfassung zu gewährleisten. 
+Ursprünglich war der Ansatz für die Erkennung von Systemnamen, eine genaue grammatikalische Analyse zu nutzen, um solche Namen komplett erfassen zu können. Dieser wurde jedoch nach verschiedenen Tests für zu unpräzise befunden. Grund dafür war, dass in den Systemnamen keine ausreichende Regelmäßigkeit erkannt werden konnte, um eine verlässliche Erfassung zu gewährleisten. 
 
-Daher wurde als nächstes ein Ansatz mit einer simpleren, jedoch auch besser umsetzbaren Methode verfolgt. Durch die Nutzung eines Gazetteers, kann die korrekte Erkennung von Eigennamen stark verbessert werden. Der einzige Nachteil ist, dass diese Eigennamen zuvor bekannt sein müssen, dies ist jedoch im betrieblichen Kontext gut umsetzbar. Um dies zu demonstrieren wurde ein ANNIE-Gazetteer mit einigen Systemnamen angelegt und sowohl für Beispiele, als auch für komplette Lastenhefte getestet. Daher wird im Folgenden anstelle einer JAPE-Regel der verwendete Gazetteer vorgestellt. Solch ein Gazetteer besteht aus einer Menge von \textit{.lst}-Dateien welche als Listen fungieren und mindestens einer \textit{.def}-Datei, welche definiert wie mit den einzelnen Listen umzugehen ist. In Abbildung X.X ist ein Ausschnitt einer solchen Listendatei zu sehen. Abbildung X.X zeigt die direkte Definition einer bestimmten Annotation innerhalb der Definitionsdatei. Dies ermöglicht das Einsparen einer JAPE-Regel, welche die standardisierte \textit{Lookup}-Annotation abfragen und einordnen muss.
+Daher wurde als Nächstes ein Ansatz mit einer simpleren, jedoch auch besser umsetzbaren Methode verfolgt. Durch die Nutzung eines Gazetteers, kann die korrekte Erkennung von Eigennamen stark verbessert werden. Der einzige Nachteil ist, dass diese Eigennamen zuvor bekannt sein müssen. Dies ist jedoch im betrieblichen Kontext gut umsetzbar. Um dies zu demonstrieren, wurde ein ANNIE-Gazetteer mit einigen Systemnamen angelegt und sowohl für Beispiele, als auch für komplette Lastenhefte getestet. Daher wird im Folgenden anstelle einer JAPE-Regel der verwendete Gazetteer vorgestellt. 
+
+Solch ein Gazetteer besteht aus einer Menge von \textit{.lst}-Dateien, welche als Listen fungieren und mindestens einer \textit{.def}-Datei, welche definiert, wie mit den einzelnen Listen umzugehen ist. In Abbildung 4.8 ist ein Ausschnitt einer solchen Listendatei zu sehen. Abbildung 4.9 zeigt die direkte Definition einer bestimmten Annotation innerhalb der Definitionsdatei. Dies ermöglicht das Einsparen einer JAPE-Regel, welche die standardisierte \textit{Lookup}-Annotation abfragen und einordnen muss.
 
 \begin{figure}[H]
 \begin{center}
 \includegraphics[scale=1]{Bilder/SystemNameGazetteer.jpg}
-\caption{Ausschnitt der \textit{SystemName}-Liste des Annie-Gazetteers [eigene Darstellung]}
+\caption{Ausschnitt der \textit{SystemName}-Liste des ANNIE-Gazetteers [eigene Darstellung]}
 \end{center}
 \end{figure}
 
 \begin{figure}[H]
 \begin{center}
 \includegraphics[scale=1]{Bilder/DefGazetteer.jpg}
-\caption{Definitionsdatei des Annie-Gazetteers [eigene Darstellung]}
+\caption{Definitionsdatei des ANNIE-Gazetteers [eigene Darstellung]}
 \end{center}
 \end{figure}
 
-Die Regel \textit{recognize\_conditional\_actor} wird dazu verwendet, im Falle einer Anforderung mit Bedingung den Akteur zu ermitteln, welcher durch die Bedingung eingeschränkt wird. Diese Anforderungen können dann später in die \textit{Boilerplate85} überführt werden, welche in Abschnitt X.X dargestellt ist. 
+Die Regel \textit{recognize\_conditional\_actor} wird dazu verwendet, im Falle einer Anforderung mit einer Bedingung den Akteur zu ermitteln, dessen Funktion durch die Bedingung eingeschränkt wird. Diese Anforderungen können dann später in die \textit{Boilerplate85} überführt werden, welche in Abschnitt 3.5.3 dargestellt ist. 
 
 \begin{figure}[h!]
 \begin{center}
@@ -1200,7 +1205,7 @@ Die Regel \textit{recognize\_conditional\_actor} wird dazu verwendet, im Falle e
 \end{center}
 \end{figure}
 
-In der Phase und der Benennung der Regel sind soweit keine Besonderheiten. Als Input sind hier jedoch \textit{Token}, \textit{Split} und \textit{Condition}. Token ist die bereits bekannte Annotation des Tokenizers und Split ist eine Annotation des Sentence Splitters, welche das Ende einse Satzes (z.B. durch Punkt oder Leerzeile) markiert. Außerdem wird die eigens erstellte Condition-Annotation verwendet, welche auf Grundlage von Schlagwörtern wie \textit{if} oder \textit{when} die Bedingung in einem Satz erkennen und markieren kann\footnote{Auch zu dieser Annotation gibt es natürlich eine Regel, diese wird jedoch aus Platzgründen nicht genauer erläutert und befindet sich mit den restlichen Regeln in den Anlagen der Arbeit}. Außerdem wird die Option \textit{negationGrouping} auf \textit{false} gesetzt, um es zu ermöglichen mehrere negierte Abfragen auf der gleichen Token-Annotation auszuführen. \\
+In der Phase und der Benennung der Regel sind soweit keine Besonderheiten vorhanden. Als Input sind hier jedoch \textit{Token}, \textit{Split} und \textit{Condition} enthalten. Token ist die bereits bekannte Annotation des Tokenizers und Split ist eine Annotation des Sentence Splitters, welche das Ende eines Satzes (z.B. durch Punkt oder Leerzeile) markiert. Außerdem wird die eigens erstellte Condition-Annotation verwendet, welche auf Grundlage von Schlagwörtern wie \textit{if} oder \textit{when} die Bedingung in einem Satz erkennen und markieren kann.\footnote{Auch zu dieser Annotation gibt es natürlich eine Regel, diese wird jedoch aus Platzgründen nicht genauer erläutert und befindet sich mit den restlichen Regeln in den Anlagen der Arbeit} Außerdem wird die Option \textit{negationGrouping} auf \textit{false} gesetzt, um es zu ermöglichen, mehrere negierte Abfragen auf der gleichen Token-Annotation auszuführen. \\
 
 Generell muss die Regel die folgenden zwei Satzstellungen berücksichtigen können: 
 \begin{enumerate}
@@ -1220,7 +1225,7 @@ Nachlaufend ist es jedoch nötig, dass eines dieser Wörter auftaucht (außerhal
 
 Damit ist LHS bzw. die Erkennung abgeschlossen und die als conditionalactor getaggten Bereiche werden mit der \textit{ConditionalActor}-Annotation versehen. Features werden dabei nicht benötigt. \\
 
-Sobald alle benötigten Satzbestandteile erfasst sind, lässt sich auf deren Grundlage nun eine geeignete Boilerplate definieren. Diese wird mit der JAPE-Regel \textit{BP85\_bsp} in Abbildung X.X erkannt und markiert. 
+Sobald alle benötigten Satzbestandteile erfasst sind, lässt sich auf deren Grundlage nun eine geeignete Boilerplate definieren. Diese wird mit der JAPE-Regel \textit{BP85\_bsp} in Abbildung 4.11 erkannt und markiert. 
 
 \begin{figure}[h!]
 \begin{center}
@@ -1229,18 +1234,17 @@ Sobald alle benötigten Satzbestandteile erfasst sind, lässt sich auf deren Gru
 \end{center}
 \end{figure}
 
-\subsubsection{JAPE Transducer in GATE}
-Im Regelkopf ist hierbei zu beachten, dass alle für die Boilterplate benötigten Satzbestandteile als Input definiert werden. In diesem Fall werden also die \textit{Condition}-, \textit{ConditionalActor}- und \textit{FunctionDescription}-Annotationen verwendet. 
+Im Regelkopf ist hierbei zu beachten, dass alle für die Boilerplate benötigten Satzbestandteile als Input definiert werden. In diesem Fall werden also die \textit{Condition}-, \textit{ConditionalActor}- und \textit{FunctionDescription}-Annotationen verwendet. 
 
-Daraufhin werden in den regulären Ausdrücken der LHS die zwei Satzschemata abgefragt, welche schon bei der Erkennung des \textit{ConditionalActor} eine wichtige Rolle gespielt hatten:
+Daraufhin werden in den regulären Ausdrücken der LHS die zwei Satzschemata abgefragt, welche schon bei der Erkennung des \textit{ConditionalActor} eine wichtige Rolle gespielt haben:
 \begin{enumerate}
 \item Unter der Bedingung \textit{A}, soll das System \textit{B} die Aktion \textit{C} durchführen.
 \item Das System \textit{B} soll die Aktion \textit{C} durchführen, unter der Bedingung \textit{A}.
 \end{enumerate}
 
-Zwischen den Satzbestandteilen vorkommende Tokens werden dabei ignoriert, solange diese keine \textit{Split}-Annotation enthalten, also mit Punkten oder Zeilenumbrüchen den Satz beenden. Alle Sätze die mit den Satzschemata entsprechen und die gestellten Bedingungen erfüllen werden als \textit{ann} gelabelt und auf der RHS der Regel verarbeitet.
+Zwischen den Satzbestandteilen vorkommende Tokens werden dabei ignoriert, solange diese keine \textit{Split}-Annotation enthalten, also mit Punkten oder Zeilenumbrüchen den Satz beenden. Alle Sätze, die mit den Satzschemata entsprechen und die gestellten Bedingungen erfüllen werden als \textit{ann} gelabelt und auf der RHS der Regel verarbeitet.
 
-Im Gegensatz zu den vorherigen Regeln ist auf dieser RHS die Vergabe von Features von entscheidender Bedeutung. Da man in dieser Regel verschiedene Annotationen zusammenfasst, ist es wichtig Informationsverlust zu verhindern, vor allem, weil die Satzbestandteile später noch vorliegen müssen um die Boilerplates zu befüllen. Daher erhält jede erstellte Boilerplate-Annotation auch ihren kompletten Text, sowie jeweils den Text jedes wichtigen Satzbestandteils als Feature. Dies macht es außerdem später im Programm einfacher diese abzufragen. Alle Features der Annotation sind in Abbildung X.X zu sehen. 
+Im Gegensatz zu den vorherigen Regeln ist auf dieser RHS die Vergabe von Features von entscheidender Bedeutung. Da man in dieser Regel verschiedene Annotationen zusammenfasst, ist es wichtig, Informationsverlust zu verhindern. Vor allem deshalb, weil die Satzbestandteile später noch vorliegen müssen, um die Boilerplates zu befüllen. Daher erhält jede erstellte Boilerplate-Annotation auch ihren kompletten Text sowie jeweils den Text jedes wichtigen Satzbestandteils als Feature. Dies macht es außerdem später im Programm einfacher, diese abzufragen. Alle Features der Annotation sind in Abbildung 4.12 zu sehen. 
 
 \begin{figure}[H]
 \begin{center}
@@ -1250,16 +1254,17 @@ Im Gegensatz zu den vorherigen Regeln ist auf dieser RHS die Vergabe von Feature
 \end{figure}
 
 \subsubsection{JAPE Transducer in GATE}
+Sobald alle benötigten JAPE-Regeln definiert sind, lassen sich diese unter JAPE-Hauptdateien zusammenfassen, um die benötigte Anzahl von JAPE Transducern zu verringern. Es sollte jedoch nur soweit zusammengefasst werden, dass einzelne Transducer noch austauschbar sind, wenn man die Sprachverarbeitung ändern möchte. 
 
-Sobald alle benötigten JAPE-Regeln definiert sind, lassen sich diese unter JAPE-Hauptdateien zusammenfassen um die benötigte Anzahl von JAPE Transducern zu verringern. Es sollte jedoch nur soweit zusammengefasst werden, dass einzelne Transducer noch austauschbar sind, wenn man die Sprachverarbeitung ändern möchte. 
 Die Transducer lassen sich (mit dem ANNIE-Plugin) über die Benutzeroberfläche von GATE leicht als Verarbeitungsressource anlegen und erhalten beim Initialisieren direkt die jeweilige JAPE-Datei. Syntaxfehler innerhalb der Dateien werden sofort erkannt und im Hauptfenster ausgegeben. 
-Sollten keine Fehler vorhanden sein erhält man die fertige Verarbeitungsressource, welche man an beliebiger Stelle in die Verarbeitungs-Pipeline einbauen kann.
-Obwohl in dem Programm GATE Embedded verwendet wurde und die Benutzeroberfläche somit nicht direkt verwendet werden konnte, bietet GATE die wichtige Funktion Corpora und Verarbeitungslogiken zu speichern und zu laden. Somit kann in man eine Verarbeitungslogik in GATE erstellen diese als sogenannte \textit{.gapp}-Datei speichern und anschließend in der Embedded-Version von GATE innerhalb des Programms laden. Außerdem lässt sich dabei der verwendete Corpus leicht ändern bzw. neu bestimmen. Das Laden einer solchen Datei in das Programm wird im folgenden Abschnitt genauer erläutert. 
+Sollten keine Fehler vorhanden sein, erhält man die fertige Verarbeitungsressource, welche man an beliebiger Stelle in die Verarbeitungs-Pipeline einbauen kann.
+
+Obwohl in dem Programm GATE Embedded verwendet wurde und die Benutzeroberfläche somit nicht direkt verwendet werden konnte, bietet GATE die wichtige Funktion, Corpora und Verarbeitungslogiken zu speichern und zu laden. Somit kann man eine Verarbeitungslogik in GATE erstellen diese als sogenannte \textit{.gapp}-Datei speichern und anschließend in der Embedded-Version von GATE innerhalb des Programms laden. Außerdem lässt sich dabei der verwendete Corpus leicht ändern bzw. neu bestimmen. Das Laden einer solchen Datei in das Programm wird im folgenden Abschnitt genauer erläutert. 
 
 \subsection{Converter-Funktionalität}
-In diesem Abschnitt wird die Funktionalität der Converter-Komponente des Programms erläutert. Diese dient, wie bereits beschrieben, zur automatisierten Transformation der gelesenen Lastenhefte in sog. Boilerplates. In unserem Programm greift die Verarbeitungslogik dabei auf die Funktionen der unter 4.x beschriebenen Klassen bzw. Methoden, sowie auf die im vorigen Abschnitt behandelten JAPE-Regeln zur Textannotation zu. 
+In diesem Abschnitt wird die Funktionalität der Converter-Komponente des Programms erläutert. Diese dient, wie bereits beschrieben, zur automatisierten Transformation der gelesenen Lastenhefte in sog. Boilerplates. Im Programm greift die Verarbeitungslogik dabei auf die Funktionen der unter 4.1.2 beschriebenen Klassen bzw. Methoden, sowie auf die im vorigen Abschnitt behandelten JAPE-Regeln zur Textannotation zu. 
 
-Diese Ressourcen werden im Programm dann nacheinander genutzt, um die Boilerplate-Konvertierung durchzuführen. In der Regel sind verschiedene Programmfunktionen dabei zur Nutzerinteraktion Buttons in der GUI zugeordnet (siehe Abs. 4.x). Für ein besseres Verständnis der Zusammenhänge ist das R2BC-Klassendiagramm, sowie der kommentierte Quellcode des Prototypen im Anhang hilfreich.
+Diese Ressourcen werden im Programm dann nacheinander genutzt, um die Boilerplate-Konvertierung durchzuführen. In der Regel sind verschiedene Programmfunktionen dabei zur Nutzerinteraktion Buttons in der GUI zugeordnet (siehe Abs. 4.2.3). Für ein besseres Verständnis der Zusammenhänge ist das R2BC-Klassendiagramm, sowie der kommentierte Quellcode des Prototypen im Anhang hilfreich.
 
 \subsubsection{Listen-Architektur}
 Der Convert-Vorgang teilt sich auf die zwei Klassen AnnieHandler und BoilerplateHandler auf. AnnieHandler dient dabei zur Erstellung von Annotationen über den Text durch die Anbindung an GATE. BoilerplateHandler erstellt auf Basis der dort gefundenen Annotationen anschließend entsprechende Boilerplates. 
