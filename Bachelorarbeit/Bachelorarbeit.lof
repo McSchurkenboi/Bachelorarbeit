@@ -2,15 +2,15 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Nicht-deterministischer Zustandswandler der able-Regel \cite {rs18}\relax }}{24}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Beispielhafte Ontologie als Klassenhierarchie in Protegé [eingene Darstellung]\relax }}{31}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Klassenstruktur mit zusätzlichen Relationen [eingene Darstellung (in Protegé)]\relax }}{33}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Beispielhafte Ontologie als Klassenhierarchie in Protegé [eigene Darstellung]\relax }}{31}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Klassenstruktur mit zusätzlichen Relationen [eigene Darstellung (in Protegé)]\relax }}{33}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Entwicklungsprozess bei HELLA, RE in den Stufen ENG. 1 und ENG. 4 [eigene Darstellung]\relax }}{42}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Hella-Prozesse mit ISO 26262. RE in den Stufen ENG. 1 und ENG. 4 \cite {ea19}\relax }}{42}
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Prozess der Aufbereitung von OEM-Anforderungen für weitere Verwendung \cite {hp12}\relax }}{44}
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Überblick der 3 Qualitätsstufen von Anforderungen im \textit {Requirements-Management \& Engineering} (RM \& E) aus \cite {hp12}\relax }}{49}
 \contentsline {figure}{\numberline {3.4}{\ignorespaces Anwendungsfall des R2BC und DA [eigene Darstellung]\relax }}{51}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Szenario für Unterstützung durch R2BC-Komponente [eigene Darstellung]\relax }}{54}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Szenario für Unterstützung durch DA-Komponente [eigene Darstellung]\relax }}{55}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Szenario für Unterstützung durch R2BC-Komponente nach \cite {zh19}\relax }}{54}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Szenario für Unterstützung durch DA-Komponente nach \cite {zh19}\relax }}{55}
 \contentsline {figure}{\numberline {3.7}{\ignorespaces Verteilung der R2BC-Ressourcen [eigene Darstellung]\relax }}{57}
 \contentsline {figure}{\numberline {3.8}{\ignorespaces Verteilung der DA-Ressourcen [eigene Darstellung]\relax }}{60}
 \addvspace {10\p@ }
@@ -30,7 +30,7 @@
 \contentsline {figure}{\numberline {4.14}{\ignorespaces Initialisierung der GATE-Ressourcen in \textit {initFromRestore()}-Methode der Klasse AnnieHandler [eigene Darstellung]\relax }}{84}
 \contentsline {figure}{\numberline {4.15}{\ignorespaces Ausführung der ANNIE-Pipeline, Verarbeitung der Annotationen in BoilerplateHandler in \textit {convert()}-Methode [eigene Darstellung]\relax }}{85}
 \contentsline {figure}{\numberline {4.16}{\ignorespaces Initialisierung des Datenmodells aus Listen der Sätze in \textit {initializeParagraphs()}-Methode [eigene Darstellung]\relax }}{86}
-\contentsline {figure}{\numberline {4.17}{\ignorespaces Suche nach Boilerpalte-Annotationen in \textit {findPossibleConversions()}-Methode [eigene Darstellung]\relax }}{87}
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Suche nach Boilerplate-Annotationen in \textit {findPossibleConversions()}-Methode [eigene Darstellung]\relax }}{87}
 \contentsline {figure}{\numberline {4.18}{\ignorespaces Überführung der Anforderungen in passende Boilerplates in \textit {convertBPs()}-Methode [eigene Darstellung]\relax }}{88}
 \contentsline {figure}{\numberline {4.19}{\ignorespaces Formatierung des Textes für Typ-65c-Boilerplates in \textit {formatBP()}-Methode [eigene Darstellung]\relax }}{89}
 \contentsline {figure}{\numberline {4.20}{\ignorespaces UML-Aktivitätsdiagramm User-Workflow mit dem Werkzeug [eigene Darstellung]\relax }}{91}
@@ -41,8 +41,8 @@
 \contentsline {figure}{\numberline {4.25}{\ignorespaces Anforderung 4, Boilerplate85 korrekt übersetzt [eigene Darstellung]\relax }}{97}
 \contentsline {figure}{\numberline {4.26}{\ignorespaces JAPE und JAPE+ Zeitaufwand abhängig von der Dokumentlänge \cite {gm19}\relax }}{103}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Zuordnung der DA-Klassen zu Paketen nach Abb.3.x [eigene Darstellung]\relax }}{112}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Zuordnung der DA-Klassen zu Paketen nach Abb.3.x [eigene Darstellung]\relax }}{113}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Zuordnung der DA-Klassen zu Paketen nach Abb. 3.8 [eigene Darstellung]\relax }}{112}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces UML-Klassendiagramm DA [eigene Darstellung]\relax }}{113}
 \contentsline {figure}{\numberline {5.3}{\ignorespaces Ausschnitt der \textit {annotationCompare}-Methode [eigene Darstellung]\relax }}{116}
 \contentsline {figure}{\numberline {5.4}{\ignorespaces Ausschnitt der \textit {analyseDeltas}-Methode [eigene Darstellung]\relax }}{117}
 \contentsline {figure}{\numberline {5.5}{\ignorespaces DA-GUI beim Programmstart [eigene Darstellung]\relax }}{119}

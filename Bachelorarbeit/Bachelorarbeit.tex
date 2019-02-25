@@ -74,15 +74,20 @@ Dortmund, 28.02.2019\\
 
 \newpage
 \begin{abstract}
-Ein weitläufiges Problem in der Autoindustrie ist die effiziente Verarbeitung von Lastenheften. Einer der Gründe dafür ist, dass viele verschiedene Bereiche bei der Entwicklung der Fahrzeuge und Einzelteile beteiligt sind. So müssen zu Beginn einer Produktentwicklung etwa Betriebswirtschaftler, Designer und Ingenieure zusammen ein Dokument entwerfen, das die Produktmerkmale widerspiegelt. Darin müssen die Anforderungen an das gewünschte Produkt so genau beschrieben sein, sodass es anhand dieses Dokuments entwickelt werden kann. Das entstandene Dokument kann dabei mehrere Hundert Seiten lang werden. Die manuelle Verarbeitung von Lastenheften ist auf Grund der verschiedenen Domänen und des großen Umfangs mit einem enormen Arbeitsaufwand verbunden. Hinzu kommt, dass dieser Aufwand oft aus Übersichtsgründen nur von nur einer Personen bewältigt werden muss. Außerdem ist die Verarbeitung der Lastenhefte durch den Menschen sehr fehleranfällig, da es so gut wie unmöglich ist, den Überblick über das gesamte Dokument zu behalten. Das Resultat können Fehler in der Entwicklung sein, welche zu zeitlicher Verzögerung, zusätzlichen Kosten oder dem Abbruch des Projekts führen können. Methoden aus dem Natural Language Processing (NLP) können dabei helfen, die Überprüfung der Lastenhefte stark zu vereinfachen oder sogar teilweise zu automatisieren. Dafür kann beispielsweise der Text aus den Lastenheften analysiert und dessen Inhalt formalisiert und weiterverwendet werden.
-In dieser Arbeit wird daher die Entwicklung zweier NLP-basierter Werkzeuge zur Vereinfachung bzw. Lösung dieser Probleme vorgestellt werden. Zum einen ein \textit{Requirements-to-Boilerplate-Converter} (R2BC), welcher dem Nutzer helfen soll, das Lastenheft eines Auftraggebers in die betriebsinternen Richtlinien und Standards zu überführen und dadurch zu formalisieren. Zum anderen wird der \textit{Delta-Analyser} (DA) vorgestellt, welcher auf dem R2BC aufbaut, indem er automatisch zwei formalisierte Lastenhefte vergleicht und dadurch im Kontext der gesamten Lastenhefte Gemeinsamkeiten und Unterschiede (Deltas) erkennt. Ziel ist es dabei, jeweils einen Prototypen als \glqq\textit{proof of concept}\grqq, also als Machbarkeitsstudie, zu implementieren. Nach dieser Vorstellung wird zusätzlich das weitere Potential der Programme erläutert, welches sich bei der Entwicklung der Prototypen gezeigt hat. Diese bietet Vorschläge zur Weiterentwicklung der Programme.
+Ein weitläufiges Problem in der Autoindustrie ist die effiziente Verarbeitung von Lastenheften. Einer der Gründe dafür ist, dass viele verschiedene Bereiche bei der Entwicklung der Fahrzeuge und Einzelteile beteiligt sind. So müssen zu Beginn einer Produktentwicklung etwa Betriebswirtschaftler, Designer und Ingenieure zusammen ein Dokument entwerfen, das die Produktmerkmale widerspiegelt. Darin müssen die Anforderungen an das gewünschte Produkt so genau beschrieben sein, sodass es anhand dieses Dokuments entwickelt werden kann. Das entstandene Dokument kann dabei mehrere Hundert Seiten lang werden. Die manuelle Verarbeitung von Lastenheften ist aufgrund der verschiedenen Domänen und des großen Umfangs mit einem enormen Arbeitsaufwand verbunden. Das Resultat können Fehler in der Entwicklung sein, welche zu zeitlicher Verzögerung, zusätzlichen Kosten oder dem Abbruch des Projekts führen können. Methoden aus dem Natural Language Processing (NLP) können dabei helfen, die Überprüfung der Lastenhefte stark zu vereinfachen oder sogar teilweise zu automatisieren. Dafür kann beispielsweise der Text aus den Lastenheften analysiert und dessen Inhalt formalisiert und weiterverwendet werden.
+In dieser Arbeit wird daher die Entwicklung zweier NLP-basierter Werkzeuge zur Vereinfachung bzw. Lösung dieser Probleme vorgestellt. Zum einen der \textit{Requirements-to-Boilerplate-Converter} (R2BC), welcher dem Nutzer helfen soll, das Lastenheft eines Auftraggebers in die betriebsinternen Richtlinien und Standards zu überführen und dadurch zu formalisieren. Zum anderen wird der \textit{Delta-Analyser} (DA) vorgestellt, welcher auf dem R2BC aufbaut, indem er automatisch zwei formalisierte Lastenhefte vergleicht und dadurch im Kontext der gesamten Lastenhefte Gemeinsamkeiten und Unterschiede (Deltas) erkennt. Ziel ist es dabei, jeweils einen Prototypen als Machbarkeitsstudie zu implementieren. Nach dieser Vorstellung wird zusätzlich das weitere Potential der Programme erläutert, welches sich bei der Entwicklung der Prototypen gezeigt hat. Dieses bietet Vorschläge zur Weiterentwicklung der Programme.
+\vspace{12pt}
 
+\textbf{Schlagworte:} Anforderungen, Anforderungsmanagement, Automatisierung, Lastenheft, Werkzeugunterstützung, Automobilindustrie, Sprachschablone, Sprachanalyse, Requirements-to-Boilerplate-Converter, Delta-Analyser
 \end{abstract}
 
 \renewcommand{\abstractname}{Abstract}
 \begin{abstract}
 A major problem in the auto industry is the efficient processing of specifications. One of the reasons for this is that many different areas are involved in the development of vehicles and individual parts. For example, at the beginning of product development, business administrators, designers, and engineers all need to design a document that reflects the product features. The requirements for the desired product must be described in detail so that it can be developed using this document. The resulting document can be several hundred pages long. The manual processing of specifications is involved in an enormous amount of work due to the different domains and the large amount of text. In addition, this effort often has to be handled by only one person for reasons of clarity. Furthermore, the processing of the specifications by the people is very error-prone, since it is almost impossible to keep track of the entire document. The result may be developmental errors that can lead to delays, additional costs or the demolition of the project. Methods from Natural Language Processing (NLP) can help simplify or even partially automate the review of specifications. For example, the text from the specifications can be analyzed and its content formalized and reused.
 In this work, therefore, the development of two NLP-based tools to simplify or solve these problems will be presented. On the one hand, a \textit{Requirements-to-Boilerplate Converter} (R2BC), which should help the user to transfer the specifications of a client into the internal guidelines and standards and thereby formalize them. On the other hand, the \textit{Delta Analyzer} (DA) is introduced, which builds on the R2BC by automatically comparing two formalized specifications and thereby recognizing similarities and differences (deltas) in the context of the entire specification. The aim is to implement one prototype each as "\textit{proof of concept}", ie as a feasibility study. After this presentation, the further potential of the programs, which has been discovered during the development of the prototypes, will be explained. This offers suggestions for the further development of the programs.
+\vspace{12pt}
+
+\textbf{Keywords:} Requirements, Requirements-Engineering, Automation, CRS, Tool-Support, Automotive Industry, Natural-Language-Processing, Require- ments-to-Boilerplate-Converter, Delta-Analyser
 \end{abstract}
 
 \newpage
@@ -175,7 +180,7 @@ Die Gewichtung einzelner Anforderungen in einem größeren Systemkontext fällt 
 Zu diesem Zweck können bei Zulieferern spezielle Abteilungen existieren, die Projektteams bei der Identifikation und Gewichtung von Anforderungen unterstützen. Diese Abteilungen sind auf die Auswertung der Projektlastenhefte spezialisiert und erstellen Modelle zu Merkmalen des späteren Produktes. Die Experten stellen dabei die Eindeutigkeit und Verständlichkeit sicher und identifizieren relevante Anforderungen für die Mitglieder des Projektteams. Somit kann ein eigenes Anforderungsdokument für das Projektteam beim Zulieferer erstellt werden. 
 Falls nicht vorhanden, muss das Team selbst über die Bewertung von Anforderungen entscheiden und Rücksprache mit dem OEM halten.
 
-Bei HELLA existiert eine dementsprechende Abteilung, genannt \textit{Projects, Methods and Tools}, kurz \textit{PMT}. Im Rahmen unserer Beschäftigung konnte in enger Zusammenarbeit mit PMT genau ermittelt werden, wie Lastenhefte momentan verarbeitet werden, welche Verbesserungspotentiale dabei bestehen und wie diese genutzt werden können.
+Bei HELLA existiert eine dementsprechende Abteilung nur für Requirements-Engineering. Im Rahmen unserer Beschäftigung konnte in enger Zusammenarbeit den RE-Experten genau ermittelt werden, wie Lastenhefte momentan verarbeitet werden, welche Verbesserungspotentiale dabei bestehen und wie diese genutzt werden können.
 
 \section{Hypothese}
 Hypothese dieser Arbeit ist, dass sich mithilfe von NLP Lastenhefte effizient automatisiert verarbeiten lassen. Damit kann die Arbeit von Requirements-Engineers, aber auch von Beteiligten an der Entwicklung beim Verständnis der Anforderungen, erleichtert werden. Die Verarbeitung von Lastenheften bedarf dabei der Modellierung von Syntax und Semantik. Insbesondere durch die hohe Komplexität der Semantik werden dazu Ontologien benötigt. 
@@ -187,15 +192,15 @@ Weiterhin soll geprüft werden, wie stark ein Mehrwert bei der Nutzung solcher P
 \section{Methodik}
 Verschiedene Methoden aus dem Bereich Natural-Language-Processing werden zunächst anhand des Rückblicks auf die Projektarbeit theoretisch und anhand praktischer Beispiele erläutert. Der betriebliche Kontext der Firma HELLA wird durch genaue Darstellung der dortigen Verfahren beleuchtet. 
 
-Mit diesen Grundlagen wird dann die Unterstützung der dortigen Prozesse im Bereich Requirements-Engineering auf Basis von natürlichsprachlicher Textanalyse evaluiert. Die gewonnenen Erkenntnisse aus der Zusammenarbeit mit der Abteilung PMT wurden in Anforderungen an die zu entwickelnden Werkzeuge zusammengefasst. Dadurch entstand eine genaue Vorstellung der zu entwickelnden Software, welche mit Hilfe der Programmkonzepte von Konstantin Zichler \cite{zh19} entworfen und implementiert werden konnte. 
+Mit diesen Grundlagen wird dann die Unterstützung der dortigen Prozesse im Bereich Requirements-Engineering auf Basis von natürlichsprachlicher Textanalyse evaluiert. Die gewonnenen Erkenntnisse aus der Zusammenarbeit mit der zuständigen Abteilung für RE wurden in Anforderungen an die zu entwickelnden Werkzeuge zusammengefasst. Dadurch entstand eine genaue Vorstellung der zu entwickelnden Software, welche mit Hilfe der Programmkonzepte von Konstantin Zichler \cite{zh19} entworfen und implementiert werden konnte. 
 
-Das Ergebnis stellten zwei Software-Prototypen auf \textit{java}-Basis dar, deren Struktur und Funktionsweisen anhand von Modellen und Codebeispielen dargestellt werden. Die Prototypen wurden mit originalen Lastenheften von verschiedenen OEMs und der HELLA getestet und evaluiert.
+Das Ergebnis stellten zwei Software-Prototypen auf \textit{java}-Basis dar, deren Struktur und Funktionsweisen anhand von Modellen und Codebeispielen dargestellt werden. Die Prototypen wurden mit exemplarischen Lastenheften von verschiedenen bei HELLA getestet und evaluiert.
 
 \section{Aufbau der Arbeit}
 In der folgenden Ausarbeitung wird zunächst in Kapitel 2 eine Überblick über den Stand der Technik gegeben. Dies beinhaltet einerseits einen Rückblick auf die zuvor verfasste Projektarbeit zu NLP und einer Erläuterung der Grundlagen von Ontologien und andererseits einen Überblick von Arbeiten, die sich der gleichen oder ähnlichen Problemstellungen gewidmet haben. 
-Kapitel 3 beschäftigt sich zur Motivation der beiden Programme mit dem betrieblichen Umfeld und RE-Prozessen bei der HELLA. Hierzu wird zunächst vor dem Hintergrund der aktuellen Verfahren der Anwendungsfall der Programme genauer beschrieben. Somit lassen sich die betrieblichen Anforderungen an die Werkzeuge erheben, welche dann von den vorgestellten Konzepten abgedeckt werden sollen. 
+Kapitel 3 beschäftigt sich zur Motivation der beiden Programme mit dem betrieblichen Umfeld und RE-Prozessen bei der HELLA. Hierzu wird zunächst vor dem Hintergrund der aktuellen Verfahren der Anwendungsfall der Programme genauer beschrieben. Somit lassen sich die Anforderungen an die Werkzeuge erheben, welche dann von den vorgestellten Konzepten abgedeckt werden sollen. 
 
-In Kapitel 4 wird das erste Werkzeug - der Requirements-to-Boilerplate-Converter(R2BC) - ausführlich beschrieben. Dies beinhaltet die Darstellung von dessen Architektur, eine Vorstellung der Implementierung, eine Auflistung möglicher Erweiterungen und eine genaue Beschreibung durchgeführter Tests. Zu den Tests werden dabei präzise Methodik vorgestellt und Ergebnisse eingeordnet. 
+In Kapitel 4 wird das erste Werkzeug - der Requirements-to-Boilerplate-Converter(R2BC) - ausführlich beschrieben. Dies beinhaltet die Darstellung der Architektur, eine Vorstellung der Implementierung, eine Auflistung möglicher Erweiterungen und eine genaue Beschreibung durchgeführter Tests. Zu den Tests wird dabei präzise die Methodik vorgestellt und Ergebnisse eingeordnet. 
 
 Das zweite Werkzeug - der Delta-Analyser(DA) - wird in Kapitel 5 behandelt. Dabei werden ähnlich zu Kapitel 4 die Architektur, die Implementierung und mögliche Erweiterungen beschrieben. 
 
@@ -536,7 +541,7 @@ In Abbildung 2.2 ist eine stark vereinfachte Klassenhierarchie aus Oberklassen, 
 \begin{figure}[H]
 \begin{center}
 \includegraphics[scale=0.8]{Bilder/ontologyClasses.jpg}
-\caption{Beispielhafte Ontologie als Klassenhierarchie  in Protegé [eingene Darstellung]}
+\caption{Beispielhafte Ontologie als Klassenhierarchie  in Protegé [eigene Darstellung]}
 \end{center}
 \end{figure}
 
@@ -566,7 +571,7 @@ Abbildung 2.3 zeigt eine beispielhafte, stark vereinfachte Ontologie zu Automobi
 \begin{figure}[H]
 \begin{center}
 \includegraphics[scale=0.8]{Bilder/ontologyRelations.jpg}
-\caption{Klassenstruktur mit zusätzlichen Relationen [eingene Darstellung (in Protegé)]}
+\caption{Klassenstruktur mit zusätzlichen Relationen [eigene Darstellung (in Protegé)]}
 \end{center}
 \end{figure}
 
@@ -643,35 +648,36 @@ Das Zentrallager, welches auch heute noch unter dem Namen \textit{HELLA Distribu
 \subsubsection[Aktueller Stand]{Aktueller Stand des Unternehmens}
 Die HELLA ist in die vier Geschäftsbereiche \textit{Elektronik}, \textit{Scheinwerfer}, \textit{Aftermarket} und \textit{Special Applications} unterteilt und verfügt über 125 Standorte in mehr als 35 Ländern.
 
-Nach dem Geschäftsjahr 2017/2018 werden insgesamt über 40.000 Mitarbeiter beschäftigt. Davon arbeiten mehr als 7000 Mitarbeiter in der Forschung und Entwicklung, wodurch sich das Unternehmen mehr Sicherheit und Wachstum für die Zukunft verspricht. 
+Nach dem Geschäftsjahr 2017/2018 werden insgesamt über 40.000 Mitarbeiter beschäftigt. Davon arbeiten mehr als 7000 Mitarbeiter in der Forschung und Entwicklung. 
 
 So konnte HELLA in diesem Geschäftsjahr fast 7,1 Milliarden Euro Umsatz verbuchen, wovon ca. ein drittel außerhalb des europäischen Marktes erzielt wurde. Damit gehört HELLA international zu den Top 40 der weltweiten Automobilzulieferer und befindet sich unter den Top 100 der größten deutschen Industrieunternehmen. \cite{he19}
 
 \section[RE bei HELLA]{Requirements-Engineering innerhalb der Firma}
-In diesem Abschnitt wird das Requirements-Engineering (RE) der Firma HELLA genauer behandelt. Dies beinhaltet eine Vorstellung der zuständigen Abteilungen, sowie die genaue Darstellung der HELLA-internen RE-Prozesse. Des Weiteren werden die bestehenden Probleme dieser Prozesse anhand von Use-Cases (Anwendungsfällen) aufgeführt. In den darauffolgenden Abschnitten werden daraus Anforderungen an eine Lösung erhoben, welche mit den Konzepten der Werkzeuge umzusetzen versucht wird.
+In diesem Abschnitt wird das Requirements-Engineering (RE) der Firma HELLA genauer behandelt. Dies beinhaltet eine Vorstellung der zuständigen Abteilungen, sowie einen Überblick über HELLA-internen RE-Prozesse. Des Weiteren werden die Herausforderungen innerhalb dieser Prozesse anhand von Use-Cases (Anwendungsfällen) aufgeführt. In den darauffolgenden Abschnitten werden daraus Anforderungen an eine Lösung erhoben, welche mit den Konzepten der Werkzeuge umzusetzen versucht wird.
 
 Die getroffenen Aussagen stützen sich dabei auf die angegebenen Lektüren, Unterlagen der Firma und/oder Gespräche mit firmeninternen Experten. 
 
 \subsection{Abteilung für RE}
-Die in der HELLA überwiegend zuständige Abteilung für Requirements ist die \textit{Processes, Methods and Tools}-Abteilung (PMT). Wörtlich übersetzt bedeutet dies \textit{Prozesse, Methoden und Werkzeuge}. Die Abteilung ist unter anderem für folgende Aufgaben verantwortlich: 
+Wie bereits erwähnt, existiert bei HELLA eine auf Requirements-Engineering spezialisierte Fachabteilung. Die Abteilung ist unter anderem für folgende Aufgaben verantwortlich: 
 \begin{enumerate}
 \item Standardisierung von Prozessen und reibungsfreies Verknüpfen von Arbeitsabläufen
 \item Einführung von neuen Standards und Hilfe bei der Umsetzung dieser
 \item Entwicklung neuer und effizienterer Arbeitsmethoden zur Einsparung von Zeit und Kosten
 \item Entwicklung, Einführung und Verwaltung neuer (Software-) Werkzeuge, welche in der Lage sind, einen Mehrwert für die Firma zu erzeugen
 \item Empfangen Firmen-externer (Anforderungs-) Dokumente, welche vor dem Weiterleiten an Fachabteilungen gegebenenfalls zunächst auf die firmeninternen Standards angepasst werden müssen
-\item Unterstützung von Mitarbeitern und Projektteams bei dem Umgang und der Verarbeitung von Projektlastenheften
+\item Unterstützung von Mitarbeitern und Projektteams bei dem Umgang und der Verarbeitung von Lastenheften
 \end{enumerate}
 
-Oftmals steht diese Abteilung in Verbindung mit den Abteilungen der Vorentwicklung. Dabei spielt vor allem die System-Sparte der elektronischen Vorentwicklung (Electronics - Advanced Engineering Systems, E-AES) eine wichtige Rolle. Hier versuchen Mitarbeite mit Hilfe von OEM-Lastenheften, einen kompletten Überblick eines Systems zu erlangen, um darauf bezogene Projekte besser einschätzen und durchführen zu können. 
+Oftmals steht diese Abteilung in Verbindung mit den Abteilungen der Vorentwicklung. Dabei spielt vor allem die System-Sparte der elektronischen Vorentwicklung eine wichtige Rolle. Hier versuchen Mitarbeiter mit Hilfe von OEM-Lastenheften, einen kompletten Überblick eines Systems zu erlangen, um darauf bezogene Projekte besser einschätzen und durchführen zu können. 
 
-Was zunächst wie eine recht simple Aufgabenstellung erscheint, ist tatsächlich ein hochkomplexer und fehleranfälliger Vorgang. Laut der Aussagen interner Experten gibt es nur wenige, die dazu überhaupt in der Lage seien, da dies viele verschiedene Qualitäten eines Mitarbeiters erfordere. Hierzu gehören unter anderem eine hohes Maß an Fachkenntnissen für alle relevanten Bereiche des Produkts, ein gründliches und somit aufwendiges Erfassen aller Aspekte des Produkts und die Fähigkeit, mit Hilfe dieses Wissens mögliche Probleme oder Fehlerquellen des Produkts zu erfassen. 
+Diese Aufgabenstellung bringt besondere Herausforderungen mit sich, da Anforderungsmanagement ein komplexes Aufgabenfeld ist.  Hierzu gehören unter anderem eine hohes Maß an Fachkenntnissen für alle relevanten Bereiche des Produkts, ein gründliches und somit aufwendiges Erfassen aller Aspekte des Produkts und die Fähigkeit, mit Hilfe dieses Wissens mögliche Probleme oder Fehlerquellen des Produkts zu erfassen. Mitarbeiter haben zum Ausdruck gebracht, dass diese Aufgaben besondere Konzentration und Auffassungsgabe erfordern.
 
-Diese Aufgabe kann jedoch von Mitarbeitern der \textit{PMT}-Abteilung (wie in 6. erwähnt) unterstützt werden. Da es erforderlich ist, dass ein einzelner Mitarbeiter der \textit{E-AES} einen Überblick erhält, bietet eine klassische Arbeitsteilung, bei welcher der möglicherweise enorme Umfang dieser Projektlastenhefte auf verschiedene Mitarbeiter aufgeteilt wird, keine Lösung.
+Diese Aufgabe kann jedoch von Requirements-Engineers (wie in 6. erwähnt) unterstützt werden. Da es erforderlich ist, dass ein einzelner Mitarbeiter der Vorentwicklung einen Überblick erhält, bietet eine klassische Arbeitsteilung, bei welcher der möglicherweise enorme Umfang dieser Lastenhefte auf verschiedene Mitarbeiter aufgeteilt wird, keine Lösung.
 
-Dennoch können klar formulierte, gut sortierte und strukturierte Anforderungen die Arbeit der \textit{E-AES}-Mitarbeiter stark vereinfachen. Dies reduziert ein wenig den benötigten Arbeitsaufwand des einzelnen Mitarbeiters, verringert aber vor allem die Komplexität und Fehleranfälligkeit des Prozesses. Des Weiteren kann die \textit{PMT}-Abteilung bei Rückfragen als Sprachrohr zwischen dem OEM und den internen Mitarbeitern fungieren, da die unkontrollierte Weitergabe von Informationen zwischen einzelnen Mitarbeitern in vielen Konzernen problematisch gesehen wird. 
+Dennoch können klar formulierte, gut sortierte und strukturierte Anforderungen die Arbeit der Systemingenieure stark vereinfachen. Dies reduziert ein wenig den benötigten Arbeitsaufwand des einzelnen Mitarbeiters, verringert aber vor allem die Herausforderungen bei der Analyse. Des Weiteren kann die Fachabteilung für RE bei Rückfragen als Sprachrohr zwischen dem OEM und den internen Mitarbeitern fungieren, um einen effizienteren Ablauf zu gewährleisten.
+ 
 \subsection{RE-Prozess}
-In diesem Abschnitt wird der RE-Prozess von HELLA genauer dargestellt. Hierzu wird dieser zunächst in den Kontext eines Entwicklungsprojektes für ein neues Produkt eingeordnet. Daraufhin werden die einzelnen Schritte des Requirements-Engineering genauer beleuchtet. 
+In diesem Abschnitt wird ein Überblick über den RE-Prozess von HELLA geboten. Hierzu wird dieser zunächst in den Kontext eines Entwicklungsprojektes für ein neues Produkt eingeordnet. Daraufhin werden die einzelnen Schritte des Requirements-Engineering genauer beleuchtet. 
 
 \subsubsection{Einordnung in den Entwicklungsprozess}
 Üblicherweise steht der RE-Prozess direkt zu Beginn jeder Entwicklung. Entweder gibt es ein neues Produktkonzept, zu welchen die Anforderungen abhängig von den geplanten Aufgaben und Eigenschaften des Produktes erhoben werden, oder es wird ein Auftrag eingereicht, zu welchem bereits ein komplettes Anforderungsdokument existiert, welches es dann umzusetzten gilt.
@@ -685,7 +691,7 @@ Abbildung 3.1 zeigt die planmäßige Einordnung von RE in den Gesamtprozess der 
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=0.7]{Bilder/V-Modell.png}
-\caption{Entwicklungsprozess bei HELLA, RE in den Stufen ENG. 1 und ENG. 4 [eigene Darstellung]}
+\caption{Hella-Prozesse mit ISO 26262. RE in den Stufen ENG. 1 und ENG. 4 \cite{ea19}}
 \end{center}
 \end{figure}
 
@@ -695,18 +701,18 @@ Die Systemanforderungen\footnote{Häufig als nicht-funktionale Anforderungen bez
 
 Funktionale Anforderungen sind hingegen etwas spezifischer und beschreiben das genaue Handeln einzelner Komponenten und die Ausführung von Funktionalitäten. Hierzu könnten beispielhafte Anforderungen wie folgt aussehen: \glqq Wenn eine Spannung von 24V erreicht wird, soll Komponente \textit{XY} die Funktion \textit{Z} ausführen.\grqq{} oder \glqq Die Funktion \textit{Z} lässt die Leuchten \textit{A} und \textit{B} für 10 Sekunden leuchten.\grqq
 
-Die Unterscheidung zwischen den verschiedenen Anforderungstypen kann jedoch sehr problematisch sein, da sich deren Definition in verschiedenen Firmen unterscheiden kann. Da es also keine einheitliche Abgrenzung gibt und Anforderungen in natürlicher Sprache verfasst werden, ist es praktisch unmöglich, alle Anforderungen eines Dokuments eindeutig den Kategorien zuzuweisen. Dies ist jedoch auch nicht zwangsläufig nötig, wenn man sich dazu entscheidet, alle Anforderungen zunächst gleich und dann abhängig von Inhalt zu verarbeiten. Daher verzichten auch die später vorgestellten Konzepte auf eine erzwungene Unterscheidung verschiedener Anforderungstypen.
+Die Unterscheidung zwischen den verschiedenen Anforderungstypen kann jedoch sehr problematisch sein, da unterschiedliche Definitionen existieren können. Da es also keine einheitliche Abgrenzung gibt und Anforderungen in natürlicher Sprache verfasst werden, ist es praktisch unmöglich, alle Anforderungen eines Dokuments eindeutig den Kategorien zuzuweisen. Dies ist jedoch auch nicht zwangsläufig nötig, wenn man sich dazu entscheidet, alle Anforderungen zunächst gleich und dann abhängig von Inhalt zu verarbeiten. Daher verzichten auch die später vorgestellten Konzepte auf eine erzwungene Unterscheidung verschiedener Anforderungstypen.
 
 \subsubsection{Werkzeuge im RE-Prozess}
-Ein klassischer Requirements-Engineering-Prozess der PMT-Abteilung beginnt damit, dass von einem OEM ein Lastenheft zu einem bestimmten Auftrag bei der HELLA eingeht. Dieses Lastenheft erhält die PMT-Abteilung üblicherweise in Form einer \textit{DOORS}-Datei (Dynamic Object Oriented Requirements System). 
+Ein klassischer Requirements-Engineering-Prozess der RE-Abteilung beginnt damit, dass von einem OEM ein Lastenheft zu einem bestimmten Auftrag bei der HELLA eingeht. Dieses Lastenheft erhält die PMT-Abteilung üblicherweise in Form einer \textit{DOORS}-Datei (Dynamic Object Oriented Requirements System). 
 
-DOORS ist ein Werkzeug zur Hilfe beim Requirements-Engineering und speichert Anforderungsdokumente. Es ist vergleichbar mit einer herkömmlichen Datenbank. Dort wird in einer Tabellenstruktur der gesamte Inhalt eines Anforderungsdokumentes hinterlegt. Die einzelnen Anforderungen sind dabei zeilenweise angeordnet. Zusätzlich befinden sich in verschiedenen Spalten ergänzende Informationen zu der jeweiligen Anforderungen, wie z.B. die eindeutige Identifikationsnummer oder die Unterscheidung zwischen Anforderung und genereller Information.
+DOORS ist ein Datenbankmanagementsystem für Anforderungen, welches  im Requirements-Engineering verwendet wird. Mithilfe dieses Werkzeugs werden Anforderungsdokumente gespeichert. Es ist vergleichbar mit einer herkömmlichen Datenbank. Dort wird in einer Tabellenstruktur der gesamte Inhalt eines Anforderungsdokumentes hinterlegt. Die einzelnen Anforderungen sind dabei zeilenweise angeordnet. Zusätzlich befinden sich in verschiedenen Spalten ergänzende Informationen zu der jeweiligen Anforderungen, wie z.B. die eindeutige Identifikationsnummer oder die Unterscheidung zwischen Anforderung und genereller Information.
 
 DOORS bietet zusätzlich eine Vielzahl von Erweiterungen zur Verarbeitung sowie die Möglichkeit, das DOORS-Objekt als PDF-Datei zu exportieren. Da man Informationsverlust verhindern möchte, werden auch alle Zusatzinformationen aus den Spalten der Tabelle in der extrahierten Datei mit aufgenommen, was jedoch zu stark fragmentierten Dokumenten bzw. Texten führt. Dies ist unter anderem ein Problem, welches im Kapitel Implementierung noch einmal aufgegriffen wird. 
 
 Eine der oben erwähnten Erweiterungen ist das von HELLA entwickelte \textit{ReqPat}. Dieses wird dazu verwendet Teile von Anforderungsdokumenten auf Konsistenz zu überprüfen. Dazu werden sogenannte \textit{Boilerplates} als Satzschablonen verwendet um die natürliche Sprache der Anforderungen in eine formalisierte Form zu bringen. Daraus kann dann ein prüfbarer Graph erstellt werden. Grundsätzlich bestehen hier Parallelen zu dem später vorgestellten Konzept, jedoch ist ReqPat dabei auf bestimmte (funktionale) Anforderungen beschränkt. 
 
-Die Anforderungen aus dem DOORS-Objekt werden nun von den Mitarbeitern von PMT überprüft, ggf. an firmeninterne Standards angepasst oder in eine formalisierte Form überführt und dann für die verantwortliche Abteilung freigegeben. Dieser Ablauf ist in der Abbildung 3.2 präziser dargestellt.
+Die Anforderungen aus dem DOORS-Objekt werden nun von den RE-Experten überprüft, ggf. an firmeninterne Standards angepasst oder in eine formalisierte Form überführt und dann für die verantwortliche Abteilung freigegeben. Dieser Ablauf ist in der Abbildung 3.2 präziser dargestellt.
 
 \begin{figure}[h!]
 \begin{center}
@@ -715,19 +721,19 @@ Die Anforderungen aus dem DOORS-Objekt werden nun von den Mitarbeitern von PMT �
 \end{center}
 \end{figure}
 
-Dies kann etwa mit dem beschrieben ReqPat geschehen. Da dieses Werkzeug jedoch nur einen Teil der bestehenden Anforderungen abdecken kann, muss der Rest der Lastenhefte oftmals manuell verarbeitet werden. Daraus entsteht enormer Aufwand und die Gefahr, nicht explizit ausformulierte Abhängigkeiten zu übersehen und somit Fehler in den freigegebenen Anforderungen zu erhalten. 
+Dies kann etwa mit dem beschrieben ReqPat geschehen. Da dieses Werkzeug jedoch nur für funktionale Anforderungen entwickelt wurde, werden nicht-funktionale Anteile im Lastenheft damit nicht abgedeckt. 
 
 \section[Anforderungen im RE]{Anforderungen im RE-Management}
-Dieses Kapitel beschäftigt sich mit der Motivation und den Rahmenbedingungen für die später in dieser Arbeit skizzierte Werkzeugunterstützung. Wesentliche Erkenntnisse entstanden dabei in Rücksprache mit dem Requirements-Experten Colin Hood, der als externer Beschäftiger für die PMT-Abteilung von HELLA arbeitet. 
+Dieses Kapitel beschäftigt sich mit der Motivation und den Rahmenbedingungen für die später in dieser Arbeit skizzierte Werkzeugunterstützung. Wesentliche Erkenntnisse entstanden dabei in Rücksprache mit dem Requirements-Experten Colin Hood, der als externer Berater für die RE-Abteilung von HELLA arbeitet. 
 
-Auf dieser Basis konnten Anforderungen an die Werkzeuge für den Einsatz zur Transformation von Projektlastenheften während des RE erhoben werden. 
+Auf dieser Basis konnten Anforderungen an die Werkzeuge für den Einsatz zur Transformation von Lastenheften während des RE erhoben werden. 
 
-Mithilfe der Konzepte kann, wie später gezeigt wird, das Anforderungsmanagement in Unternehmen maßgeblich verbessert werden. Das Ziel ist es, die im vorigen Abschnitt benannten Komplikationen beim Umgang mit Anforderungen zu bewältigen.
+Mithilfe der Konzepte kann, wie später gezeigt wird, ein Beitrag zur Verbesserung des Anforderungsmanagements im Unternehmen erbracht werden. Das Ziel ist es, die im vorigen Abschnitt benannten Komplikationen beim Umgang mit Anforderungen zu bewältigen.
 
 \subsection{Kriterien der Qualität von Anforderungen}
 Das Ziel von Abteilungen, die sich mit Requirements-Engineering in Unternehmen beschäftigen, ist die Verbesserung der Qualität von Anforderungsdokumenten für die spätere Verwendung. Die Requirements-Experten sind meist zwar nicht direkt am Entwicklungsprozess beteiligt, unterstützen die Experten in der Entwicklung jedoch beim Verständnis und der Umsetzung der Lastenhefte.
 
-Wie im vorigen Abschnitt beschrieben, entsteht bei den Entwicklern auf Seite des Zulieferers häufig mangelndes Verständnis der Anforderungen des OEMs, wenn dort mit der Entwicklung begonnen werden soll. Diese Schwierigkeiten entstehen durch ein unterschiedliches bzw. mangelndes Verständnis der Anforderungen zwischen OEM und Zulieferer während des Entwicklungsprozesses. Die Anforderungen sind meist unklar spezifiziert, was zu Inkonsistenzen beim Verständnis des Lastenhefts führt. Requirements-Experten beim Zulieferer zielen also auf eine Formalisierung der Anforderungen aus einem Lastenheftes für die nachgelagerte Entwicklung ab, um solche Missverständnisse zu vermeiden. 
+Wie im vorigen Abschnitt beschrieben, sind in den Anforderungen oftmals nicht alle Informationen für ein vollständiges Verständnis beim Zuieferer enthalten, wenn dort mit der Entwicklung begonnen werden soll. Diese Schwierigkeiten entstehen durch Herausforderungen bei der Kommunikation, z.B. aufgrund von Geheimhaltung oder fehlender Informationen während des Entwicklungsprozesses. Es kann vorkommen, dass Anforderungen nicht vollständig sind und Lastenhefte Inkonsistenzen enthalten.  Requirements-Experten beim Zulieferer zielen also auf eine Formalisierung der Anforderungen aus einem Lastenheftes für die nachgelagerte Entwicklung ab, um solche Missverständnisse zu vermeiden. 
 
 \subsubsection{Qualitätsmerkmale}
 In diesem Zusammenhang existieren Qualitätsmerkmale, die gemäß \cite{zg02} wesentliche Kriterien für die Bewertung von Anforderungen darstellen. Re- \\quirements-Experten orientiereren sich dabei an der Unterscheidung der drei wesentlichen Qualitätsmerkmale \textit{Consistency-Correctness-Completeness}, die sich wie folgt auffassen lassen:
@@ -785,23 +791,23 @@ Diese Expertengruppe dient dabei abstrakt zur Unterstützung der tatsächlichen 
 \end{center}
 \end{figure}
 
-Dabei unterscheidet das Modell zwischen 3 verschiedenen Qualitätsstufen von Anforderungen. Diese werden jeweils durch verschiedene Kriterien dargestellt. Das Ziel der Arbeit der Abteilung bei HELLA stellt demnach das Herstellen einer möglicht hohen Qualitätsstufe der Lastenhefte dar. Im besten Fall erreichen die Experten dort die Stufe \textit{Expert} und machen die Anforderungen somit \textit{vollständig \& verfolgbar}.
+Dabei unterscheidet das Modell zwischen 3 verschiedenen Qualitätsstufen von Anforderungen. Diese werden jeweils durch verschiedene Kriterien dargestellt. Das Ziel der Arbeit der Experten bei HELLA stellt demnach das Herstellen einer möglichst hohen Qualitätsstufe der Lastenhefte dar. Im besten Fall machen die Experten die Anforderungen somit \textit{vollständig \& verfolgbar}.
 
 \subsection{Umgang mit natürlicher Sprache in Lastenheften}
-Unvollständige Anforderungen lassen sich meist auf falsche Annahmen der Stakeholder beim OEM zurückführen, die implizite Annahmen bei der Formulierung von Anforderungen treffen und diese Annahmen nicht explizit erneut aufführen. Ergänzenden Informationen zu Anforderungen können jedoch, wie zuvor gezeigt, durchaus andersartig kategorisiert im Lastenheft vermerkt sein. 
+Problematische Anforderungen lassen sich meist auf falsche Annahmen der Stakeholder beim OEM zurückführen, die implizite Annahmen bei der Formulierung von Anforderungen treffen und diese Annahmen nicht explizit erneut aufführen. Ergänzenden Informationen zu Anforderungen können jedoch, wie zuvor gezeigt, durchaus andersartig kategorisiert im Lastenheft vermerkt sein. 
 
 Dies resultiert laut \cite{pr15} daher, dass die verschiedenen Autoren des Lastenheftes beim OEM als selbstverständlich erachten und diese nicht nochmal für externe Leser hinzufügen. Es stellt sich jedoch die Frage, ob unterschiedliche Menschen jemals ein verlässlich gleiches Verständnis der gleichen Sache haben. 
 
-Colin Hood formuliert Anforderungen grundsätzlich als \glqq individuelle Bedürfnisse\grqq{}, die immer abhängig von dem Autoren sind.\footnote{Im Rahmen unserer Arbeit konnten wir mehrmals Interviews zur Ausrichtung bzw. dem Ansatz unserer Prototypen führen.} In \cite{kr93} wird die Verwendung von Sprachschablonen für Projektlastenhefte im Vergleich zu natürlicher Sprache evaluiert. Die grundsätzliche Eignung natürlicher Sprache für die Formulierung von Anforderungen wird dort bezweifelt. 
+Colin Hood formuliert Anforderungen grundsätzlich als \glqq individuelle Bedürfnisse\grqq{}, die immer abhängig von dem Autoren sind.\footnote{Im Rahmen unserer Arbeit konnten wir mehrmals Interviews zur Ausrichtung bzw. dem Ansatz unserer Prototypen führen.} In \cite{kr93} wird die Verwendung von Sprachschablonen für Lastenhefte im Vergleich zu natürlicher Sprache evaluiert. Die grundsätzliche Eignung natürlicher Sprache für die Formulierung von Anforderungen wird dort bezweifelt. 
 
 Hood stellte die Eingrenzung der Sprache, die für Projektlastenhefte genutzt werden darf, als eine vielversprechende Möglichkeit vor, sprachliche Eigenheiten der Autoren aus verschiedenen Bereichen effektiv zu vermeiden. Diese Transformation natürlichsprachlicher Anforderungen in formale Sprache als Schablonen (Boilerplates) stellt auch das Ziel des ersten entworfenen Werkzeugs dar.
 
 \section{Anwendungsfall bei HELLA} 
-Der Anwendungsfall für die zu entwickelnden Werkzeuge ist ähnlich zu dem oben beschriebenen. Es wird davon ausgegangen, dass die HELLA einen Auftrag für ein Produkt von einem OEM erhält. Es ist jedoch bekannt, dass ein ähnliches Produkt, etwa eine frühere Version, bereits von HELLA entwickelt wurde. Somit liegt ein Lastenheft eines OEM in natürlicher Sprache vor. Außerdem existiert zu dem alten Produkt der HELLA bereits ein Lastenheft in formalisierter Form. 
+Der Anwendungsfall für die zu entwickelnden Werkzeuge ist ähnlich zu dem oben beschriebenen. Es wird davon ausgegangen, dass die HELLA eine Anfrage für ein Produkt von einem OEM erhält. Es ist jedoch bekannt, dass ein ähnliches Produkt, etwa eine frühere Version, bereits von HELLA entwickelt wurde. Somit liegt ein Lastenheft eines OEM in natürlicher Sprache vor. Außerdem existiert zu dem alten Produkt der HELLA bereits ein Pflichtenheft in formalisierter Form. 
 
 Ziel ist es, die beiden Anforderungsdokumente inhaltlich zu vergleichen, um alle Unterschiede der beiden Produkte zu ermitteln. Diese könnten dann etwa genutzt werden, um eine sehr frühe und recht präzise Kostenabschätzung der neuen Produktentwicklung an den OEM geben zu können. 
 
-Hierzu muss jedoch zunächst das Lastenheft des OEM in eine vergleichbare formalisierte Form gebracht werden. Erst sobald sich also beide Anforderungsdokumente in einer gleichartigen Form befinden, kann ein direkter Vergleich der von den Dokumenten beschriebenen Produkte stattfinden. Diese Heterogenität von Anforderungsdokumenten ist in der Automobilindustrie vor allem bei der Beziehung zwischen OEM und Zulieferer ein bekanntes und wiederkehrendes Problem.
+Hierzu muss jedoch zunächst das Lastenheft des OEM in eine vergleichbare und semi-formalisierte Form gebracht werden. Erst sobald sich also beide Anforderungsdokumente in einer gleichartigen Form befinden, kann ein direkter Vergleich der von den Dokumenten beschriebenen Produkte stattfinden. Diese Heterogenität von Anforderungsdokumenten ist in der Automobilindustrie vor allem bei der Beziehung zwischen OEM und Zulieferer ein bekanntes und wiederkehrendes Problem.
 
 Daher wird zunächst ein Werkzeug benötigt, welches mit kleinstmöglichem Nutzeraufwand und größtmöglicher Sicherheit ein natürlichsprachliches Anforderungsdokument formalisieren kann. 
 
@@ -841,27 +847,29 @@ Auch kann es mehrere Versionen der Spezifikation eines Produktes im Laufe der Ze
 
 Es gilt also, Werkzeuge zu entwerfen, die insbesondere bei der Lösung von sprachlichen Problemen und bei der Identifikation von Unterschieden zwischen Anforderungen in Lastenheften unterstützen. 
 
-Daher werden im Folgenden die Ansätze aus \cite{zh17} beschrieben, die eine Transformation von bereits spezifizierten Anforderungen in bestehenden Lastenheften in eine besser verständliche und eindeutige formalere Sprache vorschlagen. Dieser Schritt soll für jedes neu eintreffende Lastenheft durchgeführt werden, damit dieses dann standardisiert vorliegt. Die zweite Software-Komponente dient zum automatisierten Vergleich mehrerer verschiedener Lastenhefte. 
+Daher werden im Folgenden die Ansätze aus \cite{zh17} beschrieben, die eine Transformation von bereits spezifizierten Anforderungen in bestehenden Lastenheften in eine vordefinierte und eindeutige formalere Sprache vorschlagen. Dieser Schritt soll für jedes neu eintreffende Lastenheft durchgeführt werden, damit dieses dann standardisiert vorliegt. Die zweite Software-Komponente dient zum automatisierten Vergleich mehrerer verschiedener Lastenhefte. 
 
 Diese Ansätze haben zur konkreten Entwicklung von zwei Werkzeugen geführt, dem \textit{Requirements-to-Boilerplate-Converter} (R2BC) und dem \textit{Delta-Analyser} (DA). Diese identifizierten Software-Artefakte werden für die Verwendung in einer prototypischen Werkzeugkette hintereinander angeordnet. Somit erfolgt auf Basis der Konvertierung in Schritt 1 die Delta-Analyse in Schritt 2.
 
 \subsubsection{R2BC}
 Zu Beginn des Verarbeitungsprozesses liegen die Lastenhefte in natürlicher Sprache vor, die der Zulieferer vom Kunden erhalten hat. Im ersten Schritt werden diese natürlichsprachlich formulierten Anforderungen durch den R2BC in Sprachschablonen überführt. 
 
-Nach der Verarbeitung liegt das Lastenheft des OEM somit in formaler Sprache vor. Diese Version des Lastenheftes kann dann für den Entwicklungsprozess genutzt werden. Das Ziel des R2BC ist es also, die Lesbarkeit bzw. die Eindeutigkeit der Anforderungen durch Formalisierung zu verbessern. Auf dieser Basis kann dann der Inhalt des Lastenheftes eindeutig durch die Entwickler beim Zulieferer verstanden werden. Der Prozess ist in Abb. 3.5 dargestellt.
+Nach der Verarbeitung liegt das Lastenheft des OEM somit in semi-formaler Sprache vor. Diese Version des Lastenheftes kann dann für den Entwicklungsprozess genutzt werden. Das Ziel des R2BC ist es also, die Lesbarkeit bzw. das Potential der Anforderungen durch Formalisierung zu verbessern. Auf dieser Basis kann dann der Inhalt des Lastenheftes besser durch die Entwickler beim Zulieferer verstanden werden. Der Prozess ist in Abb. 3.5 dargestellt.
+
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=0.5]{Bilder/Prozess-R2BC.jpg}
-\caption{Szenario für Unterstützung durch R2BC-Komponente [eigene Darstellung]}
+\caption{Szenario für Unterstützung durch R2BC-Komponente nach \cite{zh19}}
 \end{center}
 \end{figure}
 
 \subsubsection{DA}
-Diese logisch eindeutige Form der Anforderungen ermöglicht auch einen Vergleich mehrerer Lastenhefte anhand der Struktur der einzelnen Anforderungen. Diese Unterschiede können durch den DA identifiziert und in Form eines Delta-Reports ausgegeben werden. Unterschiede können anschließend etwa für einen RE-Experten auf dem Bildschirm bzw. in eine Datei ausgegeben werden. Der Ablauf ist in Abb. 3.6 dargestellt.
+Diese angepasste Syntax der Anforderungen ermöglicht auch einen Vergleich mehrerer Lastenhefte anhand der Struktur der einzelnen Anforderungen. Diese Unterschiede können durch den DA identifiziert und in Form eines Delta-Reports ausgegeben werden. Unterschiede können anschließend etwa für einen RE-Experten auf dem Bildschirm bzw. in eine Datei ausgegeben werden. Der Ablauf ist in Abb. 3.6 dargestellt.
+
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=0.55]{Bilder/Prozess-DA.jpg}
-\caption{Szenario für Unterstützung durch DA-Komponente [eigene Darstellung]}
+\caption{Szenario für Unterstützung durch DA-Komponente nach \cite{zh19}}
 \end{center}
 \end{figure}
 
@@ -1043,7 +1051,7 @@ Under the condition: <<conditionText>> the actor: \\
 \end{itemize}
 Die Funktionalität des Gesamtprogramms, das sich aus dem Zusammenspiel der Komponenten ergibt, ist in den folgenden Abschnitten dargestellt.
 
-\section{Werkzeug-Implementierung}
+\section[Implementierung]{Werkzeug-Implementierung}
 In diesem Abschnitt werden wichtige Aspekte der praktischen Umsetzung des Programms genau erläutert. Dies bezieht sich sowohl auf die präzisere Vertiefung der Konzepte, als auch auf Quellcode-Beispiele der Implementierung zur Erläuterung des Programmvorgehens und die daraus resultierenden Interaktionsmöglichkeiten der Benutzer.  
 
 \subsection{Sprachverarbeitung mit GATE}
@@ -1248,7 +1256,7 @@ Im Gegensatz zu den vorherigen Regeln ist auf dieser RHS die Vergabe von Feature
 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[scale=0.9]{Bilder/BP85Features.jpg}
+\includegraphics[scale=0.8]{Bilder/BP85Features.jpg}
 \caption{Alle Features eines \textit{Boilerplate85}-Satzes in GATE [eigene Darstellung]}
 \end{center}
 \end{figure}
@@ -1280,27 +1288,26 @@ Das Datenmodell des Programms muss daher sowohl den ursprünglichen Text mitsamt
 \end{center}
 \end{figure}
 
-Dieser Ansatz hat zur konkreten Erstellung von drei Listen im Programm geführt, \textit{sentenceList}, \textit{bpList} und \textit{bpExportList}. Die Listen sind in Abb. 4.x prinzipiell in ihrer Verknüpfung dargestellt. 
+Dieser Ansatz hat zur konkreten Erstellung von drei Listen im Programm geführt, \textit{sentenceList}, \textit{bpList} und \textit{bpExportList}. Die Listen sind in Abb. 4.13 prinzipiell in ihrer Verknüpfung dargestellt. 
 
 \begin{itemize}
-\item \textit{sentenceList} repräsentiert dabei alle Paragraphen des Quelldokuments, da Anforderungen immer durch einen Zeilenumbruch getrennt sind.\footnote{In unserem Programm wird konkret die Sentence-Annotation aus dem ANNIE-SentenceSplitter von GATE verwendet, um Sätze zu trennen.} soll dabei gefundene GATE-Annotaionen zu jedem Satz beinhalten, die mithilfe der Klasse AnnieHandler angebundenen Verarbeitung generiert werden.
-\item Auf dieser Basis erfolgt dann die Befüllung der \textit{bpList} mit möglichen Boilerplate-Konvertierungen zu jedem Satz in der Klasse BoilerplateHandler.\footnote{Wie bereits gezeigt, wurden dazu verschiedene verschachtelte JAPE-Regeln entwickelt, eine mögliche BP-Konvertierung signalisieren bzw. annotieren.} Die Annotationen dienen dabei zur Erzeugung der Boilerplates für die bpList.
-\item In der \textit{bpExportList} sind alle Sätze enthalten, die nach dem Programmdurchlauf exportiert werden sollen. Nahc der Wahl der zu speichernden Konvertierung durch den Nutzer wird der entsprechende Satz hier eingetragen.
+\item \textit{sentenceList} repräsentiert dabei alle Paragraphen des Quelldokuments, da Anforderungen immer durch einen Zeilenumbruch getrennt sind.\footnote{In unserem Programm wird konkret die Sentence-Annotation aus dem ANNIE-SentenceSplitter von GATE verwendet, um Sätze zu trennen.} soll dabei gefundene GATE-Annotationen zu jedem Satz beinhalten, die mithilfe der Klasse AnnieHandler angebundenen Verarbeitung generiert werden.
+\item Auf dieser Basis erfolgt dann die Befüllung der \textit{bpList} mit möglichen Boilerplate-Konvertierungen zu jedem Satz in der Klasse BoilerplateHandler.\footnote{Wie bereits gezeigt, wurden dazu verschiedene verschachtelte JAPE-Regeln entwickelt, die eine mögliche BP-Konvertierung signalisieren bzw. annotieren.} Die Annotationen dienen dabei zur Erzeugung der Boilerplates für die bpList.
+\item In der \textit{bpExportList} sind alle Sätze enthalten, die nach dem Programmdurchlauf exportiert werden sollen. Nach der Wahl der zu speichernden Konvertierung durch den Nutzer wird der entsprechende Satz hier eingetragen.
 \end{itemize}
 
-\textit{sentenceList} und \textit{bpList} sind dementsprechend zweidimensional und beinhalten jeweils Annotaionen (sentenceList, horizontal) und Boilerplate-Konvertierungen (bpList, horizontal) zu jedem Satz des Lastenheftes (vertikal). 
-Durch den Aufruf verschiedener Methoden der Klasse BoilerplateHandler werden beide Liste automatisch initialisiert und befüllt.
+\textit{sentenceList} und \textit{bpList} sind dementsprechend zweidimensional und beinhalten jeweils Annotationen (sentenceList, horizontal) und Boilerplate- Konvertierungen (bpList, horizontal) zu jedem Satz des Lastenheftes (vertikal). 
+Durch den Aufruf verschiedener Methoden der Klasse BoilerplateHandler werden beide Listen automatisch initialisiert und befüllt.
 
-Anzumerken ist, dass \textit{bpExportList} prinzipiell auch automatisch befüllt werden kann, wenn etwa keine Konvertierung gefunden und somit der ursprüngliche Satz beibehalten werden soll. Auch könnte bei hinreichender Genauigkeit gleich die bestmögliche Konvertierung des Satzes gespeichert werden. Im Regelfall wird die Konvertierung jedoch durch den Nutzer im Programm ausgwählt bzw. bestätigt. 
-Im folgende
+Anzumerken ist, dass \textit{bpExportList} prinzipiell auch automatisch befüllt werden kann, wenn etwa keine Konvertierung gefunden wurde und somit der ursprüngliche Satz beibehalten werden soll. Auch könnte bei hinreichender Genauigkeit gleich die bestmögliche Konvertierung des Satzes gespeichert werden. Im Regelfall wird die Konvertierung jedoch durch den Nutzer im Programm ausgewählt bzw. bestätigt.
 
 \subsubsection{AnnieHandler}
-Die Klasse AnnieHandler stellt den ersten Schritt bei der Verarbeitung der Lastenhefte dar. Die Sätze aus dem Lastenheft müssen vor der tatsächlichen Konvertierung in Boilerplates mithilfe des NLP-Werkzeugs GATE annotiert werden.
-Dazu beinhaltet der AnnieHandler verschiedene Objekte zur Verwaltung der GATE-Ressourcen. 
+Die Klasse \textit{AnnieHandler} stellt den ersten Schritt bei der Verarbeitung der Lastenhefte dar. Die Sätze aus dem Lastenheft müssen vor der tatsächlichen Konvertierung in Boilerplates mithilfe des NLP-Werkzeugs GATE annotiert werden.
+Daher beinhaltet der AnnieHandler verschiedene Objekte zur Verwaltung der GATE-Ressourcen. 
 
-Dazu dienen ein \textit{Document} für das eingelesene Dokument, sowie ein \textit{Corpus} und ein \textit{CorpusController}, der auf die ANNIE-Module in GATE-Embedded zur Verarbeitung zugreift.
+Dazu dienen ein \textit{Document} für das eingelesene Dokument, sowie ein \textit{Corpus} und ein \textit{CorpusController}, der auf die ANNIE-Module in GATE Embedded zur Verarbeitung zugreift.
 
-Zunächst wird in der Methode \textit{initFromRestore()} (Abb.4.x) die ANNIE-Pipeline initialisiert, indem eine GATE-Sitzung aus einer \textit{.gapp}-Datei wiederhergestellt wird. Diese Datei wurde vorher angelegt, um einen direkten Zugriff auf die dort hinterlegten Module aus dem R2BC zu ermöglichen.
+Zunächst wird in der Methode \textit{initFromRestore()} (Abb. 4.14) die ANNIE-Pipeline initialisiert, indem eine GATE-Sitzung aus einer \textit{.gapp}-Datei wiederhergestellt wird. Diese Datei wurde vorher angelegt, um einen direkten Zugriff auf die dort hinterlegten Module aus dem R2BC zu ermöglichen.
 
 \begin{figure}[h!]
 \begin{center}
@@ -1309,9 +1316,9 @@ Zunächst wird in der Methode \textit{initFromRestore()} (Abb.4.x) die ANNIE-Pip
 \end{center}
 \end{figure}
 
-Nachdem nun ein Dokument eingelesen wurde, kann dies dem \textit{Document}-Object zugeordnet und auf dieser Basis der \textit{Corpus} zur Speicherung der Annotaionen über das Lastenheft initialisiert werden. In diesen Corpus werden während der Verarbeitung Annotationen über den Text gesammelt. Für den weiteren Ablauf betrifft dies insbesondere gefundene Boilerplate-Annotationen, sowie die dafür nötigen Satzbestandteile, die gesammelt werden sollen. 
+Nachdem nun ein Dokument eingelesen wurde, kann dies dem \textit{Document}-Objekt zugeordnet und auf dieser Basis der \textit{Corpus} zur Speicherung der Annotationen über das Lastenheft initialisiert werden. In diesen Corpus werden während der Verarbeitung Annotationen über den Text gesammelt. Für den weiteren Ablauf betrifft dies insbesondere gefundene Boilerplate-Annotationen, sowie die dafür nötigen Satzbestandteile, die gesammelt werden sollen. 
 
-Dazu kann nun mit der Verarbeitung durch die ANNIE-Pipeline begonnen werden. Die Methode \textit{execute()} führt dazu den CorpusController, der die konkrete ANNIE-Pipeline für den R2BC enthält, auf dem Corpus aus (Abb. 4.x). Der AnnieHandler beinhaltet dazu die Methode \textit{convert()}, die in Abb. 4.x abgebildet ist.
+Dazu kann nun mit der Verarbeitung durch die ANNIE-Pipeline begonnen werden. Die Methode \textit{execute()} führt dazu den CorpusController, der die konkrete ANNIE-Pipeline für den R2BC enthält, auf dem Corpus aus (Abb. 4.15). Der AnnieHandler beinhaltet dazu die Methode \textit{convert()}, die in Abb. 4.15 abgebildet ist.
 
 \begin{figure}[h!]
 \begin{center}
@@ -1321,14 +1328,14 @@ Dazu kann nun mit der Verarbeitung durch die ANNIE-Pipeline begonnen werden. Die
 \end{figure}
 
 Nach der Ausführung der GATE-Verarbeitung liegen die gefundenen Annotaitionen innerhalb des \textit{Corpus}-Objektes vor, wodurch mit der weiteren Verarbeitung im BoilerplateHandler begonnen werden kann. Dazu wird mithilfe von new ein neuer BoilerplateHandler erzeugt.
-In der Methode \textit{convert()} (Abb. 4.x) findet daher auch direkt der Aufuf verschiedener Methoden der Klasse BoilerplateHandler statt, der die Konvertierung der gefundenen Sätze in Boilerplates und die Initialisierung der Listen aus dem vorigen Abschnitt durchführt. 
+In der Methode \textit{convert()} findet daher auch direkt der Aufuf verschiedener Methoden der Klasse BoilerplateHandler statt, der die Konvertierung der gefundenen Sätze in Boilerplates und die Initialisierung der Listen aus dem vorigen Abschnitt durchführt. 
 
 \subsubsection{BoilerplateHandler}
-Im ersten Schritt werden dazu der Text satzweise getrennt. Dies erfolgt unter Nutzung der verschiedener Annotation aus GATE, die nach der Textverarbeitung vorliegen und in einem \textit{AnnotationSet} gesammelt werden können.
+Im ersten Schritt wird dazu der Text satzweise getrennt. Dies erfolgt unter Nutzung der verschiedener Annotationen aus GATE, die nach der Textverarbeitung vorliegen und in einem \textit{AnnotationSet} gesammelt werden können.
 
-Da sich GATE-Annotationen, wie zuvor beschrieben, aus einem Startknoten, einem Endknoten und einer ID zusammensetzen, können die Sätze nun durchnummereiert und deren Länge bestimmt werden. Da nun bekannt ist, wieviele Sätze es gibt, kann die erste Dimension der Listen initialisiert werden. Die einzelnen Sätze werden nun nach ihrer \textit{Sentence-}Annotation in die \textit{sentenceList} eingetragen, die alle extrahierten Anforderungen aus dem Eingabedokument beinhaltet. In die bpList werden diese auch eingetragen, um Zugriff auf die ursprüngliche Anforderung zu haben. 
+Da sich GATE-Annotationen, wie zuvor beschrieben, aus einem Startknoten, einem Endknoten und einer ID zusammensetzen, können die Sätze nun durchnummeriert und deren Länge bestimmt werden. Da nun bekannt ist, wie viele Sätze es gibt, kann die erste Dimension der Listen initialisiert werden. Die einzelnen Sätze werden nun nach ihrer \textit{Sentence-}Annotation in die \textit{sentenceList} eingetragen, die alle extrahierten Anforderungen aus dem Eingabedokument beinhaltet. In die bpList werden diese auch eingetragen, um Zugriff auf die ursprüngliche Anforderung zu haben. 
 
-Dazu wird die Methode \textit{initializeParagraphs()} (Abb. 4.x) verwendet.
+Dazu wird die Methode \textit{initializeParagraphs()} (Abb. 4.16) verwendet.
 
 \begin{figure}[h!]
 \begin{center}
@@ -1337,18 +1344,18 @@ Dazu wird die Methode \textit{initializeParagraphs()} (Abb. 4.x) verwendet.
 \end{center}
 \end{figure}
 
-Nachdem nun die Annotationen getrennt vorgehen, kann mit dem ersten Schritt der Konvertierung der Sätze begonnen werden. Zunächst muss für jeden Satz geprüft werden, ob zwischen dem Start- und Endknoten Boilerpalte-Annotatioenn enthalten sind, die durch GATE erstellt wurden. 
+Nachdem nun die Annotationen getrennt vorliegen, kann mit dem ersten Schritt der Konvertierung der Sätze begonnen werden. Zunächst muss für jeden Satz geprüft werden, ob zwischen dem Start- und Endknoten Boilerpalte-Annotatioenn enthalten sind, die durch GATE erstellt wurden. 
 
-Daher wird die Methode \textit{findPossibleConversions()} genutzt, um innerhalb der annotierten Sätze nach \textit{Boilerplates}-Annotationen zu filtern. Falls Boilerplates vorhanden sind, bedeutet dies, dass alle Bestandteile für eine Boilerplate im Satz vorhanden sind und somit eine Konvertierung möglich ist. Dies vermerkt die Methode durch das Hinzufügen der Annotation an den entsprechenden Satz in der \textit{sentenceList} (Abb. 4.x).
+Daher wird die Methode \textit{findPossibleConversions()} genutzt, um innerhalb der annotierten Sätze nach \textit{Boilerplates}-Annotationen zu filtern. Falls Boilerplates vorhanden sind, bedeutet dies, dass alle Bestandteile für eine Boilerplate im Satz vorhanden sind und somit eine Konvertierung möglich ist. Dies vermerkt die Methode durch das Hinzufügen der Annotation an den entsprechenden Satz in der \textit{sentenceList} (Abb. 4.17).
 
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=1]{Bilder/BoilerplateHandler-findPossibleConversions.png}
-\caption{Suche nach Boilerpalte-Annotationen in \textit{findPossibleConversions()}-Methode [eigene Darstellung]}
+\caption{Suche nach Boilerplate-Annotationen in \textit{findPossibleConversions()}-Methode [eigene Darstellung]}
 \end{center}
 \end{figure}
 
-Die tatsächliche Konvertierung findet in der Methode \textit{convertBPs()} statt, die in Abb.4.x abgebildet ist.  Diese beinhaltet einen Algorithmus zur sukzessiven Konvertierung der Sätze, sollten Boilerplates enthalten sein. Dazu wird die sentenceList iteriert, die nun die Sätze mit ihren \textit{Boilerplates}-Annotationen enthält, die auf eine mögliche Konvertierung hinweisen. 
+Die tatsächliche Konvertierung findet in der Methode \textit{convertBPs()} statt, die in Abb. 4.18 abgebildet ist.  Diese beinhaltet einen Algorithmus zur sukzessiven Konvertierung der Sätze, sollten Boilerplates enthalten sein. Dazu wird die sentenceList iteriert, die nun die Sätze mit ihren \textit{Boilerplates}-Annotationen enthält, die auf eine mögliche Konvertierung hinweisen. 
 
 \begin{figure}[h!]
 \begin{center}
@@ -1359,14 +1366,12 @@ Die tatsächliche Konvertierung findet in der Methode \textit{convertBPs()} stat
 
 Sollten aus einer Anforderung Boilerplates erstellt werden können, liegt eine entsprechende Annotation \textit{Boilerplate65c} oder \textit{Boilerplate85} für den Satz in der sentenceList vor. Dementsprechend können nun konkrete Objekte der jeweiligen Klasse, die die Boilerplate repräsentieren, erzeugt werden.\footnote{Im Programm sind die Boilerplates hierarchisch angeordnet, wie im nächsten Abschnitt erläutert wird.} 
 
-
-
 \subsubsection{Boilerplate-Objekte}
-Die Grundbausteine für die Erstellung von Boilerpaltes aus Anforderungen sind in der abstrakten Klasse \textit{Boilerplate} zusammengefasst.
+Die Grundbausteine für die Erstellung von Boilerplates aus Anforderungen sind in der abstrakten Klasse \textit{Boilerplate} zusammengefasst.
 
-Boilerplate-Objekte bestehen dabei im wesentlichen aus ihrem Typen, einer ID, die die Anforderung eindeutig identifiziert, sowie den enthaltenen Features. Diese bilden, durch das Einfügen an der entsprechenden Stelle in einer festen Satzschablone, den Text für die Anforderungen in der Boilerplate. Durch die Methode \textit{formatBP()} wird der Text der Boilerplate entprechend formatiert, indem die entsprechenden Features aus der \textit{FeatureMap} des Satzes extrahiert und als Text eingefügt werden (Abb.4.x). 
+Boilerplate-Objekte bestehen dabei im wesentlichen aus ihrem Typen, einer ID, die die Anforderung eindeutig identifiziert, sowie den enthaltenen Features. Diese bilden, durch das Einfügen an der entsprechenden Stelle in einer festen Satzschablone, den Text für die Anforderungen in der Boilerplate. Durch die Methode \textit{formatBP()} wird der Text der Boilerplate entsprechend formatiert, indem die entsprechenden Features aus der \textit{FeatureMap} des Satzes extrahiert und als Text eingefügt werden (Abb. 4.19). 
 
-Verschiedene Features für eine Boilerpalte definieren dabei eine jeweilige konkrete Klasse. Im Rahmen dieses Prototypen konnten zwei verschiedene Klassen für Boilerplate-Objekte erzeugt werden, \textit{Boilerplate65c} und \textit{Boilerplate85}. 
+Verschiedene Features für eine Boilerplate definieren dabei eine jeweilige konkrete Klasse. Im Rahmen dieses Prototypen konnten zwei verschiedene Klassen für Boilerplate-Objekte erzeugt werden, \textit{Boilerplate65c} und \textit{Boilerplate85}. 
 
 \begin{figure}[h!]
 \begin{center}
@@ -1382,14 +1387,14 @@ Im Laufe der Entwicklung hat bereits frühzeitig die hierarchische Anordnung der
 
 Da die BP85 also effektiv eine Spezialisierung der BP65c darstellt, konnte dieser Fehler durch entsprechende Regeln beseitigt werden. Dies kann durch eine verbesserte Erkennung möglicher Konvertierungen im NL pre-rpcessing verhindert werden. Für verbesserte Testedingungen wurde diese Optimierung im Quellcode durchgeführt.
 
-In Abs. 4.x werden weitere mögliche Ansätze einer verbesserten Erkennung der Boilerplates behandelt. Dort wird auch die Kompensation von sprachlichen Fehlern in den Anforderungen thematisiert, die in der Praxis auftreten und die Erkennung erschweren.
+In Abs. 4.3 werden weitere mögliche Ansätze einer verbesserten Erkennung der Boilerplates behandelt. Dort wird auch die Kompensation von sprachlichen Fehlern in den Anforderungen thematisiert, die in der Praxis auftreten und die Erkennung erschweren.
 
 \subsection{GUI - Nutzerinteraktion und Workflow}
-Im Kontext dieser Arbeit stand besonders die die Verdeutlichung des späteren Workflows bei der Verwendung des Werkzeugs im Vordergrund. Für konkrete Tests der Funktionalität des WErkzeugs wurde eine prototypische GUI implementiert. Diese diente auch zur Verdeutlichung des Ansatzes und zum Einholen von Feedback der RE-Experten der PMT-Abteilung bei HELLA.
+Im Kontext dieser Arbeit stand besonders die die Verdeutlichung des späteren Workflows bei der Verwendung des Werkzeugs im Vordergrund. Für konkrete Tests der Funktionalität des WErkzeugs wurde eine prototypische GUI implementiert. Diese diente auch zur Verdeutlichung des Ansatzes und zum Einholen von Feedback der RE-Experten bei HELLA.
 
 In diesem Abschnitt wird daher anhand eines prototypischen Lastenheftes der Umgang der späteren Nutzer mit dem Werkzeug evaluiert. Es soll demonstriert werden, inwiefern solche Werkzeuge Potential für eine Unterstützung der RE-Prozesse bieten.
 
-Die prototypische Interaktion verschiedener Nutzergruppen mit NLP-Werkzeugen wurde bereits in \cite{rs18} skizziert. Das dort beschriebene Aktivitätsdiagramm dient dabei zur Visualisierung der Interaktionspunkte mit dem Werkzeug von Anfang bis Ende der Nutzung. Die enthaltenen Aktivitäten haben sich in einer spezifischen GUI für das Werkzeug manifestiert. Werden die dort enthaltenen Aktivitäten auf das in dieser Arbeit vorgestellte Werkzeug angewandt, ergibt sich folgende Konkretisierung des Arbeitsprozesses, den ein Nutzer (hier RE-Experte) mit dem Tool durchläuft:
+Die prototypische Interaktion verschiedener Nutzergruppen mit NLP-Werkzeugen wurde bereits in \cite{rs18} skizziert. Das dort beschriebene Aktivitätsdiagramm dient dabei zur Visualisierung der Interaktionspunkte mit dem Werkzeug von Anfang bis Ende der Nutzung. Die enthaltenen Aktivitäten haben sich in einer spezifischen GUI für das Werkzeug manifestiert. Werden die dort enthaltenen Aktivitäten auf das in dieser Arbeit vorgestellte Werkzeug angewandt, ergibt sich die Konkretisierung des Arbeitsprozesses, den ein Nutzer (hier RE-Experte) mit dem Tool durchläuft (Abb. 4.20).
 
 \begin{center}
 \begin{figure}
@@ -1433,7 +1438,7 @@ Um zu prüfen, wie Nutzer mit dem Programm interagieren, wurde neben der Fachlog
 
 Sie beinhaltet demnach Buttons zum laden und speichern von Dokumenten, sowie zur Bewertung der angezeigten Sätze bzw. Konvertierungen als richtig, falsch und unklar, wenn die Anforderung uneindeutig bzw. unverständlich formuliert ist. Die Anforderungen aus dem Quelldokument werden mit den vorgeschlagenen Konvertierungen in den Textfeldern angezeigt. Die \textit{Progress-Bar} und die Anzeige unterhalb stellen den Anteil der bereits bewerteten Anforderungen prozentual bzw. absolut dar.
 
-In Abb.4.x ist die GUI aus dem \textit{java}-Programm dargestellt.
+In Abb. 4.21 ist die GUI aus dem \textit{java}-Programm dargestellt.
 
 \begin{figure}[h!]
 \begin{center}
@@ -1444,18 +1449,19 @@ In Abb.4.x ist die GUI aus dem \textit{java}-Programm dargestellt.
 
 Je nach Aktivität, in der sich der Nutzer mit dem Programm befindet, ist nur eine Auswahl der Buttons der GUI aktiv. Der Arbeitsprozess gliedert sich dabei wie folgt:
 \begin{enumerate}
-\item \textit{Initlialisierung und Konvertierung} Zunächst kann über einen Klick von \textit{Load document...} über ein Dialogfenster ein Lastenheft ausgewählt werden, das konvertiert werden soll. Über den Convert-Button wird anschließend der komplette Verarbeitungsprozess, der im vorigen Kapitel beschrieben ist, durchlaufen.
+\item \textit{Initialisierung und Konvertierung} Zunächst kann über einen Klick von \textit{Load document...} über ein Dialogfenster ein Lastenheft ausgewählt werden, das konvertiert werden soll. Über den Convert-Button wird anschließend der komplette Verarbeitungsprozess, der im vorigen Kapitel beschrieben ist, durchlaufen.
 \item \textit{Bewertung der Konvertierungen} Nach der Analyse wird automatisch die erste Anforderung geladen. Oben erscheint das Original, in den unteren Textfeldern drei mögliche Boilerplates, die der R2BC dazu ermittelt hat. 
 
-Der Nutzer kann nun durch die Radio-Buttons rechts eine davon auswählen und über den Button \textit{Confirm} bestätigen, wobei zuvor noch Anpassungen des Textes möglich sind. Alternativ kann er, sollte keine Konvertierung bzw. passende Boilerpalte gefunden werden, über \textit{Skip} zur nächsten Anforderung springen. Die Methode \textit{storeProcessedReq()} speichert die Auswahl für den Export. Der Button \textit{Review with OEM} dient zur Markierung der Anforderung als unklar, wenn Klärungsbedarf mit dem Autoren beim OEM besteht. 
+Der Nutzer kann nun durch die Radio-Buttons rechts eine davon auswählen und über den Button \textit{Confirm} bestätigen. Alternativ kann er, sollte keine Konvertierung bzw. passende Boilerplate gefunden werden, über \textit{Skip} zur nächsten Anforderung springen. Die Methode \textit{storeProcessedReq()} speichert die Auswahl für den Export. Der Button \textit{Review with OEM} dient zur Markierung der Anforderung als unklar, wenn Klärungsbedarf mit dem Autoren beim OEM besteht. 
 
 Das nächste Tupel aus Original und Boilerplate-Liste einer Anforderungen wird anschließend über die Methode \textit{loadNextReq()} geladen.
-\item \textit{Export der Ergebnisse} Wenn alle Anforderungen verarbeitet sind, können die Ergebnisse in Textform über \textit{Export results...} in eine Datei geschrieben werden. Zur weiteren Verarbeitung der Ergebnisse, z.B. durch den DA, können auch die Boilerpalte-Objekte über den Button \textit{Export BPs} serialisiert und exportiert werden.
+\item \textit{Export der Ergebnisse} Wenn alle Anforderungen verarbeitet sind, können die Ergebnisse in Textform über \textit{Export results...} in eine Datei geschrieben werden. Zur weiteren Verarbeitung der Ergebnisse, z.B. durch den DA, können auch die Boilerplate-Objekte über den Button \textit{Export BPs} serialisiert und exportiert werden.
 \end{enumerate}
 
 \subsubsection{Beispielhafte Arbeit mit dem Werkzeug}
 In diesem Abschnitt wird der Arbeitsprozess mit dem R2BC näher beschrieben.
-Für ein besseres Verständnis wird sich hier auf ein kleines Beispiel beschränkt, ausführliche Tests mit realen Lastenheften aus dem betrieblichen Alltag werden unter 6.x behandelt. Die Implementierung der Nutzerinteraktion lässt sich anhand der Konvertierung der folgenden Sätze demonstrieren, die in einem eingelesenen Lastenheft enhalten sein könnten:\\
+
+Für ein besseres Verständnis wird sich hier auf ein kleines Beispiel beschränkt, ausführliche Tests mit Lastenheften aus dem betrieblichen Alltag werden unter 4.4 behandelt. Die Implementierung der Nutzerinteraktion lässt sich anhand der Konvertierung der folgenden Sätze demonstrieren, die in einem eingelesenen Lastenheft enhalten sein könnten:\\
 
 1. The Golf7 shall perform TestDriveCityTour.\\
 
@@ -1463,14 +1469,15 @@ Für ein besseres Verständnis wird sich hier auf ein kleines Beispiel beschrän
 
 3. The durability of EBus2X shall be at least 12000 h.\\
 
-4. If there is a connection to the internet, the \\Bluetooth connected phone shall transmit the data to a server.\\
-\\ 
+4. If there is a connection to the internet, the 
 
-Dieses prototypische Lastenheft wird im Laufe dieses Abschnittes von natürlicher Sprache in formale Boilerplates konvertiert. Die vier Beispielanforderungen sind dabei an betriebliche Produktspezifikationen angelehnt, z.B. an ein Auto \textit{Golf7}. Jede Anforderung repräsentiert konkrete Szenarien, die im Programm bei der Analyse und Konvertierung auftreten können. Dies beinhaltet sowohl die Boilerplates, die für jeden Satz infrage kommen, als auch typische Fehler bei der Erkennung, die bei der Verarbeitung auftreten.
+Bluetooth connected phone shall transmit the data to a server.\\
+
+Dieses prototypische Lastenheft wird im Laufe dieses Abschnittes von natürlicher Sprache in formalere Boilerplates konvertiert. Die vier Beispielanforderungen sind dabei an betriebliche Produktspezifikationen angelehnt, z.B. an ein Auto \textit{Golf7}. Jede Anforderung repräsentiert konkrete Szenarien, die im Programm bei der Analyse und Konvertierung auftreten können. Dies beinhaltet sowohl die Boilerplates, die für jeden Satz infrage kommen, als auch typische Fehler bei der Erkennung, die bei der Verarbeitung auftreten.
 
 Zunächst wird der R2BC mit dem Lastenheft initialisiert und die Konvertierung gestartet, indem der Convert-Button geklickt wird. Anschließend liegen die verarbeiteten Anforderungen im Programm vor und der Nutzer beginnt mit dem \textit{Review} der Konvertierungen. 
 
-Zunächst wird Anforderung 1 angezeigt, zu der eine passende Boilerplate gefunden wurde (Abb.4.x):
+Zunächst wird Anforderung 1 angezeigt, zu der eine passende Boilerplate gefunden wurde (Abb.4.22):
 
 \begin{figure}[h!]
 \begin{center}
@@ -1479,9 +1486,9 @@ Zunächst wird Anforderung 1 angezeigt, zu der eine passende Boilerplate gefunde
 \end{center}
 \end{figure}
 
-Aus dieser Anforderung wurde im R2BC die Boilerplate65c erzeugt und nun als einziger Vorschlag angezeigt. Die Konvertierung ist korrekt, da sowohl die Boilerplate richtig erkannt wurde, als auch das completeSystem \textit{Golf7} und die FunctionDescription aus der Anforderung extrahiert und in die Schablone der Boilerplate65c eingebettet sind. Der Satz ist also stimmig und die Konvertierung wird über \textit{Confirm} bestätigt. 
+Aus dieser Anforderung wurde im R2BC die Boilerplate65c erzeugt und nun als einziger Vorschlag angezeigt. Die Konvertierung ist korrekt, da sowohl die Boilerplate richtig erkannt wurde, als auch das CompleteSystem \textit{Golf7} und die FunctionDescription aus der Anforderung extrahiert und in die Schablone der Boilerplate65c eingebettet sind. Der Satz ist also stimmig und die Konvertierung wird über \textit{Confirm} bestätigt. 
 
-Zu Anforderung 2 wurde im Programm keine passende Boilerplate gefunden, da die \textit{is-part-of}-Beziehung nicht durch eine entsprechende Boilerpalte abgedeckt ist. Das Programm kann also keine Konvertierung durchführen, da der Satz nicht alle Elemente für die Befüllung der Schablonen enthält (Abb.4.x).
+Zu Anforderung 2 wurde im Programm keine passende Boilerplate gefunden, da die \textit{is-part-of}-Beziehung nicht durch eine entsprechende Boilerpalte abgedeckt ist. Das Programm kann also keine Konvertierung durchführen, da der Satz nicht alle Elemente für die Befüllung der Schablonen enthält (Abb. 4.23).
 
 \begin{figure}[h!]
 \begin{center}
@@ -1490,9 +1497,9 @@ Zu Anforderung 2 wurde im Programm keine passende Boilerplate gefunden, da die \
 \end{center}
 \end{figure}
 
-Dementsprechend wird der Satz mit \textit{Skip} übersprungen und die Anforderung wird ohne Konvertierung in die \textit{exportList} geschrieben.
+Dementsprechend wird der Satz mit \textit{Skip} übersprungen und die Anforderung damit ohne Konvertierung in die \textit{exportList} geschrieben.
 
-Anforderung 3 stellt beispielhaft den Fall einer fehlerhaften Erkennung bzw. Übersetzung dar. Die erkannte Boilerplate ist prinzipielle nicht geeignet, da die Anforderung eine Eigenschaft des Systems definiert (\textit{durability of ... at least 12000 h.} und im Gegensatz zur Boilerplate65c keine Funktionen eines Systems. Ferner wurde bei der Übersetzung der Boilerplate der Teil \textit{durability of} vor dem System abgeschnitten.
+Anforderung 3 stellt beispielhaft den Fall einer fehlerhaften Erkennung bzw. Übersetzung dar. Die erkannte Boilerplate ist prinzipielle nicht geeignet, da die Anforderung eine Eigenschaft des Systems definiert (\textit{durability of ... at least 12000 h.}) und im Gegensatz zur Boilerplate65c keine Funktionen eines Systems. Ferner wurde bei der Übersetzung der Boilerplate der Teil \textit{durability of} vor dem System abgeschnitten.
 
 \begin{figure}[h!]
 \begin{center}
@@ -1503,7 +1510,7 @@ Anforderung 3 stellt beispielhaft den Fall einer fehlerhaften Erkennung bzw. Üb
 
 Der Nutzer hat nun zwei Möglichkeiten: entweder überspringt er die fehlerhafte Konvertierung mit \textit{Skip}, oder er fügt \textit{durability of} vor \textit{EBus2X} hinzu, um die sinngemäße Aussage zu erhalten und eine Boilerplate zu erhalten.
 
-Zu Anforderung 4 erscheint die korrekte Konvertierung in die Boilerplate85. Die Bedingung \textit{if ...} vor der Beschreibung der Funktion hat dazu geführt, der R2BC diese identifiziert hat. Somit wurde keine Boilerplate65c erzeugt, für die ja prinzipiell der Teilsatz nach dem Komma ausreichen würde.
+Zu Anforderung 4 erscheint die korrekte Konvertierung in die Boilerplate85. Die Bedingung \textit{if ...} vor der Beschreibung der Funktion hat dazu geführt, dass der R2BC diese identifiziert hat. Somit wurde keine Boilerplate65c erzeugt, für die ja prinzipiell der Teilsatz nach dem Komma ausreichen würde.
 Die korrekte Konvertierung wird erneut durch \textit{Confirm} bestätigt.
 
 \begin{figure}[h!]
@@ -1513,45 +1520,45 @@ Die korrekte Konvertierung wird erneut durch \textit{Confirm} bestätigt.
 \end{center}
 \end{figure}
 
-In Abs. 4.x wird auf Basis der prototypischen Implementierung die Funktionalität des gesamten Programms mit realen Lastenheften erprobt. In Abschnitt 4.x werden mögliche konzeptuelle Ergänzungen der GUI vorgestellt. 
+In Abs. 4.4 wird auf Basis der prototypischen Implementierung die Funktionalität des gesamten Programms mit realen Lastenheften erprobt. In Abschnitt 4.3 werden mögliche konzeptuelle Ergänzungen der GUI vorgestellt. 
 
 \subsection{Umsetzung der NLP-Architektur}
-In diesem Abschnitt wird die Einordnung unseres Prototypen als NLP-Werkzeug in die von \cite{cop04} definierte Architektur behandelt. Die verschiedenen Schritte aus Kap. 2.2. zur Analyse und Verarbeitung der Lastenhefte wurden in den oben beschriebenen Programmbestandteilen umgesetzt. Anhand der prinzipiellen Aufgaben von NLP-Werkzeugen kann die Verarbeitungskette unseres Werkzeugs dort wie folgt eingeordnet werden:
+In diesem Abschnitt wird die Einordnung des Prototypen als NLP-Werkzeug in die von \cite{cop04} definierte Architektur behandelt. Die verschiedenen Schritte aus Abs. 2.1.2. zur Analyse und Verarbeitung der Lastenhefte wurden in den oben beschriebenen Programmbestandteilen umgesetzt. Anhand der prinzipiellen Aufgaben von NLP-Werkzeugen kann die Verarbeitungskette unseres Werkzeugs dort wie folgt eingeordnet werden:
 
 \begin{enumerate}
 \item \textit{Input Processing} - Einlesen von Quelldaten: Zunächst kann der Nutzer Dateien für die Verarbeitung im Programm eingeben. Dazu wählt der diese Dateien in der GUI des Programms aus. Unser Werkzeug extrahiert daraus dann den enthaltenen Text.
 
-\item \textit{Morphologische Analyse} - Annotation der Worttypen: Mithilfe der Analyse des Textes durch die GATE-Verarbeitungslogik ANNIE werden einzelne Wörter aus dem Text auf ihre sprachliche Funktion hin überprüft. Dies ermöglicht die weitere Untersuchung bestimmter Worttypen, wie z.B. Nomen, nachdem diese gesammelt wurden. Nomen können etwa in JAPE-Regeln als \textit{NNP} abgefragt werden (siehe 4.x)
+\item \textit{Morphologische Analyse} - Annotation der Worttypen: Mithilfe der Analyse des Textes durch die GATE-Verarbeitungslogik ANNIE werden einzelne Wörter aus dem Text auf ihre sprachliche Funktion hin überprüft. Dies ermöglicht die weitere Untersuchung bestimmter Worttypen, wie z.B. Nomen, nachdem diese gesammelt wurden. Nomen können etwa in JAPE-Regeln als \textit{NNP} abgefragt werden (siehe 4.2.1)
 
-\item \textit{Part-of-Speech-Tagging} - Erkennung von Satzbausteinen: Für ein genaues Verständnis, worum es in einer Anforderung geht, müssen die einzelnen Bestandteile des Textes zugeordnet werden. In unserem Programm werden gefundene Wörter etwa dahingehend geprüft, ob diese ein System darstellen können, wenn sie zuvor als Nomen kategorisiert wurden. 
+\item \textit{Part-of-Speech-Tagging} - Erkennung von Satzbausteinen: Für ein genaues Verständnis, worum es in einer Anforderung geht, müssen die einzelnen Bestandteile des Textes zugeordnet werden. Im Programm werden gefundene Wörter etwa dahingehend geprüft, ob diese ein System darstellen können, wenn sie zuvor als Nomen kategorisiert wurden. 
 
 Auf dieser Basis können dann passende Boilerplates identifiziert werden. Für die spätere Befüllung der Boilerplates mit den korrekten Begriffen ist die korrekte Erkennung von Worten im Satzzusammenhang daher wesentlich.
 
 \item \textit{Parsing} - Überführung in Boilerplates: Mithilfe des POS-Tagging wurden zuvor passende Boilerplates auf Basis gefundenen Annotationen innerhalb der Anforderung gefunden. Dies stellt nun die Grundlage für die Zusammensetzung der Boilerplates des entsprechenden Typs dar, indem Boilerplate-Objekte im Programm erzeugt werden. 
 
-Die Platzhalter werden dann von den Begriffen aus der Anforderung ersetzt, womit schlussendlich eine Anforderung in der formalen Sprache der Boilerplates vorliegt.
+Die Platzhalter werden dann von den Begriffen aus der Anforderung ersetzt, womit schlussendlich eine Anforderung in der semi-formalen Sprache der Boilerplates vorliegt.
 
-\item{Disambiguation} - Zuordnung der richtigen Konvertierung: Im Parsing werden zunächst alle möglichen Konvertierungen auf Basis möglicher Boilerplate-Typen durchgeführt. Nach der Erzeugung der Boilerplates liegen somit möglicherweise verschiedene Möglichkeiten der Deutung vor, von denen einzelne unpräzise oder fehlerhaft sein können. 
+\item \textit{Disambiguation} - Zuordnung der richtigen Konvertierung: Im Parsing werden zunächst alle möglichen Konvertierungen auf Basis möglicher Boilerplate-Typen durchgeführt. Nach der Erzeugung der Boilerplates liegen somit möglicherweise verschiedene Möglichkeiten der Deutung vor, von denen einzelne unpräzise oder fehlerhaft sein können. 
 
-Unpräzise Formulierungen können etwa durch eine hierarchische Anordnung der Boilerplates reduziert werden, wenn eine spezifische Boilerplate offensichtlich besser den Inhalt der Anforderung repräsentiert als eine eher allgemein formulierte. Die allgemeineren Boilerplates werden somit gleich ausgeschlossen, wenn eine bessere Konvertierung möglich ist. Siehe dazu auch Kap. 4.x.
+Unpräzise Formulierungen können etwa durch eine hierarchische Anordnung der Boilerplates reduziert werden, wenn eine spezifische Boilerplate offensichtlich besser den Inhalt der Anforderung repräsentiert als eine eher allgemein formulierte. Die allgemeineren Boilerplates werden somit gleich ausgeschlossen, wenn eine bessere Konvertierung möglich ist. Siehe dazu auch Abs. 4.2.2.
 
 Diese Unterschiede werden, sofern vorhanden, als mehrere Boilerplates im Programm dargestellt und an den Nutzer ausgegeben. Der Nutzer kann in der GUI dann die am besten zum ursprünglichen Anforderung passende Konvertierung auswählen.
 
-\item \textit{Context Module} - Bewertung im Zusammenhang: Bei der Identifikation der best passendsten Boilerplate wurden in Kap. 4.x Vorschläge zur Abbildung der Semantik gemacht. Diese Ansätze ermöglichen dann die Automatisierung der Auflösung bestimmter Mehrdeutigkeiten, wenn diese das Verständnis des Kontextes aus dem Zusammenhang mehrerer Sätze erfordern. 
+\item \textit{Context Module} - Bewertung im Zusammenhang: Bei der Identifikation der best passendsten Boilerplate wurden in Abs. 4.3 Vorschläge zur präzisen Erkennung von Entitäten. Diese Ansätze ermöglichen dann die Automatisierung der Auflösung bestimmter Mehrdeutigkeiten, wenn diese das Verständnis des Kontextes aus dem Zusammenhang mehrerer Sätze erfordern. 
 
 Im Kontext mehrerer Anforderungen kann der Nutzer im Rahmen des Review-Prozesses weitere Informationen über den Dokumentenkontext mit einfließen lassen. Dies kann etwa Informationen über vorige Anforderungen beinhalten, die bereits verarbeitet wurden, oder Meta-Informationen über das Anforderungsdokument wie etwa ergänzende, mitgeltende Unterlagen.
 
 \item \textit{Text Planning} - Speichern der korrekten Boilerplate: Nach der Auswahl von einer richtigen Konvertierung innerhalb der GUI hat sich der Nutzer für eine Boilerplate entschieden, die in das Export-Dokument übertragen werden soll. Durch diese Festlegung wird im Programm die entsprechende Boilerplate in die OutputList der Konvertierung eingetragen.
 
-\item \textit{Tactical Generation} - Erzeugung von Text aus BP-Objekten: Die Boilerplates liegen nach der Konvertierung zunächst als Objekte im Programm vor. Vor der Erzeugung des Ausgabe-Dokuments, das alle Anforderungen als Boilerplates enthält, müssen aus diesen Objekten der Text extrahiert werden. 
+\item \textit{Tactical Generation} - Erzeugung von Text aus BP-Objekten: Die Boilerplates liegen nach der Konvertierung zunächst als Objekte im Programm vor. Vor der Erzeugung des Ausgabe-Dokuments, das alle Anforderungen als Boilerplates enthält, muss aus diesen Objekten der Text extrahiert werden. 
 
 Dieser Text liegt in den einzelnen Objekten als Zeichenkette vor und wird mithilfe einer Methode formatiert. Im Programm wird bei der Dokumentenerzeugung der Text aller übernommenen Boilerplates abgefragt.
 
-\item \textit{Morphological Generation} - Sprachliche Anpassung: In unserem ersten Entwurf der Prototypen wurde die Analyse auf englischen Text optimiert, da die Lastenhefte überlicherweise auf englisch verfasst sind (siehe Kap. 3.x). Die Boilerplates im Programm sind dementsprechend in englischer Sprache verfasst, wie auch das Ausgabe-Dokument.
+\item \textit{Morphological Generation} - Sprachliche Anpassung: Im ersten Entwurf der Prototypen wurde die Analyse auf englischen Text optimiert, da die Lastenhefte häufig auf englisch verfasst sind (siehe Kap. 3.3). Die Boilerplates im Programm sind dementsprechend in englischer Sprache verfasst, wie auch das Ausgabe-Dokument.
 
 Da der Text bereits innerhalb der Boilerplate-Objekte formatiert wurde bzw. vorliegt, entfällt hier eine aufwändige Anpassung an Sprache und ihre Grammatik.
 
-\item \textit{Output-Processing} - Erzeugung des Anforderungsdokuments aus Boilerplates: Nachdem die einzelnen Zeichenketten aus den Boilerpaltes extrahiert wurden, liegen nun die einzelnen Anforderungen in formaler Sprache als Text vor. Die Anforderungen müssen nun vor dem Export in der richtigen Reihenfolge angeordnet und an das Layout des Dokumentes angepasst werden.
+\item \textit{Output-Processing} - Erzeugung des Anforderungsdokuments aus Boilerplates: Nachdem die einzelnen Zeichenketten aus den Boilerplates extrahiert wurden, liegen nun die einzelnen Anforderungen in formaler Sprache als Text vor. Die Anforderungen müssen nun vor dem Export in der richtigen Reihenfolge angeordnet und an das Layout des Dokumentes angepasst werden.
 
 Der Nutzer wählt dazu eine Datei über die GUI aus, in welche die Anforderungen exportiert werden. Der Dateityp ist dabei prinzipiell unbeschränkt, zur Vereinfachung wurde sich jedoch auf reine Textdateien (.txt) beim Export beschränkt. 
 
@@ -1559,13 +1566,12 @@ Das Programm schreibt nun alle Anforderungen, getrennt durch Leerzeilen, in die 
 \end{enumerate}
 
 \section{Mögliche Erweiterungen}
-In diesem Abschnitt werden mögliche Verbesserungen bzw. Erweiterungen des Programms aufgelistet und erläutert. Diese konnten hauptsächlich auf Zeit- bzw. Aufwandsgründen nicht während der Arbeit bei HELLA implementiert werden. Einige erfordern außerdem eine hohes Maß an spezifischer Fachkenntnis in bestimmten Bereichen. 
+In diesem Abschnitt werden mögliche Verbesserungen bzw. Erweiterungen des Programms aufgelistet und erläutert. Die Erweiterungen sind zur Übersichtlichkeit in drei wichtige Bereiche unterteilt:
 
-Die Erweiterungen sind zur Übersichtlichkeit in drei wichtige Bereiche unterteilt:
 \begin{enumerate}
 \item Benutzeroberfläche: Hier werden die Erweiterungen dargestellt, welche im direkten Zusammenhang mit der Nutzerinteraktion des Programms stehen und neue Ansichten auf der Benutzeroberfläche ermöglichen. 
-\item Nutzbarkeit: Hierzu gehören alle Erweiterungen, welche die Verwendbarkeit des Programms verbessern, jedoch nicht von Nutzer gesteuert werden. Dazu gehören Aspekte die Performanz, Abdeckungsgrad und präzise Sprachverarbeitung.
-\item Konzept: Hier sind alle Erweiterungen aufgelistet, welche das Programm konzeptuell Verändern, wichtige Vorarbeiten leisten oder alternative Technologien verwenden.  
+\item Nutzbarkeit: Hierzu gehören alle Erweiterungen, welche die Verwendbarkeit des Programms verbessern, jedoch nicht durch den Nutzer gesteuert werden. Dazu gehören die Aspekte Performanz, Abdeckungsgrad und präzise Sprachverarbeitung.
+\item Konzept: Hier sind alle Erweiterungen aufgelistet, welche das Programm konzeptuell verändern, wichtige Vorarbeiten leisten oder alternative Technologien verwenden.  
 \end{enumerate}
 
 \subsection{Benutzeroberfläche}
@@ -1579,38 +1585,40 @@ Wie weit der relevante Kontext ausfällt ist hierbei an konkreten Lastenheften z
 Außerdem könnte dies von entscheidender Bedeutung bei der Auflösung von Referenzen (wie zum Beispiel durch Pronomen) sein. Wörter wie \glqq it\grqq{}, \glqq that\grqq{} usw. sollten zwar in Lastenheften wegen der Entstehung von Uneindeutigkeiten nicht verwendet werden, jedoch kann man dies in der Praxis nicht annehmen. Daher wären die Markierung von betroffenen Wörtern oder gar deren automatische Auflösung sehr nützlich.
 
 \subsubsection{Markieren von Unterschieden}
-Eine wichtige Hilfestellung bei der Übersichtlichkeit und somit bei der Verarbeitungsgeschwindigkeit durch den Programm-Nutzer könnte durch die farbliche Markierung von relevanten Textstellen erzeugt werden.
+Eine wichtige Hilfestellung bei der Übersichtlichkeit und somit bei der Verarbeitungsgeschwindigkeit durch den Programmnutzer könnte durch die farbliche Markierung von relevanten Textstellen erzeugt werden.
  
-Wie in Abbildung X.X gezeigt, werden der Ursprungssatz und mögliche Übersetzungen in Boilerplates auf dem selben Nutzer-Bildschirm abgebildet. Jedoch kann es durch die vorgegebene Satzstruktur der Boilerplates zur Umstellung der Eingabesatzes kommen. Dies ist für den Nutzer nur schwer auf den ersten Blick zu erkennen.
+Wie in Abbildung 4.21 gezeigt, werden der Ursprungssatz und mögliche Übersetzungen in Boilerplates auf dem selben Nutzer-Bildschirm abgebildet. Jedoch kann es durch die vorgegebene Satzstruktur der Boilerplates zur Umstellung der Eingabesatzes kommen. Dies ist für den Nutzer nur schwer auf den ersten Blick zu erkennen.
 
-Eine farbige Markierung der wichtigen Satzbestandteile im Eingabesatz und der entsprechenden Gegenstücke in der übersetzten Boilerplate könnten dort für einen sofortigen Überblick sorgen. Die Markierung könnte abhängig von den durch GATE vergebenen Annotationen stattfinden und würde es dem Nutzer ermöglichen einige der angezeigten Möglichkeiten direkt auszuschließen bzw. zu bestätigen.
+Eine farbige Markierung der wichtigen Satzbestandteile im Eingabesatz und der entsprechenden Gegenstücke in der übersetzten Boilerplate könnten dort für einen sofortigen Überblick sorgen. Die Markierung könnte abhängig von den durch GATE vergebenen Annotationen stattfinden und würde es dem Nutzer ermöglichen, einige der angezeigten Möglichkeiten direkt auszuschließen bzw. zu bestätigen.
 
 \subsubsection{Vorher/Nachher Abgleich}
-Falls der Nutzer beabsichtigt die Ergebnisse der Dokumentkonvertierung noch einmal zu überprüfen könnte eine eingebaute Ansicht sehr nützlich sein. Diese zeigt das Eingabe- und das Ausgabedokument nebeneinander an. Gegebenenfalls könnten die Eingabe-Anforderungen passen zu den entsprechenden Übersetzungen markiert oder gefärbt werden. 
+Falls der Nutzer beabsichtigt, die Ergebnisse der Dokumentkonvertierung noch einmal zu überprüfen, könnte eine eingebaute Ansicht sehr nützlich sein. Diese zeigt das Eingabe- und das Ausgabedokument nebeneinander an. Gegebenenfalls könnten die Eingabe-Anforderungen passend zu den entsprechenden Übersetzungen markiert oder gefärbt werden. 
 
 Dadurch würden Fehler durch den Nutzer noch weiter eingeschränkt und somit die Konsistenz des Ausgabedokuments stark verbessert. Vor allem für die spätere Weiterverarbeitung durch den Delta-Analyser ist dies wichtig. 
 
 \subsubsection{Eingabe des Dokumenttyps}
-Eine weitere Möglichkeit für den Nutzer das Programm zu verbessern könnte darin bestehen die Art des Eingabedokuments zu spezifizieren. Da in der Automobilindustrie viele verschiedene OEM mit verschiedenen Standards Lastenhefte für die Zulieferer verfassen, sind die eingehenden Anforderungsdokumente sehr heterogen und können auch bei der Formatierung voneinander abweichen. 
+Eine weitere Möglichkeit, für den Nutzer das Programm zu verbessern, könnte darin bestehen, die Art des Eingabedokuments zu spezifizieren. Da in der Automobilindustrie viele verschiedene OEM mit verschiedenen Standards Lastenhefte für die Zulieferer verfassen, sind die eingehenden Anforderungsdokumente sehr heterogen und können auch bei der Formatierung voneinander abweichen. 
 
-Wenn der Nutzer jedoch die Möglichkeit hat, z.B. den OEM schon vor der Verarbeitung einzugeben und das Programm dementsprechend dynamisch angepasst wird, könnten auch ohne großen Aufwand für den Nutzer Lastenhefte verschiedener OEMs verarbeitet werden. 
+Wenn der Nutzer jedoch die Möglichkeit hat, z.B. den OEM schon vor der Verarbeitung einzugeben und das Programm dementsprechend dynamisch angepasst wird, könnten auch ohne großen Aufwand für den Nutzer die Lastenhefte verschiedener OEMs verarbeitet werden. 
 
 \subsection{Nutzbarkeit}
 Hier werden die Erweiterungen behandelt, welche sich positiv auf die Nutzbarkeit des Programms auswirken könnten. Dazu gehören vor allem Performanz- und Automatisierungsaspekte.
+
 \subsubsection{Implementierung weiterer Boilerplates}
-Eine naheliegende Verbesserung des Programms wäre das umsetzen weiterer Boilerplates. Dies ist jedoch nicht nur wichtig, um die Abdeckung des Testes zu verbessern, sonder auch auch um die Auswahl an Boilerplates zu verbessern. 
+Eine naheliegende Verbesserung des Programms wäre das Umsetzen weiterer Boilerplates. Dies ist jedoch nicht nur wichtig, um die Abdeckung des Testes zu verbessern, sondern auch, um die Auswahl an Boilerplates zu verbessern. 
 
-Zunächst ergibt sich durch das Implementieren weiterer Boilerplates die Möglichkeit mehr Anforderungen des Quelldokuments in Boilerplates zu überführen. Damit geht jedoch auch ein Problem einher. Bei mehr Boilerplates steigt auch die Anzahl der vorgeschlagenen Boilerplates zu den einzelnen Sätzen. Im Optimalfall wird jedoch nur genau eine Boilerplate als Übersetzung vorgeschlagen, und zwar die richtige. 
+Zunächst ergibt sich durch das Implementieren weiterer Boilerplates die Möglichkeit, mehr Anforderungen des Quelldokuments in Boilerplates zu überführen. Damit geht jedoch auch ein Problem einher. Bei mehr Boilerplates steigt auch die Anzahl der vorgeschlagenen Boilerplates zu den einzelnen Sätzen. Im Optimalfall wird jedoch nur genau eine Boilerplate als Übersetzung vorgeschlagen, und zwar die richtige. 
 
-Es gilt also einen Anstieg an unpassend vorgeschlagenen Boilerplates so gering wie möglich zu halten und somit die Nutzbarkeit des Programms zu gewährleisten. Dies lässt sich erreichen in dem man die hinzugefügten Boilerplates abhängig von den verwendeten Satzbestandteilen in einer Hierarchie anordnet. 
+Es gilt also, einen Anstieg an unpassend vorgeschlagenen Boilerplates so gering wie möglich zu halten und somit die Nutzbarkeit des Programms zu gewährleisten. Dies lässt sich erreichen, indem man die hinzugefügten Boilerplates abhängig von den verwendeten Satzbestandteilen in einer Hierarchie anordnet. 
 
-Angenommen eine Boilerplate \textit{A} enthält die Satzbestandteile \textit{1}, \textit{2} und \textit{3} und die Boilerplate \textit{B} enthält \textit{1}, \textit{2}, \textit{3} und \textit{4}. Ein Satz der die Bestandteile \textit{1-4} beinhaltet würde von in beide Boilerplates konvertierbar sein, da die Boilerplate \textit{A} jedoch Bestandteil \textit{4} nicht berücksichtigen kann, führt diese sicherlich zu Informationsverlust und ist somit falsch. Es lässt sich also schließen, dass die Boilerplate A niemals richtig sein kann, sobald Boilerplate \textit{B} eine  mögliche Übersetzung darstellt. Somit muss auch Boilerplate \textit{A} nicht als möglicher Vorschlag angegeben werden. 
+Angenommen eine Boilerplate \textit{A} enthält die Satzbestandteile \textit{1}, \textit{2} und \textit{3} und die Boilerplate \textit{B} enthält \textit{1}, \textit{2}, \textit{3} und \textit{4}. Ein Satz, der die Bestandteile \textit{1-4} beinhaltet, würde in beide Boilerplates konvertierbar sein. Da die Boilerplate \textit{A} jedoch Bestandteil \textit{4} nicht berücksichtigen kann, führt dies zu Informationsverlust und ist somit falsch. Es lässt sich also schließen, dass die Boilerplate A niemals richtig sein kann, sobald Boilerplate \textit{B} eine  mögliche Übersetzung darstellt. Somit muss auch Boilerplate \textit{A} nicht als möglicher Vorschlag angegeben werden.
+ 
 \subsubsection{JAPE-Optimierung}
-Die in der Sprachverarbeitung implementierten JAPE-Regeln wurden lediglich im Hinblick auf Funktionalität entworfen. Aufgrund der generell niedrigen Laufzeit\footnote{Die Testergebnisse zur Laufzeit des Programms werden in Abschnitt X.X genauer erläutert} wurde die Performanz der Regeln nicht extra optimiert. Es ist also möglich, dass dort noch Verbesserungspotential ausgeschöpft werden kann. 
+Die in der Sprachverarbeitung implementierten JAPE-Regeln wurden lediglich im Hinblick auf Funktionalität entworfen. Aufgrund der generell niedrigen Laufzeit\footnote{Die Testergebnisse zur Laufzeit des Programms werden in Abschnitt 4.4.1 genauer erläutert} wurde die Performanz der Regeln nicht extra optimiert. Es ist also möglich, dass dort noch Verbesserungspotential ausgeschöpft werden kann. 
 
-Die Implementierung weiterer Boilerplates sollte die Laufzeit des Programms nicht sonderlich beeinflussen, da der mit Abstand größte Annotations-Aufwand bei dem Tokenizer und dem Part Of Speech Tagger liegt. Diese werden jedoch auf jeden Fall genau ein mal ausgeführt. 
+Die Implementierung weiterer Boilerplates sollte die Laufzeit des Programms nicht sonderlich beeinflussen, da der mit Abstand größte Annotations-Aufwand bei dem Tokenizer und dem Part-Of-Speech-Tagger liegt. Diese werden jedoch auf jeden Fall genau ein mal ausgeführt. 
 
-Außerdem ist es möglich die JAPE-Transducer durch sogenannte \textit{JAPE+} -Transducer zu ersetzen. Diese sind vor allem bei der Verarbeitung langer Dokumente sehr viel effizienter als herkömmliche JAPE-Transducer. Daher sind sie in dem Anwendungsfall mit Anforderungsdokumenten besonders geeignet. Abbildung X.X zeigt Testergebnisse der GATE-Entwickler zu den verschiedenen Transducern \cite{gm19}.
+Außerdem ist es möglich die JAPE-Transducer durch sogenannte \textit{JAPE+} -Transducer zu ersetzen. Diese sind vor allem bei der Verarbeitung langer Dokumente sehr viel effizienter als herkömmliche JAPE-Transducer. Daher sind sie in dem Anwendungsfall mit Anforderungsdokumenten besonders geeignet. Abbildung 4.26 zeigt Testergebnisse der GATE-Entwickler zu den verschiedenen Transducern \cite{gm19}.
 
 \begin{figure}[H]
 \begin{center}
@@ -1620,13 +1628,13 @@ Außerdem ist es möglich die JAPE-Transducer durch sogenannte \textit{JAPE+} -T
 \end{figure}
 
 \subsubsection{Größtmögliche Automatisierung}
-Um dem Nutzer so viel Arbeit wie möglich zu ersparen, ist es wichtig so viele Arbeitsschritte wie möglich zu automatisieren. Dabei darf jedoch nicht die Fehlerquote steigen. Unter der Annahme, dass ein Nutzer 99% der Anforderungen richtig verarbeitet, könnte man die Verarbeitung von Anforderungen bei einer Trefferquote des Programms von über 99% automatisieren.
+Um dem Nutzer so viel Arbeit wie möglich zu ersparen, ist es wichtig, so viele Arbeitsschritte wie möglich zu automatisieren. Dabei darf die Fehlerquote jedoch nicht steigen. Unter der Annahme, dass ein Nutzer 99\% der Anforderungen richtig verarbeitet, könnte man die Verarbeitung von Anforderungen bei einer Trefferquote des Programms von über 99\% automatisieren.
 
-Dies könnte beispielsweise geschehen, indem bei bestimmten Boilerplates mit sehr hoher Trefferwahrscheinlichkeit der Nutzer die Boilerplate nicht mehr überprüfen und bestätigen muss. Voraussetzung für eine Automatisierung könnte etwa eine Trefferquote von 99,5% sein, in Verbindung mit nur einer möglichen vorgeschlagenen Boilerplate.
+Dies könnte beispielsweise geschehen, indem bei bestimmten Boilerplates mit sehr hoher Trefferwahrscheinlichkeit der Nutzer die Boilerplate nicht mehr überprüfen und bestätigen muss. Voraussetzung für eine Automatisierung könnte etwa eine Trefferquote von 99,5\% sein, in Verbindung mit nur einer möglichen vorgeschlagenen Boilerplate.
 
-Um dies zu realisieren sind jedoch die Implementierung einer ausführlichen Heuristik und weitläufige Tests nötig. Sollten diese jedoch erfolgreich sein, könnte der Nutzen enorm sein, da die Nutzerinteraktion mit großem Abstand die meiste Zeit der Verarbeitung benötigt.
+Um dies zu realisieren sind jedoch die Implementierung einer ausführlichen Heuristik und weitläufige Tests nötig. Sollte dies gelingen, könnte der Nutzen enorm sein, da die Nutzerinteraktion mit großem Abstand die meiste Zeit der Verarbeitung benötigt.
 \subsubsection{Filtern von Anforderungen}
-Eine weitere Möglichkeit die Zeit der Nutzerinteraktion zu verringern könnte durch das Filtern von Anforderungen aus dem Dokument realisiert werden. Dies wird im Programm bereits teilweise getan, so wurden Zeilen des DOORS-Exportes wie\\
+Eine weitere Möglichkeit, die Zeit der Nutzerinteraktion zu verringern könnte durch das Filtern von Anforderungen aus dem Dokument realisiert werden. Dies wird im Programm bereits teilweise getan, so wurden Zeilen des DOORS-Exportes wie\\
 \tt
 H\_ObjectContent: Requirement
 \rm 
@@ -1634,43 +1642,45 @@ und
 \tt
 ID: 382
 \rm\\
-bereits dem Nutzer nicht mehr angezeigt. Aus diesen könnten jedoch auch einige Informationen genutzt werden, wie die Erfassung und Speicherung der ID-Nummer und das Erkennen des \textit{ObejctContent}. Damit könnte außerdem abgewogen werden, ob es möglich ist auf die Verarbeitung der \textit{Information}-Objekte zu verzichten und sich auf die \textit{Requirement}-Objekte zu beschränken. Dies kann jedoch in der Praxis schwierig sein, da oftmals \textit{Information} und \textit{Requirement} nicht zuverlässig deklariert werden oder ein Großteil der Sätze mit \textit{TBD}(to be determined/ noch zu bestimmen) gekennzeichnet sind.
+bereits nicht mehr dem Nutzer angezeigt. Aus diesen könnten jedoch auch einige Informationen genutzt werden, wie die Erfassung und Speicherung der ID-Nummer und das Erkennen des \textit{ObejctContent}. Damit könnte außerdem abgewogen werden, ob es möglich ist, auf die Verarbeitung der \textit{Information}-Objekte zu verzichten und sich auf die \textit{Requirement}-Objekte zu beschränken. Dies kann jedoch in der Praxis schwierig sein, da oftmals \textit{Information} und \textit{Requirement} nicht zuverlässig deklariert werden oder ein Großteil der Sätze mit \textit{TBD}(to be determined/ noch zu bestimmen) gekennzeichnet sind.
 \subsection{Konzept}
-In diesem Abschnitt werden Modifizierungen des Programms aufs der Konzeptebene erläutert. Dies beinhaltet etwa das Nutzen anderer Technologien und Anbindungs-Konzepte. 
+In diesem Abschnitt werden Modifizierungen des Programms auf der Konzeptebene erläutert. Dies beinhaltet etwa das Nutzen anderer Technologien und Anbindungs-Konzepte. 
 \subsubsection{Preprocessing}
-Ein großes Problem mit den aus DOORS exportierten PDF-Dateien war die Zerstückelung der Sätze, auf denen die Sprachverarbeitung aufbaut. Oftmals waren beispielsweise Anforderungen aufgeteilt in einen Hauptteil und danach eine Auflistung von Bedingungen als eigenen Anforderung.
+Ein großes Problem bei der Verarbeitung der aus DOORS exportierten PDF-Dateien war die Zerstückelung der Sätze, auf denen die Sprachverarbeitung aufbaut. Oftmals waren beispielsweise Anforderungen aufgeteilt in einen Hauptteil und danach eine Auflistung von Bedingungen als eigenen Anforderungen.
 
-Dies ist problematisch, weil die Sprachverarbeitung auf ganzen Sätzen beruht und aus Bruchstücken nur schlecht wichtige Informationen filtern kann. Daher wäre eine Preprocessing des Dokumentes hilfreich, welches etwa den Hauptteil noch einmal vor jede der Bedingungen knüpft. Später wären die Bedingungen außerdem besser miteinander Verbunden, da immer der gleiche Hauptteil erkannt wurde.
+Dies ist problematisch, weil die Sprachverarbeitung auf ganzen Sätzen beruht und aus Bruchstücken nur schlecht wichtige Informationen filtern kann. Daher wäre eine Preprocessing des Dokuments hilfreich, welches etwa den Hauptteil noch einmal vor jede der Bedingungen knüpft. Später wären die Bedingungen außerdem besser miteinander verbunden, da immer der gleiche Hauptteil erkannt wurde.
 
-Des Weiteren könnte schon im Preprocessing versucht werden einige grammatikalische Schwierigkeiten wie fehlende Kommasetzung und Nutzung von Referenzen oder Passiv-Konstruktionen zu verhindern\footnote{Passiv-Konstruktionen sind nicht direkt falsch, sind jedoch in vielen Standards falls möglich zu vermeiden}. 
-\subsubsection{Anbindung an DOORS und verschiedene Dateiformate}
-Im betrieblichen Kontext ist ein besonders wichtiger Aspekt des Programms die An- bzw. Einbindung in bestimmte Arbeitsabläufe. Da ein Großteil des Requirements Engineering mit Hilfe von DOORS durchgeführt wird ist eine gute Anbindung an das Werkzeug sehr zu empfehlen. 
+Des Weiteren könnte schon im Preprocessing versucht werden, einige grammatikalische Schwierigkeiten wie fehlende Kommasetzung und Nutzung von Referenzen oder Passiv-Konstruktionen zu verhindern.\footnote{Passiv-Konstruktionen sind nicht direkt falsch, sind jedoch in vielen Standards falls möglich zu vermeiden}
 
-Andere Programme welche in der PMT-Abteilung verwendet werden wie z.B. \textit{ReqPat} befinden sich bereits in DOORS oder haben zumindest eine Anbindung. Außerdem stellt DOORS auch einige der zuvor in diesem Kapitel vorgeschlagenen Erweiterungen wie Benutzeransichten zur Verfügung. 
+\subsubsection{Direkte Anbindung an DOORS und verschiedene Dateiformate}
+Im betrieblichen Kontext ist ein besonders wichtiger Aspekt des Programms die An- bzw. Einbindung in bestimmte Arbeitsabläufe. Da ein Großteil des Requirements Engineering mit Hilfe von DOORS durchgeführt wird, ist eine gute Anbindung an das Werkzeug sehr zu empfehlen. 
 
-Zukünftig könnte es ansonsten auch Nützlich sein, das Programm an verschiedene Dateiformate wie .pdf und .docx anzupassen. Diese können in GATE bereits eingelesen und verwendet werden \cite{rs18}, jedoch werden dabei Bilder nicht berücksichtigt. Außerdem hat man in GATE nur noch den Klartext und die entsprechenden Annotationen, also auch keine Formatierung oder ähnliches. 
+Andere Programme wie z.B. \textit{ReqPat}, welche in der Abteilung für RE verwendet werden, befinden sich bereits in DOORS oder haben zumindest eine Anbindung. Außerdem stellt DOORS auch einige der zuvor in diesem Kapitel vorgeschlagenen Erweiterungen wie Benutzeransichten zur Verfügung. 
 
-Wenn man als Ergebnis der R2BC-Konvertierung also wieder eine .pdf- oder .docx-Datei haben möchte, ist diese selbst zu generieren. Eine Hilfestellung könnte jedoch die von von GATE bereitgestellte \textit{Doc.alter()}-Methode bieten. Diese ermöglicht es Text an der entsprechenden Stelle des GATE-internen Dokuments direkt zu ändern Stelle und Reihenfolge des Textabschnittes nicht zu verfälschen.
+Zukünftig könnte es ansonsten auch nützlich sein, das Programm an verschiedene Dateiformate wie .pdf und .docx anzupassen. Diese können in GATE bereits eingelesen und verwendet werden \cite{rs18}, jedoch werden dabei Bilder nicht berücksichtigt. Außerdem liegen in GATE nur noch den Klartext und die entsprechenden Annotationen vor, also auch keine Formatierung oder ähnliches. 
+
+Wenn als Ergebnis der R2BC-Konvertierung also wieder eine .pdf- oder .docx-Datei exportiert werden soll, ist diese selbst zu generieren. Eine Hilfestellung könnte jedoch die von GATE bereitgestellte \textit{Doc.alter()}-Methode bieten. Diese ermöglicht es, Text an der entsprechenden Stelle des GATE-internen Dokuments direkt zu ändern und dabei die Reihenfolge des Textabschnittes nicht zu verfälschen.
+
 \subsubsection{Machine Learning}
-Während des Entwicklungsprozesses wurde oftmals nach der Nutzung von \textit{Machine Learning} bzw. künstlicher Intelligenz (\textit{KI}) gefragt. Dies konnte von uns wegen der kurzen Zeit und einem Mangel an Daten nicht implementiert werden. 
+Während des Entwicklungsprozesses wurde oftmals nach der Nutzung von \textit{Machine Learning} bzw. künstlicher Intelligenz (\textit{KI}) gefragt.
 
 Anhaltspunkt für die Nutzung von KI ist etwa die Verbesserung der Präzision (bis hin zur möglichen Automatisierung) durch das Erfassen von Nutzerentscheidungen. Dazu wird davon ausgegangen, dass der Nutzer aus einer Menge von Vorschlägen immer den richtigen (bzw. keinen falls nicht vorhanden) akzeptiert. 
 
-Der Grundstein für diese Erfassung ist durch die Modularität des Programms bereits gegeben. Die in Abschnitt X.X beschriebenen internen Listen beinhalten immer alle ausgegebenen Vorschläge und die jeweilige Entscheidung des Nutzers, was den Abgleich und die Datensammlung stark vereinfachen sollte. 
+Der Grundstein für diese Erfassung ist durch die Modularität des Programms bereits gegeben. Die in Abs. 4.2.2 beschriebenen internen Listen beinhalten immer alle ausgegebenen Vorschläge und die jeweilige Entscheidung des Nutzers, was den Abgleich und die Datensammlung stark vereinfachen sollte. 
 
 \section{Test}
-In diesem Abschnitt wird die Funktionalität des R2BC anhand von realen Tests geprüft. Wie bereits erwähnt, bestand durch die Zusammenarbeit mit RE-Experten bei HELLA die Möglichkeit, die Konvertierung unter Verwendung realer Lastenhefte aus dem betrieblichen Alltag zu testen. Dazu konnten diverse Indikatoren für die Trefferquote unseres Programms definiert werden, die während der Konvertierung von drei zur Verfügung gestellten Lastenheften gemessen wurden.
+In diesem Abschnitt wird die Funktionalität des R2BC anhand von realen Tests geprüft. Wie bereits erwähnt, bestand durch die Zusammenarbeit mit RE-Experten bei HELLA die Möglichkeit, die Konvertierung unter Verwendung realer Lastenhefte aus dem betrieblichen Alltag zu testen. Dazu konnten diverse Indikatoren für die Trefferquote des Programms definiert werden, die während der Konvertierung von drei zur Verfügung gestellten Lastenheften gemessen wurden.
 
-Die Tests, die für dieses Kapitel durchgeführt wurden, wurden dabei schon in der Veröffentlichung \cite{zh19} beschrieben, die parallel zu dieser Arbeit veröffentlicht wurde.
+Die Tests, die für dieses Kapitel durchgeführt wurden, sind dabei bereits in der Veröffentlichung \cite{zh19} beschrieben, die parallel zu dieser Arbeit veröffentlicht wurde.
 
 \subsection{Methodik}
-In diesem Abschnitt wird das genaue Testszenario hinsichtlich der zu messenden Werte definiert. Das Programm entspricht dem unter 4.4 skizzierten Ablauf bei der Nutzung, d.h. die möglichen Konvertierungen wurden durch den R2BC vollautomatisch ermittelt und erzeugt. Zu jeder Anforderung wurden dann diese Konvertierungen angezeigt und bewertet. Auf dieser Basis konnten korrekte und fehlerhafte Verhaltensweisen des Programms gezählt und nachvollzogen werden.
+In diesem Abschnitt wird das genaue Testszenario hinsichtlich der zu messenden Werte definiert. Das Programm entspricht dem unter 4.2.3 skizzierten Ablauf bei der Nutzung, d.h. die möglichen Konvertierungen wurden durch den R2BC vollautomatisch ermittelt und erzeugt. Zu jeder Anforderung wurden dann diese Konvertierungen angezeigt und bewertet. Auf dieser Basis konnten korrekte und fehlerhafte Verhaltensweisen des Programms gezählt und nachvollzogen werden.
 
-Konkret existieren zwei primäre Werte, anhand derer die Erkennungsrate anhand der JAPE-Regeln zu den Boilerplates und Übersetzung im Converter evaluiert werden können. Bei der Konvertierung der Lastenheften sind dabei folgende Fehler, die aufgetreten sind, zu unterscheiden:
+Konkret existieren zwei primäre Werte, anhand derer die Erkennungsrate durch die JAPE-Regeln zu den Boilerplates und Übersetzungen im Converter evaluiert werden können. Bei der Konvertierung der Lastenheften sind dabei folgende Fehler, die aufgetreten sind, zu unterscheiden:
 \begin{itemize}
 \item \textit{Recall - Erkennungsgrad der Boilerplates} 
 
-Als recall wurde gemessen, ob alle passenden Boilerplates typmäßig zu einer Anforderung gefunden wurden. Es wird gemessen, ob ein erkannter Boilerplate-Typ zu einer Anforderung prinzipiell korrekt waren, d.h. ob eine vorgeschlagene Konvertierung in eine Boilerplate, die dem Nutzer vorgeschlagen wird, grundsätzlich korrekt ist. Sollte eine Konvertierung fälschlicherweise erkannt worden sein oder fehlen, obwohl sie zu der Anforderung gepasst hätte, liegt ein Fehler in der Erkennung vor.
+Als recall wurde gemessen, ob alle passenden Boilerplates typmäßig zu einer Anforderung gefunden wurden. Es wird gemessen, ob zu einem Satz des Quelldokuments, zu dem eine passende Konvertirung existiert, diese auch im Programm gefunden wird. Sollte eine Konvertierung fehlen, obwohl sie zu der Anforderung gepasst hätte, liegt ein Fehler in der Erkennung vor.
 
 \item \textit{Precision - Übersetzung in erzeugte Boilerplate} 
 
@@ -1678,7 +1688,7 @@ Der precision-Score stellt dar, wieviele von den richtig erkannten Boilerplates 
 \end{itemize}
 
 \subsubsection{Testdokumente}
-Im Rahmen der Tests wurden insgesamt drei Lastenhefte getestet, die aktuelle Produktspezifikationen von zu entwickelnden Fahrzeugkomponenten enthalten. Diese wurden dabei als repräsentative Dokumente von den RE-Experten der \textit{PMT}-Abteilung zur Verfügung gestellt. Dazu wurden sie aus dem Programm \textit{DOORS} als .pdf exportiert.\footnote{Beim DOORS-Export sind neben den Anforderungen als Text auch Bilder und Meta-Informationen wie etwa die Objekt-ID der Anforderung als DOORS-Objekt exportiert worden, die für die Tests nicht mit konvertiert wurden.} 
+Im Rahmen der Tests wurden insgesamt drei Lastenhefte getestet, die aktuelle Produktspezifikationen von zu entwickelnden Fahrzeugkomponenten enthalten. Diese wurden dabei als repräsentative Dokumente von den RE-Experten zur Verfügung gestellt. Dazu wurden sie aus dem Programm \textit{DOORS} als .pdf exportiert.\footnote{Beim DOORS-Export sind neben den Anforderungen als Text auch Bilder und Meta-Informationen wie etwa die Objekt-ID der Anforderung als DOORS-Objekt exportiert worden, die für die Tests nicht mit konvertiert wurden.} 
 
 \vspace{12pt}
 \begin{table}[h!]
@@ -1695,11 +1705,12 @@ Im Rahmen der Tests wurden insgesamt drei Lastenhefte getestet, die aktuelle Pro
 \end{table}
 \vspace{12pt}
 
-Tabelle 4.1 enthält die Metainformationen zu den getesteten Anforderungsdokumenten, die vor bzw. während des Programmdurchlaufs ermittelt wurden.\footnote{Absätze repräsentieren stellvertretend einzelne Anforderungen, da im Programm die \textit{sentence}-Annotation von GATE zur Trennung von Anforderungen verwendet wird. Dabei kann es vorkommen, dass mehrere Anforderungen als ein Satz zusammengefasst analysiert wurden und dass etwa Aufzählungen als verschiedene Sätze annotiert wurden. Dies hat keinen direkten Einfluss auf die Konvertierung.} Auf dieser Basis konnte dann zu jeder Anforderungen die Programmausgabe auf die Genauigkeit hin geprüft werden.
-Lastenheft 1 (LH1) enthält demnach 2693 Anforderungen und wurde innerhalb von 10,97 Sekunden konvertiert. LH1 stellt inhaltlich eine Teilspezifikation des mit 567 Seiten und 17766 Anforderungen wesentlich größeren Lastenheft 2 dar, dass innerhalb von ca. 11 Sekunden automatisch konvertiert wurde. LH3 enthält einige bruchstückhafte bzw. teilvollständige Anforderungen; der R2BC hat 1669 Sätze unterschieden.
+Tabelle 4.1 enthält die Metainformationen zu den getesteten Anforderungsdokumenten, die vor bzw. während des Programmdurchlaufs ermittelt wurden.\footnote{Absätze repräsentieren stellvertretend einzelne Anforderungen, da im Programm die \textit{sentence}-Annotation von GATE zur Trennung von Anforderungen verwendet wird. Dabei kann es vorkommen, dass mehrere Anforderungen als ein Satz zusammengefasst analysiert wurden und dass etwa Aufzählungen als verschiedene Sätze annotiert wurden. Dies hat keinen direkten Einfluss auf die Konvertierung.} Auf dieser Basis konnte dann zu jeder Anforderungen die Programmausgabe auf die Genauigkeit hin geprüft werden. 
+
+Lastenheft 1 (LH1) enthält demnach 2693 Anforderungen und wurde innerhalb von 10,97 Sekunden konvertiert. LH1 stellt inhaltlich eine Teilspezifikation des mit 567 Seiten und 17766 Anforderungen wesentlich größeren Lastenheft 2 dar, dass innerhalb von ca. 99 Sekunden automatisch konvertiert wurde. LH3 enthält einige bruchstückhafte bzw. teilvollständige Anforderungen; der R2BC hat 1669 Sätze unterschieden.
 
 \subsection{Durchführung}
-LH1 wurde zunächst manuell durchlaufen, um auf dieser Basis Regelmäßigkeiten in der Satzstruktur zu finden und Gazetter-Einträge hinzuzufügen. Dabei wurden aus jedem Dokument Systemnamen und -eigenschaften hinzugefügt. Auf dieser Basis wurden dann die JAPE-Regeln für die Analyse definiert. In Abs. 4.7 werden Ansätze zum automatischen Sammeln der Entitäten beschrieben. Bis auf den Gazetteer, der spezifische Eigennamen für z.B. Komponenten enthält, wurde für alle drei Lastenhefte mit dem identischen Programm getestet.
+LH1 wurde zunächst manuell durchlaufen, um auf dieser Basis Regelmäßigkeiten in der Satzstruktur zu finden und Gazetter-Einträge hinzuzufügen. Dabei wurden aus jedem Dokument Systemnamen und -eigenschaften hinzugefügt. Auf dieser Basis wurden dann die JAPE-Regeln für die Analyse definiert. In Abs. 4.3 werden Ansätze zum automatischen Sammeln der Entitäten beschrieben. Bis auf den Gazetteer, der spezifische Eigennamen für z.B. Komponenten enthält, wurde für alle drei Lastenhefte mit dem identischen Programm getestet.
 
 \vspace{12pt}
 \begin{table}[h!]
@@ -1709,7 +1720,7 @@ LH1 wurde zunächst manuell durchlaufen, um auf dieser Basis Regelmäßigkeiten 
 \multicolumn{1}{l|}{}             & \multicolumn{2}{l|}{Boilerplate 65c}    & \multicolumn{2}{l|}{Boilerplate 85}     \\
 \multicolumn{1}{l|}{}             & Recall & \multicolumn{1}{l|}{Precision} & Recall & \multicolumn{1}{l|}{Precision} \\ \hline
 \multicolumn{1}{l|}{\textbf{LH1}} & 100\%  & \multicolumn{1}{l|}{100\%}     & 89,3\% & \multicolumn{1}{l|}{66,7\%}    \\
-\multicolumn{1}{l|}{\textbf{LH2}\footnote{Testwerte basieren auf den ersten 400 Seiten des Dokuments}} &        & \multicolumn{1}{l|}{93,3\%} &  	  &  \multicolumn{1}{l|}{67,7\%}          \\
+\multicolumn{1}{l|}{\textbf{LH2}} &        & \multicolumn{1}{l|}{93,3\%} &  	  &  \multicolumn{1}{l|}{67,7\%}          \\
 \multicolumn{1}{l|}{\textbf{LH3}} &   & \multicolumn{1}{l|}{100\%}     & 	  & \multicolumn{1}{l|}{84,7\%}    
 \end{tabular}
 \rm
@@ -1717,7 +1728,7 @@ LH1 wurde zunächst manuell durchlaufen, um auf dieser Basis Regelmäßigkeiten 
 \end{table}
 \vspace{12pt}
 
-Wie in Tab. 4.2 sichtbar ist, wurden bei LH1 für die Boilerplate 65c 100\% recall und 100\% precision erreicht. Der \textit{recall}-Wert zeigt, dass alle passenden Anforderungen für diese Boilerplate erkannt wurden. 100\% Präzision der Übersetzung lassen sich auf den Umstand zurückführen, dass alle zu erkennenden Systemnamen für die BP65c im Gazetteer vorhanden waren und dementsprechend gefunden werden konnten. Nichtsdestotrotz wurde bei 37,5\% der Boilerplates das \textit{completeSystemName} unvoltsändig eingetragen, wenn mehrere Einträge im Gazetteer vorhanden waren. Wenn im Gazetteer etwa sowohl \textit{controller}, als auch \textit{headlamps controller} enthalten sind, wurde stets nur \textit{controller} in die Boilerplate eingetragen, obwohl \textit{headlamp controller} als System in der Anforderung stand. Dieser prinzipielle Mangel lässt sich jedoch durch Optimierung oder hierarchische Anordnung mehrerer Gazetters beheben und wurde daher nicht als \textit{precision}-Fehler gewertet.
+Wie in Tab. 4.2 sichtbar ist, wurden bei LH1 für die Boilerplate 65c 100\% recall und 100\% precision erreicht. Der \textit{recall}-Wert zeigt, dass alle passenden Anforderungen für diese Boilerplate erkannt wurden. 100\% Präzision der Übersetzung lassen sich auf den Umstand zurückführen, dass alle zu erkennenden Systemnamen für die BP65c im Gazetteer vorhanden waren und dementsprechend gefunden werden konnten. Nichtsdestotrotz wurde bei 37,5\% der Boilerplates das \textit{completeSystemName} unvollständig eingetragen, wenn mehrere Einträge im Gazetteer vorhanden waren. Wenn im Gazetteer etwa sowohl \textit{controller}, als auch \textit{headlamps controller} enthalten sind, wurde stets nur \textit{controller} in die Boilerplate eingetragen, obwohl \textit{headlamp controller} als System in der Anforderung stand. Dieser prinzipielle Mangel lässt sich jedoch durch Optimierung oder hierarchische Anordnung mehrerer Gazetters beheben und wurde daher nicht als \textit{precision}-Fehler gewertet.
 
 Für Boilerplate 85 wurde 66,7\% Erkennungsrate und 89,3\% korrekte Übersetzung ermittelt. Wurde also eine bedingte Anforderung erkannt, hat das Programm diese in den meisten Fällen auch korrekt übersetzt. Eigenheiten der Formulierung der Autoren und Rechtschreibfehler in den Anforderungen haben den \textit{recall}-Score verringert. Manche Autoren nutzen etwa \glqq \textit{In the event of}\grqq{} anstelle von \glqq \textit{if}\grqq{} (zu Deutsch: \glqq Im Fall von\grqq{} anstatt \glqq Wenn\grqq{}) oder haben nach dem \textit{if} fälschlicherweise kein Komma gesetzt. Auch wurde beobachtet, dass manche Anforderungen mehrere Bedingungen auf einmal oder verschachtelte Bedingungen enthielten, die zu einer Uneindeutigkeit der Anforderung führen können.
 
@@ -1747,14 +1758,14 @@ In diesem Kapitel wird das zweite entwickelte Tool, der \textit{Delta Analyser} 
 
 Dabei sollen für den Nutzer wichtige Informationen über Unterschiede und Gemeinsamkeiten erkannt, gefiltert und in Form eines \textit{Delta-Reports} ausgegeben werden. Auf Basis des Delta-Reports soll dann die Arbeit mit dem OEM-Lastenheft stark vereinfacht und eine Kostenabschätzung für dessen Umsetzung ermöglicht werden. 
 
-Ähnlich zur Vorstellung des R2BC wird dabei zunächst die Architektur des Programms vorgestellt. Daraufhin werden wichtige Aspekte der Implementierung erläutert und mögliche Erweiterungen des Programms aufgeführt. Abschließend werden die Tests des Programms beschrieben und die erhobenen Ergebnisse vorgestellt.
+Ähnlich zur Vorstellung des R2BC wird dabei zunächst die Architektur des Programms vorgestellt. Daraufhin werden wichtige Aspekte der Implementierung erläutert und mögliche Erweiterungen des Programms aufgeführt.
  
 \section{Architektur}
 In diesem Abschnitt wird die Klassenstruktur des Programms vorgestellt und erläutert, um einen groben Überblick über die Funktion des Programms zu geben. 
 
-Die verwendete Software ist die selbe wie in bei dem R2BC (siehe Abschnitt 4.1.1), weswegen der entsprechende Abschnitt für den Delta-Analyser entfällt. Die einzige Ausnahme davon ist die Verwendung von GATE. 
+Die verwendete Software ist die selbe wie für den R2BC (siehe Abschnitt 4.1.1), weswegen der entsprechende Abschnitt für den Delta-Analyser entfällt. Die einzige Ausnahme ist die Verwendung von GATE. 
 
-Da die Sprachverarbeitung durch GATE bereits im R2BC integriert ist, können dessen Ergebnisse im DA weiterverwendet werden\footnote{Dies wird im Implementierungs-Abschnitt genauer erläutert.}. Daher ist es nicht nötig GATE in den DA zu integrieren oder dort eine sprachliche Analyse durchzuführen.
+Da die Sprachverarbeitung durch GATE bereits im R2BC integriert ist, können dessen Ergebnisse im DA weiterverwendet werden\footnote{Dies wird im Implementierungs-Abschnitt genauer erläutert.}. Daher ist es nicht nötig, GATE explizit in den DA zu integrieren oder dort eine sprachliche Analyse durchzuführen.
 
 \subsection{Klassenarchitektur}
 Der Delta Analyser ist aufgeteilt auf drei Pakete mit insgesamt sieben Klassen\footnote{Das Boilerplate-Paket mit dessen drei Klassen wurde im R2BC-Kapitel bereits ausreichend erläutert und wird daher hier nicht wiederholt.} (und einer \textit{Enumeration}). Das Paket \textit{DAGUI} enthält dabei gesondert die Benutzeroberfläche in der \textit{DAMainWindow}-Klasse. Die restlichen Ressourcen befinden sich zusammen in dem \textit{DA}-Paket.
@@ -1762,16 +1773,16 @@ Der Delta Analyser ist aufgeteilt auf drei Pakete mit insgesamt sieben Klassen\f
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=1.0]{Bilder/DA-Pakete.png}
-\caption{Zuordnung der DA-Klassen zu Paketen nach Abb.3.x [eigene Darstellung]}
+\caption{Zuordnung der DA-Klassen zu Paketen nach Abb. 3.8 [eigene Darstellung]}
 \end{center}
 \end{figure}
 
-Abbildung X.X zeigt ein UML-Klassendiagramm des Programms mit den Klassen, sowie deren relevanten Attributen und Methoden. Im Folgenden sind die einzelnen Ressourcen kurz erläutert.
+Abbildung 5.2 zeigt ein UML-Klassendiagramm des Programms mit den Klassen, sowie deren relevanten Attributen und Methoden. Im Folgenden sind die einzelnen Ressourcen kurz erläutert.
 
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=0.635]{Bilder/da-klassen.png}
-\caption{Zuordnung der DA-Klassen zu Paketen nach Abb.3.x [eigene Darstellung]}
+\caption{UML-Klassendiagramm DA [eigene Darstellung]}
 \end{center}
 \end{figure}
 
@@ -1781,36 +1792,36 @@ Abbildung X.X zeigt ein UML-Klassendiagramm des Programms mit den Klassen, sowie
 
 Beim Initialisieren der GUI werden den in der \textit{DAMainWindow}-Klasse erstellten Oberflächen-Objekten über sogenannte \textit{ActionListener} die Funktionalitäten verliehen. Diese werden dann beim Betätigen der Oberfläche ausgeführt.
 \item \textit{DeltaAnalyser.java}: In dieser Klasse befindet sich der Hauptteil der Verarbeitungslogik. Zunächst werden hier die Boilerplate-Listen deklariert, in welche die Ergebnisse des R2BC geladen werden können. Außerdem wird hier ein Objekt der \textit{BoilerplateComperator}-Klasse instanziiert (beschrieben im nächsten Punkt). 
-Die Kernfunktionalitäten des Programms werden implementiert in den Methoden 
+Die Kernfunktionalitäten des Programms werden in den Methoden 
 \begin{itemize}
 \item \textit{loadBPsFromFile},
 \item \textit{analyseDeltas},
 \item \textit{annotationCompare}
 \item und \textit{printResult}.
 \end{itemize}
-Diese werden jeweils genau im Implementierungsabschnitt erläutert. 
-\item \textit{BoilerplateComparator.java}: Diese Klasse dient als Vergleichsklasse von zwei Boilerplate-Objekten. Dazu ist hier die \textit{compare}-Methode implementiert, welche die Boilerplates auf Vergleichbarkeit prüft und eine Voreinordnung vornimmt. Dies ist unabhängig von der Art der  zu vergleichenden Boilerplates möglich. 
+implementiert. Diese werden jeweils genau im Implementierungsabschnitt erläutert. 
+\item \textit{BoilerplateComparator.java}: Diese Klasse dient als Vergleichsklasse von zwei Boilerplate-Objekten. Dazu ist hier die \textit{compare}-Methode implementiert, welche die Boilerplates auf Vergleichbarkeit prüft und eine Voreinordnung vornimmt. Dies ist unabhängig von der Art der zu vergleichenden Boilerplates möglich. 
 \item \textit{Vehicle.java}: Diese Aufzählung von möglichen Fahrzeugbezeichnungen wurde als möglicher Platzhalter für andere Entitätserkennungen in das Programm integriert. Alternativ könnten auch Gazetteers oder Ontologien (siehe mögliche Erweiterungen) verwendet werden. 
 
-Die Aufzählung wird dazu verwendet voneinander unterschiedliche Elemente eventuell einer gemeinsamen Gruppe zuordnen zu können und somit zwischen komplett oder nur leicht unterschiedlichen Elementen unterscheiden zu können. 
+Die Aufzählung wird dazu verwendet, voneinander unterschiedliche Elemente eventuell einer gemeinsamen Gruppe zuordnen und somit zwischen komplett oder nur leicht unterschiedlichen Elementen unterscheiden zu können. 
 Dazu ist in der Aufzählung die \textit{contains}-Methode implementiert, welche ein Element auf das vorkommen in der Aufzählung prüfen kann.
 \end{enumerate}
 
-\section{Werkzeug-Implementierung}
+\section[Implementierung]{Werkzeug-Implementierung}
 In diesem Abschnitt werden wichtige Aspekte der Implementierung des Delta Analysers erläutert. Wichtig sind dabei vor allem die interne Haltung der zu vergleichenden Boilerplates und die Methoden zum Vergleichen und Bewerten dieser. Außerdem wird die Nutzerinteraktion mit dem Programm dargestellt. 
 
 \subsection{Analyse-Funktionalität}
 \subsubsection{Haltung der Boilerplates}
-Um in der Lage zu sein, zwei komplette Lastenhefte zu vergleichen, sind zwei Datenstrukturen nötig, welche jeweils eines der Lastenhefte komplett beinhalten. Hierzu kann man praktischerweise die im R2BC erstellten Boilerplate-Listen gut verwenden. Entsprechend der \textit{bpExportList} des R2BC ist es ausreichend, wenn diese Listen eindimensional sind und Boilerplate-Objekte aufnehmen können. 
+Um in der Lage zu sein, zwei komplette Lastenhefte zu vergleichen, sind zwei Datenstrukturen nötig, welche jeweils eines der Lastenhefte komplett beinhalten. Hierzu kann man praktischerweise die im R2BC erstellten Boilerplate-Listen verwenden. Entsprechend der \textit{bpExportList} des R2BC ist es ausreichend, wenn diese Listen eindimensional sind und Boilerplate-Objekte aufnehmen können. 
 
 Diese Listen sind Teil der \textit{DeltaAnalyser}-Klasse und können durch die \textit{loadBPsFromFile}-Methode befüllt werden. Sie wird von den zwei \textit{Import}-Buttons aufgerufen (genauer bei Nutzerinteraktion erläutert), deserialisiert eine gespeicherte Boilerplate-Liste und speichert diese in die entsprechende interne Liste ab.
 
-Als Platzhalter für das automatische Auslesen der Requirements-IDs (siehe R2BC/mögliche Erweiterungen X.X) wurde die \textit{initializeIDs}-Methode implementiert. In dieser werden die internen Listen iteriert und die enthaltenen Boilerplate-Objekte fortlaufend nummeriert um den Vergleich der Boilerplates später nachvollziehbarer zu machen. 
+Als Platzhalter für das automatische Auslesen der Requirements-IDs (siehe R2BC/mögliche Erweiterungen 4.3) wurde die \textit{initializeIDs}-Methode implementiert. In dieser werden die internen Listen iteriert und die enthaltenen Boilerplate-Objekte fortlaufend nummeriert, um den Vergleich der Boilerplates später nachvollziehbarer zu machen. 
 
 \subsubsection{Vergleich der Boilerplates}
 Der Vergleich der Lastenhefte findet vorrangig in der \textit{analyseDeltas}-Methode statt und wird dort teilweise an andere Methoden ausgelagert.
 
-In \textit{analyseDeltas} werden die beiden internen Lastenhefte in einer geschachtelten \textit{for}-Schleife durchlaufen. In der äußeren Schleife wird das OEM-Lastenheft und in der inneren das HELLA-Lastenheft iteriert. Es wird also für jede Boilerplate im OEM-Dokument jede Boilerplate des HELLA-Dokuments durchlaufen. 
+In \textit{analyseDeltas()} werden die beiden internen Lastenhefte in einer geschachtelten \textit{for}-Schleife durchlaufen. In der äußeren Schleife wird das OEM-Lastenheft und in der inneren das internen Lastenhefts iteriert. Es wird also für jede Boilerplate im OEM-Dokument jede Boilerplate des internen Dokuments durchlaufen. 
 
 Dabei wird für eine grobe Voreinordnung die \textit{compare}-Methode der \textit{BoilerplateComparator}-Klasse aufgerufen. Diese prüft den Type der Boilerplates auf Gleichheit. Ist dieser gleich, wird die komplette Boilerplate abgeglichen. Bei einem Treffer gibt die Methode 0 zurück, bei dem gleichen Typen eine 1 und bei keinerlei Übereinstimmung eine 2. 
 
@@ -1820,10 +1831,10 @@ Abhängig von diesem Ergebnis wird in der \textit{analyseDeltas}-Methode weiter 
 \item
 Bei einer 0 ist eine perfekte Übereinstimmung gefunden und die Suche muss für diese Boilerplate nicht weitergeführt werden.
 
-Die HELLA-Boilerplate welche den Treffer ergab wird zunächst in ein Boilerplate-Objekt namens \textit{tempsBP} abgespeichert. In diesem Objekt befindet sich immer die bisher passendste HELLA-Boilerplate zu der momentanen OEM-Boilerplate. 
+Die interne Boilerplate, welche den Treffer ergab, wird zunächst in ein Boilerplate-Objekt namens \textit{tempsBP} abgespeichert. In diesem Objekt befindet sich immer die bisher passendste interne Boilerplate zu der momentanen OEM-Boilerplate. 
 
 \item 
-Wurde eine 1 zurückgegeben so wird auf den beiden Boilerplates die \textit{annotationCompare}-Methode aufgerufen. Hier werden auch einzelne Satzbestandteile der beiden Boilerplates verglichen. Die vorherige Überprüfung der Boilerplate-Typen garantiert, dass hier vergleichbare Satzbestandteile vorliegen. 
+Wurde eine 1 zurückgegeben, wird auf den beiden Boilerplates die \textit{annotationCompare}-Methode aufgerufen. Hier werden auch einzelne Satzbestandteile der beiden Boilerplates verglichen. Die vorherige Überprüfung der Boilerplate-Typen garantiert, dass hier vergleichbare Satzbestandteile vorliegen. 
 
 \begin{figure}[H]
 \begin{center}
@@ -1832,15 +1843,15 @@ Wurde eine 1 zurückgegeben so wird auf den beiden Boilerplates die \textit{anno
 \end{center}
 \end{figure}
 
-An dieser Stelle kommt die \textit{Vehicle}-Aufzählung zum Einsatz und ermöglicht es, Satzbestandteile wie \textit{CompleteSystemText} nicht nur auf komplette Gleichheit, sondern auch auf Typgleichheit zu prüfen. Hierzu wird zu beiden Systemtexten mit Hilfe der \textit{contains}-Methode nachgeschaut, ob sie in der gleichen Aufzählung auftauchen. 
+An dieser Stelle kommt die \textit{Vehicle}-Aufzählung zum Einsatz und ermöglicht es, Satzbestandteile wie \textit{CompleteSystemText} nicht nur auf komplette Gleichheit, sondern auch auf Typgleichheit zu prüfen. Hierzu wird zu beiden Systemtexten mit Hilfe der \textit{contains}-Methode überprüft, ob sie in der gleichen Aufzählung auftauchen. 
 
-Abhängig vom Übereinstimmungsgrad der Satzbestandteile kann dann eine genauere Bewertung der Unterschiede erfolgen. Ist diese Bewertung besser als die momentane Bewertung der \textit{tempBP}-Boilerplate, so wird diese durch die betroffene neue Boilerplate ersetzt und die Suche wird fortgesetzt.
+Abhängig des Übereinstimmungsgrads der Satzbestandteile kann dann eine genauere Bewertung der Unterschiede erfolgen. Ist diese Bewertung besser als die momentane Bewertung der \textit{tempBP}-Boilerplate, so wird diese durch die betroffene neue Boilerplate ersetzt und die Suche wird fortgesetzt.
 
 \item Gibt die \textit{compare}-Methode eine 2 zurück, so sind die verglichenen Boilerplates nicht kompatibel und es wird im HELLA-Dokument weiter nach einer passenderen Boilerplate gesucht.
 
 \end{itemize}
 
-Abbildung X.X zeigt den hier beschriebenen Ausschnitt der \textit{analyseDeltas}-Methode.
+Abbildung 5.4 zeigt den hier beschriebenen Ausschnitt der \textit{analyseDeltas}-Methode.
 \begin{figure}[H]
 \begin{center}
 \includegraphics[scale=0.7]{Bilder/analyseDeltas.jpg}
@@ -1848,8 +1859,9 @@ Abbildung X.X zeigt den hier beschriebenen Ausschnitt der \textit{analyseDeltas}
 \end{center}
 \end{figure}
 
-Effektiv löst diese Art des Iterierens das Minimierungsproblem des Abweichung zwischen den Boilerplates. Es wird als immer die HELLA-Boilerplate mit der geringsten Abweichung (gespeichert in der \textit{result}-Variablen) bzw. der höchsten Übereinstimmung zu der momentanen OEM-Boilerplate gefunden.
+Effektiv löst diese Art des Iterierens das Minimierungsproblem der Abweichung zwischen den Boilerplates. Es wird als immer die interne Boilerplate mit der geringsten Abweichung (gespeichert in der \textit{result}-Variablen) bzw. der höchsten Übereinstimmung zu der momentanen OEM-Boilerplate gefunden.
 
+\subsubsection{Ausgabe des Delta-Reports}
 Sobald dies geschehen und spätestens wenn das HELLA-Dokument durchlaufen ist, wird mit den beiden Boilerplates und deren Übereinstimmungsfaktor die \textit{printResult}-Methode aufgerufen. 
 
 Diese gibt je nach Boilerplate-Typ und Übereinstimmung der Boilerplates einen Satz aus, welcher das Ergebnis zusammenfasst und erläutert. Bei Unterschieden in bestimmten Satzbestandteilen werden beispielsweise beide betroffenen Komponenten zum Vergleich ausgegeben. 
@@ -1857,12 +1869,12 @@ Diese gibt je nach Boilerplate-Typ und Übereinstimmung der Boilerplates einen S
 Dieser Satz wird für jede OEM-Anforderung über einen \textit{FileOutputStream} in eine Datei geschrieben, welche später als Delta-Report verwendet wird. Sobald die letzte OEM-Anforderung verarbeitet ist, werden zusätzlich die Anzahl der kompletten Übereinstimmungen und die Anzahl der nicht verbundenen Boilerplates in die Datei ausgegeben. Ein fertiger Delta-Report wird am Ende des nächsten Kapitels gezeigt und erläutert.
 
 \subsection{GUI - Nutzerinteraktion und Workflow}
-Die Arbeit mit dem Delta-Analyser stellt das zweite Werkzeug der Verarbeitungskette dar, wenn Lastenhefte verglichen werden sollen. Ein Nutzer nutzt daher zunächst den R2BC, um Lastenhefte in formale Sprache zu bringen, die sich dann im DA vergleichen lassen. In diesem Abschnitt wird daher anhand des Vergleichs zweier Lastenhefte im DA hauptsächlich auf den Delta-Report eingegangen, der als Ergebnis aus dem DA exportiert wird. 
+Die Arbeit mit dem Delta-Analyser stellt das zweite Werkzeug der Verarbeitungskette dar, wenn Lastenhefte verglichen werden sollen. Ein Nutzer nutzt daher zunächst den R2BC, um Lastenhefte in formalere Sprache zu bringen, die sich dann im DA vergleichen lassen. In diesem Abschnitt wird daher anhand des Vergleichs zweier Lastenhefte im DA hauptsächlich auf den Delta-Report eingegangen, der als Ergebnis aus dem DA exportiert wird. 
 
 \subsubsection{Programmoberfläche}
 Für den Test dieser Werkzeugkette und zur Verdeutlichung der Funktionalität vor den Experten, wurde daher auch für den DA eine minimale GUI entwickelt, anhand derer sich der Arbeitsablauf mit dem Programm zeigen lässt. Im Vergleich zum R2BC entfällt jedoch die manuelle Bewertung der Anforderungen durch den Nutzer, weshalb die GUI stark vereinfacht werden konnte.
 
-Da die Analyse der Deltas prinzipiel automatisch anhand von Kriterien bzw. dem Überinstimmungsgrad erfolgt, beinhaltet die GUI im wesentlichen Buttons zum laden der zwei Lastenhefte, die verglichen werden sollen, und zum Start der Analyse, in der auch direkt der Delta-Report erzeugt und als Datei exportiert wird.
+Da die Analyse der Deltas prinzipiell automatisch anhand von Kriterien bzw. dem Überinstimmungsgrad erfolgt, beinhaltet die GUI im wesentlichen Buttons zum laden der zwei Lastenhefte, die verglichen werden sollen, und zum Start der Analyse, in der auch direkt der Delta-Report erzeugt und als Datei exportiert wird.
 
 \begin{figure}[h!]
 \begin{center}
@@ -1871,32 +1883,38 @@ Da die Analyse der Deltas prinzipiel automatisch anhand von Kriterien bzw. dem �
 \end{center}
 \end{figure}
 
-Die GUI orientiert sich dabei an dem in Kap. 3.x gezeigten Use-Case, wonach der Delta-Analyser ein Lastenheft V2 auf die Deltas zu einem bereits vorhandenen Lastenheft V1 hin analysieren soll. V2 wird im DA als \textit{OEM-Lastenheft} bezeichnet, da ein OEM neue Anforderungen als Kunde an HELLA gibt, die umgesetzt werden sollen. V1 wird als \textit{internal} bzw. \textit{HELLA}-Lastenheft bezeichnet, da es ein Lastenheft darstellt, dass bereits in der Firma bekannt ist.
+Die GUI orientiert sich dabei an dem in Abs. 3.4 gezeigten Use-Case, wonach der Delta-Analyser ein Lastenheft V2 auf die Deltas zu einem bereits vorhandenen Lastenheft V1 hin analysieren soll. V2 wird im DA als \textit{OEM-Lastenheft} bezeichnet, da ein OEM neue Anforderungen als Kunde an HELLA gibt, die umgesetzt werden sollen. V1 wird als \textit{internal} bzw. \textit{HELLA}-Lastenheft bezeichnet, da es ein Lastenheft darstellt, dass bereits in der Firma bekannt ist.
 
 Beim Programmstart wählt der Nutzer über \textit{Import OEM CRS...} ein ein Lastenheft mit Kundenanforderungen aus, zu denen passende Anforderungen aus einem internen Lastenheft \textit{Import internal CRS... }gefunden werden sollen. 
 
 \subsubsection{Beispielhafte Arbeit mit dem Werkzeug}
-In diesem Abschnitt wird der bei der Analyse entstehende Delta-Report näher beschrieben. Die Implementierung der Vergleichsalgorithmen lässt sich anhand der zwei folgenden, prototypischen Lastenhefte nachvollziehen. Diese sind zuvor, wie bereits beschrieben, durch den R2BC konvertiert worden, womit der Vergleich im DA ermöglict wurde. Als V1 könnte bereis ein Anuszug aus dem in Kap. 4.x verarbeiteten Lastenheft in der Firma vorhanden sein:\\
+In diesem Abschnitt wird der bei der Analyse entstehende Delta-Report näher beschrieben. Die Implementierung der Vergleichsalgorithmen lässt sich anhand der zwei folgenden, prototypischen Lastenhefte nachvollziehen. Diese sind zuvor, wie bereits beschrieben, durch den R2BC konvertiert worden, womit der Vergleich im DA ermöglicht wurde. Als V1 könnte bereits ein Auszug aus dem in Abs. 4.2.3 verarbeiteten Lastenheft in der Firma vorhanden sein:\\
 
 1. The complete system <<Golf7>> shall <<perform TestDriveCityTour>>.\\
 
 2. The durability of EBus2X shall be at least 12000 h.\\
 
-3. Under the condition: <<If there is a connection to the internet>> the actor: <<Bluetooth connected phone>> shall <<transmit the data to a server>>.\\
+3. Under the condition: <<If there is a connection to the internet>> the 
+
+actor: <<Bluetooth connected phone>> shall <<transmit the data to a server>>.\\
 \\
 
-Diese Anfordeurngen liegen somit firmenintern vor und neu hinzukommende Anforderungen können mit diesen abgeglichen werden. Die folgenden Anforderungen könnten als neue Anforderungen in V2 enthalten sein:\\
+Diese Anforderungen liegen somit firmenintern vor und neu hinzukommende Anforderungen können mit diesen abgeglichen werden. Die folgenden Anforderungen könnten als neue Anforderungen in V2 enthalten sein:\\
 
 1. The complete system <<Golf7>> shall <<perform TestDriveCityTour>>.\\
 
 2. The complete system <<vehicle>> shall <<perform Charge4FreeCharging>>.\\
 
-3. Under the condition: <<If there is a connection to the internet>> the actor: <<vehicle>> shall <<transmit the data to a server>>.\\
+3. Under the condition: <<If there is a connection to the internet>> the 
 
-4. Under the condition: <<If the car is turned off>> the actor: <<vehicle>> shall <<not transmit the data to a server>>.\\
+actor: <<vehicle>> shall <<transmit the data to a server>>.\\
+
+4. Under the condition: <<If the car is turned off>> the 
+
+actor: <<vehicle>> shall <<not transmit the data to a server>>.\\
 \\
 
-Nach dem Klick auf \textit{Analyse Deltas} ermittelt der R2BC zu jeder Anforderung aus V2 die am besten passende Anforderung aus V1. Der Grad der Übereinstimmung wird zusammen mit den Deltas zwischen den Anforderungen in den Delta-Report exportiert. Dieser ist für die beiden prototypischen Lastenhefte in Abb. 5.x dargestellt:
+Nach dem Klick auf \textit{Analyse Deltas} ermittelt der R2BC zu jeder Anforderung aus V2 die am besten passende Anforderung aus V1. Der Grad der Übereinstimmung wird zusammen mit den Deltas zwischen den Anforderungen in den Delta-Report exportiert. Dieser ist für die beiden prototypischen Lastenhefte in Abb. 5.6 dargestellt:
 
 \begin{figure}[h!]
 \begin{center}
@@ -1907,7 +1925,7 @@ Nach dem Klick auf \textit{Analyse Deltas} ermittelt der R2BC zu jeder Anforderu
 
 Die Einträge zu jeder Anforderung aus V2 im Report sind wie folgt zu bewerten:
 \begin{enumerate}
-\item Zu ersten Anfordeung aus V2 wurde die identische Anorderung 1 in V1 identifiziert, da diese nach der Konvertierung durch den R2BC die identische Boilerplate hervorgebracht haben. Der DA hat also die best-mögliche Übereinstimmung gefunden.
+\item Zu ersten Anforderung aus V2 wurde die identische Anforderung 1 in V1 identifiziert, da diese nach der Konvertierung durch den R2BC die identische Boilerplate hervorgebracht haben. Der DA hat also die best-mögliche Übereinstimmung gefunden.
 \item Bei Anforderung 2 liegt ein Delta in den vergleichbaren Anforderungen aus V1 vor. Der DA hat erneut die am besten passende Anforderung 1 identifiziert. Durch Nutzung des Enumerates wurde identifiziert, dass der Systemtyp von \textit{vehicle} und \textit{Golf7} übereinstimmen und somit zumindest vergleichbare Anforderungen vorliegen. Da sich die \textit{functionDescription} beider Anforderungen jedoch unterscheidet, ist der Übereinstimmungsgrad eher gering.
 \item Bei Anforderung 3 liegt erneut der Fall vor, dass eine vergleichbare Anforderung in V1 gefunden wurde. Es fällt auf, dass sich lediglich der \textit{ConditionalActor} zu den bekannten Anforderungen unterscheidet, weshalb der DA einen hohen Überinstimmungsgrad beider Anforderungen erreicht. Es muss lediglich geprüft werden, ob tatsächlich eine einfache Adaption von \textit{Bluetooth connected phone} hin zu \textit{vehicle} möglich ist.
 \item Anforderung 4 scheint zunächst sehr ähnlich zu Anf. 3, unterscheitet sich jedoch in sämtlichen Satzbestandteilen von den Anforderungen aus V1. Am ehesten vergleichbar wäre wieder Anf. 3, jedoch sind sowohl \textit{ConditionalActor}, als auch \textit{Condition} und \textit{FunctionDescription} unterschiedlich. Der DA kann also, bis auf den gleichen Typ der Boilerplate, keine Übereinstimmung zu bekannten Anforderungen feststellen.
@@ -1917,73 +1935,73 @@ Es wurde gezeigt, dass eine recht feingranulare Differenzierung der Deltas im DA
 Dies kann die Bewertung der Anforderungen stark vereinfachen und den Aufwand der Machbarkeitsabschätzung reduzieren.
 Im nächsten Abschnitt werden mögliche Ergänzungen vorgestellt, die auf dem Konzept der DA-Implementierung basieren. 
 
-\section{Mögliche Erweiterungen}
-In diesem Abschnitt werden mögliche Erweiterungen des Delta-Analysers erläutert. Diese sind aufgeteilt in Erweiterungen der Benutzeroberfläche für eine bessere Interaktion mit dem Programm und technische Erweiterungen, welche sich auf Konzept oder Funktionsweise des Programms beziehen.
+\section[Erweiterungen]{Mögliche Erweiterungen}
+In diesem Abschnitt werden mögliche Erweiterungen des Delta-Analysers erläutert. Diese sind aufgeteilt in Erweiterungen der Benutzeroberfläche (für eine bessere Interaktion mit dem Programm) und technische Erweiterungen, welche sich auf Konzept oder Funktionsweise des Programms beziehen.
 \subsection[Benutzeroberfläche]{Erweiterungen der Benutzeroberfläche}
 \subsubsection{DOORS-Anbindung}
-Wie auch beim R2BC gilt für den Delta Analyser, dass einen Anbindung an DOORS von großem Nutzen sein kann. So könnte beispielsweise nach dem Delta Analyser ein direkter Vergleich der beiden Dokumente in DOORS erfolgen.
+Wie auch beim R2BC gilt für den Delta Analyser, dass eine Anbindung an DOORS von großem Nutzen sein kann. So könnte beispielsweise nach dem Delta Analyser ein direkter Vergleich der beiden Dokumente in DOORS erfolgen.
 
-Dazu könnte eine farbige Unterlegung der Boilerplates auf Grundlage des besten gefundenen Übereinstimmungsfaktors genutzt werden. Übersichtlichkeit würde für den Nutzer dadurch stark verbessert und eine grobe Einschätzung der Dokumente ermöglicht.
+Dazu könnte eine farbige Unterlegung der Boilerplates auf Grundlage des besten gefundenen Übereinstimmungsfaktors genutzt werden. Die Übersichtlichkeit würde für den Nutzer dadurch stark verbessert und eine grobe Einschätzung der Dokumente ermöglicht.
 \subsubsection{Möglichkeiten Anzeigen}
-Momentan wird stets nur eine HELLA-Boilerplate mit einer OEM-Boilerplate verbunden und später angezeigt. Es ist jedoch auch möglich das verschiedene Boilerplates den gleichen Übereinstimmungsfaktor haben und nur der Nutzer entscheiden kann welche am besten passt.
+Momentan wird stets nur eine interne Boilerplate mit einer OEM-Boilerplate verbunden und später angezeigt. Es ist jedoch auch möglich, dass verschiedene Boilerplates den gleichen Übereinstimmungsfaktor haben und nur der Nutzer entscheiden kann welche am besten passt.
 
 Dazu könnte man bei Uneindeutigkeit dem Nutzer (ähnlich zum R2BC) die besten Möglichkeiten anzeigen und ihn eine davon wählen lassen.
 \subsubsection{Delta Report}
-Der wichtigste Teil für die Verwendbarkeit des Programms ist ein übersichtlicher und praktischer Delta Report. Momentan  wird dieser nur prototypisch erstellt und ist noch nicht konkret auf die Bedürfnisse bestimmter Nutzer angepasst.
+Der wichtigste Teil für die Verwendbarkeit des Programms ist ein übersichtlicher und praktischer Delta Report. Momentan wird dieser nur prototypisch erstellt und ist noch nicht konkret auf die Bedürfnisse bestimmter Nutzer angepasst.
 
 Feldtests und Experteninterviews im Rahmen einer Anforderungsanalyse könnten die nötigen Informationen für einen optimierten Delta Report liefern.
 \subsubsection{Zusammenlegung}
-Da bei dem Delta Analyser keine komplexe Nutzerinteraktion nötig ist, sondern nur Datei eingelesen und Ergebnisse ausgegeben werden müssen, ließe sich der Delta Analyser evtl. Modul des R2BC in dessen Benutzeroberfläche integrieren. 
+Da bei dem Delta Analyser keine komplexe Nutzerinteraktion nötig ist, sondern nur Dateien eingelesen und Ergebnisse ausgegeben werden müssen, ließe sich der Delta Analyser evtl. als Modul des R2BC in dessen Benutzeroberfläche integrieren. 
 
-Diese würde Modularität der Module etwas schwächen, die Anwendbarkeit durch den Nutzer jedoch erleichtern.
+Dies würde Modularität der Module etwas verringern, die Anwendbarkeit durch den Nutzer jedoch erleichtern.
 \subsection{Technische Erweiterungen}
 \subsubsection{Analyse präzisieren}
-Im Delta Analyser werden bereits viele verschiedene Fälle berücksichtigt und unterschiedlich bewertet. Dies ist jedoch abhängig von der Komplexität der verglichenen Boilerplates noch erweiterbar um Unterschiede noch präziser hervorzuheben. 
+Im Delta Analyser werden bereits viele verschiedene Fälle berücksichtigt und unterschiedlich bewertet. Dies ist jedoch abhängig von der Komplexität der verglichenen Boilerplates noch erweiterbar, um Unterschiede noch präziser hervorzuheben. 
 \subsubsection{Ontologien zur Entity-Einordnung}
-Die komplexeste Art der Deltas tritt auf bei Boilerplates, welche unterschiedlich von einander sind, aber dennoch Gemeinsamkeiten aufweisen. Hierbei ist eine genau Einordnung der Gemeinsamkeiten wichtig um die Deltas besser bewerten zu können. 
+Die komplexeste Art der Deltas tritt bei Boilerplates auf, welche unterschiedlich voneinander sind, aber dennoch Gemeinsamkeiten aufweisen. Hierbei ist eine genau Einordnung der Gemeinsamkeiten wichtig, um die Deltas besser bewerten zu können. 
 
-Im Delta Analyser wird momentan eine Aufzählung (\textit{Vehicle.java}) verwendet, um unterschiedliche Systeme einer gleichen Gruppe zuzuordnen. Hierfür könnte jedoch auch eine Ontologie verwendet werden, welche eine sehr viel mächtiger Datenstruktur ist. 
+Im Delta Analyser wird momentan eine Aufzählung (\textit{Vehicle.java}) verwendet, um unterschiedliche Systeme einer gleichen Gruppe zuzuordnen. Hierfür könnte jedoch auch eine Ontologie verwendet werden, welche eine mächtigere Datenstruktur ist. 
 
 Die Baumstruktur von Ontologien würde es beispielsweise ermöglichen, anstelle der Abfrage nach der gleichen Klasse den \glqq größten gemeinsamen Nenner\grqq{} der beiden Komponenten zu finden. Im Optimalfall wäre dies dann die gleiche Klasse, was jedoch andernfalls auch einfach abgestuft würde.
 
 \chapter{Fazit}
 \section{Evaluation des Projekts}
-Im Zeitraum der Entwicklung wurde das zugrundeliegende Problem der aufwändigen, manuellen Verarbeitung von Lastenheften mit verschiedenen Angestellten besprochen. 
+Im Zeitraum der Entwicklung wurde das zugrundeliegende Problem der aufwändigen, manuellen Verarbeitung von Lastenheften mit verschiedenen Beschäftigten von HELLA diskutiert. 
 
-Zu diesen Angestellten gehörten nicht nur RE-Experten der PMT-Abteilung und der extern angestellte Colin Hood. Auch bei Mitarbeitern der \textit{Advanced Engineering Systems}(AES) bis hin zu den Vorgesetzten der Vorgesetzten gab es bereits eigene Erfahrung mit dem Problem. Sämtliche Befragten gaben dabei an, dass die manuelle Verarbeitung der Lastenheften mit enormem Aufwand, hoher Fehleranfälligkeit und großen Übersichtsproblemen verbunden sei. Diese Problematik findet sich auch oftmals in der Literatur wieder\cite{he13}\cite{mw02}.
+Zu diesen Angestellten gehörten nicht nur RE-Experten und der externe Berater Colin Hood. Auch bei Mitarbeitern der Vorentwicklung bis hin zu den Vorgesetzten der Vorgesetzten gab es bereits eigene Erfahrung mit dem Problem. Sämtliche Befragten gaben dabei an, dass die manuelle Verarbeitung der Lastenheften mit manuellem Aufwand, hoher Fehleranfälligkeit und großen Übersichtsproblemen verbunden sei. Diese Problematik findet sich auch oftmals in der Literatur wieder\cite{he13}\cite{mw02}.
 
-Die Experten der PMT-Abteilung schätzten die vorgestellten Konzepte als praktisch wertvoll ein und räumten bereits den im Rahmen eines Proof-of-Concept erstellten Prototypen eine Arbeitserleichterung ein. Dies wurde beim Testen mit echten Lastenheften bestätigt und eine Konvertierungszeit von knapp 1,5 Minuten für das längste Lastenheft zeigte, dass auch die benötigte Rechenleistung unproblematisch ist. 
+Die Experten schätzten die vorgestellten Konzepte als praktisch wertvoll und bereits die im Rahmen eines Proof-of-Concept erstellten Prototypen als Arbeitserleichterung ein. Dies wurde beim Testen mit betrieblichen Lastenheften bestätigt und eine Konvertierungszeit von knapp 1,5 Minuten für das längste Lastenheft zeigte, dass auch die benötigte Rechenleistung keine kritische Herausforderung darstellt. 
 
-Zusätzlich viel bei der Entwicklung auf, dass die Programme für noch weitere Anwendungsfälle zum Einsatz kommen und bei verschiedenen Arten von Anforderungsdokumenten genutzt werden könnten. So ist etwa keine Unterscheidung zwischen funktionalen und nicht-funktionalen Anforderungen nötig. 
+Zusätzlich fiel bei der Entwicklung auf, dass die Programmkonzepte für  weitere Anwendungsfälle zum Einsatz kommen und bei verschiedenen Arten von Anforderungsdokumenten genutzt werden könnten. So ist etwa keine Unterscheidung zwischen funktionalen und nicht-funktionalen Anforderungen nötig. 
 
-Dadurch wurde die in X.X aufgestellte Hypothese größtenteils erfüllt. Ontologien sind für die Programme hingegen der Erwartungen zwar nicht nötig, können jedoch als Erweiterung, wie etwa in Abschnitt X.X beschrieben, verwendet werden. 
+Dadurch wurde die in Kap. 1.3 aufgestellte Hypothese größtenteils verifiziert. Ontologien sind für die Programme entgegen der Erwartungen zwar nicht nötig, können jedoch als Erweiterung, wie etwa in Abschnitt 5.3 beschrieben, verwendet werden. 
 
-Des Weiteren wurde noch während der Entwicklung viel Potential für die Programme entdeckt. Dieses ließe sich beispielsweise mit den aufgeführten Erweiterungen noch ausschöpfen und den Mehrwert der Werkzeuge weiter zu erhöhen. 
-
+Des Weiteren wurde noch während der Entwicklung viel Potential für eine Weiterführung der Programme entdeckt. Dieses ließe sich beispielsweise mit den aufgeführten Erweiterungen noch ausschöpfen, um den Mehrwert der Werkzeuge weiter zu erhöhen. 
 
 \section{Zusammenfassung}
-Die Entwicklung und Konzeption der zwei prototypischen Werkzeuge \textit{Requirements-To-Boilerplate-Converter}(R2BC) und \textit{Delta-Analyser}(DA) als Unterstützung von Requirements-Engineering(RE)-Prozessen bei der Auswertung von Lastenheften stellten die Hauptthemen dieser Arbeit dar.
+Die Entwicklung und Konzeption der zwei prototypischen Werkzeuge \textit{Requirements-To-Boilerplate-Converter}(R2BC) und \textit{Delta-Analyser}(DA) als Unterstützung von Require- ments-Engineering(RE)-Prozessen bei der Auswertung von Lastenheften stellten die Hauptthemen dieser Arbeit dar.
 
 Im Laufe dieser Arbeit wurde eine Einführung in die Bereiche Natural Language Processing(NLP) und betriebliches RE in der Automobilindustrie gegeben. Dazu wurden die detaillierten Schritte der Analyse und Nutzung von Anforderungsdokumenten, wie auch die Kriterien und Ziele des RE vorgestellt. In Zusammenarbeit mit RE-Experten der Firma HELLA konnten Anforderungen und Funktionen für die softwaremäßige Umsetzung identifiziert und modelliert werden. Der Bezug zur Informatik wurde im Anschluss daran durch den konkreten Entwurf und die prototypische Implementierung der Werkzeuge hergestellt. 
 
 \vspace{12pt}
-Aus den Grundlagen zu NLP und Ontologien wurde besonders die hohe Komplexität natürlicher Sprache und der damit begründete hohe Aufwand bei der Entwicklung entsprechender Werkzeuge verdeutlicht. Ein häufig anzutreffender Ansatz aktueller Forschungen im Bereich Anforderungsmanagement ist dabei, für ein verbessertes Verständnis zunächst natürlichsprachliche Dokumente in formale Sprachen zu überführen.
+Aus den Grundlagen zu NLP und Ontologien wurde besonders die hohe Komplexität natürlicher Sprache und der damit begründete hohe Aufwand bei der Entwicklung entsprechender Werkzeuge verdeutlicht. Ein häufig anzutreffender Ansatz aktueller Forschungen im Bereich Anforderungsmanagement ist dabei, für ein verbessertes Verständnis zunächst natürlichsprachliche Dokumente in formalere Sprachen zu überführen.
 
-Im Teil der betrieblichen Informationen wurde aus Sicht von RE-Experten auf den Aufwand beim Umgang mit Anforderungen im Entwicklungsprozess und Ziele für das RE hingewiesen. Machbarkeit und Qualität von Anforderungen werden größtenteils manuell geprüft, bieten jedoch großes Potential für Automatisierung und Use-Cases für die in dieser Arbeit skizzierten Werkzeuge. Diese nutzen die Konvertierung der Lastenhefte in formale Sprachschablonen (Boilerplates), um Lastenhefte für die spätere Umsetzung aufzubereiten.
+Im Teil der betrieblichen Informationen wurde aus Sicht von RE-Experten auf die Herausforderungen beim Umgang mit Anforderungen im Entwicklungsprozess und Ziele für das RE hingewiesen. Machbarkeit und Qualität von Anforderungen werden häufig manuell geprüft, bieten jedoch großes Potential für Automatisierung und Use-Cases für die in dieser Arbeit skizzierten Werkzeuge. Diese nutzen die Konvertierung der Lastenhefte in semi-formale Sprachschablonen (Boilerplates), um Lastenhefte für die spätere Umsetzung aufzubereiten.
 
 Zuletzt erfolgte der softwaretechnische Entwurf und die Implementierung der Werkzeuge. Durch den betrieblichen Einsatz entstanden dabei der R2BC und DA auf java-Basis unter Nutzung der NLP-Software GATE.
 
 Der R2BC stellt die erste Stufe der Verarbeitung dar, in welcher natürlichsprachliche Lastenhefte in Boilerplates überführt werden. Der DA realisiert auf dieser Basis die zweite Stufe der Verarbeitung, dessen Use-Case der Vergleich von zwei Lastenheften auf Basis der enthaltenen Anforderungen ist. Dazu nutzt er die im R2BC genereierten Textinformationen und kann Deltas präzise identifizieren. Die automatisierte Konvertierung und Vergleich von Lastenheften wurde anhand dieser Prototypen umgesetzt. 
 
 \vspace{12pt}
-Die Evaluation und Tests der Werkzeuge fielen insgesamt positiv aus und deuten das weitere Potential solcher automatisierten Analysewerkzeuge an. Die zu Beginn der Arbeit aufgestellten Hypothesen konnten somit verifiziert werden.
-\section{Ausblick}
-Die prototypischen Implementierungen der Werkzeug haben gezeigt, dass durch den Einsatz von Software im Requirements-Engineering viel Verbesserungspotential ausgeschöpft werden kann. 
+Die Evaluation und Tests der Werkzeuge fielen insgesamt positiv aus und deuten das weitere Potential solcher automatisierten Analysewerkzeuge an.
 
-Dies ist jedoch höchstwahrscheinlich auch in anderen betriebswirtschaftlichen Bereichen der Fall. Hinzu kommt, dass die Prototypen selbst noch viele Möglichkeiten zur Erweiterung bieten und somit noch weitere Mehrwerte für deren Nutzer geschaffen werden können. 
+\section{Ausblick}
+Die prototypischen Implementierungen der Werkzeuge haben gezeigt, dass durch den Einsatz von Software im Requirements-Engineering viel Verbesserungspotential ausgeschöpft werden kann. 
+
+Der Einsatzbereich für die vorgestellten Konzepte ließe sich also zukünftig auf weitere betriebliche Felder erweitern. Hinzu kommt, dass die Prototypen selbst noch viele Möglichkeiten zur Erweiterung bieten und somit weiterer Mehrwert für deren Nutzer geschaffen werden können. 
 
 Mit dem Abschluss dieser Arbeit werden die erstellten Programme daher nicht einfach archiviert, sondern mit der Zeit weiterentwickelt und neue Funktionen eingepflegt.
-Auf Anfrage der Requirements-Experten werden die Werkzeuge außerdem einem HELLA-internen Entwickler übergeben, welcher die Implementierung der Werkzeuge für den Betrieb weiterführen wird. 
+Auf Anfrage der Requirements-Experten werden die Werkzeuge außerdem an HELLA-interne Entwickler übergeben, welche die Implementierung der Werkzeuge für den Betrieb weiterführen sollen. 
 
 \newpage
 \begin{thebibliography}{20}
@@ -1995,6 +2013,7 @@ Auf Anfrage der Requirements-Experten werden die Werkzeuge außerdem einem HELLA
 \bibitem[CHO57]{cho57} Noam Chomsky, \glqq  Syntactic Structures\grqq{} , Mouton \& Co., Feb. 1957.
 \bibitem[COP04]{cop04}Ann Copestake, University Of Cambridge, \glqq Natural Language Processing\grqq , 2004.
 \bibitem[DGE19]{dge19} Deutsche Gesellschaft für EMV-Technologie e.V. \glqq CRS Customer Requirements Specification\grqq, aus https://www.demvt.de/publish/viewfull.cfm?ObjectID=ba9a0878\_e081\\ \_515d\_74a3411df6771be8, abgerufen am 09.01.19.
+\bibitem[EA19]{ea19} Dietmar Kinalzyk. \glqq Von der Anforderung zur fertigen Safety-Software-Architektur\grqq{}, aus https://www.elektroniknet.de/elektronik-automotive/bordnetz-vernetzung/von-der-anforderung-zur-fertigen-safety-software-architektur-132206.html, abgerufen 20.02.19
 \bibitem[FF11]{ff11} Farfeleder, Stefan, et al. \glqq DODT: Increasing requirements formalism using domain ontologies for improved embedded systems development. \grqq{} Design and Diagnostics of Electronic Circuits \& Systems (DDECS), 2011 IEEE 14th International Symposium on. IEEE, 2011.
 \bibitem[FH14]{fh14} Fockel, Markus, and Jörg Holtmann. \glqq A requirements engineering methodology combining models and controlled natural language.\grqq{} Model-Driven Requirements Engineering Workshop (MoDRE), 2014 IEEE 4th International. IEEE, 2014.
 \bibitem[GM19]{gm19} https://gate.ac.uk/sale/tao/split.html GATE User Guide, aufgerufen am 12.02.2019
