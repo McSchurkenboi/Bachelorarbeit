@@ -11,40 +11,40 @@
 \contentsline {figure}{\numberline {3.4}{\ignorespaces Anwendungsfall des R2BC und DA [eigene Darstellung]\relax }}{51}
 \contentsline {figure}{\numberline {3.5}{\ignorespaces Szenario für Unterstützung durch R2BC-Komponente nach \cite {zh19}\relax }}{54}
 \contentsline {figure}{\numberline {3.6}{\ignorespaces Szenario für Unterstützung durch DA-Komponente nach \cite {zh19}\relax }}{55}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Verteilung der R2BC-Ressourcen [eigene Darstellung]\relax }}{57}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Verteilung der DA-Ressourcen [eigene Darstellung]\relax }}{60}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Verteilung der R2BC-Ressourcen [eigene Darstellung]\relax }}{58}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Verteilung der DA-Ressourcen [eigene Darstellung]\relax }}{61}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Zuordnung der R2BC-Klassen zu Paketen nach Abb. 3.7 [eigene Darstellung]\relax }}{64}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Klassendiagramm R2BC [eigene Darstellung]\relax }}{66}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Anforderung mit farbig markierten Token-Annotationen in GATE [eigene Darstellung]\relax }}{70}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Ausgewählte Token-Annotation und dessen Features in GATE [eigene Darstellung]\relax }}{70}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Verwendete ANNIE-Verarbeitungsressourcen in GATE [eigene Darstellung]\relax }}{72}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Verarbeitungslogik aus ANNIE und JAPE Transducern \cite {tol09}\relax }}{72}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Beispielhafte JAPE-Regel [eigene Darstellung]\relax }}{74}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Ausschnitt der \textit {SystemName}-Liste des ANNIE-Gazetteers [eigene Darstellung]\relax }}{77}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Definitionsdatei des ANNIE-Gazetteers [eigene Darstellung]\relax }}{77}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces JAPE-Regel zur Erkennung von eingeschränkten Akteuren [eigene Darstellung]\relax }}{78}
-\contentsline {figure}{\numberline {4.11}{\ignorespaces JAPE-Regel zur Markierung von Sätzen für Boilerplate85 [eigene Darstellung]\relax }}{80}
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Alle Features eines \textit {Boilerplate85}-Satzes in GATE [eigene Darstellung]\relax }}{81}
-\contentsline {figure}{\numberline {4.13}{\ignorespaces R2BC-Datenmodell aus Listen zur Speicherung von Annotationen(1), möglichen Konvertierungen(2) und Export(3) [eigene Darstellung]\relax }}{83}
-\contentsline {figure}{\numberline {4.14}{\ignorespaces Initialisierung der GATE-Ressourcen in \textit {initFromRestore()}-Methode der Klasse AnnieHandler [eigene Darstellung]\relax }}{84}
-\contentsline {figure}{\numberline {4.15}{\ignorespaces Ausführung der ANNIE-Pipeline, Verarbeitung der Annotationen in BoilerplateHandler in \textit {convert()}-Methode [eigene Darstellung]\relax }}{85}
-\contentsline {figure}{\numberline {4.16}{\ignorespaces Initialisierung des Datenmodells aus Listen der Sätze in \textit {initializeParagraphs()}-Methode [eigene Darstellung]\relax }}{86}
-\contentsline {figure}{\numberline {4.17}{\ignorespaces Suche nach Boilerplate-Annotationen in \textit {findPossibleConversions()}-Methode [eigene Darstellung]\relax }}{87}
-\contentsline {figure}{\numberline {4.18}{\ignorespaces Überführung der Anforderungen in passende Boilerplates in \textit {convertBPs()}-Methode [eigene Darstellung]\relax }}{88}
-\contentsline {figure}{\numberline {4.19}{\ignorespaces Formatierung des Textes für Typ-65c-Boilerplates in \textit {formatBP()}-Methode [eigene Darstellung]\relax }}{89}
-\contentsline {figure}{\numberline {4.20}{\ignorespaces UML-Aktivitätsdiagramm User-Workflow mit dem Werkzeug [eigene Darstellung]\relax }}{91}
-\contentsline {figure}{\numberline {4.21}{\ignorespaces R2BC-GUI beim Programmstart [eigene Darstellung]\relax }}{92}
-\contentsline {figure}{\numberline {4.22}{\ignorespaces Anforderung 1, Boilerplate65c korrekt übersetzt [eigene Darstellung]\relax }}{94}
-\contentsline {figure}{\numberline {4.23}{\ignorespaces Anforderung 2, keine passende Boilerplate [eigene Darstellung]\relax }}{95}
-\contentsline {figure}{\numberline {4.24}{\ignorespaces Anforderung 3, fehlerhafte Konvertierung [eigene Darstellung]\relax }}{96}
-\contentsline {figure}{\numberline {4.25}{\ignorespaces Anforderung 4, Boilerplate85 korrekt übersetzt [eigene Darstellung]\relax }}{97}
-\contentsline {figure}{\numberline {4.26}{\ignorespaces JAPE und JAPE+ Zeitaufwand abhängig von der Dokumentlänge \cite {gm19}\relax }}{103}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Zuordnung der R2BC-Klassen zu Paketen nach Abb. 3.7 [eigene Darstellung]\relax }}{65}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Klassendiagramm R2BC [eigene Darstellung]\relax }}{67}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Anforderung mit farbig markierten Token-Annotationen in GATE [eigene Darstellung]\relax }}{71}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Ausgewählte Token-Annotation und dessen Features in GATE [eigene Darstellung]\relax }}{71}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Verwendete ANNIE-Verarbeitungsressourcen in GATE [eigene Darstellung]\relax }}{73}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Verarbeitungslogik aus ANNIE und JAPE Transducern \cite {tol09}\relax }}{73}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Beispielhafte JAPE-Regel [eigene Darstellung]\relax }}{75}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Ausschnitt der \textit {SystemName}-Liste des ANNIE-Gazetteers [eigene Darstellung]\relax }}{78}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Definitionsdatei des ANNIE-Gazetteers [eigene Darstellung]\relax }}{78}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces JAPE-Regel zur Erkennung von eingeschränkten Akteuren [eigene Darstellung]\relax }}{79}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces JAPE-Regel zur Markierung von Sätzen für Boilerplate85 [eigene Darstellung]\relax }}{81}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Alle Features eines \textit {Boilerplate85}-Satzes in GATE [eigene Darstellung]\relax }}{82}
+\contentsline {figure}{\numberline {4.13}{\ignorespaces R2BC-Datenmodell aus Listen zur Speicherung von Annotationen(1), möglichen Konvertierungen(2) und Export(3) [eigene Darstellung]\relax }}{84}
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Initialisierung der GATE-Ressourcen in \textit {initFromRestore()}-Methode der Klasse AnnieHandler [eigene Darstellung]\relax }}{85}
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Ausführung der ANNIE-Pipeline, Verarbeitung der Annotationen in BoilerplateHandler in \textit {convert()}-Methode [eigene Darstellung]\relax }}{86}
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Initialisierung des Datenmodells aus Listen der Sätze in \textit {initializeParagraphs()}-Methode [eigene Darstellung]\relax }}{87}
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Suche nach Boilerplate-Annotationen in \textit {findPossibleConversions()}-Methode [eigene Darstellung]\relax }}{88}
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Überführung der Anforderungen in passende Boilerplates in \textit {convertBPs()}-Methode [eigene Darstellung]\relax }}{89}
+\contentsline {figure}{\numberline {4.19}{\ignorespaces Formatierung des Textes für Typ-65c-Boilerplates in \textit {formatBP()}-Methode [eigene Darstellung]\relax }}{90}
+\contentsline {figure}{\numberline {4.20}{\ignorespaces UML-Aktivitätsdiagramm User-Workflow mit dem Werkzeug [eigene Darstellung]\relax }}{92}
+\contentsline {figure}{\numberline {4.21}{\ignorespaces R2BC-GUI beim Programmstart [eigene Darstellung]\relax }}{93}
+\contentsline {figure}{\numberline {4.22}{\ignorespaces Anforderung 1, Boilerplate65c korrekt übersetzt [eigene Darstellung]\relax }}{95}
+\contentsline {figure}{\numberline {4.23}{\ignorespaces Anforderung 2, keine passende Boilerplate [eigene Darstellung]\relax }}{96}
+\contentsline {figure}{\numberline {4.24}{\ignorespaces Anforderung 3, fehlerhafte Konvertierung [eigene Darstellung]\relax }}{97}
+\contentsline {figure}{\numberline {4.25}{\ignorespaces Anforderung 4, Boilerplate85 korrekt übersetzt [eigene Darstellung]\relax }}{98}
+\contentsline {figure}{\numberline {4.26}{\ignorespaces JAPE und JAPE+ Zeitaufwand abhängig von der Dokumentlänge \cite {gm19}\relax }}{104}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Zuordnung der DA-Klassen zu Paketen nach Abb. 3.8 [eigene Darstellung]\relax }}{112}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces UML-Klassendiagramm DA [eigene Darstellung]\relax }}{113}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Ausschnitt der \textit {annotationCompare}-Methode [eigene Darstellung]\relax }}{116}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Ausschnitt der \textit {analyseDeltas}-Methode [eigene Darstellung]\relax }}{117}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces DA-GUI beim Programmstart [eigene Darstellung]\relax }}{119}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Delta-Report der Testlastenhefte [eigene Darstellung]\relax }}{121}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Zuordnung der DA-Klassen zu Paketen nach Abb. 3.8 [eigene Darstellung]\relax }}{113}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces UML-Klassendiagramm DA [eigene Darstellung]\relax }}{114}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Ausschnitt der \textit {annotationCompare}-Methode [eigene Darstellung]\relax }}{117}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Ausschnitt der \textit {analyseDeltas}-Methode [eigene Darstellung]\relax }}{118}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces DA-GUI beim Programmstart [eigene Darstellung]\relax }}{120}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Delta-Report der Testlastenhefte [eigene Darstellung]\relax }}{122}
 \addvspace {10\p@ }
