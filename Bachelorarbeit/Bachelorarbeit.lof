@@ -45,6 +45,7 @@
 \contentsline {figure}{\numberline {5.2}{\ignorespaces UML-Klassendiagramm DA [eigene Darstellung]\relax }}{113}
 \contentsline {figure}{\numberline {5.3}{\ignorespaces Ausschnitt der \textit {annotationCompare}-Methode [eigene Darstellung]\relax }}{116}
 \contentsline {figure}{\numberline {5.4}{\ignorespaces Ausschnitt der \textit {analyseDeltas}-Methode [eigene Darstellung]\relax }}{117}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces DA-GUI beim Programmstart [eigene Darstellung]\relax }}{119}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Delta-Report der Testlastenhefte [eigene Darstellung]\relax }}{121}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Sequenzdiagramm der \textit {analyseDeltas()}-Methode [eigene Darstellung]\relax }}{118}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces DA-GUI beim Programmstart [eigene Darstellung]\relax }}{120}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Delta-Report der Testlastenhefte [eigene Darstellung]\relax }}{122}
 \addvspace {10\p@ }

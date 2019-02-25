@@ -1668,6 +1668,7 @@ Anhaltspunkt für die Nutzung von KI ist etwa die Verbesserung der Präzision (b
 
 Der Grundstein für diese Erfassung ist durch die Modularität des Programms bereits gegeben. Die in Abs. 4.2.2 beschriebenen internen Listen beinhalten immer alle ausgegebenen Vorschläge und die jeweilige Entscheidung des Nutzers, was den Abgleich und die Datensammlung stark vereinfachen sollte. 
 
+Außerdem könnten Ansätze des Machine Learning verwendet werden, um die Erkennung bestimmter Satzbestandteile zu verbessern und somit die Präzision des Werkzeugs zu erhöhen.
 \section{Test}
 In diesem Abschnitt wird die Funktionalität des R2BC anhand von realen Tests geprüft. Wie bereits erwähnt, bestand durch die Zusammenarbeit mit RE-Experten bei HELLA die Möglichkeit, die Konvertierung unter Verwendung realer Lastenhefte aus dem betrieblichen Alltag zu testen. Dazu konnten diverse Indikatoren für die Trefferquote des Programms definiert werden, die während der Konvertierung von drei zur Verfügung gestellten Lastenheften gemessen wurden.
 
@@ -1859,6 +1860,15 @@ Abbildung 5.4 zeigt den hier beschriebenen Ausschnitt der \textit{analyseDeltas}
 \end{center}
 \end{figure}
 
+Die Funktionsweise der gesamten \textit{analyseDeltas()}-Methode wir außerdem in Abbildung 5.5 in Form eines UML-Sequenzdiagramms dargestellt.
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.6]{Bilder/DeltaAnalysis.png}
+\caption{Sequenzdiagramm der \textit{analyseDeltas()}-Methode [eigene Darstellung]}
+\end{center}
+\end{figure}
+
 Effektiv löst diese Art des Iterierens das Minimierungsproblem der Abweichung zwischen den Boilerplates. Es wird als immer die interne Boilerplate mit der geringsten Abweichung (gespeichert in der \textit{result}-Variablen) bzw. der höchsten Übereinstimmung zu der momentanen OEM-Boilerplate gefunden.
 
 \subsubsection{Ausgabe des Delta-Reports}
@@ -1914,7 +1924,7 @@ actor: <<vehicle>> shall <<transmit the data to a server>>.\\
 actor: <<vehicle>> shall <<not transmit the data to a server>>.\\
 \\
 
-Nach dem Klick auf \textit{Analyse Deltas} ermittelt der R2BC zu jeder Anforderung aus V2 die am besten passende Anforderung aus V1. Der Grad der Übereinstimmung wird zusammen mit den Deltas zwischen den Anforderungen in den Delta-Report exportiert. Dieser ist für die beiden prototypischen Lastenhefte in Abb. 5.6 dargestellt:
+Nach dem Klick auf \textit{Analyse Deltas} ermittelt der R2BC zu jeder Anforderung aus V2 die am besten passende Anforderung aus V1. Der Grad der Übereinstimmung wird zusammen mit den Deltas zwischen den Anforderungen in den Delta-Report exportiert. Dieser ist für die beiden prototypischen Lastenhefte in Abb. 5.7 dargestellt:
 
 \begin{figure}[h!]
 \begin{center}
