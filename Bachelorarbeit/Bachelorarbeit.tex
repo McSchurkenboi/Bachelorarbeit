@@ -882,9 +882,34 @@ Der prinzipielle Aufbau beider Werkzeuge wird in den folgenden Abschnitten besch
 \subsection{R2BC-Funktionalität}
 Wie bereits zuvor beschrieben wurde, stellt der \textit{Requirements-To-Boilerplate-Converter} die erste wesentliche Stufe bei der automatisierten Verarbeitung von Lastenheften dar. Die Textverarbeitung erfolgt dabei sukzessive bzw. satzweise aus dem Quelldokument in ein Zieldokument, dass am Ende alle Anforderungen in angepasster Form enthält. 
 
-Dabei greift der R2BC auf eine semiformale Sprache zurück, die in verschiedenen Schablonen repräsentiert und im Programm gespeichert ist. Diese eingeschränkte Sprache ist zuliefererintern fest dokumentiert und wurde zuvor durch RE-Experten eindeutig definiert, was zu einer verbesserten Verständlichkeit führt. Sprachschablonen stellen demnach, im Kontrast zu natürlicher Sprache, eine eindeutige Deutung der Anforderungen sicher. Im besten Fall wurden somit insbesondere sprachliche Mehrdeutigkeiten im Sinne der Atomarität von Anforderungen eliminiert bzw. aufgeschlüsselt.
+\subsubsection{Sprachschablonen}
+Dabei greift der R2BC auf eine semiformale Sprache zurück, die in verschiedenen Schablonen repräsentiert und im Programm gespeichert ist. Diese eingeschränkte Sprache ist zuliefererintern fest dokumentiert und wurde zuvor durch RE-Experten eindeutig definiert, was zu einer verbesserten Verständlichkeit führt. Sprachschablonen stellen demnach, im Kontrast zu natürlicher Sprache, eine eindeutige Deutung der Anforderungen sicher. Im besten Fall wurden somit insbesondere sprachliche Mehrdeutigkeiten im Sinne der Atomarität von Anforderungen eliminiert bzw. aufgeschlüsselt. 
 
-Im Rahmen dieser Arbeit wurden zwei repräsentative Anforderungen aus dem betrieblichen Umfeld implementiert. Dies beinhaltet Boilerplates, die durch ein System abgedeckte Funktionen beschreiben. Diese orientieren sich dabei namentlich an den intern bei HELLA vorkommenden Boilerplates. Fester Teil Variablen, Annotationsbasiert durch GATE-NLP. Variabler Teil durch Vergleichszeichen gekennzeichnet, fester Teil definiert die Schablone. Beides ermöglicht semiformale Formulierung
+Im Rahmen dieser Arbeit wurden zwei repräsentative Anforderungstypen aus dem betrieblichen Umfeld als Sprachschablonen (Boilerplate) implementiert. Dies beinhaltet eine Boilerplate, die durch ein System abgedeckte Funktionen beschreibt. Die zweite fügt dieser Funktionsbeschreibung zusätzlich noch eine Bedingung hinzu, unter der das System die Funktion ausführen soll.
+
+Die orientieren sich dabei namentlich an den intern bei HELLA vorkommenden Boilerplates und wurden auch für die spätere Implementierung so genannt. Dort existiert eine Vielzahl verschiedener Boilerplate-Typen, die alle einen spezifischen Typ Anforderungen abdecken. Diese Schablonen beinhalten dabei immer feste Satzteile, wie etwa Satzzeichen, und Variablen für die Spezifikation der Anforderung. Dies ermöglicht die semi-formale Formulierung von Anforderungen.
+
+Für den in dieser Arbeit entworfenen Prototypen wurden die Boilerplates \textit{65c} und \textit{85} implementiert.
+
+\begin{enumerate}
+\item \textit{Boilerplate65c} Die Sprachschablone dient zur Erfassung von Anforderungen, die zu einem System eine Funktion spezifizieren. Dazu werden in einem Satz zwei Variablen benötigt. Die Schablone sieht wie folgt aus:
+
+\tt
+The complete system <<Variable System>> shall perform 
+
+<<Variable Funktion>>.
+\rm
+
+\item \textit{Boilerplate85} Typ-85-Boilerplates stellen im Wesentlichen eine Erweiterung der Typ65c-Boilerplates dar. In dieser Schablone wird eine Bedingung als dritte Variable hinzugefügt:
+
+\tt
+Under the condition: <<Variable Bedingung>> the actor: 
+
+<<Variable Akteur>> shall <<Variable Funktion>>.
+\rm
+\end{enumerate}
+
+In Kap. 4 wird genauer erläutert, wie sich diese Schablonen in Programmen erzeugen lassen. Dazu wird das NLP-Werkzeug GATE genutzt, um zu einer Anforderung eine passende Boilerplate zu finden. Diese wird dann durch das Programm erzeugt, wobei die variablen Bestandteile identifiziert und passend in die Schablone eingefügt werden. 
 
 Der R2BC verarbeitet die Lastenhefte unter Zugriff auf diese formalen Sprachschablonen (\textit{Boilerplates}) automatisiert und ein Eingreifen des Nutzers ist nur im Ausnahmefall erforderlich. 
 
@@ -1602,7 +1627,7 @@ Eine weitere Möglichkeit, für den Nutzer das Programm zu verbessern, könnte d
 Wenn der Nutzer jedoch die Möglichkeit hat, z.B. den OEM schon vor der Verarbeitung einzugeben und das Programm dementsprechend dynamisch angepasst wird, könnten auch ohne großen Aufwand für den Nutzer die Lastenhefte verschiedener OEMs verarbeitet werden. 
 
 \subsection{Nutzbarkeit}
-Hier werden die Erweiterungen behandelt, welche sich positiv auf die Nutzbarkeit des Programms auswirken könnten. Dazu gehören vor allem Performanz- und Automatisierungsaspekte.
+Hier werden die Erweiterungen behandelt, welche sich positiv auf die Nutzbarkeit des Programms auswirken könnten. Dazu gehören vor allem Perfor- manz- und Automatisierungsaspekte.
 
 \subsubsection{Implementierung weiterer Boilerplates}
 Eine naheliegende Verbesserung des Programms wäre das Umsetzen weiterer Boilerplates. Dies ist jedoch nicht nur wichtig, um die Abdeckung des Testes zu verbessern, sondern auch, um die Auswahl an Boilerplates zu verbessern. 
@@ -1685,7 +1710,7 @@ Als recall wurde gemessen, ob alle passenden Boilerplates typmäßig zu einer An
 
 \item \textit{Precision - Übersetzung in erzeugte Boilerplate} 
 
-Der precision-Score stellt dar, wieviele von den richtig erkannten Boilerplates (\textit{recall}) anschließend korrekt in eine erzeugte Boilerplate-Anforderung übersetzt wurden. Hier liegt ein Fehler immer dann vor, wenn z.B. Teile eines \textit{CompleteSystem} oder einer \textit{Condition} bei der Übersetzung abgeschnitten wurden und somit in der Boilerplate fehlen. Dies kann etwa dann passieren, wenn nur ein Teil des Systemnamens im Gazetteer enthalten ist. 
+Der precision-Score stellt dar, wieviele von den richtig erkannten Boilerplates (\textit{recall}) anschließend korrekt in eine erzeugte Boilerplate-Anfor- derung übersetzt wurden. Hier liegt ein Fehler immer dann vor, wenn z.B. Teile eines \textit{CompleteSystem} oder einer \textit{Condition} bei der Übersetzung abgeschnitten wurden und somit in der Boilerplate fehlen. Dies kann etwa dann passieren, wenn nur ein Teil des Systemnamens im Gazetteer enthalten ist. 
 \end{itemize}
 
 \subsubsection{Testdokumente}
@@ -1989,7 +2014,7 @@ Dadurch wurde die in Kap. 1.3 aufgestellte Hypothese größtenteils verifiziert.
 Des Weiteren wurde noch während der Entwicklung viel Potential für eine Weiterführung der Programme entdeckt. Dieses ließe sich beispielsweise mit den aufgeführten Erweiterungen noch ausschöpfen, um den Mehrwert der Werkzeuge weiter zu erhöhen. 
 
 \section{Zusammenfassung}
-Die Entwicklung und Konzeption der zwei prototypischen Werkzeuge \textit{Requirements-To-Boilerplate-Converter}(R2BC) und \textit{Delta-Analyser}(DA) als Unterstützung von Require- ments-Engineering(RE)-Prozessen bei der Auswertung von Lastenheften stellten die Hauptthemen dieser Arbeit dar.
+Die Entwicklung und Konzeption der zwei prototypischen Werkzeuge \textit{Require- ments-To-Boilerplate-Converter}(R2BC) und \textit{Delta-Analyser}(DA) als Unterstützung von Require- ments-Engineering(RE)-Prozessen bei der Auswertung von Lastenheften stellten die Hauptthemen dieser Arbeit dar.
 
 Im Laufe dieser Arbeit wurde eine Einführung in die Bereiche Natural Language Processing(NLP) und betriebliches RE in der Automobilindustrie gegeben. Dazu wurden die detaillierten Schritte der Analyse und Nutzung von Anforderungsdokumenten, wie auch die Kriterien und Ziele des RE vorgestellt. In Zusammenarbeit mit RE-Experten der Firma HELLA konnten Anforderungen und Funktionen für die softwaremäßige Umsetzung identifiziert und modelliert werden. Der Bezug zur Informatik wurde im Anschluss daran durch den konkreten Entwurf und die prototypische Implementierung der Werkzeuge hergestellt. 
 
@@ -2029,7 +2054,7 @@ Auf Anfrage der Requirements-Experten werden die Werkzeuge außerdem an HELLA-in
 \bibitem[GM19]{gm19} https://gate.ac.uk/sale/tao/split.html GATE User Guide, aufgerufen am 12.02.2019
 \bibitem[HAO14]{hao14} Hao Wu, et al. \glqq  ILLINOISCLOUDNLP: Text Analytics Services in the Cloud.\grqq{}  LREC. 2014.
 \bibitem[HE13]{he13} Alexander Heßeler, et al. \glqq Anforderungsmanagement: Formale Prozesse, Praxiserfahrungen, Einführungsstrategien und Toolauswahl.\grqq{} Springer-Verlag, 2013.
-\bibitem[HE18]{he18} HELLA Geschäftsbericht des Geschäftsjahres 2017/2018, von https://www.hella.com/hella-com/assets/media\_global/2018.08.10\_HELLA\_Geschaeftsbericht\_2018\_geschuetzt.pdf, aufgerufen am 16.01.2019
+\bibitem[HE18]{he18} HELLA Geschäftsbericht des Geschäftsjahres 2017/2018, von https://www.hella.com/hella-com/assets/media\_global/2018.08.10\_HELLA\_Geschaeftsbericht\_\\2018\_geschuetzt.pdf, aufgerufen am 16.01.2019
 \bibitem[HE19]{he19}Firma HELLA. \glqq Unternehmensinformationen in Kürze.\grqq , aus https://www.hella.com/hella-com/de/HELLA-im-Ueberblick-723.html, abgerufen am 09.01.19.
 \bibitem[HL01]{hl01} Hubert F. Hofmann, Franz Lehner. \glqq Requirements engineering as a success factor in software projects.\grqq IEEE software 4 (2001): 58-66.
 \bibitem[HP12]{hp12}Andrea Harant, Miriam Poethen. \glqq HOOD Capability Model für Requirements Definition und Requirements Management \grqq{} HOOD Ltd. 2012.
